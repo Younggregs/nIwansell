@@ -1,0 +1,532 @@
+@import url('https://fonts.googleapis.com/css?family=Chicle');
+@import url('https://fonts.googleapis.com/css?family=Ubuntu');
+@import url('https://fonts.googleapis.com/css?family=Permanent+Marker');
+@import url('https://fonts.googleapis.com/css?family=Audiowide');
+@import "~slick-carousel/slick/slick.css";
+@import "~slick-carousel/slick/slick-theme.css";
+
+body{
+  background-color:rgb(234, 239, 241);
+  font-family: "Ubuntu";
+}
+
+
+
+a{
+  color:black;
+  font-family: "Ubuntu";
+}
+
+#app-name a{
+  color:white;
+  font-family: "Audiowide";
+}
+
+#about a{
+  color:white;
+}
+
+#profile-description a{
+  color:white;
+}
+
+
+.navigation{
+  background-color: rgb(7, 3, 31);
+  height: 100px;
+  font-size: 1.98em;
+  padding-top: 20px;
+}
+
+.signin-form{
+  background-color: white;
+  padding-bottom: 10px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+.signup-form{
+  background-color: white;
+  padding-bottom: 10px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+.glyphs{
+  font-size: 1.5em;
+  color: white;
+}
+
+.ratings-reviews{
+
+  background-color: white;
+  padding: 10px;
+  margin-bottom : 20px;
+
+}
+
+.client-image{
+  height: 10px;
+}
+
+.heart-glyphs{
+  font-size: 1.5em;
+  color: red;
+}
+
+.fav-glyphs{
+  font-size: 1.5em;
+  color: orange;
+}
+
+.video-clip{
+  max-height: 100%;
+  max-width: 100%;
+  object-fit: contain;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.err-msg{
+  color: orange;
+  font-weight: bold;
+}
+
+.success-msg{
+  color: green;
+  font-weight: bold;
+}
+
+.sm-nav-glyphs{
+  padding-top: 5px;
+  font-size: 1.3em;
+}
+
+
+.eshop-navigation {
+  background-color: rgb(7, 3, 31);
+  height: 70px;
+  font-size: 1.98em;
+  padding-top: 20px;
+  margin-bottom: 30px;
+}
+
+.sm-eshop-navigation{
+
+  background-color: rgb(7, 3, 31);
+  height: 70px;
+  font-size: 1.5em;
+
+}
+
+.navbar{
+  background-color: white;
+}
+
+.sponsored-images {
+  font-size: 0;
+  margin: 0 20 20 0;
+  text-align: center;
+  box-shadow: 0 0 1px black;
+  font-size: 0;
+  text-align: center ;
+  width: 100%;
+  height: 300px;
+  background-color: white;
+  line-height: 300px;
+}
+
+.sponsored-image{
+  display: inline-block;
+  vertical-align: middle;
+  height: 250px;
+}
+
+.sponsored {
+  padding-bottom: 20px;
+}
+
+.images{
+  font-size: 0;
+  margin: 0 20 20 0;
+  text-align: center;
+  box-shadow: 0 0 1px black;
+  font-size: 0;
+  text-align: center ;
+  width: auto;
+  height: 300px;
+  line-height: 300px;
+}
+
+.lg-fonts{
+  font-size: 0.8em;
+}
+
+.lg-client-dp{
+  text-align: left;
+  color: black;
+  font-size: 1.3em;
+}
+
+.search-field{
+  font-size: 0.9em;
+}
+
+.image{
+  display: inline-block;
+  vertical-align: middle;
+  height: 200px;
+}
+
+.more-media{
+  color: black;
+}
+
+.product-image{
+  font-size: 0;
+  margin: 0 20 20 0;
+  text-align: center;
+  box-shadow: 0 0 1px black;
+  font-size: 0;
+  text-align: center ;
+  width: auto;
+  height: 300px;
+  background-color: white;
+  line-height: 300px;
+}
+
+.product-info{
+  background-color: white;
+  color: black;
+  padding: 5px;
+}
+
+.product-options{
+  background-color: white;
+  color: black;
+  padding: 5px;
+  margin-bottom : 20px;
+}
+
+.profile-image{
+
+  font-size: 0;
+  margin: 0 20 20 0;
+  text-align: center;
+  box-shadow: 0 0 1px black;
+  font-size: 0;
+  text-align: center ;
+  width: auto;
+  height: 300px;
+  background-color: white;
+  line-height: 300px;
+
+}
+
+.catch-board{
+  font-size: 0;
+  margin: 0 20 20 0;
+  text-align: center;
+  box-shadow: 0 0 1px black;
+  font-size: 0;
+  text-align: center ;
+  width: auto;
+  height: 300px;
+  background-color: white;
+  line-height: 300px;
+}
+
+.catch-image{
+  display: inline-block;
+  vertical-align: middle;
+  height: 300px;
+}
+
+.dp-image{
+  display: inline-block;
+  vertical-align: middle;
+  height: 300px;
+}
+
+img{
+  max-height: 100%;
+  max-width: 100%;
+  object-fit: contain;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.sm-navigation{
+  background-color:  rgb(7, 3, 31);
+  height: 100px;
+  font-size: 1.19em;
+}
+
+.app-name{
+  font-family: "Audiowide";
+  font-size: 1.5em;
+}
+
+.smaller{
+  font-size: 0.8em;
+}
+
+
+.heading{
+  padding-top:10px;
+  padding-bottom: 10px;
+  font-size: 1.5em;
+  color: black;
+  text-align: center;
+  font-family: "Ubuntu";
+}
+
+
+.profile-name {
+  font-size: 1.3em;
+  font-family: "Ubuntu";
+  color: white;
+}
+
+.eshop-name{
+
+  font-size: 1.3em;
+  font-family: "Audiowide";
+  color: white;
+
+}
+
+.profile-description{
+
+  background-color:  rgb(7, 3, 31);
+  padding-bottom: 5px;
+
+}
+
+.eshop-info{
+
+}
+
+.eshop-admin{
+
+}
+
+.profile{
+  text-align: center;
+}
+
+.footer{
+  background-color:  rgb(7, 3, 31);
+  height: 300px;
+  color: gray;
+  font-size: .89em;
+}
+
+.welcome {
+  background-color: rgb(7, 3, 31);
+  text-align: center;
+  vertical-align: middle;
+  line-height: 90px;
+  color: white;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+}
+
+.haggle-header{
+  padding-top: 10px;
+  text-align: center;
+}
+
+.haggle-list{
+  padding-top: 10px;
+}
+
+.chats{
+  background-color: rgb(234, 239, 241);
+  padding-left: 10px;
+  width: 50%;
+}
+
+.chat-list{
+  background-color: white;
+  border-radius: 5px;
+  padding: 20px;
+  height: 450px;
+}
+
+.landing-page{
+  text-align: center;
+  color: white;
+}
+
+.campus-text{
+  line-height: 90px;
+}
+
+.welcome-text-lg{
+  font-size: 1.9em;
+  font-family: "Permanent Marker";
+  position: fixed;
+  left: 40%;
+  top: 40%;
+}
+
+.welcome-text-sm{
+  font-family: "Permanent Marker";
+  font-size: 1.49em;
+  position: fixed;
+  left: 20%;
+  top: 40%;
+}
+
+.profile-display{
+  font-size: .5em;
+}
+
+.ehaggler-icon{
+  font-size: .5em;
+}
+
+.ehaggler-dp{
+  height: 50;
+  widows: 50;
+}
+
+.profile-icon{
+  font-size: .5em;
+}
+
+.haggle-table{
+  background-color: white;
+  border-bottom-width: 10px;
+  border-bottom-style: solid;
+  border-bottom-color: white;
+  border-top-width: 10px;
+  border-top-style: solid;
+  border-top-color: white;
+  border-radius: 5px;
+  height: 350px;
+  overflow: auto;
+}
+
+.no-haggles{
+  text-align: center;
+  background-color: white;
+  margin-top: 70px;
+  border-radius: 5px;
+  height: 350px;
+  line-height: 350px;
+
+}
+
+.haggle-table-sm{
+  background-color: white;
+  border-bottom-width: 10px;
+  border-bottom-style: solid;
+  border-bottom-color: white;
+  border-top-width: 10px;
+  border-top-style: solid;
+  border-top-color: white;
+  border-radius: 5px;
+}
+
+.haggler-from{
+  text-align: left;
+  background-color: rgb(234, 239, 241);
+  max-width: 60%;
+  color: black;
+  position: relative;
+  padding: 5px;
+  border-left-width: 10px;
+  border-left-style: solid;
+  border-left-color: white;
+  border-radius: 5px;
+
+}
+
+.haggler-to{
+  text-align: right;
+  background-color:rgb(234, 239, 241);
+  color: black;
+  max-width: 60%;
+  left: 40%;
+  position: relative;
+  padding: 5px;
+  border-width: 10px;
+  border-style: solid;
+  border-color: white;
+  border-radius: 5px;
+}
+
+
+
+.msgbox{
+  text-align: center;
+  font-size: 1.9em;
+}
+
+.about{
+  padding-top: 15px;
+  font-size: 1.3em;
+}
+
+.login-appname{
+  padding: 10px;
+  background-color:  rgb(7, 3, 31);
+  height: 50px;
+}
+
+.go-to-top{
+  background-color: darkgrey;
+  text-align: center;
+  padding: 5px;
+  font-family: "Ubuntu";
+}
+
+.copyright{
+  background-color: darkgrey;
+  text-align: center;
+  font-size: .8em;
+  padding: 15px;
+  font-family: "Ubuntu";
+}
+
+
+.scrolling-wrapper {
+  overflow-x: scroll;
+  overflow-y: hidden;
+  white-space: nowrap;
+}
+
+.scrolling-wrapper-flexbox {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+}
+
+.card {
+  flex: 0 0 auto;
+  margin-right: 3px;
+  display: inline-block;
+  border: 1px solid white;
+  min-width: 150px;
+  height: 150px;
+  background: black;
+}
+
+.scrolling-wrapper, .scrolling-wrapper-flexbox {
+  height: 150px;
+  width: 100%;
+  -webkit-overflow-scrolling: touch;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+
+
+
