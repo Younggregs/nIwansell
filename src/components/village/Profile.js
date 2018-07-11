@@ -20,7 +20,7 @@ export default class Profile extends React.Component {
     const auth = localStorage.getItem('auth_code')
   
     try {
-      const res = await fetch('http://127.0.0.1:8000/is_myprofile/' + this.props.match.params.profile_id + '/', {
+      const res = await fetch('http://199.192.21.172:8000/is_myprofile/' + this.props.match.params.profile_id + '/', {
       
        credentials: 'same-origin',
        mode: 'cors',
@@ -41,7 +41,7 @@ export default class Profile extends React.Component {
 
 
     try {
-      const res = await fetch('http://127.0.0.1:8000/isloggedin/', {
+      const res = await fetch('http://199.192.21.172:8000/isloggedin/', {
       
        credentials: 'same-origin',
        mode: 'cors',

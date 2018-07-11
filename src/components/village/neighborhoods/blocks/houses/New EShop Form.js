@@ -19,7 +19,7 @@ export default class NewEShopForm extends React.Component {
     console.log(auth)
   
     try {
-      const res = await fetch('http://localhost:8000/new_eshop/', {
+      const res = await fetch('http://199.192.21.172:8000/new_eshop/', {
       
       body: formData,
       method: 'POST',

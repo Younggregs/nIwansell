@@ -22,7 +22,7 @@ export default class AuthTest extends React.Component {
 
 
     try {
-      const res = await fetch('http://localhost:8000/auth', {
+      const res = await fetch('http://199.192.21.172:8000/auth', {
       
        body :formData,
        method: 'POST',
@@ -59,7 +59,7 @@ async newEShop(){
   formData.append('eshop_name', eshop_name)
 
   try {
-    const res = await fetch('http://localhost:8000/new_eshop/', {
+    const res = await fetch('http://199.192.21.172:8000/new_eshop/', {
     
     body: formData,
     method: 'POST',

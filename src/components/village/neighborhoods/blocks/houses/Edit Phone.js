@@ -20,7 +20,7 @@ export default class EditPhone extends React.Component {
     formData.append('phone', phone)
   
     try {
-      const res = await fetch('http://127.0.0.1:8000/reset_phone/', {
+      const res = await fetch('http://199.192.21.172:8000/reset_phone/', {
       
        
        body : formData,

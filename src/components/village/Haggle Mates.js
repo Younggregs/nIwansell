@@ -21,7 +21,7 @@ export default class HaggleMates extends React.Component {
     if (this.props.match.params.profile_id){
 
       try {
-        const res = await fetch('http://127.0.0.1:8000/new_hagglers/' + this.props.match.params.profile_id, {
+        const res = await fetch('http://199.192.21.172:8000/new_hagglers/' + this.props.match.params.profile_id, {
     
           headers : {
             'Authorization' : 'Token ' + auth,
@@ -45,7 +45,7 @@ export default class HaggleMates extends React.Component {
     }
 
     try {
-      const res = await fetch('http://127.0.0.1:8000/haggleclients/', {
+      const res = await fetch('http://199.192.21.172:8000/haggleclients/', {
   
         headers : {
           'Authorization' : 'Token ' + auth,

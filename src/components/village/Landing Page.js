@@ -22,7 +22,7 @@ export default class LandingPage extends React.Component {
 
   async componentWillMount() {
     try {
-      const res = await fetch('http://127.0.0.1:8000/campus/');
+      const res = await fetch('http://199.192.21.172:8000/campus/');
       const campuslist = await res.json();
       this.setState({
         campuslist

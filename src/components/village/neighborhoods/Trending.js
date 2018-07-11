@@ -41,7 +41,7 @@ export default class Trending extends React.Component {
 
 
     try {
-      const res = await fetch('http://127.0.0.1:8000/trending/' + this.state.campus_id + '/' + this.trending_url_1 + '/');
+      const res = await fetch('http://199.192.21.172:8000/trending/' + this.state.campus_id + '/' + this.trending_url_1 + '/');
       const trendList_1 = await res.json();
       this.setState({
         trendList_1
@@ -51,7 +51,7 @@ export default class Trending extends React.Component {
     }
 
     try {
-      const res = await fetch('http://127.0.0.1:8000/trending/' + this.props.campus_id + '/' +  this.trending_url_2 + '/');
+      const res = await fetch('http://199.192.21.172:8000/trending/' + this.props.campus_id + '/' +  this.trending_url_2 + '/');
       const trendList_2 = await res.json();
       this.setState({
         trendList_2
@@ -61,7 +61,7 @@ export default class Trending extends React.Component {
     }
 
     try {
-      const res = await fetch('http://127.0.0.1:8000/trending/' + this.props.campus_id + '/' +  this.trending_url_3 + '/');
+      const res = await fetch('http://199.192.21.172:8000/trending/' + this.props.campus_id + '/' +  this.trending_url_3 + '/');
       const trendList_3 = await res.json();
       this.setState({
         trendList_3
@@ -71,7 +71,7 @@ export default class Trending extends React.Component {
     }
 
     try {
-      const res = await fetch('http://127.0.0.1:8000/trending/' + this.props.campus_id + '/' + this.trending_url_4 + '/');
+      const res = await fetch('http://199.192.21.172:8000/trending/' + this.props.campus_id + '/' + this.trending_url_4 + '/');
       const trendList_4 = await res.json();
       this.setState({
         trendList_4
@@ -81,7 +81,7 @@ export default class Trending extends React.Component {
     }
 
     try {
-      const res = await fetch('http://127.0.0.1:8000/trending/' + this.props.campus_id + '/' +  this.trending_url_5 + '/');
+      const res = await fetch('http://199.192.21.172:8000/trending/' + this.props.campus_id + '/' +  this.trending_url_5 + '/');
       const trendList_5 = await res.json();
       this.setState({
         trendList_5
@@ -93,7 +93,7 @@ export default class Trending extends React.Component {
   }
 
   setMedia(media_name){
-    this.state.media = 'http://127.0.0.1:8000' + media_name
+    this.state.media = 'http://199.192.21.172:8000' + media_name
   }
 
 

@@ -19,7 +19,7 @@ export default class ForgotPasswordForm extends React.Component {
 
 
     try {
-      const res = await fetch('http://localhost:8000/forgot_password/', {
+      const res = await fetch('http://199.192.21.172:8000/forgot_password/', {
       
        body :formData,
        method: 'POST',

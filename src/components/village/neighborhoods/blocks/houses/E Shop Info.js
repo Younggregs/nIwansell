@@ -18,7 +18,7 @@ export default class EShopInfo extends React.Component {
     const auth = localStorage.getItem('auth_code')
   
     try {
-      const res = await fetch('http://127.0.0.1:8000/favorite/2/' + this.props.eshop_id + '/', {
+      const res = await fetch('http://199.192.21.172:8000/favorite/2/' + this.props.eshop_id + '/', {
       
        credentials: 'same-origin',
        mode: 'cors',

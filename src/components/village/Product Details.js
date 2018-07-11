@@ -18,7 +18,7 @@ export default class ProductDetails extends React.Component {
     const auth = localStorage.getItem('auth_code')
   
     try {
-      const res = await fetch('http://127.0.0.1:8000/isloggedin/', {
+      const res = await fetch('http://199.192.21.172:8000/isloggedin/', {
       
        credentials: 'same-origin',
        mode: 'cors',

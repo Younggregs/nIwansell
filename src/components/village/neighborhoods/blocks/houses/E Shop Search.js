@@ -14,7 +14,7 @@ export default class EShopSearch extends React.Component {
 
   async searchResult() {
     try {
-      const res = await fetch('http://127.0.0.1:8000/eshop_search/1/'  + this.state.search_phrase );
+      const res = await fetch('http://199.192.21.172:8000/eshop_search/1/'  + this.state.search_phrase );
       const search_result = await res.json();
       this.setState({
         search_result
@@ -40,7 +40,7 @@ export default class EShopSearch extends React.Component {
 
 
 setMedia(media_name){
-  this.state.media = 'http://127.0.0.1:8000/media/' + media_name
+  this.state.media = 'http://199.192.21.172:8000/media/' + media_name
 }
 
 

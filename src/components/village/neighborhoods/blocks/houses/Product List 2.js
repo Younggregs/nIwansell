@@ -19,7 +19,7 @@ export default class ProductList2 extends React.Component {
 
 
     try {
-      const res = await fetch('http://127.0.0.1:8000/sold_product/' + product_id + '/', {
+      const res = await fetch('http://199.192.21.172:8000/sold_product/' + product_id + '/', {
   
         headers : {
           'Authorization' : 'Token ' + auth,
@@ -42,7 +42,7 @@ export default class ProductList2 extends React.Component {
 
 
     try {
-      const res = await fetch('http://127.0.0.1:8000/remove_product/' + product_id + '/', {
+      const res = await fetch('http://199.192.21.172:8000/remove_product/' + product_id + '/', {
   
         headers : {
           'Authorization' : 'Token ' + auth,
@@ -63,7 +63,7 @@ export default class ProductList2 extends React.Component {
 
 
   setMedia(media_name){
-    this.state.media = 'http://127.0.0.1:8000/media/' + media_name
+    this.state.media = 'http://199.192.21.172:8000/media/' + media_name
   }
 
 

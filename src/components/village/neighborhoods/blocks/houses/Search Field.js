@@ -15,7 +15,7 @@ export default class SearchField extends React.Component {
 
   async componentDidMount() {
     try {
-      const res = await fetch('http://127.0.0.1:8000/category/');
+      const res = await fetch('http://199.192.21.172:8000/category/');
       const categorylist = await res.json();
       this.setState({
         categorylist
@@ -27,7 +27,7 @@ export default class SearchField extends React.Component {
 
   async searchResult() {
     try {
-      const res = await fetch('http://127.0.0.1:8000/search/' + this.props.campus_id + '/' + this.state.category_id + '/' + this.state.search_phrase );
+      const res = await fetch('http://199.192.21.172:8000/search/' + this.props.campus_id + '/' + this.state.category_id + '/' + this.state.search_phrase );
       const search_result = await res.json();
       this.setState({
         search_result
@@ -65,7 +65,7 @@ getCategoryId(){
 
 
 setMedia(media_name){
-  this.state.media = 'http://127.0.0.1:8000/media/' + media_name
+  this.state.media = 'http://199.192.21.172:8000/media/' + media_name
 }
 
 

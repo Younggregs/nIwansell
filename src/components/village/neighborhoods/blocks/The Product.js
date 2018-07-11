@@ -14,7 +14,7 @@ export default class TheProduct extends React.Component {
  
    async componentWillMount() {
      try {
-       const res = await fetch('http://127.0.0.1:8000/product/' + this.props.product_id);
+       const res = await fetch('http://199.192.21.172:8000/product/' + this.props.product_id);
        const productDetail = await res.json();
        this.setState({
          productDetail
@@ -30,7 +30,7 @@ export default class TheProduct extends React.Component {
     const auth = localStorage.getItem('auth_code')
   
     try {
-      const res = await fetch('http://127.0.0.1:8000/favorite/2/' + this.props.product_id, {
+      const res = await fetch('http://199.192.21.172:8000/favorite/2/' + this.props.product_id, {
       
        credentials: 'same-origin',
        mode: 'cors',
@@ -53,12 +53,12 @@ export default class TheProduct extends React.Component {
 
 
    setMedia(media_name){
-    var media = 'http://127.0.0.1:8000/media/' + media_name
+    var media = 'http://199.192.21.172:8000/media/' + media_name
     this.state.media = media
   }
 
   setDp(dp){
-    var display_pic = 'http://127.0.0.1:8000/media/' + dp
+    var display_pic = 'http://199.192.21.172:8000/media/' + dp
     this.state.dp = display_pic
   }
 
@@ -116,7 +116,7 @@ export default class TheProduct extends React.Component {
                         <BuzzMe phone={this.state.productDetail.phone} />&nbsp;
                       </Col>
                       <Col lg={6} md={6} smHidden xsHidden>
-                      <Link to={`/hagglemates/${ this.state.productDetail.profile_id } `}>
+                      <Link to={`/hagglemates/${ this.state.productDetail.profile_id }`}>
                         <Button bsStyle="primary">Message me</Button>
                       </Link>
                       </Col>
@@ -190,7 +190,7 @@ export default class TheProduct extends React.Component {
                          <BuzzMe phone={this.state.productDetail.phone}/>
                         </Col>
                         <Col sm={6} xs={6}>
-                        <Link to={`/hagglemates/${ this.state.productDetail.profile_id } `}>
+                        <Link to={`/hagglemates/${ this.state.productDetail.profile_id }`}>
                          <Button bsStyle="primary">Message me</Button>
                         </Link>
                         </Col>

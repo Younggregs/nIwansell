@@ -22,7 +22,7 @@ export default class EditEShopForm extends React.Component {
   
   
     try {
-      const res = await fetch('http://127.0.0.1:8000/edit_eshop/', {
+      const res = await fetch('http://199.192.21.172:8000/edit_eshop/', {
       
        body : formData,
        method: 'POST',

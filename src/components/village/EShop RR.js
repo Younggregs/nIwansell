@@ -9,7 +9,7 @@ export default class EShopRR extends React.Component {
 async componentDidMount() {
 
 try {
-  const res = await fetch('http://127.0.0.1:8000/eshop/' + this.props.match.params.id);
+  const res = await fetch('http://199.192.21.172:8000/eshop/' + this.props.match.params.id);
   const eshop = await res.json();
   this.setState({
     eshop
