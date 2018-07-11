@@ -1,5 +1,4 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
 import { Grid, Row, Col } from 'react-bootstrap'
 import Heading from './blocks/houses/Heading'
 import ProductImage from './blocks/houses/Product Image'
@@ -112,12 +111,11 @@ export default class Trending extends React.Component {
                 
                 <Col lg={3} md={3} smHidden xsHidden>
                
-                  <Link to='/product'>
                  
                   {this.setMedia(item.product_image)}
                  
                   <ProductImage media={this.state.media}/>
-                  </Link>
+                
                 
                 </Col>
                 
@@ -133,12 +131,12 @@ export default class Trending extends React.Component {
                 
                 <Col lg={3} md={3} smHidden xsHidden>
                  <div className="image-size">
-                  <Link to='/product'>
+                  
                  
                   {this.setMedia(item.product_image)}
                  
                   <ProductImage media={this.state.media}/>
-                  </Link>
+                  
                  </div>
                 </Col>
                 
@@ -154,11 +152,11 @@ export default class Trending extends React.Component {
                 
                 <Col lg={3} md={3} smHidden xsHidden>
                  <div className="image-size">
-                  <Link to='/product'>
+                  
                  
                   {this.setMedia(item.product_image)}
                   <ProductImage media={this.state.media}/>
-                  </Link>
+                  
                  </div>
                 </Col>
                 
@@ -175,12 +173,12 @@ export default class Trending extends React.Component {
                 
                 <Col lg={3} md={3} smHidden xsHidden>
                  <div className="image-size">
-                  <Link to='/product'>
+                  
                  
                   {this.setMedia(item.product_image)}
                  
                   <ProductImage media={this.state.media}/>
-                  </Link>
+                  
                  </div>
                 </Col>
                 
@@ -196,12 +194,12 @@ export default class Trending extends React.Component {
                 
                 <Col lg={3} md={3} smHidden xsHidden>
                  <div className="image-size">
-                  <Link to='/product'>
+                 
                  
                   {this.setMedia(item.product_image)}
                  
                   <ProductImage media={this.state.media}/>
-                  </Link>
+                  
                  </div>
                 </Col>
                 
@@ -224,12 +222,12 @@ export default class Trending extends React.Component {
                 {this.state.trendList_1.map(item =>
                 
                 <div class="card">
-                  <Link to='/product'>
+                 
                  
                   {this.setMedia(item.product_image)}
                  
                   <img src= { `${this.state.media}` } alt="thumbnail"/>
-                  </Link>
+                  
                 </div>
                 )}
              
@@ -248,12 +246,12 @@ export default class Trending extends React.Component {
                 {this.state.trendList_2.map(item =>
                 
                 <div class="card">
-                  <Link to='/product'>
+                  
                  
                   {this.setMedia(item.product_image)}
                  
                   <img src= { `${this.state.media}` } alt="thumbnail"/>
-                  </Link>
+                  
                 </div>
                 )}
              
@@ -272,12 +270,12 @@ export default class Trending extends React.Component {
                 {this.state.trendList_3.map(item =>
                 
                 <div class="card">
-                  <Link to='/product'>
+                 
                  
                   {this.setMedia(item.product_image)}
                  
                   <img src= { `${this.state.media}` } alt="thumbnail"/>
-                  </Link>
+                 
                 </div>
                 )}
              
@@ -297,12 +295,12 @@ export default class Trending extends React.Component {
                 {this.state.trendList_4.map(item =>
                 
                 <div class="card">
-                  <Link to='/product'>
+                  
                  
                   {this.setMedia(item.product_image)}
                  
                   <img src= { `${this.state.media}` } alt="thumbnail"/>
-                  </Link>
+                  
                 </div>
                 )}
              
@@ -327,12 +325,12 @@ export default class Trending extends React.Component {
                 {this.state.trendList_5.map(item =>
                 
                 <div class="card">
-                  <Link to='/product'>
+                  
                  
                   {this.setMedia(item.product_image)}
                  
                   <img src= { `${this.state.media}` } alt="thumbnail"/>
-                  </Link>
+                  
                 </div>
                 )}
              
