@@ -23,14 +23,14 @@ export default class HaggleBox extends React.Component {
 
     try {
       fetch('http://199.192.21.172:8000/send_message/' + this.props.client_id + '/',{
-         
+
          body: formData ,
-         
+
          method : 'POST',
          mode: 'cors',
          headers : {
           'Authorization' : 'Token ' + auth,
-          
+
         },
       })
     } catch (e) {
@@ -39,43 +39,81 @@ export default class HaggleBox extends React.Component {
 
   }
 
-    
+  async sendMessage2(){
+    var msg = this.inputMessage.value
+    this.inputMessage.value = ''
+    this.state.message = msg
+    this.setState({ message : msg })
+
+
+    var formData = new FormData();
+    formData.append('message', this.state.message);
+
+    const auth = localStorage.getItem('auth_code')
+
+
+    try {
+      fetch('http://199.192.21.172:8000/send_message/' + this.props.client_id + '/',{
+
+         body: formData ,
+
+         method : 'POST',
+         mode: 'cors',
+         headers : {
+          'Authorization' : 'Token ' + auth,
+
+        },
+      })
+    } catch (e) {
+      console.log(e);
+    }
+
+  }
+
+
       render() {
         return (
            <div className="haggle-box">
                   <br /><br />
                   <Row>
-                    <Col smHidden xsHidden>   
+                    <Col smHidden xsHidden>
                   <Navbar>
                    <form inline className="navbar-form" onSubmit = { this.sendMessage.bind(this) }>
-                          
-                     
+
+
                           <FormGroup>
-                            <FormControl type="text" placeholder="make we yan" name="message" id="message" />
+                            <FormControl
+                             type="text"
+                             placeholder="make we yan"
+                             name="message"
+                             id="message"
+                            />
+
                           </FormGroup>{' '}
                           <Button onClick = { this.sendMessage.bind(this) }>send</Button>
-                      
+
                    </form>
                    </Navbar>
-                   
+
                    </Col>
 
 
-                    
+
                     <Col lgHidden mdHidden>
                         <Navbar fixedBottom>
                         <form inline className="navbar-form" onSubmit = { this.sendMessage.bind(this)}>
                         <FormGroup>
                         <InputGroup>
-                          <FormControl 
-                            type="text" 
+                          <FormControl
+                            type="text"
                             name="message"
                             id="message"
                             placeholder="make we yan"
+                            inputRef={(ref) => { this.inputMessage = ref; }}
                         />
 
                     <InputGroup.Button>
-                      <Button onClick = { this.sendMessage.bind(this) }><Glyphicon glyph="send"/></Button>
+                      <Button onClick = { this.sendMessage2.bind(this) }><Glyphicon glyph="send"/></Button>
                   </InputGroup.Button>
                 </InputGroup>
                 </FormGroup>
@@ -84,7 +122,7 @@ export default class HaggleBox extends React.Component {
 
                     </Col>
                    </Row>
-                 
+
            </div>
          )
      }
