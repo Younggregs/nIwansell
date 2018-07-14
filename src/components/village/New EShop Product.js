@@ -10,7 +10,7 @@ export default class NewEShopProduct extends React.Component {
 
             <Grid>
              <Row>
-                <Col lg={6} lgOffset={3} md={6} mdOffset={3} sm={6} xs={6}>
+                <Col lg={6} lgOffset={3} md={6} mdOffset={3} sm={12} xs={12}>
                     <NewEShopProductForm/>
                 </Col>
              </Row>
