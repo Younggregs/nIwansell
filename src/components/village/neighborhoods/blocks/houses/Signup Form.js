@@ -24,9 +24,9 @@ export default class SignupForm extends React.Component {
     }
   }
 
-  
-  
-  async submitForm(){    
+
+
+  async submitForm(){
 
     var firstname = document.getElementById("firstname").value
     var lastname = document.getElementById("lastname").value
@@ -34,7 +34,7 @@ export default class SignupForm extends React.Component {
     var email = document.getElementById("email").value
     var password = document.getElementById("password").value
 
-    
+
 
     var formData = new FormData()
     formData.append('firstname', firstname)
@@ -46,12 +46,12 @@ export default class SignupForm extends React.Component {
 
     try {
       const res = await fetch('http://199.192.21.172:8000/accounts/', {
-      
+
        body :formData,
        method: 'POST',
        credentials: 'same-origin',
        mode: 'cors',
-    
+
       });
       const statement = await res.json();
       this.setState({
@@ -64,7 +64,7 @@ export default class SignupForm extends React.Component {
 
     login(email, password)
 
-    
+
   }
 
 
@@ -120,7 +120,7 @@ const formInstance = (
       type="text"
       label="Firstname"
       name="firstname"
-      placeholder="Lastname"
+      placeholder="Firstname"
     />
     </Col>
 
@@ -130,7 +130,7 @@ const formInstance = (
         type="text"
         label="Lastname"
         name="lastname"
-        placeholder="Firstname"
+        placeholder="Lastname"
       />
     </Col>
   </Row>
@@ -153,7 +153,7 @@ const formInstance = (
     <ControlLabel>Select Campus</ControlLabel>
     <FormControl componentClass="select" placeholder="select" name="campus" id="campus">
                    {this.state.campuslist.map(item => (
-                    <option value={item.id}>{item.campus_code}</option> 
+                    <option value={item.id}>{item.campus_code}</option>
                     ))}
       </FormControl>
       </FormGroup>
@@ -178,7 +178,7 @@ const formInstance = (
       <span></span>
     )}
 
-    {this.state.statement.code ? ( 
+    {this.state.statement.code ? (
        <span><Redirect to='/home'/></span>
     ) : (
       <span></span>

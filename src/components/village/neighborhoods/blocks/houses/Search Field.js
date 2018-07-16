@@ -26,8 +26,18 @@ export default class SearchField extends React.Component {
   }
 
   async searchResult() {
+
+    var formData = new FormData()
+    formData.append('search_phrase', this.state.search_phrase)
+
+
     try {
-      const res = await fetch('http://199.192.21.172:8000/search/' + this.props.campus_id + '/' + this.state.category_id + '/' + this.state.search_phrase );
+      const res = await fetch('http://199.192.21.172:8000/search/' + this.props.campus_id + '/' + this.state.category_id + '/',{
+
+      body : formData,
+      method: 'POST'
+
+      });
       const search_result = await res.json();
       this.setState({
         search_result
@@ -35,6 +45,7 @@ export default class SearchField extends React.Component {
     } catch (e) {
       console.log(e);
     }
+
   }
 
 
