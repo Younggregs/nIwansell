@@ -7,6 +7,7 @@ import Signin from './components/village/Sign in'
 import Signup from './components/village/Sign up'
 import ProductDetails from './components/village/Product Details'
 import Profile from './components/village/Profile'
+import Menu from './components/village/Menu'
 import EditProfile from './components/village/Edit Profile'
 import NewProduct from './components/village/New Product'
 import ProductManager from './components/village/Product Manager'
@@ -44,6 +45,7 @@ import AuthTest from './components/village/Auth Test';
                 <Route exact path="/product/:product_id" component={ProductDetails}/>
                 <Route exact path="/profile/:profile_id" component={Profile}/>
                 <Route exact path="/editprofile/:profile_id" component={EditProfile}/>
+                <Route exact path="/menu" component={Menu}/>
                 <Route exact path="/newproduct" component={NewProduct}/>
                 <Route exact path="/productmanager" component={ProductManager}/>
                 <Route exact path="/favorite_client/:profile_id" component={FavoriteClient}/>
