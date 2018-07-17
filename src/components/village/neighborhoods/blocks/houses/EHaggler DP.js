@@ -11,18 +11,18 @@ export default class EHagglerDP extends React.Component {
               <Link to="/hagglemates">
                 <span className="glyphs"><Glyphicon glyph="arrow-left"/></span>
               </Link>&nbsp;&nbsp;
-                <Image width="50px" height="50px" src={ require ('./images/einstein.jpg') } alt="display-pic"/>
+                <Glyphicon glyph="user"/>
                 &nbsp;&nbsp;
               {this.props.name}
               </div>
             ) : (
                <div>
-              <Image width="50px" height="50px" src={ require ('./images/einstein.jpg') } alt="display-pic"/>
+              <Glyphicon glyph="user"/>
               &nbsp;&nbsp;
               {this.props.name}
               </div>
             )}
-               
+
            </section>
          )
        }
