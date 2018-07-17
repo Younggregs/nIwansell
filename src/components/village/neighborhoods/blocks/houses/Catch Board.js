@@ -1,5 +1,5 @@
 import React from 'react';
-import { Row, Col, Image } from 'react-bootstrap';
+import { Row, Col, Image, Glyphicon } from 'react-bootstrap';
 
 export default class CatchBoard extends React.Component {
        render() {
