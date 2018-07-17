@@ -49,7 +49,7 @@ export default class LandingPage extends React.Component {
 
         return (
            <div className="landing-page">
-             
+
              { this.state.show_school ? (
                <div>
                  <Grid>
@@ -59,9 +59,9 @@ export default class LandingPage extends React.Component {
 
                      <Row>
                         <Col lg={6} lgOffset={4} md={6} mdOffset={4} sm={12} xs={12}>
-                    
-                    <AppName/>   
-                    
+
+                    <AppName/>
+
                         </Col>
                     </Row>
 
@@ -77,11 +77,11 @@ export default class LandingPage extends React.Component {
                     <FormGroup>
                    <FormControl componentClass="select" placeholder="select" id="campus_id">
                    {this.state.campuslist.map(item => (
-                    <option value={item.id}>{item.campus_code}</option> 
+                    <option value={item.id}>{item.campus_code}</option>
                     ))}
                    </FormControl>
                  </FormGroup>
-    
+
                  <FormGroup>{' '}
                 <Button onClick={this.setSchool.bind(this)}>continue</Button>
                   </FormGroup>{' '}
@@ -96,13 +96,13 @@ export default class LandingPage extends React.Component {
              <Sponsored title="Sponsored" campus_id={this.state.campus_id}/>
              <Trending campus_id={this.state.campus_id}/>
              <GotoTop/>
-             <Footer/>
+             <Footer logged_in={false}/>
              <Copyright/>
-              </div> 
+              </div>
              )
-               
+
              }
-             
+
            </div>
          )
      }

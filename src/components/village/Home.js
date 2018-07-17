@@ -16,7 +16,7 @@ export default class Home extends React.Component {
   async componentWillMount() {
     const auth = localStorage.getItem('auth_code')
     console.log(auth)
-    
+
     try {
       const res = await fetch('http://199.192.21.172:8000/get_account/',{
 
@@ -59,16 +59,16 @@ export default class Home extends React.Component {
 
 
   media_path = '/home/greggy/triads/the_iwansell'
-    
+
       render() {
-       
+
         return (
            <div className="home">
              <Navigation logged_in={true} account_id={this.state.account_id} campus_id={this.state.campus_id}/>
              <Sponsored title="Sponsored" campus_id={this.state.campus_id}/>
              <Trending campus_id={this.state.campus_id}/>
              <GotoTop/>
-             <Footer/>
+             <Footer logged_in={true}/>
              <Copyright/>
            </div>
          )

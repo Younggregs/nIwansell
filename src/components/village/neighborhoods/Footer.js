@@ -8,7 +8,7 @@ export default class Footer extends React.Component {
            <section className="footer">
              <Grid>
                <Row>
-                 <About/>
+                 <About logged_in={this.props.logged_in}/>
                </Row>
              </Grid>
            </section>
