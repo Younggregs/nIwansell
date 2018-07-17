@@ -18,12 +18,12 @@ export default class NavigationIcons extends React.Component {
 
       try {
         const res = await fetch('http://199.192.21.172:8000/unread_messages/', {
-    
+
           headers : {
             'Authorization' : 'Token ' + auth,
-            
+
           },
-        
+
         });
         const unread_msgs = await res.json();
         this.setState({
@@ -36,12 +36,12 @@ export default class NavigationIcons extends React.Component {
 
       try {
         const res = await fetch('http://199.192.21.172:8000/have_eshop/', {
-    
+
           headers : {
             'Authorization' : 'Token ' + auth,
-            
+
           },
-        
+
         });
         const have_eshop = await res.json();
         this.setState({
@@ -58,12 +58,12 @@ export default class NavigationIcons extends React.Component {
 
         try {
           const res = await fetch('http://199.192.21.172:8000/my_eshopid/', {
-      
+
             headers : {
               'Authorization' : 'Token ' + auth,
-              
+
             },
-          
+
           });
           const eshop_id = await res.json();
           this.setState({
@@ -77,10 +77,10 @@ export default class NavigationIcons extends React.Component {
 
       }
 
-      
 
 
-    
+
+
   }
        render() {
 
@@ -101,7 +101,7 @@ export default class NavigationIcons extends React.Component {
             <strong>e-haggler</strong>
           </Tooltip>
         );
-        
+
          return (
            <section className="ehaggler-icon">
               <Col lg={2} md={2} smHidden xsHidden>
@@ -135,11 +135,11 @@ export default class NavigationIcons extends React.Component {
               ): (
                 <span></span>
               )}
-            
+
 
              </Col>
 
-             
+
             <div className="sm-nav-glyphs">
              <Col sm={2} xs={2} lgHidden mdHidden>
              <Link to={`/profile/${ this.props.account_id } `}>
@@ -155,7 +155,7 @@ export default class NavigationIcons extends React.Component {
 
              {this.state.have_eshop ? (
                 <Col sm={2} xs={2} lgHidden mdHidden>
-                <Link to={`/eshop/${ this.state.eshop_id } `}>     
+                <Link to={`/eshop/${ this.state.eshop_id } `}>
                    <span className="glyphs"><Glyphicon glyph="home"/></span>
                 </Link>
                 </Col>
@@ -163,19 +163,19 @@ export default class NavigationIcons extends React.Component {
                  <span></span>
              )}
 
-            
 
-             
+
+
              <Col sm={2} xs={2} lgHidden mdHidden>
-             <Link to='#menu'>
+             <Link to='/menu'>
               <span className="glyphs"><Glyphicon glyph="menu-hamburger"/></span>
              </Link>
              </Col>
-           
+
 
              </div>
 
-          
+
 
            </section>
          )
