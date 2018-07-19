@@ -29,7 +29,7 @@ async submitForm(){
         formData.append("eshop_name", eshop_name)
 
         try {
-            const res = await fetch('http://127.0.0.1:8000/eshop_list/', {
+            const res = await fetch('http://199.192.21.172:8000/eshop_list/', {
 
              body: formData,
              method: 'POST'
