@@ -31,12 +31,73 @@ a{
 }
 
 
+.menu-navigation a{
+  color:white;
+}
+
+
+.menu-nav a{
+  color: orange
+}
+
+.menu-nav{
+ background-color: white;
+ font-weight: bold;
+ padding: 10px;
+}
+
+.menu-text{
+  padding: 10px;
+  background-color: whitesmoke;
+}
+
+.menu-header{
+  text-align: center;
+  font-weight: bold;
+  font-size: 1.5em;
+}
+
+.menu-body{
+  padding: 10px;
+}
+
+.menu{
+  padding-top: 30px;
+}
+
+.question{
+  font-weight: bold;
+}
+
+.answer{
+  padding-left: 30px;
+}
+
+.back-arrow{
+  text-align: left;
+  padding-top: 20px;
+}
+
+
 .navigation{
   background-color: rgb(7, 3, 31);
   height: 100px;
   font-size: 1.98em;
   padding-top: 20px;
 }
+
+
+
+.menu-navigation{
+  background-color: rgb(7, 3, 31);
+  height: 60px;
+  color: white;
+  text-align: center;
+  font-size: 1.68em;
+  padding-top: 10px;
+}
+
+
 
 .signin-form{
   background-color: white;
@@ -100,6 +161,11 @@ a{
 .sm-nav-glyphs{
   padding-top: 5px;
   font-size: 1.3em;
+}
+
+.eshop-list{
+  background-color: whitesmoke;
+  padding: 10px;
 }
 
 
@@ -526,7 +592,3 @@ img{
 ::-webkit-scrollbar {
   display: none;
 }
-
-
-
-

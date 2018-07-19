@@ -11,7 +11,7 @@ export default class EshopList extends React.Component {
 
     async componentDidMount() {
         try {
-          const res = await fetch('http://127.0.0.1:8000/eshop_list/');
+          const res = await fetch('http://199.192.21.172:8000/eshop_list/');
           const eshop_list = await res.json();
           this.setState({
             eshop_list
