@@ -8,6 +8,13 @@ import Signup from './components/village/Sign up'
 import ProductDetails from './components/village/Product Details'
 import Profile from './components/village/Profile'
 import Menu from './components/village/Menu'
+import FeedBack from './components/village/Feedback'
+import AboutUs from './components/village/About Us'
+import ContactUs from './components/village/Contact Us'
+import WhyUs from './components/village/Why Us'
+import HowTo from './components/village/How To'
+import FAQ from './components/village/FAQ'
+import EShopList from './components/village/EShop List'
 import EditProfile from './components/village/Edit Profile'
 import NewProduct from './components/village/New Product'
 import ProductManager from './components/village/Product Manager'
@@ -46,6 +53,13 @@ import AuthTest from './components/village/Auth Test';
                 <Route exact path="/profile/:profile_id" component={Profile}/>
                 <Route exact path="/editprofile/:profile_id" component={EditProfile}/>
                 <Route exact path="/menu" component={Menu}/>
+                <Route exact path="/feedback" component={FeedBack}/>
+                <Route exact path="/about_us" component={AboutUs}/>
+                <Route exact path="/contact_us" component={ContactUs}/>
+                <Route exact path="/howto" component={HowTo}/>
+                <Route exact path="/eshop_list" component={EShopList}/>
+                <Route exact path="/faq" component={FAQ}/>
+                <Route exact path="/why_us" component={WhyUs}/>
                 <Route exact path="/newproduct" component={NewProduct}/>
                 <Route exact path="/productmanager" component={ProductManager}/>
                 <Route exact path="/favorite_client/:profile_id" component={FavoriteClient}/>
