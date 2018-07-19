@@ -12,7 +12,7 @@ export default class HowTo extends React.Component {
             <MenuNavigation/>
             <Row className="menu">
 
-            <Col lg={2} lgOffset={2} md={2} mdOffset={2} smHidden xsHidden>
+            <Col lg={2} lgOffset={2} md={2} mdOffset={2} sm={12} xs={12}>
             <div className="menu-nav">
 
            <p><Link to="/why_us">Why Us
