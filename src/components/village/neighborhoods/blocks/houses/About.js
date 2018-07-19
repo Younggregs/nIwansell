@@ -37,7 +37,7 @@ export default class About extends React.Component {
 
 
 
-             <Col lg={6} md={6} sm={6} xs={6}>
+             <Col lg={6} md={6} sm={5} xs={5}>
               <Row>
            {this.props.logged_in ? (
 
