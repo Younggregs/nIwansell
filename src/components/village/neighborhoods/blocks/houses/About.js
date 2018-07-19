@@ -7,7 +7,7 @@ export default class About extends React.Component {
          return (
            <section className="about" id="about">
             <Row>
-             <Col lg={6} md={6} sm={6} xs={6}>
+             <Col lg={6} md={6} sm={6} smOffset={1} xs={6} xsOffset={1}>
               <Row>
 
           <p><Link to="/eshop_list">e-shops
