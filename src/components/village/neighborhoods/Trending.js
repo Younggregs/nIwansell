@@ -1,5 +1,6 @@
 import React from 'react'
 import { Grid, Row, Col } from 'react-bootstrap'
+import CategoryProduct from './blocks/Category Product'
 import Heading from './blocks/houses/Heading'
 import ProductImage from './blocks/houses/Product Image'
 
@@ -108,17 +109,17 @@ export default class Trending extends React.Component {
                 <Heading title = {this.trending_1} trending={true}/>
 
                 {this.state.trendList_1.map(item =>
-                
+
                 <Col lg={3} md={3} smHidden xsHidden>
-               
-                 
+
+
                   {this.setMedia(item.product_image)}
-                 
+
                   <ProductImage media={this.state.media}/>
-                
-                
+
+
                 </Col>
-                
+
                 )}
                 </Row>
 
@@ -128,20 +129,24 @@ export default class Trending extends React.Component {
                 <Heading title = {this.trending_2} trending={true}/>
 
                 {this.state.trendList_2.map(item =>
-                
+
                 <Col lg={3} md={3} smHidden xsHidden>
                  <div className="image-size">
-                  
-                 
+
+
                   {this.setMedia(item.product_image)}
-                 
+
                   <ProductImage media={this.state.media}/>
-                  
+
                  </div>
                 </Col>
-                
+
                 )}
                 </Row>
+
+
+
+                <CategoryProduct campus={this.props.campus_id}/>
 
 
 
@@ -149,17 +154,17 @@ export default class Trending extends React.Component {
                 <Heading title = {this.trending_3} trending={true}/>
 
                 {this.state.trendList_3.map(item =>
-                
+
                 <Col lg={3} md={3} smHidden xsHidden>
                  <div className="image-size">
-                  
-                 
+
+
                   {this.setMedia(item.product_image)}
                   <ProductImage media={this.state.media}/>
-                  
+
                  </div>
                 </Col>
-                
+
                 )}
                 </Row>
 
@@ -170,18 +175,18 @@ export default class Trending extends React.Component {
                 <Heading title = {this.trending_4} trending={true}/>
 
                 {this.state.trendList_4.map(item =>
-                
+
                 <Col lg={3} md={3} smHidden xsHidden>
                  <div className="image-size">
-                  
-                 
+
+
                   {this.setMedia(item.product_image)}
-                 
+
                   <ProductImage media={this.state.media}/>
-                  
+
                  </div>
                 </Col>
-                
+
                 )}
                 </Row>
 
@@ -191,25 +196,25 @@ export default class Trending extends React.Component {
                 <Heading title = {this.trending_5} trending={true}/>
 
                 {this.state.trendList_5.map(item =>
-                
+
                 <Col lg={3} md={3} smHidden xsHidden>
                  <div className="image-size">
-                 
-                 
+
+
                   {this.setMedia(item.product_image)}
-                 
+
                   <ProductImage media={this.state.media}/>
-                  
+
                  </div>
                 </Col>
-                
+
                 )}
                 </Row>
 
-             
-                  
-                 
-             
+
+
+
+
              </Col>
 
              <Col sm={12} xs={12} lgHidden mdHidden>
@@ -220,17 +225,17 @@ export default class Trending extends React.Component {
               <div class="scrolling-wrapper">
 
                 {this.state.trendList_1.map(item =>
-                
+
                 <div class="card">
-                 
-                 
+
+
                   {this.setMedia(item.product_image)}
-                 
+
                   <img src= { `${this.state.media}` } alt="thumbnail"/>
-                  
+
                 </div>
                 )}
-             
+
               </div>
 
               </Row>
@@ -244,20 +249,24 @@ export default class Trending extends React.Component {
               <div class="scrolling-wrapper">
 
                 {this.state.trendList_2.map(item =>
-                
+
                 <div class="card">
-                  
-                 
+
+
                   {this.setMedia(item.product_image)}
-                 
+
                   <img src= { `${this.state.media}` } alt="thumbnail"/>
-                  
+
                 </div>
                 )}
-             
+
               </div>
 
               </Row>
+
+
+
+              <CategoryProduct campus={this.props.campus_id}/>
 
 
 
@@ -268,17 +277,17 @@ export default class Trending extends React.Component {
               <div class="scrolling-wrapper">
 
                 {this.state.trendList_3.map(item =>
-                
+
                 <div class="card">
-                 
-                 
+
+
                   {this.setMedia(item.product_image)}
-                 
+
                   <img src= { `${this.state.media}` } alt="thumbnail"/>
-                 
+
                 </div>
                 )}
-             
+
               </div>
 
               </Row>
@@ -293,17 +302,17 @@ export default class Trending extends React.Component {
               <div class="scrolling-wrapper">
 
                 {this.state.trendList_4.map(item =>
-                
+
                 <div class="card">
-                  
-                 
+
+
                   {this.setMedia(item.product_image)}
-                 
+
                   <img src= { `${this.state.media}` } alt="thumbnail"/>
-                  
+
                 </div>
                 )}
-             
+
               </div>
 
               </Row>
@@ -323,17 +332,17 @@ export default class Trending extends React.Component {
               <div class="scrolling-wrapper">
 
                 {this.state.trendList_5.map(item =>
-                
+
                 <div class="card">
-                  
-                 
+
+
                   {this.setMedia(item.product_image)}
-                 
+
                   <img src= { `${this.state.media}` } alt="thumbnail"/>
-                  
+
                 </div>
                 )}
-             
+
               </div>
 
               </Row>
