@@ -5,7 +5,7 @@ import Heading from './Heading';
 import AppName from './App Name'
 
 export default class NewEShopProductForm extends React.Component {
-   
+
   state = {
     categorylist: [],
     subcategorylist: [],
@@ -22,12 +22,12 @@ export default class NewEShopProductForm extends React.Component {
 
     try {
       const res = await fetch('http://199.192.21.172:8000/myaccount_id/', {
-    
+
         headers : {
           'Authorization' : 'Token ' + auth,
-          
+
         },
-      
+
       });
       const account_id = await res.json();
       this.setState({
@@ -151,14 +151,15 @@ const formInstance = (
   )}
 
   <br />
+  <p className="success-msg">Note: Update phone number in your profile before or after adding a product, so clients can reach you on phone</p>
 
-  <form method="POST" enctype="multipart/form-data" action={"http://199.192.21.172:8000/new_eshop_product/" + this.state.account_id + "/"}>  
+  <form method="POST" enctype="multipart/form-data" action={"http://199.192.21.172:8000/new_eshop_product/" + this.state.account_id + "/"}>
   <FormGroup>
       <ControlLabel>Categories</ControlLabel>
       <FormControl componentClass="select" placeholder="select" id="category" name="category" onChange={this.getCategoryId.bind(this)}>
       <option value="99">select category</option>
       {this.state.categorylist.map(item => (
-        <option value={item.id}>{item.name}</option> 
+        <option value={item.id}>{item.name}</option>
       ))}
       </FormControl>
     </FormGroup>
@@ -167,7 +168,7 @@ const formInstance = (
     <ControlLabel>Sub-Categories</ControlLabel>
       <FormControl componentClass="select" placeholder="select" id="subcategory" name="subcategory">
       {this.state.subcategorylist.map(item => (
-        <option value={item.id}>{item.name}</option> 
+        <option value={item.id}>{item.name}</option>
       ))}
       </FormControl>
   </FormGroup>
@@ -202,7 +203,7 @@ const formInstance = (
             name="product_image"
             value={null}
             {...this.state.product_image}
-        
+
         />
         <HelpBlock>This is the image that would be displayed as the product</HelpBlock>
 </FormGroup>
@@ -217,7 +218,7 @@ const formInstance = (
             name="media"
             value={null}
             {...this.state.media}
-          
+
         />
         <HelpBlock>Convince the buyer with more media(multiple images and video clips)</HelpBlock>
 </FormGroup>
@@ -230,6 +231,6 @@ const formInstance = (
 );
 
  return (formInstance);
-   
+
   }
 }

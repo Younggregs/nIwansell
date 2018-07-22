@@ -1,5 +1,5 @@
 import React from 'react';
-import { Redirect } from 'react-router-dom' 
+import { Redirect } from 'react-router-dom'
 import { Button,FormGroup, FormControl, HelpBlock } from 'react-bootstrap';
 import Heading from './Heading'
 
@@ -7,8 +7,35 @@ import Heading from './Heading'
 export default class EditPhone extends React.Component {
 
   state = {
-    message : []
+    message : [],
+    phone: null
   }
+
+  async componentWillMount(){
+
+    const auth = localStorage.getItem('auth_code')
+
+
+    try {
+      const res = await fetch('http://199.192.21.172:8000/get_phone/', {
+       headers : {
+         'Authorization' : 'Token ' + auth
+       }
+
+      })
+      const phone = await res.json();
+        this.setState({
+          phone
+        });
+
+    } catch (e) {
+      console.log(e);
+    }
+
+
+  }
+
+
 
   async update(){
 
@@ -18,11 +45,11 @@ export default class EditPhone extends React.Component {
 
     var formData = new FormData()
     formData.append('phone', phone)
-  
+
     try {
       const res = await fetch('http://199.192.21.172:8000/reset_phone/', {
-      
-       
+
+
        body : formData,
        method: 'POST',
        headers : {
@@ -34,7 +61,7 @@ export default class EditPhone extends React.Component {
         this.setState({
           message
         });
-  
+
     } catch (e) {
       console.log(e);
     }
@@ -61,7 +88,7 @@ const formInstance = (
             label="Phone"
             name="phone"
             placeholder="Your phone number"
-        
+
         />
         <HelpBlock>Phone number is needed for customers to reach you on phone</HelpBlock>
 </FormGroup>
@@ -72,7 +99,7 @@ const formInstance = (
       <span></span>
     )}
 
-    {this.state.message.code ? ( 
+    {this.state.message.code ? (
        <span><Redirect to={`/profile/${ this.props.profile_id } `}/></span>
     ) : (
       <span></span>
