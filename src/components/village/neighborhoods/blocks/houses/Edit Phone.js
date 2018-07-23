@@ -87,7 +87,7 @@ const formInstance = (
             type="text"
             label="Phone"
             name="phone"
-            placeholder="Your phone number"
+            placeholder={this.state.phone}
 
         />
         <HelpBlock>Phone number is needed for customers to reach you on phone</HelpBlock>
