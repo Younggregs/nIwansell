@@ -76,9 +76,11 @@ export default class EShopStore2 extends React.Component {
                 <div class="scrolling-wrapper">
 
                 {this.state.eshop_store.map(item =>
-                <span>
                 <div class="card">
-                 <Link to={`/product/${ item.id } `}>
+
+                <Link to={`/product/${ item.id } `}>
+                    <h3>{item.product_name}</h3>
+                    <p className="lg-fonts">Starting price : {item.starting_price}</p>
                 
                 <div class="image">
                     {this.setMedia(item.product_image)}
@@ -86,12 +88,7 @@ export default class EShopStore2 extends React.Component {
                 </div>
                 </Link>
                 </div>
-
-                <Link to={`/product/${ item.id } `}>
-                    <h3>{item.product_name}</h3>
-                    <p className="lg-fonts">Starting price : {item.starting_price}</p>
-                </Link>
-                </span>
+               
                 )}
              
               </div>
