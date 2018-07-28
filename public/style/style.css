@@ -641,7 +641,7 @@ img{
 }
 
 .eshop-scrolling-wrapper, .eshop-scrolling-wrapper-flexbox {
-  height: 150px;
+  height: 200px;
   width: 100%;
   -webkit-overflow-scrolling: touch;
 }
