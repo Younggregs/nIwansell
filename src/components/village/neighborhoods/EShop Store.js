@@ -1,6 +1,4 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
-import { Grid, Row, Col } from 'react-bootstrap'
 import EShopShore2 from './blocks/EShop Store 2'
 
 export default class EShopStore extends React.Component {
@@ -41,7 +39,7 @@ export default class EShopStore extends React.Component {
 
                 { this.state.subcategory.map(item =>
 
-                   <EShopShore2 name = {item.name} id={item.id}/>
+                   <EShopShore2 eshop_id={this.props.eshop_id} name = {item.name} id={item.id}/>
                 )}
            
            </section>
