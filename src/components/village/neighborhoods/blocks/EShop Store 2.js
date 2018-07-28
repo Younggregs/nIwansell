@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { Grid, Row, Col } from 'react-bootstrap'
+import { Grid, Row, Col, Image } from 'react-bootstrap'
 import Heading from './houses/Heading'
 import ProductImage from './houses/Product Image'
 
