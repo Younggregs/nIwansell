@@ -73,7 +73,7 @@ export default class EShopStore2 extends React.Component {
                 <Heading title = {this.props.name}/>
                 
 
-                <div class="eshop-scrolling-wrapper">
+                <div class="scrolling-wrapper">
 
                 {this.state.eshop_store.map(item =>
                 <span>
