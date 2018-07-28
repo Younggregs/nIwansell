@@ -630,16 +630,6 @@ img{
   overflow-x: auto;
 }
 
-.card {
-  flex: 0 0 auto;
-  margin-right: 3px;
-  display: inline-block;
-  border: 1px solid white;
-  min-width: 150px;
-  height: 150px;
-  background: black;
-}
-
 .eshop-scrolling-wrapper, .eshop-scrolling-wrapper-flexbox {
   height: 200px;
   width: 100%;
