@@ -46,12 +46,16 @@ export default class EShopStore2 extends React.Component {
                 
                 <Col lg={3} md={3} smHidden xsHidden>
                
-                  <Link to='/product'>
-                 
-                  {this.setMedia(item.product_image)}
-                 
-                  <ProductImage media={this.state.media}/>
-                  </Link>
+               <Link to={`/product/${ item.product_id } `}>
+                <section className="product-image">
+                <div class="image">
+                    {this.setMedia(item.product_image)}
+                    <Image alt="product-image" src= { `${this.state.media}` }/>
+                </div>
+                </section>
+                        <h3>{item.product_name}</h3>
+                        <p className="lg-fonts">Starting price : {item.starting_price}</p>
+                </Link>
                 
                 </Col>
                 
@@ -74,12 +78,16 @@ export default class EShopStore2 extends React.Component {
                 {this.state.eshop_store.map(item =>
                 
                 <div class="card">
-                  <Link to='/product'>
-                 
-                  {this.setMedia(item.product_image)}
-                 
-                  <img src= { `${this.state.media}` } alt="thumbnail"/>
-                  </Link>
+                 <Link to={`/product/${ item.product_id } `}>
+                <section className="product-image">
+                <div class="image">
+                    {this.setMedia(item.product_image)}
+                    <Image alt="product-image" src= { `${this.state.media}` }/>
+                </div>
+                </section>
+                        <h3>{item.product_name}</h3>
+                        <p className="lg-fonts">Starting price : {item.starting_price}</p>
+                </Link>
                 </div>
                 )}
              
