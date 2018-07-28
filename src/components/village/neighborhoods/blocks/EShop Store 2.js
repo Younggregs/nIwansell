@@ -46,7 +46,7 @@ export default class EShopStore2 extends React.Component {
                 
                 <Col lg={3} md={3} smHidden xsHidden>
                
-               <Link to={`/product/${ item.product_id } `}>
+               <Link to={`/product/${ item.id } `}>
                 <section className="product-image">
                 <div class="image">
                     {this.setMedia(item.product_image)}
@@ -78,7 +78,7 @@ export default class EShopStore2 extends React.Component {
                 {this.state.eshop_store.map(item =>
                 
                 <div class="card">
-                 <Link to={`/product/${ item.product_id } `}>
+                 <Link to={`/product/${ item.id } `}>
                 
                 <div class="image">
                     {this.setMedia(item.product_image)}
