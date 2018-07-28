@@ -79,12 +79,12 @@ export default class EShopStore2 extends React.Component {
                 
                 <div class="card">
                  <Link to={`/product/${ item.product_id } `}>
-                <section className="product-image">
+                
                 <div class="image">
                     {this.setMedia(item.product_image)}
                     <Image alt="product-image" src= { `${this.state.media}` }/>
                 </div>
-                </section>
+               
                         <h3>{item.product_name}</h3>
                         <p className="lg-fonts">Starting price : {item.starting_price}</p>
                 </Link>
