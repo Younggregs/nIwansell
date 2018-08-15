@@ -6,8 +6,21 @@ export default class EShopInfo extends React.Component {
 
   constructor(props) {
     super(props)
-    this.state = {value: 3, isfavorited: false}
+    this.state = {value: 3, isfavorited: false, boss_info: {} }
   }
+
+async componentWillMount(){
+  try {
+    const res = await fetch('http://199.192.21.172:8000/about_eshop/' + this.props.eshop_id + '/')
+    const boss_info = await res.json();
+      this.setState({
+        boss_info
+      });
+  } catch (e) {
+    console.log(e);
+  }
+
+}
 
 
 
@@ -16,10 +29,10 @@ export default class EShopInfo extends React.Component {
   async favorite(){
 
     const auth = localStorage.getItem('auth_code')
-  
+
     try {
       const res = await fetch('http://199.192.21.172:8000/favorite/2/' + this.props.eshop_id + '/', {
-      
+
        credentials: 'same-origin',
        mode: 'cors',
        headers : {
@@ -35,7 +48,7 @@ export default class EShopInfo extends React.Component {
       console.log(e);
     }
 
-  }
+}
 
 
 
@@ -54,23 +67,23 @@ export default class EShopInfo extends React.Component {
 
                 <Row>
                  <Col lg={6} lgOffset={3} md={6} mdOffset={3} sm={12} xs={12}>
+                 <p className="profile-name"><i>{this.props.about}</i></p><br />
 
-                
-                <p className="profile-name">Favorite eshop 
+                <p className="profile-name">Favorite eshop
                  {this.state.isfavorited ? (
-                   <Button onClick={this.favorite.bind(this)}><span className="fav-glyphs"><Glyphicon glyph="star"/></span></Button>
+                   <Button bsSize="small" onClick={this.favorite.bind(this)}><span className="fav-glyphs"><Glyphicon glyph="star"/></span></Button>
                  ) : (
-                   <Button onClick={this.favorite.bind(this)}><span className="fav-glyphs"><Glyphicon glyph="star-empty"/></span></Button>
+                   <Button bsSize="small" onClick={this.favorite.bind(this)}><span className="fav-glyphs"><Glyphicon glyph="star-empty"/></span></Button>
                  )}
-                
+
                 </p>
-                
-                <p> 
+
+                <p>
                 <div>
                 <Link to ={`/eshop_rr/${ this.props.eshop_id } `}>
                 <p className="profile-name">Ratings-Reviews
                 <span className="heart-glyphs">
-               <Rating 
+               <Rating
                 emptySymbol="glyphicon glyphicon-heart-empty"
                 fullSymbol="glyphicon glyphicon-heart"
                 {...this.props} initialRating={this.state.value} readonly quiet/>
@@ -80,8 +93,8 @@ export default class EShopInfo extends React.Component {
                 </div>
                 </p>
 
-                <p className="profile-name"> Phone: 081095995997 </p>
-                <p><Button>Message Greg</Button></p>
+                <p className="profile-name">Boss : <Link to={`/profile/${ this.state.boss_info.id } `}>{this.state.boss_info.boss}</Link></p>
+                <p className="profile-name">Mobile : {this.state.boss_info.phone}</p>
 
 
                 </Col>

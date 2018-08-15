@@ -45,7 +45,6 @@ export default class SearchField extends React.Component {
     } catch (e) {
       console.log(e);
     }
-
   }
 
 
@@ -117,7 +116,7 @@ emptyResult(){
        type="text"
        id="search_phrase"
        name="search_phrase"
-       placeholder="Search for anything...  try 'old skool vans'"
+       placeholder="Search for anything...  try 'flash drive'"
        size="50"/>
 
 
@@ -132,7 +131,7 @@ emptyResult(){
            <div>
             <br /><br />
             {this.emptyResult() ? (
-              <p className="err-msg">No result found for search request</p>
+              <p className="err-msg">No result found for <i>{this.state.search_phrase}</i></p>
             ) : (
               <span></span>
             )}
@@ -166,7 +165,7 @@ emptyResult(){
        id="search_phrase_sm"
        type="text"
        name="search_phrase_sm"
-       placeholder="Search for anything...  try 'old skool vans'"
+       placeholder="Search for anything...  try 'flash drive'"
        inputRef={(ref) => { this.inputSearchPhrase = ref; }}
        />
 
@@ -186,7 +185,7 @@ emptyResult(){
            <div>
              <br /><br />
              {this.emptyResult() ? (
-              <p className="err-msg">No result found for search request</p>
+              <p className="err-msg">No result found for <i>{this.state.search_phrase}</i></p>
             ) : (
               <span></span>
             )}

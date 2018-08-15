@@ -28,12 +28,13 @@ try {
   console.log(e);
 }
 
+
 try {
   const res = await fetch('http://199.192.21.172:8000/ismyeshop/' + this.props.match.params.eshop_id, {
-    
+
     headers : {
       'Authorization' : 'Token ' + auth,
-      
+
     },
 
   });
@@ -55,7 +56,7 @@ setMedia(media_name){
 }
 
       render() {
-       
+
         return (
            <div className="eshop">
 
@@ -63,9 +64,9 @@ setMedia(media_name){
                   {this.setMedia(this.state.eshop.catch_board)}
                   <CatchBoard media = {this.state.media}/>
                   { this.state.my_eshop ? (
-                    <EShopAdmin eshop_id = {this.props.match.params.eshop_id}/>
+                    <EShopAdmin eshop_id = {this.props.match.params.eshop_id} about = {this.state.eshop.about}/>
                 ) : (
-                    <EshopInfo eshop_id = {this.props.match.params.eshop_id}/>
+                    <EshopInfo eshop_id = {this.props.match.params.eshop_id} about = {this.state.eshop.about}/>
                 )}
 
                   <EShopProduct eshop_id = {this.props.match.params.eshop_id}/>

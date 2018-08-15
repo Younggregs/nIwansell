@@ -119,9 +119,13 @@ emptyResult(){
                 {this.state.eshop_list.map(item => (
                     <span>
                     <hr />
+                    <div>
                     <p><Link to={`/eshop/${ item.id } `}>
                     {item.name}
-                    </Link></p>
+                    </Link>
+                    </p>
+                    <p><i>{item.about}</i></p>
+                    </div>
                     <hr />
                     </span>
                 ))}

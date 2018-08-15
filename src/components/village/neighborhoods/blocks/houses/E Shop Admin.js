@@ -23,23 +23,24 @@ export default class EShopAdmin extends React.Component {
 
                  <Row>
                  <Col lg={6} lgOffset={3} md={6} mdOffset={3} sm={12} xs={12}>
+                 <p className="profile-name"><i>{this.props.about}</i></p><br />
 
-                 <p> 
+                 <p>
                 <div>
                  <Link to ={`/eshop_rr/${ this.props.eshop_id } `}>
                  <p className="profile-name">Ratings-Reviews
                  <span className="heart-glyphs">
-               <Rating 
+               <Rating
                 emptySymbol="glyphicon glyphicon-heart-empty"
                 fullSymbol="glyphicon glyphicon-heart"
                 {...this.props} initialRating={this.state.value} readonly quiet/>
                </span>
-                
+
                 </p>
                   </Link>
                 </div>
                 </p>
-                
+
                 <p>
                   <Link to ="/new_eshop_product">
                    <Button>Add new Product</Button>
@@ -55,12 +56,12 @@ export default class EShopAdmin extends React.Component {
                    <Button>Manage e-shop</Button>
                   </Link>
                 </p>
-                
+
                 </Col>
                 </Row>
                 </div>
 
-                
+
                  </Col>
                 </Row>
            </section>
