@@ -14,16 +14,19 @@ export default class EditEShopForm extends React.Component {
 
     const auth = localStorage.getItem('auth_code')
 
-    var fileField = document.querySelector("input[type='file']");
-    
+    var fileField = document.querySelector("input[type='file']")
+    var about = document.getElementById('about').value
+
 
     var formData = new FormData()
-    formData.append('catch_board', fileField.files[0]);
-  
-  
+    formData.append('catch_board', fileField.files[0])
+    formData.append('about', about)
+
+
+
     try {
       const res = await fetch('http://199.192.21.172:8000/edit_eshop/', {
-      
+
        body : formData,
        method: 'POST',
        headers : {
@@ -35,7 +38,7 @@ export default class EditEShopForm extends React.Component {
         this.setState({
           message
         });
-  
+
     } catch (e) {
       console.log(e);
     }
@@ -62,7 +65,7 @@ const formInstance = (
    <Col lg={6} lgOffset={4} md={6} mdOffset={4} sm={12} xs={12}>
 
   <form>
-  
+
 
   <FormGroup>
     <ControlLabel>Edit Catch-board</ControlLabel>
@@ -72,10 +75,19 @@ const formInstance = (
             name="catch_board"
             value={null}
             {...this.state.catch_board}
-        
+
         />
         <HelpBlock>This is the image that would be displayed as your eshop catch board</HelpBlock>
 </FormGroup>
+
+
+<ControlLabel>About eshop</ControlLabel><br />
+
+<textarea
+  name="about"
+  id="about"
+  placeholder="What are you selling">
+</textarea><br />
 
     <Button bsStyle="success" onClick={this.update.bind(this)}>update e-shop</Button>
   </form>
@@ -90,7 +102,7 @@ const formInstance = (
       <span></span>
     )}
 
-    {this.state.message.code ? ( 
+    {this.state.message.code ? (
        <span className="success-msg">Catch board updated successfully</span>
     ) : (
       <span></span>

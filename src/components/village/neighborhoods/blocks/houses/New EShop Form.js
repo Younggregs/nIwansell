@@ -84,7 +84,7 @@ const formInstance = (
     name="about"
     id="about"
     placeholder="What are you selling">
-    </textarea>
+    </textarea><br />
 
     {this.state.statement.error_message ? (
       <p className="err-msg">{this.state.statement.error_message}</p>

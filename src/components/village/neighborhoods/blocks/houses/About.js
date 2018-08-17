@@ -7,7 +7,7 @@ export default class About extends React.Component {
          return (
            <section className="about" id="about">
             <Row>
-             <Col lg={6} md={6} sm={6} smOffset={1} xs={6} xsOffset={1}>
+             <Col lg={6} lgOffset={1} md={6} mdOffset={1} sm={6} smOffset={1} xs={6} xsOffset={1}>
               <Row>
 
           <p><Link to="/eshop_list">e-shops
@@ -25,7 +25,7 @@ export default class About extends React.Component {
             <p><Link to="/feedback">Feedback
            </Link></p>
 
-           <p><Link to="/about">About Us
+           <p><Link to="/about_us">About Us
            </Link></p>
 
             <p><Link to="/contact_us">Contact Us
@@ -37,7 +37,7 @@ export default class About extends React.Component {
 
 
 
-             <Col lg={6} md={6} sm={5} xs={5}>
+             <Col lg={5} md={5} sm={5} xs={5}>
               <Row>
            {this.props.logged_in ? (
 

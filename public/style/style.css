@@ -367,6 +367,14 @@ img{
 }
 
 
+.profile-name a{
+  font-size: 1.3em;
+  font-family: "Ubuntu";
+  color: green;
+}
+
+
+
 .profile-name {
   font-size: 1.3em;
   font-family: "Ubuntu";
@@ -580,8 +588,6 @@ img{
 }
 
 
-
-/***********************************************************/
 .scrolling-wrapper {
   overflow-x: scroll;
   overflow-y: hidden;
@@ -615,3 +621,32 @@ img{
 }
 
 
+/********************************************/
+
+.scrolling-wrapper-eshop {
+  overflow-x: scroll;
+  overflow-y: hidden;
+  white-space: nowrap;
+}
+
+.scrolling-wrapper-eshop-flexbox {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+}
+
+.card-eshop {
+  flex: 0 0 auto;
+  margin-right: 3px;
+  display: inline-block;
+  border: 1px solid white;
+  min-width: 150px;
+  height: 150px;
+  background: darkslateblue;
+}
+
+.scrolling-wrapper-eshop, .scrolling-wrapper-eshop-flexbox {
+  height: 150px;
+  width: 100%;
+  -webkit-overflow-scrolling: touch;
+}
