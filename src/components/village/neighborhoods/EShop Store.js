@@ -41,7 +41,7 @@ export default class EShopStore extends React.Component {
 
                 { this.state.subcategory.map(item =>
 
-                   <EShopShore2 name = {item.name} id={item.id}/>
+                   <EShopShore2 name= {item.name} id={item.id} eshop_id={this.props.eshop_id}/>
                 )}
 
            </section>
