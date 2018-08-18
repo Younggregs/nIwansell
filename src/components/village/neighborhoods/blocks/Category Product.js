@@ -107,8 +107,8 @@ export default class CategoryProduct extends React.Component {
                     <Image alt="product-image" src= { `${this.state.media}` }/>
                 </div>
                 </section>
-                        <h3>{item.product_name}</h3>
-                        <p className="lg-fonts">Starting price : {item.starting_price}</p>
+                  <p className="lg-store">{item.product_name}</p>
+                  <p className="lg-store">Starting price : {item.starting_price}</p>
                 </Link>
 
 
@@ -160,8 +160,8 @@ export default class CategoryProduct extends React.Component {
                     <Image alt="product-image" src= { `${this.state.media}` }/>
                 </div>
                 </section>
-                        <h3>{item.product_name}</h3>
-                        <p className="lg-fonts">Starting price : {item.starting_price}</p>
+                  <p className="sm-store">{item.product_name}</p>
+                  <p className="sm-store">Starting price : {item.starting_price}</p>
                 </Link>
 
                 </section>
