@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { Grid, Row, Col, Image } from 'react-bootstrap'
+import { Grid, Row, Col } from 'react-bootstrap'
 import Heading from './houses/Heading'
 import ProductImage from './houses/Product Image'
 
@@ -15,7 +15,7 @@ export default class EShopStore2 extends React.Component {
   async componentWillMount() {
 
     try {
-      const res = await fetch('http://199.192.21.172:8000/eshop_store/' + this.props.eshop_id + '/' + this.props.id );
+      const res = await fetch('http://127.0.0.1:8000/eshop_store/1/'+ this.props.id );
       const eshop_store = await res.json();
       this.setState({
         eshop_store
@@ -28,7 +28,7 @@ export default class EShopStore2 extends React.Component {
 
 
   setMedia(media_name){
-    this.state.media = 'http://199.192.21.172:8000' + media_name
+    this.state.media = 'http://127.0.0.1:8000' + media_name
   }
 
 
@@ -40,28 +40,24 @@ export default class EShopStore2 extends React.Component {
               <Col lg={12} md={12} smHidden xsHidden>
                 <Row>
                 <Heading title = {this.props.name}/>
-                
-                
+
+
                 {this.state.eshop_store.map(item =>
-                
+
                 <Col lg={3} md={3} smHidden xsHidden>
-               
-               <Link to={`/product/${ item.id } `}>
-                <section className="product-image">
-                <div class="image">
-                    {this.setMedia(item.product_image)}
-                    <Image alt="product-image" src= { `${this.state.media}` }/>
-                </div>
-                </section>
-                        <h3>{item.product_name}</h3>
-                        <p className="lg-fonts">Starting price : {item.starting_price}</p>
-                </Link>
-                
+
+               <Link to={`/product/${ this.props.id } `}>
+
+                  {this.setMedia(item.product_image)}
+
+                  <ProductImage media={this.state.media}/>
+                  </Link>
+
                 </Col>
-                
+
                 )}
                 </Row>
-                
+
 
              </Col>
 
@@ -71,30 +67,26 @@ export default class EShopStore2 extends React.Component {
              <Col sm={12} xs={12} lgHidden mdHidden>
                 <Row>
                 <Heading title = {this.props.name}/>
-                
 
-                <div class="scrolling-wrapper">
+
+                <div class="scrolling-wrapper-eshop">
 
                 {this.state.eshop_store.map(item =>
-                <div class="card">
 
-                <Link to={`/product/${ item.id } `}>
-                    <h3>{item.product_name}</h3>
-                    <p className="lg-fonts">Starting price : {item.starting_price}</p>
-                
-                <div class="image">
-                    {this.setMedia(item.product_image)}
-                    <Image alt="product-image" src= { `${this.state.media}` }/>
+                <div class="card-eshop">
+                  <Link to={`/product/${ this.props.id } `}>
+
+                  {this.setMedia(item.product_image)}
+
+                  <img src= { `${this.state.media}` } alt="thumbnail"/>
+                  </Link>
                 </div>
-                </Link>
-                </div>
-               
                 )}
-             
+
               </div>
 
               </Row>
-              
+
              </Col>
 
 
