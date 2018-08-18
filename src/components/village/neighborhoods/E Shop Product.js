@@ -5,7 +5,7 @@ import EShopStore from './EShop Store'
 import Copyright from './blocks/houses/Copyright'
 
 export default class EShopProduct extends React.Component {
-      title = "Products and services"
+      title = "Products & services"
        render() {
          return (
            <section className="sponsored">

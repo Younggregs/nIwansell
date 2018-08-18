@@ -39,7 +39,7 @@ export default class EShopStore2 extends React.Component {
              <Row>
               <Col lg={12} md={12} smHidden xsHidden>
                 <Row>
-                <Heading title = {this.props.name}/>
+                <Heading title={this.props.name} store={true}/>
 
 
                 {this.state.eshop_store.map(item =>
@@ -71,7 +71,7 @@ export default class EShopStore2 extends React.Component {
 
              <Col sm={12} xs={12} lgHidden mdHidden>
                 <Row>
-                <Heading title = {this.props.name}/>
+                <Heading title={this.props.name} store={true}/>
 
 
                 <div class="scrolling-wrapper-eshop">

@@ -183,6 +183,13 @@ a{
   font-size: 1.3em;
 }
 
+.shelf{
+  color: darkgoldenrod;
+  font-family: 'Ubuntu';
+  background-color: white;
+
+}
+
 .eshop-list{
   background-color: whitesmoke;
   padding: 10px;
@@ -667,7 +674,13 @@ img{
 }
 
 .scrolling-wrapper-eshop, .scrolling-wrapper-eshop-flexbox {
-  height: 150px;
+  height: 170px;
   width: 100%;
+  border-top-style: ridge;
+  border-top-width: 5px;
+  border-top-color: darkgoldenrod;
+  border-bottom-style: ridge;
+  border-bottom-width: 5px;
+  border-bottom-color: darkgoldenrod;
   -webkit-overflow-scrolling: touch;
 }
