@@ -93,7 +93,8 @@ a{
 }
 
 .category-list-sm{
-  background-color: whitesmoke;
+  background-color: whit
+  esmoke;
   padding: 10px;
   height: 150px;
   overflow: auto;
@@ -350,6 +351,26 @@ img{
 .app-name{
   font-family: "Audiowide";
   font-size: 1.5em;
+}
+
+.sm-store{
+  font-family: "Ubuntu";
+  text-align: center;
+  background-color:  rgb(7, 3, 31);
+  height: auto;
+  width: auto;
+  color: white;
+  font-size: 0.9em;
+}
+
+.lg-store{
+  font-family: "Ubuntu";
+  text-align: center;
+  background-color:  rgb(7, 3, 31);
+  height: auto;
+  width: auto;
+  color: white;
+  font-size: 1.4em;
 }
 
 .smaller{
@@ -641,8 +662,8 @@ img{
   display: inline-block;
   border: 1px solid white;
   min-width: 150px;
-  height: 150px;
-  background: darkslateblue;
+  height: 100px;
+  background: white;
 }
 
 .scrolling-wrapper-eshop, .scrolling-wrapper-eshop-flexbox {
