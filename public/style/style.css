@@ -402,6 +402,14 @@ img{
 }
 
 
+.boss{
+  font-size: 1.3em;
+  font-family: "Ubuntu";
+  background-color: white;
+  padding: 2px;
+  color: rgb(7, 3, 31);
+}
+
 
 .profile-name {
   font-size: 1.3em;

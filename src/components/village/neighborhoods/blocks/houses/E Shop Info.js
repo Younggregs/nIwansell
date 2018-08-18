@@ -93,7 +93,7 @@ async componentWillMount(){
                 </div>
                 </p>
 
-                <p className="profile-name">Boss : <Link to={`/profile/${ this.state.boss_info.id } `}>{this.state.boss_info.boss}</Link></p>
+                <p className="boss">Boss : <Link to={`/profile/${ this.state.boss_info.id } `}>{this.state.boss_info.boss}</Link></p>
                 <p className="profile-name">Mobile : {this.state.boss_info.phone}</p>
 
 
