@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import { Row, Col } from 'react-bootstrap';
 import MenuNavigation from './neighborhoods/Menu Navigation'
 
-export default class TopSearchProduct extends React.Component {
+export default class TopSearchedProduct extends React.Component {
 
     state = {
         product_list : []

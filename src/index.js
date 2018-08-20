@@ -8,7 +8,7 @@ import Signup from './components/village/Sign up'
 import ProductDetails from './components/village/Product Details'
 import Profile from './components/village/Profile'
 import ProductValuation from './components/village/Product Valuation'
-import TopSearchProduct from './components/village/Top Search Product'
+import TopSearchedProduct from './components/village/Top Searched Product'
 import TopNotFound from './components/village/Top Not Found'
 import TopSoldProduct from './components/village/Top Sold Product'
 import TopForSell from './components/village/Top For Sell'
@@ -59,7 +59,7 @@ import AuthTest from './components/village/Auth Test';
                 <Route exact path="/profile/:profile_id" component={Profile}/>
                 <Route exact path="/editprofile/:profile_id" component={EditProfile}/>
                 <Route exact path="/product_valuation" component={ProductValuation}/>
-                <Route exact path="/top_search" component={TopSearchProduct}/>
+                <Route exact path="/top_search" component={TopSearchedProduct}/>
                 <Route exact path="/top_not_found" component={TopNotFound}/>
                 <Route exact path="/top_sold" component={TopSoldProduct}/>
                 <Route exact path="/top_for_sell" component={TopForSell}/>
