@@ -45,6 +45,9 @@ export default class About extends React.Component {
              <p><Link to = "/new_eshop">
                Rent an e-shop
              </Link></p>
+             <p><Link to = "/product_valuation">
+              Business Mode
+            </Link></p>
              <p><Link to = "/logout">
                Logout
              </Link></p>

@@ -7,6 +7,12 @@ import Signin from './components/village/Sign in'
 import Signup from './components/village/Sign up'
 import ProductDetails from './components/village/Product Details'
 import Profile from './components/village/Profile'
+import ProductValuation from './components/village/Product Valuation'
+import TopSearchProduct from './components/village/Top Search Product'
+import TopNotFound from './components/village/Top Not Found'
+import TopSoldProduct from './components/village/Top Sold Product'
+import TopForSell from './components/village/Top For Sell'
+import LeastForSell from './components/village/Least For Sell'
 import Menu from './components/village/Menu'
 import FeedBack from './components/village/Feedback'
 import AboutUs from './components/village/About Us'
@@ -52,6 +58,12 @@ import AuthTest from './components/village/Auth Test';
                 <Route exact path="/product/:product_id" component={ProductDetails}/>
                 <Route exact path="/profile/:profile_id" component={Profile}/>
                 <Route exact path="/editprofile/:profile_id" component={EditProfile}/>
+                <Route exact path="/product_valuation" component={ProductValuation}/>
+                <Route exact path="/top_search" component={TopSearchProduct}/>
+                <Route exact path="/top_not_found" component={TopNotFound}/>
+                <Route exact path="/top_sold" component={TopSoldProduct}/>
+                <Route exact path="/top_for_sell" component={TopForSell}/>
+                <Route exact path="/least_for_sell" component={LeastForSell}/>
                 <Route exact path="/menu" component={Menu}/>
                 <Route exact path="/feedback" component={FeedBack}/>
                 <Route exact path="/about_us" component={AboutUs}/>

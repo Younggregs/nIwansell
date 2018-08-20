@@ -13,8 +13,19 @@ export default class EShopSearch extends React.Component {
   };
 
   async searchResult() {
+
+    var search_phrase = document.getElementById("search_phrase").value
+
+    var formData = new FormData()
+    formData.append("search_phrase", search_phrase)
+
     try {
-      const res = await fetch('http://199.192.21.172:8000/eshop_search/1/'  + this.state.search_phrase );
+      const res = await fetch('http://199.192.21.172:8000/eshop_search/' + this.props.eshop_id + '/',{
+
+      body : formData,
+      method : 'POST'
+
+      });
       const search_result = await res.json();
       this.setState({
         search_result
@@ -46,7 +57,7 @@ setMedia(media_name){
 
 
        render() {
-        
+
 
          return (
            <section>
@@ -54,7 +65,7 @@ setMedia(media_name){
               <Col lg={4} lgOffset={2} md={4} mdOffset={2} smHidden xsHidden>
                      <EShopName eshop_name = {this.props.eshop_name}/>
                     </Col>
-            
+
            <Form inline>
 
            <FormGroup>
@@ -65,8 +76,8 @@ setMedia(media_name){
                         </Link>
                         </InputGroup.Addon>
 
-                          <FormControl 
-                            type="text" 
+                          <FormControl
+                            type="text"
                             name="search_phrase"
                             id="search_phrase"
                             size="30"
@@ -80,7 +91,7 @@ setMedia(media_name){
                 </FormGroup>
            </Form>
 
-      
+
       <Col lg={12} md={12} smHidden xsHidden>
       <Row>
        {this.state.is_search ? (
@@ -96,9 +107,9 @@ setMedia(media_name){
              </Col>
 
       ))}
-         
+
            </div>
-          ) : ( 
+          ) : (
             <div></div>
           )}
        </Row>
@@ -123,11 +134,11 @@ setMedia(media_name){
     ))}
 
            </div>
-          ) : ( 
+          ) : (
             <div></div>
           )}
            </Row>
-      
+
       </Col>
 
 
