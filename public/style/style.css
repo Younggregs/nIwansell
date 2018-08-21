@@ -35,6 +35,11 @@ a{
   color:white;
 }
 
+.business-navigation a{
+  color: white;
+  font-family: "Ubuntu";
+}
+
 
 .menu-nav a{
   color: orange
@@ -49,6 +54,11 @@ a{
 .menu-text{
   padding: 10px;
   background-color: whitesmoke;
+}
+
+.business-text{
+  padding: 10px;
+  background-color: aliceblue;
 }
 
 .menu-header{
@@ -107,6 +117,45 @@ a{
   margin-top: 20px;
   background-color: white;
 }
+
+.business-menu a{
+  color: darkslateblue;
+}
+
+.product-review{
+  line-height: 40px;
+}
+
+.business-list{
+  line-height: 40px;
+  padding: 10px;
+}
+
+td{
+  padding:10px;
+  text-align: center;
+}
+
+.business-menu{
+  border-right-color: darkslateblue;
+  border-right-style: double;
+  border-right-width: 2px;
+  font-weight: bold;
+  font-size: 1.1em;
+  line-height: 40px;
+  padding: 10px;
+ }
+
+
+.business-navigation{
+  background-color: rgb(7, 3, 31);
+  height: 60px;
+  text-align: center;
+  color: white;
+  font-size: 1.68em;
+  padding-top: 10px;
+}
+
 
 .menu-navigation{
   background-color: rgb(7, 3, 31);
