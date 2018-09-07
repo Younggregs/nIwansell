@@ -1,7 +1,7 @@
 import React from 'react'
 import { Grid,Row,Col, Image } from 'react-bootstrap'
 import { Progress } from 'react-sweet-progress';
-import './react-sweet-progress/lib/style.css';
+import "react-sweet-progress/lib/style.css";
 
 
 export default class LandingShow extends React.Component {
