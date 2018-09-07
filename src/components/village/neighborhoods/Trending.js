@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import { Grid, Row, Col } from 'react-bootstrap'
 import CategoryProduct from './blocks/Category Product'
 import Heading from './blocks/houses/Heading'
@@ -41,7 +42,7 @@ export default class Trending extends React.Component {
 
 
     try {
-      const res = await fetch('http://199.192.21.172:8000/trending/' + this.state.campus_id + '/' + this.trending_url_1 + '/');
+      const res = await fetch('http://199.192.21.172:8000/trending/' + this.props.campus_id + '/' + this.trending_url_1 + '/');
       const trendList_1 = await res.json();
       this.setState({
         trendList_1
@@ -93,7 +94,21 @@ export default class Trending extends React.Component {
   }
 
   setMedia(media_name){
-    this.state.media = 'http://199.192.21.172:8000' + media_name
+    this.state.media = 'http://199.192.21.172:8000/media/' + media_name
+  }
+
+
+  emptyResult(trendlist){
+
+    var empty_set = false
+
+    if(trendlist.length <= 0 ){
+      empty_set = true
+    }
+
+    return empty_set
+
+
   }
 
 
@@ -108,19 +123,32 @@ export default class Trending extends React.Component {
                 <Row>
                 <Heading title = {this.trending_1} trending={true}/>
 
-                {this.state.trendList_1.map(item =>
+                {this.emptyResult(this.state.trendList_1) ? (
+                  <p className="err-msg">No trends here yet</p>
+                ): (
+                  <div>
+                  {this.state.trendList_1.map(item =>
 
-                <Col lg={3} md={3} smHidden xsHidden>
+                    <Col lg={3} md={3} smHidden xsHidden>
 
 
-                  {this.setMedia(item.product_image)}
 
-                  <ProductImage media={this.state.media}/>
+                      {this.setMedia(item.product_image)}
+                      <Link to={`/product/${ item.id } `}>
+                        <ProductImage media={this.state.media}/>
+                      </Link>
 
 
-                </Col>
+                    </Col>
+
+                    )}
+                     </div>
+
 
                 )}
+
+
+
                 </Row>
 
 
@@ -128,43 +156,59 @@ export default class Trending extends React.Component {
                 <Row>
                 <Heading title = {this.trending_2} trending={true}/>
 
+                {this.emptyResult(this.state.trendList_2) ? (
+                  <p className="err-msg">No trends here yet</p>
+                ): (
+                  <div>
+
                 {this.state.trendList_2.map(item =>
 
                 <Col lg={3} md={3} smHidden xsHidden>
                  <div className="image-size">
 
-
                   {this.setMedia(item.product_image)}
 
-                  <ProductImage media={this.state.media}/>
+                  <Link to={`/product/${ item.id } `}>
+                    <ProductImage media={this.state.media}/>
+                  </Link>
 
                  </div>
                 </Col>
 
                 )}
+                </div>
+                )}
                 </Row>
 
 
-
-                <CategoryProduct campus={this.props.campus_id}/>
+                <CategoryProduct campus_id={this.props.campus_id}/>
 
 
 
                 <Row>
                 <Heading title = {this.trending_3} trending={true}/>
 
+
+                {this.emptyResult(this.state.trendList_3) ? (
+                  <p className="err-msg">No trends here yet</p>
+                ): (
+                  <div>
                 {this.state.trendList_3.map(item =>
 
                 <Col lg={3} md={3} smHidden xsHidden>
                  <div className="image-size">
 
-
                   {this.setMedia(item.product_image)}
-                  <ProductImage media={this.state.media}/>
+
+                  <Link to={`/product/${ item.id } `}>
+                    <ProductImage media={this.state.media}/>
+                  </Link>
 
                  </div>
                 </Col>
 
+                )}
+                </div>
                 )}
                 </Row>
 
@@ -174,19 +218,27 @@ export default class Trending extends React.Component {
                 <Row>
                 <Heading title = {this.trending_4} trending={true}/>
 
+                {this.emptyResult(this.state.trendList_4) ? (
+                  <p className="err-msg">No trends here yet</p>
+                ): (
+                  <div>
+
                 {this.state.trendList_4.map(item =>
 
                 <Col lg={3} md={3} smHidden xsHidden>
                  <div className="image-size">
 
-
                   {this.setMedia(item.product_image)}
 
-                  <ProductImage media={this.state.media}/>
+                  <Link to={`/product/${ item.id } `}>
+                    <ProductImage media={this.state.media}/>
+                  </Link>
 
                  </div>
                 </Col>
 
+                )}
+                </div>
                 )}
                 </Row>
 
@@ -194,6 +246,11 @@ export default class Trending extends React.Component {
 
                 <Row>
                 <Heading title = {this.trending_5} trending={true}/>
+
+                {this.emptyResult(this.state.trendList_5) ? (
+                  <p className="err-msg">No trends here yet</p>
+                ): (
+                  <div>
 
                 {this.state.trendList_5.map(item =>
 
@@ -203,11 +260,15 @@ export default class Trending extends React.Component {
 
                   {this.setMedia(item.product_image)}
 
-                  <ProductImage media={this.state.media}/>
+                  <Link to={`/product/${ item.id } `}>
+                    <ProductImage media={this.state.media}/>
+                  </Link>
 
                  </div>
                 </Col>
 
+                )}
+                </div>
                 )}
                 </Row>
 
@@ -222,6 +283,10 @@ export default class Trending extends React.Component {
              <Row>
               <Heading title = {this.trending_1} trending={true}/>
 
+              {this.emptyResult(this.state.trendList_1) ? (
+                  <p className="err-msg">No trends here yet</p>
+                ): (
+
               <div class="scrolling-wrapper">
 
                 {this.state.trendList_1.map(item =>
@@ -231,12 +296,15 @@ export default class Trending extends React.Component {
 
                   {this.setMedia(item.product_image)}
 
+                <Link to={`/product/${ item.id } `}>
                   <img src= { `${this.state.media}` } alt="thumbnail"/>
+                </Link>
 
                 </div>
                 )}
 
               </div>
+              )}
 
               </Row>
 
@@ -245,6 +313,11 @@ export default class Trending extends React.Component {
 
               <Row>
               <Heading title = {this.trending_2} trending={true}/>
+
+              {this.emptyResult(this.state.trendList_2) ? (
+                  <p className="err-msg">No trends here yet</p>
+                ): (
+
 
               <div class="scrolling-wrapper">
 
@@ -255,15 +328,17 @@ export default class Trending extends React.Component {
 
                   {this.setMedia(item.product_image)}
 
+                <Link to={`/product/${ item.id } `}>
                   <img src= { `${this.state.media}` } alt="thumbnail"/>
+                </Link>
 
                 </div>
                 )}
 
               </div>
+              )}
 
               </Row>
-
 
 
               <CategoryProduct campus={this.props.campus_id}/>
@@ -274,6 +349,10 @@ export default class Trending extends React.Component {
               <Row>
               <Heading title = {this.trending_3} trending={true}/>
 
+              {this.emptyResult(this.state.trendList_3) ? (
+                  <p className="err-msg">No trends here yet</p>
+                ): (
+
               <div class="scrolling-wrapper">
 
                 {this.state.trendList_3.map(item =>
@@ -283,12 +362,15 @@ export default class Trending extends React.Component {
 
                   {this.setMedia(item.product_image)}
 
+                <Link to={`/product/${ item.id } `}>
                   <img src= { `${this.state.media}` } alt="thumbnail"/>
+                </Link>
 
                 </div>
                 )}
 
               </div>
+                )}
 
               </Row>
 
@@ -299,6 +381,10 @@ export default class Trending extends React.Component {
               <Row>
               <Heading title = {this.trending_4} trending={true}/>
 
+              {this.emptyResult(this.state.trendList_4) ? (
+                  <p className="err-msg">No trends here yet</p>
+                ): (
+
               <div class="scrolling-wrapper">
 
                 {this.state.trendList_4.map(item =>
@@ -308,12 +394,15 @@ export default class Trending extends React.Component {
 
                   {this.setMedia(item.product_image)}
 
+                <Link to={`/product/${ item.id } `}>
                   <img src= { `${this.state.media}` } alt="thumbnail"/>
+                </Link>
 
                 </div>
                 )}
 
               </div>
+                )}
 
               </Row>
 
@@ -329,21 +418,27 @@ export default class Trending extends React.Component {
               <Row>
               <Heading title = {this.trending_5} trending={true}/>
 
+              {this.emptyResult(this.state.trendList_5) ? (
+                  <p className="err-msg">No trends here yet</p>
+                ): (
+
               <div class="scrolling-wrapper">
 
                 {this.state.trendList_5.map(item =>
 
                 <div class="card">
 
-
                   {this.setMedia(item.product_image)}
 
+                <Link to={`/product/${ item.id } `}>
                   <img src= { `${this.state.media}` } alt="thumbnail"/>
+                </Link>
 
                 </div>
                 )}
 
               </div>
+                )}
 
               </Row>
 

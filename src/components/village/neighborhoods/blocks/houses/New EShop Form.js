@@ -5,15 +5,52 @@ import { Row, Col, Button,FormGroup, FormControl, ControlLabel, HelpBlock } from
 export default class NewEShopForm extends React.Component {
 
   state = {
-    statement: []
+    statement: [],
+    categorylist: []
+
   }
+
+
+async componentDidMount() {
+
+    try {
+      const res = await fetch('http://199.192.21.172:8000/category/');
+      const categorylist = await res.json();
+      this.setState({
+        categorylist
+      });
+    } catch (e) {
+      console.log(e);
+    }
+
+
+
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   async newEShop(){
 
+    var category = document.getElementById('category').value
     var eshop_name = document.getElementById('eshop_name').value
     var about = document.getElementById('about').value
 
     var formData = new FormData()
+
+    formData.append('category', category)
     formData.append('eshop_name', eshop_name)
     formData.append('about', about)
 
@@ -64,12 +101,33 @@ render(){
 }
 
 
+
+
 const formInstance = (
   <section className="signin-form">
 
   <form>
   <Row>
   <Col lg={6} lgOffset={3} md={6} mdOffset={3} sm={12} xs={12}>
+
+  <FormGroup>
+      <ControlLabel>Select eshop category</ControlLabel>
+      <FormControl
+      componentClass="select"
+      placeholder="select"
+      id="category"
+      name="category"
+      multiple>
+      {this.state.categorylist.map(item => (
+        <option value={item.id}>{item.name}</option>
+      ))}
+      </FormControl>
+      <HelpBlock>You can select multiple categories for your eshop</HelpBlock>
+    </FormGroup>
+
+
+
+
     <FieldGroup
       id="eshop_name"
       type="text"
