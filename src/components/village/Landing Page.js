@@ -20,14 +20,13 @@ export default class LandingPage extends React.Component {
 
 
 
-async componentWillMount() {
 
-  school_set(){
+school_set(){
     this.setState({ show_school: false})
 }
 
 
-  setSchool(){
+setSchool(){
     var school_id = document.getElementById("campus_id").value
     this.setState({ campus_id: school_id})
     this.school_set()
