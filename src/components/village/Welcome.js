@@ -10,19 +10,19 @@ export default class Welcome extends React.Component {
     state = {
         response: true,
         show_welcome: null,
-        welcome: 'Welcome to Iwansell'
+        welcome: '#1 place to buy and sell on campus'
     }
-  
+
 
   async componentDidMount() {
 
 
     const auth = localStorage.getItem('auth_code')
     console.log(auth)
-  
+
     try {
       const res = await fetch('http://199.192.21.172:8000/isloggedin/', {
-      
+
        credentials: 'same-origin',
        mode: 'cors',
        headers : {
@@ -32,12 +32,12 @@ export default class Welcome extends React.Component {
       })
       .then(response => {
         if (response.status === 200) {
-          
+
         } else {
           this.setState({ response: false})
         }
       })
-      
+
       console.log(this.state.response)
     } catch (e) {
       console.log(e);
@@ -49,12 +49,12 @@ export default class Welcome extends React.Component {
 
 
 
-  
+
 
   async componentWillMount(){
     setTimeout( () => {
       this.setState({show_welcome: false});
-     }, 3000)
+    }, 7000)
   }
 
 

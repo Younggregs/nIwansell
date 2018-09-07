@@ -31,7 +31,7 @@ export default class SignupForm extends React.Component {
     var firstname = document.getElementById("firstname").value
     var lastname = document.getElementById("lastname").value
     var campus = document.getElementById("campus").value
-    var email = document.getElementById("email").value
+    var phone = document.getElementById("phone").value
     var password = document.getElementById("password").value
 
 
@@ -40,7 +40,7 @@ export default class SignupForm extends React.Component {
     formData.append('firstname', firstname)
     formData.append('lastname', lastname)
     formData.append('campus', campus)
-    formData.append('email', email)
+    formData.append('phone', phone)
     formData.append('password', password)
 
 
@@ -62,7 +62,7 @@ export default class SignupForm extends React.Component {
       console.log(e);
     }
 
-    login(email, password)
+    login(phone, password)
 
 
   }
@@ -138,12 +138,12 @@ const formInstance = (
 
 <Row>
    <Col lg={6} md={6} sm={12} xs={12}>
-    <FieldGroup
-      id="email"
-      type="email"
-      label="Email address"
-      name="email"
-      placeholder="example@gmail.com"
+   <FieldGroup
+      id="phone"
+      type="text"
+      label="Phone number"
+      name="phone"
+      placeholder="e.g 08109599939"
     />
   </Col>
 

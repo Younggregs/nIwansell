@@ -13,26 +13,26 @@ export default class SigninForm extends React.Component {
   }
 
 
- async submitForm(){    
+ async submitForm(){
 
-    var email = document.getElementById("email").value
+    var username = document.getElementById("username").value
     var password = document.getElementById("password").value
 
-    
+
 
     var formData = new FormData()
-    formData.append('email', email)
+    formData.append('username', username)
     formData.append('password', password)
 
 
     try {
       const res = await fetch('http://199.192.21.172:8000/signin/', {
-      
+
        body :formData,
        method: 'POST',
        credentials: 'same-origin',
        mode: 'cors',
-    
+
       });
       const statement = await res.json();
       this.setState({
@@ -44,9 +44,9 @@ export default class SigninForm extends React.Component {
     }
 
 
-    login(email, password)
+    login(username, password)
 
-    
+
   }
 
 render(){
@@ -91,20 +91,20 @@ const formInstance = (
   <form>
   <Row>
   <Col lg={6} md={6} sm={12} xs={12}>
-    <FieldGroup
-      id="email"
-      type="email"
-      label="Email address"
-      name="email"
-      placeholder="example@gmail.com"
-    />
+  <FieldGroup
+    id="username"
+    type="text"
+    label="Phone or email"
+    name="username"
+    placeholder="08103800938 or example@gmail.com"
+  />
    </Col>
 
    <Col lg={6} md={6} sm={12} xs={12}>
     <FieldGroup
-     id="password" 
-     label="Password" 
-     type="password" 
+     id="password"
+     label="Password"
+     type="password"
      name="password"
      />
    </Col>
@@ -117,7 +117,7 @@ const formInstance = (
       <span></span>
     )}
 
-    {this.state.statement.code ? ( 
+    {this.state.statement.code ? (
        <span><Redirect to='/home'/></span>
     ) : (
       <span></span>
@@ -134,10 +134,10 @@ const formInstance = (
     </Link>
     </Col>
 
-    
+
    </Row>
 
-   
+
   </form>
   </section>
 );

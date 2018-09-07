@@ -1,5 +1,6 @@
 import React from 'react'
 import { Grid,Row,Col, Form, FormGroup,FormControl, Button } from 'react-bootstrap'
+import campusList from './neighborhoods/blocks/houses/Campus'
 import Navigation from './neighborhoods/Navigation'
 import Sponsored from './neighborhoods/Sponsored'
 import Trending from './neighborhoods/Trending'
@@ -12,7 +13,6 @@ import Copyright from './neighborhoods/blocks/houses/Copyright'
 
 export default class LandingPage extends React.Component {
  state = {
-   campuslist: [],
    show_school: true,
    campus_id: '1',
    school: "Futminna",
@@ -20,21 +20,11 @@ export default class LandingPage extends React.Component {
 
 
 
-  async componentWillMount() {
-    try {
-      const res = await fetch('http://199.192.21.172:8000/campus/');
-      const campuslist = await res.json();
-      this.setState({
-        campuslist
-      });
-    } catch (e) {
-      console.log(e);
-    }
-  }
+async componentWillMount() {
 
   school_set(){
     this.setState({ show_school: false})
-  }
+}
 
 
   setSchool(){
@@ -76,7 +66,7 @@ export default class LandingPage extends React.Component {
                       <Heading title="Select Campus"/>
                     <FormGroup>
                    <FormControl componentClass="select" placeholder="select" id="campus_id">
-                   {this.state.campuslist.map(item => (
+                   {campusList.map(item => (
                     <option value={item.id}>{item.campus_code}</option>
                     ))}
                    </FormControl>
