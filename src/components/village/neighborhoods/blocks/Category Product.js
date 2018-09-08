@@ -133,12 +133,12 @@ export default class CategoryProduct extends React.Component {
               <Heading title="View products by category"/>
 
               <div className="category-list-sm">
-                       <p  className="category-item">
+                       <p className="category-item">
                             <Button onClick={this.newCategory.bind(this, 99,"All Categories")}>All Categories</Button>
                        </p>
                        {this.state.categoryList.map(item => (
 
-                          <pclassName="category-item">
+                          <p className="category-item">
                                <Button onClick={this.newCategory.bind(this, item.id, item.name)}>{item.name}</Button>
                           </p>
                        ))}
