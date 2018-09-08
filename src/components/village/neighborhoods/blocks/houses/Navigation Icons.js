@@ -105,6 +105,11 @@ export default class NavigationIcons extends React.Component {
          return (
            <section className="ehaggler-icon">
               <Col lg={2} md={2} smHidden xsHidden>
+              <Link to="/newproduct">
+                <Button bsStyle="success">
+                  Sell it
+                </Button>
+               </Link>&nbsp;&nbsp;
 
              <Link to={`/profile/${ this.props.account_id } `}>
              <OverlayTrigger placement="left" overlay={profile}>

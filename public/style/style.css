@@ -98,18 +98,23 @@ a{
 
 
 .category-list{
-  background-color: white;
+  background-color: rgb(139, 61, 100);
   padding: 10px;
 }
 
 .category-list-sm{
-  background-color: whit
-  esmoke;
+  background-color: rgb(139, 61, 100);
   padding: 10px;
   height: 150px;
   overflow: auto;
 
+}
 
+.category-item{
+  padding-bottom: 20px;
+  border-bottom-color: orange;
+  border-bottom-style: solid;
+  border-bottom-width: 20px;
 }
 
 .category-product{
@@ -360,6 +365,16 @@ td{
   line-height: 300px;
 }
 
+.product-tip{
+
+  color: white;
+  background-color: rgb(7, 3, 31);
+  font-family: "Ubuntu";
+  text-align: center;
+  padding: 5px;
+
+}
+
 .product-info{
   background-color: white;
   color: black;
@@ -460,8 +475,12 @@ img{
 .heading{
   padding-top:10px;
   padding-bottom: 10px;
+  background-color: rgb(7, 3, 31);
   font-size: 1.5em;
-  color: black;
+  border-color: rgb(234, 239, 241);
+  border-style: solid;
+  border-width:5px;
+  color: orange;
   text-align: center;
   font-family: "Ubuntu";
 }

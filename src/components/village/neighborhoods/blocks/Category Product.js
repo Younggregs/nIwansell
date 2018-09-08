@@ -77,12 +77,12 @@ export default class CategoryProduct extends React.Component {
                        <Heading title="Categories"/>
 
                        <div className="category-list">
-                       <p>
+                       <p className="category-item">
                             <Button onClick={this.newCategory.bind(this, 99,"All Categories")}>All Categories</Button>
                        </p>
                        {this.state.categoryList.map(item => (
 
-                          <p>
+                          <p className="category-item">
                                <Button onClick={this.newCategory.bind(this, item.id, item.name)}>{item.name}</Button>
                           </p>
                        ))}
@@ -133,12 +133,12 @@ export default class CategoryProduct extends React.Component {
               <Heading title="View products by category"/>
 
               <div className="category-list-sm">
-                       <p>
+                       <p  className="category-item">
                             <Button onClick={this.newCategory.bind(this, 99,"All Categories")}>All Categories</Button>
                        </p>
                        {this.state.categoryList.map(item => (
 
-                          <p>
+                          <pclassName="category-item">
                                <Button onClick={this.newCategory.bind(this, item.id, item.name)}>{item.name}</Button>
                           </p>
                        ))}
@@ -160,8 +160,10 @@ export default class CategoryProduct extends React.Component {
                     <Image alt="product-image" src= { `${this.state.media}` }/>
                 </div>
                 </section>
-                  <p className="sm-store">{item.product_name}</p>
-                  <p className="sm-store">Starting price : {item.starting_price}</p>
+                 <div className="category-tip">
+                   <p>{item.product_name}</p>
+                   <p>Starting price : {item.starting_price}</p>
+                 </div>
                 </Link>
 
                 </section>
