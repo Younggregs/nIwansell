@@ -72,7 +72,7 @@ setSchool(){
                  </FormGroup>
 
                  <FormGroup>{' '}
-                <Button onClick={this.setSchool.bind(this)}>continue</Button>
+                <Button bsStyle="success" onClick={this.setSchool.bind(this)}>continue</Button>
                   </FormGroup>{' '}
                   </form>
                   </Col>

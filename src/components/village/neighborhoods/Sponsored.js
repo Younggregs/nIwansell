@@ -31,54 +31,57 @@ export default class Sponsored extends React.Component {
 
        render() {
 
-        var settings = {
-          dots: true,
-          infinite: true,
-          speed: 500,
-          slidesToShow: 3,
-          slidesToScroll: 3
-        };
+
+           var settings = {
+             dots: true,
+             infinite: true,
+             autoplay: true,
+             autoplaySpeed: 1000,
+             fade: true,
+             speed: 2000,
+
+           };
 
 
-         return (
-           <section className="sponsored"> 
-               <Row>
-                <Heading title={this.props.title}/>
-               </Row>
-               <Row>
-               <Col lg={10} lgOffset={1} md={10} mdOffset={1} smHidden xsHidden>
-          <Slider {...settings}>
+            return (
+              <section className="sponsored">
+                  <Row>
+                   <Heading title={this.props.title}/>
+                  </Row>
+                  <Row>
+                  <Col lg={10} lgOffset={1} md={10} mdOffset={1} smHidden xsHidden>
+             <Slider {...settings}>
 
-            { this.state.sponsoredList.map(item => (
-                    <div className="sponsored-images">
-                      <div className="sponsored-image">
-                    {this.setMedia(item.product_image)}
-                    <img src= { `${this.state.media}` } alt="thumbnail"/>
-                    </div>
-                    </div>
-                 )
-                )}
-         </Slider>
-      
-             </Col>
+               { this.state.sponsoredList.map(item => (
+                       <div className="sponsored-images">
+                         <div className="sponsored-image">
+                       {this.setMedia(item.product_image)}
+                       <img src= { `${this.state.media}` } alt="thumbnail"/>
+                       </div>
+                       </div>
+                    )
+                   )}
+            </Slider>
 
-						  <Col sm={12} xs={12} lgHidden mdHidden>
+                </Col>
 
-								<div class="scrolling-wrapper">
-                { this.state.sponsoredList.map(item => (
-                    <div class="card">
-                    {this.setMedia(item.product_image)}
-                    <img src= { `${this.state.media}` } alt="thumbnail"/>
-                    </div>
-                 )
-                )}
-  
-                </div>
+   						  <Col sm={12} xs={12} lgHidden mdHidden>
 
-             </Col>
-              </Row>
-              
-           </section>
-         )
-       }
+   								<div class="scrolling-wrapper">
+                   { this.state.sponsoredList.map(item => (
+                       <div class="card">
+                       {this.setMedia(item.product_image)}
+                       <img src= { `${this.state.media}` } alt="thumbnail"/>
+                       </div>
+                    )
+                   )}
+
+                   </div>
+
+                </Col>
+                 </Row>
+
+              </section>
+            )
+          }
   }

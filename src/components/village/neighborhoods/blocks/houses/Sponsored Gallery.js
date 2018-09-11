@@ -29,7 +29,7 @@ export default class SponsoredGallery extends React.Component {
     this.state.id = 'id' + this.state.count
   }
 
-  defualtImage(){
+  defaultImage(){
       if(this.state.count == 2){
         return true
       }
@@ -37,7 +37,7 @@ export default class SponsoredGallery extends React.Component {
       return false
   }
 
-   
+
 
        render() {
 
@@ -47,11 +47,11 @@ export default class SponsoredGallery extends React.Component {
             <span>
             {this.setMedia(item.product_image)}
             {this.switchMedia()}
-      
-            {this.state.defualtImage ? (
+
+            {this.state.defaultImage ? (
               <span>
               <input type="radio" name="slide_switch" id={this.state.id} checked="checked"/>
-              <label for={this.state.id}> 
+              <label for={this.state.id}>
               <img src= { `${this.state.media}` } with="100"/>
             </label>
             <img src= { `${this.state.media}` }/>
@@ -65,7 +65,7 @@ export default class SponsoredGallery extends React.Component {
             <img src= { `${this.state.media}` }/>
             </span>
             )}
-      
+
             </span>
          )
         )}
