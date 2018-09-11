@@ -9,7 +9,7 @@ export default class Welcome extends React.Component {
 
     state = {
         response: true,
-        show_welcome: null,
+        show_welcome: true,
         welcome: '#1 place to buy and sell on campus'
     }
 
