@@ -88,22 +88,41 @@ a{
   padding-top: 20px;
 }
 
+.no-1{
+  text-align: 'center';
+  vertical-align: 'middle';
+  display: flex;
+  align-items: 'center';
+  padding: 10;
+  color: white;
+  font-family: "Audiowide";
+  font-size: 1.9em;
+}
+
+.no-1 p {
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+}
+
 
 .navigation{
-  background-color: rgb(7, 3, 31);
-  height: 100px;
+  background-color: red;
+  background-image: url(bg_image.jpg);
+  background-repeat: repeat-x;
+  height: 300px;
   font-size: 1.98em;
   padding-top: 20px;
 }
 
 
 .category-list{
-  background-color: rgb(139, 61, 100);
+  background-color:white;
   padding: 10px;
 }
 
 .category-list-sm{
-  background-color: rgb(139, 61, 100);
+  background-color: white;
   padding: 10px;
   height: 150px;
   overflow: auto;
@@ -112,7 +131,7 @@ a{
 
 .category-item{
   padding-bottom: 20px;
-  border-bottom-color: orange;
+  border-bottom-color:green;
   border-bottom-style: solid;
   border-bottom-width: 20px;
 }
@@ -367,12 +386,14 @@ td{
 }
 
 .product-tip{
-
-  color: white;
-  background-color: rgb(7, 3, 31);
+  color: black;
+  background-color: white;
   font-family: "Ubuntu";
+  font-size: 1.2em;
+  font-weight: 'bold';
   text-align: center;
   padding: 5px;
+  margin: 5px;
 
 }
 
@@ -438,7 +459,7 @@ img{
 }
 
 .sm-navigation{
-  background-color:  rgb(7, 3, 31);
+  background-color:  red;
   height: 100px;
   font-size: 1.19em;
 }
@@ -473,15 +494,31 @@ img{
 }
 
 
-.heading{
+.heading-lg{
   padding-top:10px;
   padding-bottom: 10px;
-  background-color: rgb(7, 3, 31);
+  background-color: whitesmoke;
+  background-image: url(bg_image.jpg);
+  background-repeat: repeat-x;
   font-size: 1.5em;
   border-color: rgb(234, 239, 241);
   border-style: solid;
   border-width:5px;
-  color: orange;
+  color: white;
+  text-align: center;
+  font-family: "Ubuntu";
+}
+
+
+.heading-sm{
+  padding-top:10px;
+  padding-bottom: 10px;
+  background-color: whitesmoke;
+  font-size: 1.5em;
+  border-color: rgb(234, 239, 241);
+  border-style: solid;
+  border-width:5px;
+  color: red;
   text-align: center;
   font-family: "Ubuntu";
 }

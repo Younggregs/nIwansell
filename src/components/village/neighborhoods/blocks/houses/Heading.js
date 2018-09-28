@@ -1,11 +1,13 @@
 import React from 'react';
-import { Row } from 'react-bootstrap';
+import { Row, Col } from 'react-bootstrap';
 
 export default class Heading extends React.Component {
 
        render() {
          return (
-           <section className="heading">
+           <section>
+           <Col smHidden xsHidden>
+           <section className="heading-lg">
              { this.props.trending ? (
                 <Row>
                   <p>Trending in {this.props.title}</p>
@@ -21,10 +23,32 @@ export default class Heading extends React.Component {
                 </span>
 
              )}
+             </section>
+            </Col>
+
+            <Col lgHidden mdHidden>
+           <section className="heading-sm">
+             { this.props.trending ? (
+                <Row>
+                  <p>Trending in {this.props.title}</p>
+                </Row>
+             )
+             : (
+                <span>
+                { this.props.store ? (
+                  <p>{this.props.title} <span className="shelf">Shelf</span></p>
+                  ) : (
+                    <p>{this.props.title}</p>
+                )}
+                </span>
+
+             )}
+             </section>
+            </Col>
 
 
+          </section>
 
-           </section>
          )
        }
   }
