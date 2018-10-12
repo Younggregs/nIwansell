@@ -26,7 +26,7 @@ export default class Sponsored extends React.Component {
   }
 
   setMedia(media_name){
-    this.state.media = 'https://www.iwansell.com/api' + media_name
+    this.state.media = 'https://www.iwansell.com/api/media' + media_name
   }
 
        render() {
