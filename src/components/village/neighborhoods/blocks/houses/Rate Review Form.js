@@ -40,7 +40,7 @@ export default class RateReviewForm extends React.Component {
     const auth = localStorage.getItem('auth_code')
   
     try {
-      const res = await fetch('http://199.192.21.172:8000/rate_review/' + this.props.status_code + '/' + this.props.id  + '/', {
+      const res = await fetch('https://www.iwansell.com/api/rate_review/' + this.props.status_code + '/' + this.props.id  + '/', {
       
        body : formData,
        method: 'POST',

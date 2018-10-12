@@ -1,7 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import store from './neighborhoods/blocks/houses/auth/store';
-import { setToken } from './neighborhoods/blocks/houses/auth/actions'
 import { Row, Col, Button,FormGroup, FormControl, ControlLabel, HelpBlock } from 'react-bootstrap';
 
 
@@ -22,7 +20,7 @@ export default class AuthTest extends React.Component {
 
 
     try {
-      const res = await fetch('http://199.192.21.172:8000/auth', {
+      const res = await fetch('https://www.iwansell.com/api/auth', {
       
        body :formData,
        method: 'POST',
@@ -59,7 +57,7 @@ async newEShop(){
   formData.append('eshop_name', eshop_name)
 
   try {
-    const res = await fetch('http://199.192.21.172:8000/new_eshop/', {
+    const res = await fetch('https://www.iwansell.com/api/new_eshop/', {
     
     body: formData,
     method: 'POST',

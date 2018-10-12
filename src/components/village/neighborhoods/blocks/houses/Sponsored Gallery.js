@@ -9,7 +9,7 @@ export default class SponsoredGallery extends React.Component {
 
   async componentWillMount() {
     try {
-      const res = await fetch('http://199.192.21.172:8000/sponsored/');
+      const res = await fetch('https://www.iwansell.com/api/sponsored/');
       const sponsoredList = await res.json();
       this.setState({
         sponsoredList
@@ -21,7 +21,7 @@ export default class SponsoredGallery extends React.Component {
   }
 
   setMedia(media_name){
-    this.state.media = 'http://199.192.21.172:8000' + media_name
+    this.state.media = 'https://www.iwansell.com/api' + media_name
   }
 
   switchMedia(){

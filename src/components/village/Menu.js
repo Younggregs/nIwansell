@@ -17,7 +17,7 @@ export default class Menu extends React.Component {
     const auth = localStorage.getItem('auth_code')
 
     try {
-        const res = await fetch('http://199.192.21.172:8000/get_account/',{
+        const res = await fetch('https://www.iwansell.com/api/get_account/',{
 
          credentials: 'same-origin',
          mode: 'cors',

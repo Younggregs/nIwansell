@@ -24,7 +24,7 @@ export default class EditPassword extends React.Component {
     formData.append('confirm_password', confirm_password)
   
     try {
-      const res = await fetch('http://199.192.21.172:8000/update_password/', {
+      const res = await fetch('https://www.iwansell.com/api/update_password/', {
       
       
        body : formData,

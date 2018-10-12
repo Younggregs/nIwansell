@@ -22,7 +22,7 @@ async submitForm(){
         formData.append("product", product)
 
         try {
-            const res = await fetch('http://199.192.21.172:8000/product_valuation/', {
+            const res = await fetch('https://www.iwansell.com/api/product_valuation/', {
 
              body: formData,
              method: 'POST',

@@ -21,7 +21,7 @@ export default class Welcome extends React.Component {
     console.log(auth)
 
     try {
-      const res = await fetch('http://199.192.21.172:8000/isloggedin/', {
+      const res = await fetch('https://www.iwansell.com/api/isloggedin/', {
 
        credentials: 'same-origin',
        mode: 'cors',

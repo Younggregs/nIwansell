@@ -11,7 +11,7 @@ export default class EShopInfo extends React.Component {
 
 async componentWillMount(){
   try {
-    const res = await fetch('http://199.192.21.172:8000/about_eshop/' + this.props.eshop_id + '/')
+    const res = await fetch('https://www.iwansell.com/api/about_eshop/' + this.props.eshop_id + '/')
     const boss_info = await res.json();
       this.setState({
         boss_info
@@ -31,7 +31,7 @@ async componentWillMount(){
     const auth = localStorage.getItem('auth_code')
 
     try {
-      const res = await fetch('http://199.192.21.172:8000/favorite/2/' + this.props.eshop_id + '/', {
+      const res = await fetch('https://www.iwansell.com/api/favorite/2/' + this.props.eshop_id + '/', {
 
        credentials: 'same-origin',
        mode: 'cors',

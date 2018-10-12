@@ -14,7 +14,7 @@ export default class Sponsored extends React.Component {
 
   async componentWillMount() {
     try {
-      const res = await fetch('https://iwansell.com/api/sponsored/' + this.props.campus_id + '/');
+      const res = await fetch('https://www.iwansell.com/api/sponsored/' + this.props.campus_id + '/');
       const sponsoredList = await res.json();
       this.setState({
         sponsoredList
@@ -26,7 +26,7 @@ export default class Sponsored extends React.Component {
   }
 
   setMedia(media_name){
-    this.state.media = 'https://iwansell.com/api' + media_name
+    this.state.media = 'https://www.iwansell.com/api' + media_name
   }
 
        render() {

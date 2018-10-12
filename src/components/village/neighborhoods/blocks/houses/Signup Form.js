@@ -14,7 +14,7 @@ export default class SignupForm extends React.Component {
 
   async componentWillMount() {
     try {
-      const res = await fetch('http://199.192.21.172:8000/campus/');
+      const res = await fetch('https://www.iwansell.com/api/campus/');
       const campuslist = await res.json();
       this.setState({
         campuslist

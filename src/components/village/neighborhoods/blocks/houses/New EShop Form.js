@@ -14,7 +14,7 @@ export default class NewEShopForm extends React.Component {
 async componentDidMount() {
 
     try {
-      const res = await fetch('http://199.192.21.172:8000/category/');
+      const res = await fetch('https://www.iwansell.com/api/category/');
       const categorylist = await res.json();
       this.setState({
         categorylist
@@ -59,7 +59,7 @@ async componentDidMount() {
     console.log(auth)
 
     try {
-      const res = await fetch('http://199.192.21.172:8000/new_eshop/', {
+      const res = await fetch('https://www.iwansell.com/api/new_eshop/', {
 
       body: formData,
       method: 'POST',

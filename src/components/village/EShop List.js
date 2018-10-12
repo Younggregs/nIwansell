@@ -15,7 +15,7 @@ export default class EshopList extends React.Component {
 
   async componentDidMount() {
         try {
-          const res = await fetch('http://199.192.21.172:8000/eshop_list/');
+          const res = await fetch('https://www.iwansell.com/api/eshop_list/');
           const eshop_list = await res.json();
           this.setState({
             eshop_list
@@ -26,7 +26,7 @@ export default class EshopList extends React.Component {
 
 
         try {
-          const res = await fetch('http://199.192.21.172:8000/category/');
+          const res = await fetch('https://www.iwansell.com/api/category/');
           const categorylist = await res.json();
           this.setState({
             categorylist
@@ -54,7 +54,7 @@ async submitForm(){
         formData.append("eshop_name", eshop_name)
 
         try {
-            const res = await fetch('http://199.192.21.172:8000/eshop_list/', {
+            const res = await fetch('https://www.iwansell.com/api/eshop_list/', {
 
              body: formData,
              method: 'POST'
@@ -75,7 +75,7 @@ async submitForm(){
 async sortByCategory(id){
 
   try {
-      const res = await fetch('http://199.192.21.172:8000/eshop_list_category/' + id + '/');
+      const res = await fetch('https://www.iwansell.com/api/eshop_list_category/' + id + '/');
       const eshop_list = await res.json();
       this.setState({
         eshop_list

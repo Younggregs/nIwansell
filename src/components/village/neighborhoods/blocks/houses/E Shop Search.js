@@ -20,7 +20,7 @@ export default class EShopSearch extends React.Component {
     formData.append("search_phrase", search_phrase)
 
     try {
-      const res = await fetch('http://199.192.21.172:8000/eshop_search/' + this.props.eshop_id + '/',{
+      const res = await fetch('https://www.iwansell.com/api/eshop_search/' + this.props.eshop_id + '/',{
 
       body : formData,
       method : 'POST'
@@ -51,7 +51,7 @@ export default class EShopSearch extends React.Component {
 
 
 setMedia(media_name){
-  this.state.media = 'http://199.192.21.172:8000/media/' + media_name
+  this.state.media = 'https://www.iwansell.com/api/media/' + media_name
 }
 
 

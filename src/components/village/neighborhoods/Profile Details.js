@@ -13,7 +13,7 @@ export default class ProfileDetails extends React.Component {
  
    async componentWillMount() {
      try {
-       const res = await fetch('http://199.192.21.172:8000/accounts/' + this.props.profile_id);
+       const res = await fetch('https://www.iwansell.com/api/accounts/' + this.props.profile_id);
        const profileDetail = await res.json();
        this.setState({
          profileDetail
@@ -25,7 +25,7 @@ export default class ProfileDetails extends React.Component {
    }
 
    setMedia(media_name){
-    this.state.media = 'http://199.192.21.172:8000' + media_name
+    this.state.media = 'https://www.iwansell.com/api' + media_name
   }
 
 

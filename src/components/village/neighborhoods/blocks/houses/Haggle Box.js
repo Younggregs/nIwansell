@@ -22,7 +22,7 @@ export default class HaggleBox extends React.Component {
 
 
     try {
-      fetch('http://199.192.21.172:8000/send_message/' + this.props.client_id + '/',{
+      fetch('https://www.iwansell.com/api/send_message/' + this.props.client_id + '/',{
 
          body: formData ,
 
@@ -53,7 +53,7 @@ export default class HaggleBox extends React.Component {
 
 
     try {
-      fetch('http://199.192.21.172:8000/send_message/' + this.props.client_id + '/',{
+      fetch('https://www.iwansell.com/api/send_message/' + this.props.client_id + '/',{
 
          body: formData ,
 

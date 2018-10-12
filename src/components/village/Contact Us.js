@@ -42,8 +42,12 @@ export default class ContactUs extends React.Component {
 
               <div className="menu-body">
               <Row>
+              <Col lg={6} md={6} sm={12} xs={12}>
+                support@iwansell.com
+               </Col>
+
                <Col lg={6} md={6} sm={12} xs={12}>
-                merlinsbeardlabs@gmail.com
+               08109599597
                </Col>
 
                <Col lg={6} md={6} sm={12} xs={12}>
@@ -51,7 +55,7 @@ export default class ContactUs extends React.Component {
                </Col>
 
                <Col lg={6} md={6} sm={12} xs={12}>
-                08109599597
+                merlinsbeardlabs@gmail.com
                </Col>
 
               </Row>

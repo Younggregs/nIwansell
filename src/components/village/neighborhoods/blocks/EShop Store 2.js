@@ -15,7 +15,7 @@ export default class EShopStore2 extends React.Component {
   async componentWillMount() {
 
     try {
-      const res = await fetch('http://199.192.21.172:8000/eshop_store/'+ this.props.eshop_id + '/' + this.props.id + '/');
+      const res = await fetch('https://www.iwansell.com/api/eshop_store/'+ this.props.eshop_id + '/' + this.props.id + '/');
       const eshop_store = await res.json();
       this.setState({
         eshop_store
@@ -28,7 +28,7 @@ export default class EShopStore2 extends React.Component {
 
 
   setMedia(media_name){
-    this.state.media = 'http://199.192.21.172:8000' + media_name
+    this.state.media = 'https://www.iwansell.com/api' + media_name
   }
 
 

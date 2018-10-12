@@ -21,7 +21,7 @@ export default class NewEShopProductForm extends React.Component {
     const auth = localStorage.getItem('auth_code')
 
     try {
-      const res = await fetch('http://199.192.21.172:8000/myaccount_id/', {
+      const res = await fetch('https://www.iwansell.com/api/myaccount_id/', {
 
         headers : {
           'Authorization' : 'Token ' + auth,
@@ -42,7 +42,7 @@ export default class NewEShopProductForm extends React.Component {
 
 
     try {
-      const res = await fetch('http://199.192.21.172:8000/category/');
+      const res = await fetch('https://www.iwansell.com/api/category/');
       const categorylist = await res.json();
       this.setState({
         categorylist
@@ -58,7 +58,7 @@ export default class NewEShopProductForm extends React.Component {
 
 
     try {
-      const res = await fetch('http://199.192.21.172:8000/eshop_exist/');
+      const res = await fetch('https://www.iwansell.com/api/eshop_exist/');
       const eshop_exist = await res.json();
       this.setState({
         eshop_exist
@@ -74,7 +74,7 @@ export default class NewEShopProductForm extends React.Component {
 async getSubcategory(){
 
   try {
-    const res = await fetch('http://199.192.21.172:8000/subcategory/' + this.state.category_id);
+    const res = await fetch('https://www.iwansell.com/api/subcategory/' + this.state.category_id);
     const subcategorylist = await res.json();
     this.setState({
       subcategorylist
@@ -153,7 +153,7 @@ const formInstance = (
   <br />
   <p className="success-msg">Note: Update phone number in your profile before or after adding a product, so clients can reach you on phone</p>
 
-  <form method="POST" enctype="multipart/form-data" action={"http://199.192.21.172:8000/new_eshop_product/" + this.state.account_id + "/"}>
+  <form method="POST" enctype="multipart/form-data" action={"https://www.iwansell.com/api/new_eshop_product/" + this.state.account_id + "/"}>
   <FormGroup>
       <ControlLabel>Categories</ControlLabel>
       <FormControl componentClass="select" placeholder="select" id="category" name="category" onChange={this.getCategoryId.bind(this)}>

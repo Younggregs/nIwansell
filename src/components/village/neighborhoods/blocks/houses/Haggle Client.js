@@ -10,7 +10,7 @@ export default class HaggleClient extends React.Component {
 
   async componentDidMount() {
     try {
-      const res = await fetch('http://199.192.21.172:8000/accounts/' + this.props.client_id);
+      const res = await fetch('https://www.iwansell.com/api/accounts/' + this.props.client_id);
       const client_info = await res.json();
       this.setState({
         client_info

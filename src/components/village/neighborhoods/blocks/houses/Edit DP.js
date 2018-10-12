@@ -22,7 +22,7 @@ export default class EditDP extends React.Component {
       
       
         try {
-          const res = await fetch('http://199.192.21.172:8000/reset_dp/', {
+          const res = await fetch('https://www.iwansell.com/api/reset_dp/', {
           
            body : formData,
            method: 'POST',

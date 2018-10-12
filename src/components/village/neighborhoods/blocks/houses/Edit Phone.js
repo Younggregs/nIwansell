@@ -17,7 +17,7 @@ export default class EditPhone extends React.Component {
 
 
     try {
-      const res = await fetch('http://199.192.21.172:8000/get_phone/', {
+      const res = await fetch('https://www.iwansell.com/api/get_phone/', {
        headers : {
          'Authorization' : 'Token ' + auth
        }
@@ -47,7 +47,7 @@ export default class EditPhone extends React.Component {
     formData.append('phone', phone)
 
     try {
-      const res = await fetch('http://199.192.21.172:8000/reset_phone/', {
+      const res = await fetch('https://www.iwansell.com/api/reset_phone/', {
 
 
        body : formData,

@@ -16,7 +16,7 @@ export default class RatingsReviews extends React.Component {
     const auth = localStorage.getItem('auth_code')
   
     try {
-      const res = await fetch('http://199.192.21.172:8000/rate_review/' + this.props.status_code + '/' + this.props.id  + '/', {
+      const res = await fetch('https://www.iwansell.com/api/rate_review/' + this.props.status_code + '/' + this.props.id  + '/', {
        headers : {
          'Authorization' : 'Token ' + auth
        }
@@ -36,7 +36,7 @@ export default class RatingsReviews extends React.Component {
 
 
   setMedia(media_name){
-    this.state.media = 'http://199.192.21.172:8000/media/' + media_name
+    this.state.media = 'https://www.iwansell.com/api/media/' + media_name
   }
 
 

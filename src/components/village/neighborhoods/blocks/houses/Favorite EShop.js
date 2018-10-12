@@ -12,7 +12,7 @@ export default class FavoriteEShop extends React.Component {
 
   async componentWillMount() {
     try {
-      const res = await fetch('http://199.192.21.172:8000/favorite_list/2/' + this.props.match.params.profile_id);
+      const res = await fetch('https://www.iwansell.com/api/favorite_list/2/' + this.props.match.params.profile_id);
       const favoritelist = await res.json();
       this.setState({
         favoritelist
@@ -24,7 +24,7 @@ export default class FavoriteEShop extends React.Component {
 
 
   setMedia(media_name){
-    this.state.media = 'http://199.192.21.172:8000/media/' + media_name
+    this.state.media = 'https://www.iwansell.com/api/media/' + media_name
   }
 
 render(){

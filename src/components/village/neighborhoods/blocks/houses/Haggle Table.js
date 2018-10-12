@@ -17,7 +17,7 @@ export default class HaggleTable extends React.Component {
     const auth = localStorage.getItem('auth_code')
 
     try {
-      const res = await fetch('http://199.192.21.172:8000/messenger/' + this.props.client_id + '/',{
+      const res = await fetch('https://www.iwansell.com/api/messenger/' + this.props.client_id + '/',{
          
         headers : {
          'Authorization' : 'Token ' + auth,
@@ -39,7 +39,7 @@ export default class HaggleTable extends React.Component {
 
 
     try {
-      const res = await fetch('http://199.192.21.172:8000/messenger/' + this.props.client_id + '/',{
+      const res = await fetch('https://www.iwansell.com/api/messenger/' + this.props.client_id + '/',{
          
         headers : {
          'Authorization' : 'Token ' + this.auth,

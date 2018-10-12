@@ -12,7 +12,7 @@ export default class SoldProduct extends React.Component {
      
        async componentWillMount() {
          try {
-           const res = await fetch('http://199.192.21.172:8000/soldproduct/' + this.props.match.params.eshop_id);
+           const res = await fetch('https://www.iwansell.com/api/soldproduct/' + this.props.match.params.eshop_id);
            const productDetail = await res.json();
            this.setState({
              productDetail

@@ -18,7 +18,7 @@ export default class Home extends React.Component {
     console.log(auth)
 
     try {
-      const res = await fetch('http://199.192.21.172:8000/get_account/',{
+      const res = await fetch('https://www.iwansell.com/api/get_account/',{
 
        credentials: 'same-origin',
        mode: 'cors',
@@ -37,7 +37,7 @@ export default class Home extends React.Component {
 
 
     try {
-      const res = await fetch('http://199.192.21.172:8000/get_campus/',{
+      const res = await fetch('https://www.iwansell.com/api/get_campus/',{
 
        credentials: 'same-origin',
        mode: 'cors',
