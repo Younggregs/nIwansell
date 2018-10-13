@@ -8,7 +8,7 @@ import Home from './Home'
 export default class Welcome extends React.Component {
 
     state = {
-        response: true,
+        response: false,
         show_welcome: true,
         welcome: '#1 place to buy and sell on campus'
     }
@@ -34,7 +34,7 @@ export default class Welcome extends React.Component {
         if (response.status === 200) {
 
         } else {
-          this.setState({ response: false})
+          this.setState({ response: true})
         }
       })
 
@@ -67,9 +67,9 @@ export default class Welcome extends React.Component {
           ) : (
             <div>
                 { this.state.response ? (
-            <Home/>
-          ): (
             <LandingPage/>
+          ): (
+            <Home/>
           )}
             </div>
 
