@@ -67,9 +67,9 @@ export default class Welcome extends React.Component {
           ) : (
             <div>
                 { this.state.response ? (
-            <LandingPage/>
-          ): (
             <Home/>
+          ): (
+            <LandingPage/>
           )}
             </div>
 
