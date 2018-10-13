@@ -20,6 +20,8 @@ export default class Welcome extends React.Component {
     const auth = localStorage.getItem('auth_code')
     console.log(auth)
 
+    if(auth == null || auth== ""){
+
     try {
       const res = await fetch('https://www.iwansell.com/api/isloggedin/', {
 
@@ -41,6 +43,9 @@ export default class Welcome extends React.Component {
       console.log(this.state.response)
     } catch (e) {
       console.log(e);
+    }
+    }else{
+
     }
 
       this.setState({ show_welcome: true})
