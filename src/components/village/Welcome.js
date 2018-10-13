@@ -20,32 +20,31 @@ export default class Welcome extends React.Component {
     const auth = localStorage.getItem('auth_code')
     console.log(auth)
 
-    if(auth == null || auth== ""){
+    if(auth == null || auth== ""){}
+    else{
 
-    try {
-      const res = await fetch('https://www.iwansell.com/api/isloggedin/', {
+      try {
+        const res = await fetch('https://www.iwansell.com/api/isloggedin/', {
 
-       credentials: 'same-origin',
-       mode: 'cors',
-       headers : {
+        credentials: 'same-origin',
+        mode: 'cors',
+        headers : {
          'Authorization' : 'Token ' + auth
-       }
-
-      })
-      .then(response => {
-        if (response.status === 200) {
-          this.setState({ response: true})
-        } else {
-          
         }
-      })
 
-      console.log(this.state.response)
-    } catch (e) {
-      console.log(e);
-    }
-    }else{
+        })
+        .then(response => {
+          if (response.status === 200) {
+            this.setState({ response: true})
+          } else {
+          
+          }
+        })
 
+        console.log(this.state.response)
+      } catch (e) {
+        console.log(e);
+      }
     }
 
       this.setState({ show_welcome: true})
