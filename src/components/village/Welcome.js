@@ -32,9 +32,9 @@ export default class Welcome extends React.Component {
       })
       .then(response => {
         if (response.status === 200) {
-
-        } else {
           this.setState({ response: true})
+        } else {
+          
         }
       })
 
