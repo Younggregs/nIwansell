@@ -6,7 +6,7 @@
 @import "~slick-carousel/slick/slick-theme.css";
 
 body{
-  background-color:rgb(234, 239, 241);
+  background-color:white;
   font-family: "Ubuntu";
 }
 
@@ -108,11 +108,81 @@ a{
 
 .navigation{
   background-color: red;
-  background-image: url(bg_image.jpg);
-  background-repeat: repeat-x;
-  height: 300px;
+  height: 100px;
   font-size: 1.98em;
   padding-top: 20px;
+}
+
+.upper-navigation{
+  background-color:white;
+  height: 100px;
+  font-size: 0.9em;
+  padding-top: 10px;
+  padding-left: 50px;
+  padding-right: 10px;
+  padding-bottom: 10px;
+}
+
+.logo{
+
+}
+
+.blink-me {
+  animation: blinker 1s step-start infinite;
+}
+
+@keyframes blinker {
+  50% {
+    opacity: 0;
+  }
+}
+
+#upper-routes a{
+  vertical-align: middle;
+  color: black;
+  font-size: 1.19em;
+  font-weight: bold;
+}
+
+#upper-routes a:active{
+  vertical-align: middle;
+  color:red;
+  font-size: 1.19em;
+  font-weight: bold;
+}
+
+#upper-routes a:hover{
+  vertical-align: middle;
+  color:red;
+  font-size: 1.19em;
+  font-weight: bold;
+}
+
+
+
+.upper-routes{
+  vertical-align: middle;
+  padding-top: 30px;
+  padding-bottom: 10px;
+}
+
+.navigation-header{
+  background-color:rgb(234, 239, 241);
+  height: 40px;
+  font-size: 0.9em;
+  padding: 5px;
+  margin-left: 10px;
+}
+
+.date{
+  font-size: 0.7em;
+}
+
+.blog-header{
+  font-weight: bold;
+  font-size: 1.4em;
+  color: green;
+  text-align: center;
 }
 
 
@@ -129,11 +199,23 @@ a{
 
 }
 
-.category-item{
+.eshop-ads{
+  padding: 10px;
+}
+
+.eshop-ads-items{
   padding-bottom: 20px;
-  border-bottom-color:green;
+}
+
+.category-item{
+  padding-bottom: 10px;
+  min-height: 50px;
+  border-right-color:black;
+  border-right-style: solid;
+  border-right-width: 1px;
+  border-bottom-color:orange;
   border-bottom-style: solid;
-  border-bottom-width: 20px;
+  border-bottom-width: 1px;
 }
 
 .category-product{
@@ -149,6 +231,7 @@ a{
 .product-review{
   line-height: 40px;
 }
+
 
 .business-list{
   line-height: 40px;
@@ -331,8 +414,29 @@ td{
   height: 250px;
 }
 
-.sponsored {
-  padding-bottom: 20px;
+.sponsored-gallery {
+  padding: 20px;
+  margin: 10px;
+  background-color: rgb(7, 3, 31);
+}
+
+.category-slide {
+  padding: 20px;
+  margin: 10px;
+  color: orange;
+  background-color: rgb(7, 3, 31);
+}
+
+.slide-items{
+  margin: 0 20 20 0;
+  text-align: center;
+  font-size: 1.31em;
+  text-align: center ;
+  width: 200px;
+  height: 200px;
+  color: orange;
+  background-color: white;
+  line-height: 300px;
 }
 
 .images{
@@ -372,17 +476,25 @@ td{
 }
 
 .product-image{
-  font-size: 0;
   margin: 0 20 20 0;
+  padding: 5px;
   text-align: center;
-  box-shadow: 0 0 5px black;
   font-size: 0;
   text-align: center ;
+  width: auto;
+  height: 200px;
+  background-color: white;
+  line-height: 200px;
+}
+
+.product-container{
+  border-width: 1px;
+  border-style: groove;
+  border-color: grey;
   width: auto;
   margin-bottom: 20px;
   height: 300px;
   background-color: white;
-  line-height: 300px;
 }
 
 .product-tip{
@@ -469,6 +581,13 @@ img{
   font-size: 1.5em;
 }
 
+.logo-app-name{
+  font-family: "Audiowide";
+  font-size: 1.5em;
+  font-weight: solid;
+  color: red;
+}
+
 .sm-store{
   font-family: "Ubuntu";
   text-align: center;
@@ -493,17 +612,35 @@ img{
   font-size: 0.8em;
 }
 
+.price{
+  color: orange;
+  font-weight: bold;
+}
+
+.merlin{
+
+}
+
+.merlin-text{
+  font-size: 1.3em;
+}
+
+.merlin-name{
+  text-align: right;
+  font-weight:  bold;
+}
 
 .heading-lg{
   padding-top:10px;
+  padding-left: 50px;
+  margin-left: 20p;
+  text-transform: uppercase;
   padding-bottom: 10px;
-  background-color: red;
+  background-color: white;
   font-size: 1.5em;
-  border-color: rgb(234, 239, 241);
-  border-style: solid;
-  border-width:5px;
-  color: white;
-  text-align: center;
+  font-weight: bold;
+  color: black;
+  text-align: left;
   font-family: "Ubuntu";
 }
 
@@ -511,12 +648,15 @@ img{
 .heading-sm{
   padding-top:10px;
   padding-bottom: 10px;
-  background-color: red;
+  background-color: white;
   font-size: 1.5em;
-  border-color: rgb(234, 239, 241);
-  border-style: solid;
-  border-width:5px;
-  color: white;
+  border-bottom-color: red;
+  border-bottom-style: solid;
+  border-bottom-width:5px;
+  border-top-color: red;
+  border-top-style: solid;
+  border-top-width:5px;
+  color: black;
   text-align: center;
   font-family: "Ubuntu";
 }
@@ -782,11 +922,13 @@ img{
   flex: 0 0 auto;
   margin-right: 3px;
   display: inline-block;
-  border: 1px solid white;
+  border: 1px solid grey;
   min-width: 150px;
   height: 150px;
-  background: black;
+  background: white;
 }
+
+
 
 .scrolling-wrapper, .scrolling-wrapper-flexbox {
   height: 150px;
