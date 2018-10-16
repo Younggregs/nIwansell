@@ -4,6 +4,8 @@ import AppName from './blocks/houses/App Name'
 import NavigationIcons from './blocks/houses/Navigation Icons'
 import SigninSignup from './blocks/houses/Signin Signup'
 import SearchField from './blocks/houses/Search Field'
+import UpperNavigation from './blocks/Upper Navigation'
+import NavigationHeader from './blocks/Navigation Header'
 
 export default class Navigation extends React.Component {
 
@@ -18,12 +20,12 @@ export default class Navigation extends React.Component {
       if(this.props.this.props.logged_in){
         try {
           const res = await fetch('https://www.iwansell.com/api/myaccount_id/', {
-  
+
             headers : {
               'Authorization' : 'Token ' + auth,
-  
+
             },
-  
+
           });
           const profile_id = await res.json();
           this.setState({
@@ -32,11 +34,11 @@ export default class Navigation extends React.Component {
         } catch (e) {
           console.log(e);
         }
-  
+
       }
-  
+
     }
-     
+
 
 
 
@@ -47,65 +49,61 @@ export default class Navigation extends React.Component {
          return (
            <section>
 
-             <Row>
-             <Col lg={12} md={12} smHidden xsHidden>
-             <section className="navigation" id="navigation">
-             <Row>
+           <Row>
+            <NavigationHeader market="Futminna Campus Marketplace"/>
+            <UpperNavigation logged_in={this.props.logged_in}/>
               <Col lg={12} md={12} smHidden xsHidden>
+              <section className="navigation" id="navigation">
+              <Row>
+               <Col lg={12} md={12} smHidden xsHidden>
 
-            {this.props.logged_in ? (
-               <AppName logged_in={this.props.logged_in}/>
-            ) :
-            (
-              <AppName/>
-            )}
+             {this.props.logged_in ? (
+                <AppName logged_in={this.props.logged_in}/>
+             ) :
+             (
+               <AppName/>
+             )}
 
-            <SearchField campus_id = {this.props.campus_id}/>
+             <SearchField campus_id = {this.props.campus_id}/>
 
 
-            {this.props.logged_in ? (
-               <NavigationIcons account_id = {this.state.profile_id}/>
-            ) :
-            (
-              <SigninSignup/>
-            )}
-              </Col>
-             </Row>
+             {this.props.logged_in ? (
+                <NavigationIcons account_id = {this.state.profile_id}/>
+             ) :
+             (
+               <SigninSignup/>
+             )}
+               </Col>
+              </Row>
+              </section>
+             </Col>
 
-             <Row>
-             <Col lg={6} lgOffset={3} md={6} mdOffset={3} smHidden xsHidden>
-              <div className="no-1">
-                <p>#1 Place to buy and sell on campus</p>
-                </div>
-              </Col>
-             </Row>
-             </section>
-            </Col>
 
-              <Col sm={12} xs={12} lgHidden mdHidden>
-              <section className="sm-navigation" id="sm-navigation">
-               <Row>
-              {this.props.logged_in ? (
-                 <AppName logged_in={this.props.logged_in}/>
-              ) :
-              (
-                <AppName/>
-              )}
 
-              {this.props.logged_in ? (
-                 <NavigationIcons account_id = {this.state.profile_id}/>
-              ) :
-              (
-                <SigninSignup/>
-              )}
-               </Row>
-               <Row>
-              <SearchField campus_id = {this.props.campus_id}/>
-               </Row>
-               </section>
-              </Col>
+             <Col sm={12} xs={12} lgHidden mdHidden>
+             <section className="sm-navigation" id="sm-navigation">
+              <Row>
+             {this.props.logged_in ? (
+                <AppName logged_in={this.props.logged_in}/>
+             ) :
+             (
+               <AppName/>
+             )}
 
-            </Row>
+             {this.props.logged_in ? (
+                <NavigationIcons account_id = {this.state.profile_id}/>
+             ) :
+             (
+               <SigninSignup/>
+             )}
+              </Row>
+              <Row>
+             <SearchField campus_id = {this.props.campus_id}/>
+              </Row>
+              </section>
+             </Col>
+
+           </Row>
 
            </section>
          )

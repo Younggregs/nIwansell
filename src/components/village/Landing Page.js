@@ -4,11 +4,14 @@ import campusList from './neighborhoods/blocks/houses/Campus'
 import Navigation from './neighborhoods/Navigation'
 import Sponsored from './neighborhoods/Sponsored'
 import Trending from './neighborhoods/Trending'
+import EShopAds from './neighborhoods/blocks/EShop Ads'
+import CategorySlide from './neighborhoods/Category Slide'
 import AppName from './neighborhoods/blocks/houses/App Name'
 import Heading from './neighborhoods/blocks/houses/Heading'
 import Footer from './neighborhoods/Footer'
 import GotoTop from './neighborhoods/blocks/houses/Goto Top'
 import Copyright from './neighborhoods/blocks/houses/Copyright'
+import Merlin from './neighborhoods/Merlin'
 
 
 export default class LandingPage extends React.Component {
@@ -82,8 +85,24 @@ setSchool(){
              ) : (
               <div>
              <Navigation campus_id={this.state.campus_id} logged_in={false}/>
-             <Sponsored title="Sponsored" campus_id={this.state.campus_id}/>
-             <Trending campus_id={this.state.campus_id}/>
+             <Row>
+                <Col lg={9} md={9}>
+                  <Row>
+                     <Sponsored title="Sponsored" campus_id={this.state.campus_id}/>
+                  </Row>
+
+                  <Row>
+                     <Trending campus_id={this.state.campus_id}/>
+                  </Row>
+                 </Col>
+
+                <Col lg={3} md={3} smHidden xsHidden>
+                   <EShopAds/>
+                </Col>
+               </Row>
+
+             <CategorySlide/>
+             <Merlin/>
              <GotoTop/>
              <Footer logged_in={false}/>
              <Copyright/>

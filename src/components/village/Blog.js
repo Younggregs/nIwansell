@@ -1,16 +1,15 @@
 import React from 'react'
-import {Row, Col } from 'react-bootstrap'
+import {Row,Col} from 'react-bootstrap'
 import Navigation from './neighborhoods/Navigation'
-import Sponsored from './neighborhoods/Sponsored'
-import Trending from './neighborhoods/Trending'
+import CategoryList from './neighborhoods/blocks/houses/Category List'
+import BlogList from './neighborhoods/Blog List'
+import BlogPost from './neighborhoods/blocks/Blog Post'
 import Footer from './neighborhoods/Footer'
 import GotoTop from './neighborhoods/blocks/houses/Goto Top'
 import Copyright from './neighborhoods/blocks/houses/Copyright'
-import EShopAds from './neighborhoods/blocks/EShop Ads'
-import CategorySlide from './neighborhoods/Category Slide'
-import Merlin from './neighborhoods/Merlin'
+import RecentStories from './neighborhoods/blocks/Recent Stories'
 
-export default class Home extends React.Component {
+export default class Blog extends React.Component {
 
   state={
     account_id: null,
@@ -61,32 +60,29 @@ export default class Home extends React.Component {
 
   }
 
-
-  media_path = '/home/greggy/triads/the_iwansell'
-
       render() {
 
         return (
            <div className="home">
              <Navigation logged_in={true} account_id={this.state.account_id} campus_id={this.state.campus_id}/>
              <Row>
-               <Col lg={9} md={9}>
-                 <Row>
-                    <Sponsored title="Sponsored" campus_id={this.state.campus_id}/>
-                 </Row>
-
-                 <Row>
-                    <Trending campus_id={this.state.campus_id}/>
-                 </Row>
+               <Col lg={2} md={2} smHidden xsHidden>
+                    <CategoryList/>
                 </Col>
 
-               <Col lg={3} md={3} smHidden xsHidden>
-                  <EShopAds/>
+                <Col lg={7} md={7} sm={12} xs={12}>
+                {this.props.match.params.blog_id ? (
+                    <BlogPost blog_id = {this.props.match.params.blog_id}/>
+                ) : (
+                    <BlogList/>
+                )}
+                </Col>
+
+
+               <Col lg={3} md={3} sm={12} xs={12}>
+                  <RecentStories/>
                </Col>
               </Row>
-
-             <CategorySlide/>
-             <Merlin/>
              <GotoTop/>
              <Footer logged_in={true}/>
              <Copyright/>

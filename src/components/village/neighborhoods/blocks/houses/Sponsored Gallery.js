@@ -1,15 +1,20 @@
 import React from 'react'
+import Slider from 'react-slick'
+import { Row, Col } from 'react-bootstrap'
+import Heading from './Heading.js'
 
 export default class SponsoredGallery extends React.Component {
 
-	state = {
+  state = {
     sponsoredList: [],
-    media: null
+    media: null,
+    count: 0,
+    id:null
   }
 
   async componentWillMount() {
     try {
-      const res = await fetch('https://www.iwansell.com/api/sponsored/');
+      const res = await fetch('https://www.iwansell.com/api/sponsored/' + this.props.campus_id + '/');
       const sponsoredList = await res.json();
       this.setState({
         sponsoredList
@@ -21,57 +26,69 @@ export default class SponsoredGallery extends React.Component {
   }
 
   setMedia(media_name){
-    this.state.media = 'https://www.iwansell.com/api' + media_name
+    this.state.media = 'https://www.iwansell.com/' + media_name
   }
-
-  switchMedia(){
-    this.state.count = this.state.count + 1
-    this.state.id = 'id' + this.state.count
-  }
-
-  defaultImage(){
-      if(this.state.count == 2){
-        return true
-      }
-
-      return false
-  }
-
-
 
        render() {
 
-        const galleryMedia = (
-          <div>
-          {this.state.sponsoredList.map(item => (
-            <span>
-            {this.setMedia(item.product_image)}
-            {this.switchMedia()}
+        var settings_lg = {
+          dots: true,
+          infinite: true,
+          autoplay: true,
+          autoplaySpeed: 1000,
+          fade: true,
+          speed: 2000,
 
-            {this.state.defaultImage ? (
-              <span>
-              <input type="radio" name="slide_switch" id={this.state.id} checked="checked"/>
-              <label for={this.state.id}>
-              <img src= { `${this.state.media}` } with="100"/>
-            </label>
-            <img src= { `${this.state.media}` }/>
-                </span>
-            ) : (
-              <span>
-              <input type="radio" name="slide_switch" id={this.state.id}/>
-              <label for={this.state.id}>
-              <img src= { `${this.state.media}` } width="100"/>
-            </label>
-            <img src= { `${this.state.media}` }/>
-            </span>
-            )}
+        };
 
-            </span>
+
+        var settings_sm = {
+          dots: true,
+          infinite: true,
+          autoplay: true,
+          autoplaySpeed: 1000,
+          fade: true,
+          speed: 2000,
+
+        };
+
+
+
+         return (
+           <section className="sponsored-gallery">
+               <Row>
+               <Col lg={10} lgOffset={1} md={10} mdOffset={1} smHidden xsHidden>
+          <Slider {...settings_lg}>
+
+            { this.state.sponsoredList.map(item => (
+                    <div className="sponsored-images">
+                      <div className="sponsored-image">
+                    {this.setMedia(item.product_image)}
+                    <img src= { `${this.state.media}` } alt="thumbnail"/>
+                    </div>
+                    </div>
+                 )
+                )}
+         </Slider>
+
+             </Col>
+
+						  <Col sm={12} xs={12} lgHidden mdHidden>
+
+
+                  <Slider {...settings_sm}>
+                { this.state.sponsoredList.map(item => (
+                    <div class="card">
+                    {this.setMedia(item.product_image)}
+                    <img src= { `${this.state.media}` } alt="thumbnail"/>
+                    </div>
+                 )
+                )}
+                  </Slider>
+             </Col>
+              </Row>
+
+           </section>
          )
-        )}
-        </div>
-         );
-
-         return (galleryMedia)
        }
   }
