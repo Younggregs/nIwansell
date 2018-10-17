@@ -14,7 +14,7 @@ export default class Home extends React.Component {
   state={
     account_id: null,
     campus_id: 1,
-    market: null,
+    market: "Your"
   }
 
   async componentWillMount() {

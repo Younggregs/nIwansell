@@ -19,7 +19,7 @@ export default class NavigationHeader extends React.Component {
                 </Col>
 
                 <Col lgHidden mdHidden sm={7} xs={7}>
-                 <p><b>{this.props.market}</b></p>
+                  <p>Welcome to <b>{this.props.market} Campus Marketplace</b></p>
                 </Col>
 
                 <Col lgHidden mdHidden sm={5} xs={5}>

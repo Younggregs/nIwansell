@@ -135,14 +135,22 @@ emptyResult(){
             ) : (
               <span></span>
             )}
+
+            <div id="main">
             {this.state.search_result.map(item => (
-             <Col lg={4} md={4} smHidden xsHidden>
+             <Col smHidden xsHidden>
+              <div class="box">
+	             <div class="pic">
              {this.setMedia(item.product_image)}
              <Thumbnail href={"product/" + item.product_id }  alt="product-image" src= { `${this.state.media}` }>
              <h3>{item.product_name}</h3>
-              <p className="lg-fonts">Starting price : {item.starting_price}</p>
+              <p className="price">Starting price : {item.starting_price}</p>
              </Thumbnail>
+             </div></div>
              </Col>
+
+            ))}
+            </div>
 
     ))}
 
@@ -189,17 +197,19 @@ emptyResult(){
             ) : (
               <span></span>
             )}
+
+             <div id="main">
             {this.state.search_result.map(item => (
-             <Col sm={10} smOffset={1} xs={10} xsOffset={1}>
+              <div class="box">
+	             <div class="pic">
              {this.setMedia(item.product_image)}
              <Thumbnail href={"product/" + item.product_id } alt="product-image" src= { `${this.state.media}` }>
              <h3>{item.product_name}</h3>
-              <p className="sm-fonts">Starting price : {item.starting_price}</p>
+              <p className="price">Starting price : {item.starting_price}</p>
              </Thumbnail>
-             </Col>
-
-
-    ))}
+             </div></div>
+          ))}
+           </div>
 
            </div>
           ) : (
