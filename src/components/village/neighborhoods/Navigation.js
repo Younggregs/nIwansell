@@ -50,7 +50,7 @@ export default class Navigation extends React.Component {
            <section>
 
            <Row>
-            <NavigationHeader market={this.state.market}/>
+            <NavigationHeader market={this.props.market}/>
             <UpperNavigation logged_in={this.props.logged_in}/>
               <Col lg={12} md={12} smHidden xsHidden>
               <section className="navigation" id="navigation">
