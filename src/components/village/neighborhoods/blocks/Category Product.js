@@ -154,18 +154,11 @@ export default class CategoryProduct extends React.Component {
                   <Col sm={6} xs={6}>
 
                 <Link to={`/product/${ item.product_id } `}>
-                <section className="product-image">
-                <div class="image">
-                    {this.setMedia(item.product_image)}
-                    <Image alt="product-image" src= { `${this.state.media}` }/>
-                </div>
-                </section>
-                 <div className="category-tip">
-                   <p>{item.product_name}</p>
-                   <p>Starting price : {item.starting_price}</p>
-                 </div>
+                  {this.setMedia(item.product_image)}
+                  <Thumbnail alt="product-image" src= { `${this.state.media}` }>
+                    <p>{item.product_name}</p>
+                    <p className="price">Starting price : {item.starting_price}</p>
                 </Link>
-
                 </Col>
                 ))}
 
