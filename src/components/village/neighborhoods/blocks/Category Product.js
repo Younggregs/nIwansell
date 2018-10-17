@@ -142,11 +142,9 @@ export default class CategoryProduct extends React.Component {
 
 
 
-              <Row>
               <Heading title = {this.state.category}/>
-              </Row>
+            
 
-              <Row>
               <div id="main-sm">
                {this.state.categoryProductList.map(item => (
                   <div class="box-sm">
@@ -163,7 +161,6 @@ export default class CategoryProduct extends React.Component {
                 </div></div>
                ))}
                </div>
-               </Row>
 
 
              </Col>
