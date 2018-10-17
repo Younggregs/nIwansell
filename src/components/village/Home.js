@@ -8,7 +8,6 @@ import GotoTop from './neighborhoods/blocks/houses/Goto Top'
 import Copyright from './neighborhoods/blocks/houses/Copyright'
 import EShopAds from './neighborhoods/blocks/EShop Ads'
 import CategorySlide from './neighborhoods/Category Slide'
-import Merlin from './neighborhoods/Merlin'
 
 export default class Home extends React.Component {
 
@@ -86,7 +85,6 @@ export default class Home extends React.Component {
               </Row>
 
              <CategorySlide/>
-             <Merlin/>
              <GotoTop/>
              <Footer logged_in={true}/>
              <Copyright/>

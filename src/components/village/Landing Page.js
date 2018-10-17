@@ -11,7 +11,6 @@ import Heading from './neighborhoods/blocks/houses/Heading'
 import Footer from './neighborhoods/Footer'
 import GotoTop from './neighborhoods/blocks/houses/Goto Top'
 import Copyright from './neighborhoods/blocks/houses/Copyright'
-import Merlin from './neighborhoods/Merlin'
 
 
 export default class LandingPage extends React.Component {
@@ -102,7 +101,6 @@ setSchool(){
                </Row>
 
              <CategorySlide/>
-             <Merlin/>
              <GotoTop/>
              <Footer logged_in={false}/>
              <Copyright/>

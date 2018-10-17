@@ -40,6 +40,7 @@ import FavoriteEShop from './components/village/neighborhoods/blocks/houses/Favo
 import FavoriteProduct from './components/village/neighborhoods/blocks/houses/Favorite Product'
 import ForgotPassword from './components/village/Forgot Password'
 import ResetPassword from './components/village/Reset Password'
+import Blog from './components/village/Blog'
 import Logout from './components/village/Logout'
 import AuthTest from './components/village/Auth Test';
 
@@ -90,6 +91,8 @@ import AuthTest from './components/village/Auth Test';
                 <Route exact path="/soldproduct/:eshop_id" component={SoldProduct}/>
                 <Route exact path="/forgot_password" component={ForgotPassword}/>
                 <Route exact path="/reset_password/:reset_code" component={ResetPassword}/>
+                <Route exact path="/blog" component={Blog}/>
+                <Route exact path="/blog/:blog_id" component={Blog}/>
                 <Route exact path="/logout" component={Logout}/>
               </div>
             </Router>
