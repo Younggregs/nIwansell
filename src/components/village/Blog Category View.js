@@ -2,14 +2,13 @@ import React from 'react'
 import {Row,Col} from 'react-bootstrap'
 import Navigation from './neighborhoods/Navigation'
 import BlogCategory from './neighborhoods/blocks/houses/Blog Category'
-import BlogList from './neighborhoods/Blog List'
-import BlogPost from './neighborhoods/blocks/Blog Post'
+import BlogCategoryItems from './neighborhoods/blocks/Blog Category Items'
 import Footer from './neighborhoods/Footer'
 import GotoTop from './neighborhoods/blocks/houses/Goto Top'
 import Copyright from './neighborhoods/blocks/houses/Copyright'
 import RecentStories from './neighborhoods/blocks/Recent Stories'
 
-export default class Blog extends React.Component {
+export default class BlogCategoryView extends React.Component {
 
   state={
     account_id: null,
@@ -71,11 +70,7 @@ export default class Blog extends React.Component {
                 </Col>
 
                 <Col lg={7} md={7} sm={12} xs={12}>
-                {this.props.match.params.blog_id ? (
-                    <BlogPost blog_id = {this.props.match.params.blog_id}/>
-                ) : (
-                    <BlogList/>
-                )}
+                    <BlogCategoryItems category_id={this.props.match.params.category_id}/>
                 </Col>
 
 

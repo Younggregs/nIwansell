@@ -42,7 +42,9 @@ export default class CategoryList extends React.Component {
                 {this.state.blogList.map(item => (
                     <tr>
                     <td>
+                     <Link to={`/blog/${ item.id }/`}>
                         {item.title}
+                      </Link>
                     </td>
                     </tr>
                 ))}

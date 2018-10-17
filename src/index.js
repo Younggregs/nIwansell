@@ -41,6 +41,7 @@ import FavoriteProduct from './components/village/neighborhoods/blocks/houses/Fa
 import ForgotPassword from './components/village/Forgot Password'
 import ResetPassword from './components/village/Reset Password'
 import Blog from './components/village/Blog'
+import BlogCategoryView from './components/village/Blog Category View'
 import Logout from './components/village/Logout'
 import AuthTest from './components/village/Auth Test';
 
@@ -93,6 +94,7 @@ import AuthTest from './components/village/Auth Test';
                 <Route exact path="/reset_password/:reset_code" component={ResetPassword}/>
                 <Route exact path="/blog" component={Blog}/>
                 <Route exact path="/blog/:blog_id" component={Blog}/>
+                <Route exact path="/blog_category/:category_id" component={BlogCategoryView}/>
                 <Route exact path="/logout" component={Logout}/>
               </div>
             </Router>

@@ -141,17 +141,16 @@ export default class CategoryProduct extends React.Component {
                           </p>
                        ))}
             </div>
+            </Row>
 
 
 
-
-
+              <Row>
               <Heading title = {this.state.category}/>
-
-
+              </Row>
 
                 {this.state.categoryProductList.map(item => (
-                  <Col sm={6} xs={6}>
+                <Col sm={6} xs={6}>
 
                 <Link to={`/product/${ item.product_id } `}>
                   {this.setMedia(item.product_image)}
@@ -162,10 +161,6 @@ export default class CategoryProduct extends React.Component {
                 </Link>
                 </Col>
                 ))}
-
-
-              </Row>
-
 
 
              </Col>
