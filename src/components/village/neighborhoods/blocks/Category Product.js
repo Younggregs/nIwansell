@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { Grid, Row, Col, Button, Image, FormControl } from 'react-bootstrap'
+import { Grid, Row, Col, Button, Image, FormControl, Thumbnail } from 'react-bootstrap'
 import Heading from './houses/Heading'
 
 export default class CategoryProduct extends React.Component {
@@ -158,6 +158,7 @@ export default class CategoryProduct extends React.Component {
                   <Thumbnail alt="product-image" src= { `${this.state.media}` }>
                     <p>{item.product_name}</p>
                     <p className="price">Starting price : {item.starting_price}</p>
+                  </Thumbnail>
                 </Link>
                 </Col>
                 ))}
