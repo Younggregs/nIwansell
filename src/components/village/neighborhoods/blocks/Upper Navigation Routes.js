@@ -6,8 +6,8 @@ export default class UpperNavigationRoutes extends React.Component {
 
        render() {
          return (
-           <section className="upper-routes" id="upper-routes">
             <Col lg={8} md={8} smHidden xsHidden>
+               <section className="upper-routes" id="upper-routes">
               <Row>
                   <Col lg={2} md={2}>
                         <Link to="/eshop_list">e-SHOPS
@@ -70,12 +70,9 @@ export default class UpperNavigationRoutes extends React.Component {
                 </Col>
 
                </Row>
+
+                </section>
               </Col>
-
-
-
-
-           </section>
          )
        }
   }

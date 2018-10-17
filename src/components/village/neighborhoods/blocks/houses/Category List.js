@@ -33,11 +33,11 @@ export default class CategoryList extends React.Component {
          return (
            <section className="category-list">
              <Row>
-              <Col lg={12} md={12} smHidden xsHidden>
+              <Col lg={12} md={12} sm={12} xs={12}>
               <Table responsive>
                  <thead>
                     <tr>
-                        <th>Category</th>
+                        <th><p className="heading-lg">Category</p></th>
                     </tr>
                 </thead>
                 <tbody>

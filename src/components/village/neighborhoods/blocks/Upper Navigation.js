@@ -2,6 +2,7 @@ import React from 'react'
 import { Row,Col } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 import Logo from './houses/Logo'
+import Slogan from './houses/Slogan'
 import UpperNavigationRoutes from './Upper Navigation Routes'
 
 export default class UpperNavigation extends React.Component {
@@ -28,6 +29,8 @@ export default class UpperNavigation extends React.Component {
               (
                 <UpperNavigationRoutes/>
               )}
+
+              <Slogan/>
 
                </Row>
                </section>

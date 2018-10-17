@@ -429,18 +429,19 @@ td{
 .category-slide {
   padding: 20px;
   margin: 10px;
-  color: orange;
+  color: white;
   background-color: rgb(7, 3, 31);
 }
 
 .slide-items{
   margin: 0 20 20 0;
   text-align: center;
-  font-size: 1.31em;
+  font-size: 1.6em;
+  font-weight: bold;
   text-align: center ;
   width: 200px;
   height: 200px;
-  color: orange;
+  color: white;
   background-color: white;
   line-height: 300px;
 }

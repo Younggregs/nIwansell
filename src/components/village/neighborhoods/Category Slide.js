@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { Row, Col, Thumbnail } from 'react-bootstrap'
+import { Row, Col, Thumbnail, Image } from 'react-bootstrap'
 import Slider from 'react-slick'
 import Heading from './blocks/houses/Heading'
 
@@ -68,13 +68,18 @@ setMedia(media_name){
                        <Slider {...settings_lg}>
                        {this.state.categoryList.map(item => (
                          <Col lg={3} md={3} smHidden xsHidden>
-                         <div className="slide-items">
-                         {this.setMedia(item.image)}
-                            <Thumbnail width="150px" height="150px" src= { `${this.state.media}` } alt="iwansell" responsive>
-                            <p>{item.name}</p>
-                            </Thumbnail>
-                          </div>
-                          </Col>
+
+                        <div className="slide-items">
+
+                        {this.setMedia(item.image)}
+                        <div className="product-image">
+                           <div class="image">
+                           <Image src= { `${this.state.media}` } alt="iwansell" responsive/>
+                         </div></div>
+                         </div>
+                         <p>{item.name}</p>
+
+                         </Col>
                        ))}
 
                        </Slider>
