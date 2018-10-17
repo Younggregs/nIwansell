@@ -13,7 +13,8 @@ export default class Blog extends React.Component {
 
   state={
     account_id: null,
-    campus_id: 1
+    campus_id: 1,
+    market: null
   }
 
   async componentWillMount() {
@@ -57,6 +58,17 @@ export default class Blog extends React.Component {
       console.log(e);
     }
 
+    try {
+      const res = await fetch('http://127.0.0.1:8000/campus_code/' + this.state.campus_id + '/');
+      const market = await res.json();
+      this.setState({
+        market
+      });
+    } catch (e) {
+      console.log(e);
+    }
+
+
 
   }
 
@@ -64,7 +76,7 @@ export default class Blog extends React.Component {
 
         return (
            <div className="home">
-             <Navigation logged_in={true} account_id={this.state.account_id} campus_id={this.state.campus_id}/>
+             <Navigation logged_in={true} account_id={this.state.account_id} campus_id={this.state.campus_id} market={this.state.market}/>
              <Row>
                <Col lg={2} md={2} smHidden xsHidden>
                     <BlogCategory/>
@@ -84,7 +96,7 @@ export default class Blog extends React.Component {
                </Col>
 
 
-               <Col lgHidden mdHidden sm={12} xs={12}> 
+               <Col lgHidden mdHidden sm={12} xs={12}>
                     <BlogCategory/>
                 </Col>
               </Row>

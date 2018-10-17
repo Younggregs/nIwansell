@@ -11,7 +11,7 @@ export default class NavigationHeader extends React.Component {
              <Row>
                <section className="navigation-header" id="navigation-header">
                <Col lg={4} md={4} smHidden xsHidden>
-                <p>Welcome to <b>{this.props.market}</b></p>
+                <p>Welcome to <b>{this.props.market} Campus Marketplace</b></p>
                 </Col>
 
                 <Col lg={4} md={4} lgOffset={4} mdOffset={4} smHidden xsHidden>

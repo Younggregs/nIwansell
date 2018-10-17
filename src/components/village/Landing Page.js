@@ -1,6 +1,7 @@
 import React from 'react'
 import { Grid,Row,Col, Form, FormGroup,FormControl, Button } from 'react-bootstrap'
-import campusList from './neighborhoods/blocks/houses/Campus'
+import Spinner from 'react-activity/lib/Spinner';
+import 'react-activity/lib/Spinner/Spinner.css';
 import Navigation from './neighborhoods/Navigation'
 import Sponsored from './neighborhoods/Sponsored'
 import Trending from './neighborhoods/Trending'
@@ -15,6 +16,8 @@ import Copyright from './neighborhoods/blocks/houses/Copyright'
 
 export default class LandingPage extends React.Component {
  state = {
+   isLoading: true,
+   market: null,
    show_school: true,
    campus_id: '1',
    school: "Futminna",
@@ -29,10 +32,25 @@ school_set(){
 
 
 setSchool(){
-    var school_id = document.getElementById("campus_id").value
-    this.setState({ campus_id: school_id})
+    var id = document.getElementById("campus_id").value
+    this.setState({ campus_id: id})
     this.school_set()
+
+    this.setMarket()
 }
+
+async setMarket(){
+  try {
+    const res = await fetch('http://127.0.0.1:8000/campus_code/' + this.state.campus_id + '/');
+    const market = await res.json();
+    this.setState({
+      market
+    });
+  } catch (e) {
+    console.log(e);
+  }
+
+ }
 
 
 
@@ -62,12 +80,15 @@ setSchool(){
 
 
                  <Row>
+                 {this.state.isLoading ? (
+                    <Spinner/>
+                  ) : (
                   <Col lg={4} lgOffset={4} md={4} mdOffset={4} sm={10} smOffset={1} xs={10} xsOffset={1}>
                   <form>
                       <Heading title="Select Campus"/>
                     <FormGroup>
                    <FormControl componentClass="select" placeholder="select" id="campus_id">
-                   {campusList.map(item => (
+                   {this.state.campuslist.map(item => (
                     <option value={item.id}>{item.campus_code}</option>
                     ))}
                    </FormControl>
@@ -78,12 +99,14 @@ setSchool(){
                   </FormGroup>{' '}
                   </form>
                   </Col>
+                )}
+
                 </Row>
                </Grid>
                </div>
              ) : (
               <div>
-             <Navigation campus_id={this.state.campus_id} logged_in={false}/>
+             <Navigation campus_id={this.state.campus_id} logged_in={false} market={this.state.market}/>
              <Row>
                 <Col lg={9} md={9}>
                   <Row>

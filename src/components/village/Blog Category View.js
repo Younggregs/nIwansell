@@ -12,7 +12,8 @@ export default class BlogCategoryView extends React.Component {
 
   state={
     account_id: null,
-    campus_id: 1
+    campus_id: 1,
+    market: null
   }
 
   async componentWillMount() {
@@ -57,13 +58,25 @@ export default class BlogCategoryView extends React.Component {
     }
 
 
+    try {
+      const res = await fetch('http://127.0.0.1:8000/campus_code/' + this.state.campus_id + '/');
+      const market = await res.json();
+      this.setState({
+        market
+      });
+    } catch (e) {
+      console.log(e);
+    }
+
+
+
   }
 
       render() {
 
         return (
            <div className="home">
-             <Navigation logged_in={true} account_id={this.state.account_id} campus_id={this.state.campus_id}/>
+             <Navigation logged_in={true} account_id={this.state.account_id} campus_id={this.state.campus_id} market={this.state.market}/>
              <Row>
                <Col lg={2} md={2} smHidden xsHidden>
                     <BlogCategory/>
@@ -77,6 +90,11 @@ export default class BlogCategoryView extends React.Component {
                <Col lg={3} md={3} sm={12} xs={12}>
                   <RecentStories/>
                </Col>
+
+               <Col lgHidden mdHidden sm={12} xs={12}>
+                    <BlogCategory/>
+                </Col>
+
               </Row>
              <GotoTop/>
              <Footer logged_in={true}/>
