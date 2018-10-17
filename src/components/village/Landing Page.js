@@ -17,12 +17,28 @@ import Copyright from './neighborhoods/blocks/houses/Copyright'
 export default class LandingPage extends React.Component {
  state = {
    isLoading: true,
+   campuslist: [],
    market: "Your",
    show_school: true,
    campus_id: '1',
    school: "Futminna",
  }
 
+
+
+
+ async componentWillMount() {
+     try {
+       const res = await fetch('https://www.iwansell.com/api/campus/');
+       const campuslist = await res.json();
+       this.setState({
+         campuslist
+       });
+     } catch (e) {
+       console.log(e);
+     }
+     this.setState({ isLoading: false})
+   }
 
 
 
