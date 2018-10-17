@@ -82,6 +82,11 @@ export default class Blog extends React.Component {
                <Col lg={3} md={3} sm={12} xs={12}>
                   <RecentStories/>
                </Col>
+
+
+               <Col lgHidden mdHidden sm={12} xsHidden={12}> 
+                    <BlogCategory/>
+                </Col>
               </Row>
              <GotoTop/>
              <Footer logged_in={true}/>
