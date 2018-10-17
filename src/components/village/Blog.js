@@ -84,7 +84,7 @@ export default class Blog extends React.Component {
                </Col>
 
 
-               <Col lgHidden mdHidden sm={12} xsHidden={12}> 
+               <Col lgHidden mdHidden sm={12} xs={12}> 
                     <BlogCategory/>
                 </Col>
               </Row>
