@@ -68,8 +68,6 @@ export default class CategoryProduct extends React.Component {
        render() {
          return (
            <section className="category-product">
-             <Grid>
-             <Row>
               <Col lg={12} md={12} smHidden xsHidden>
 
                 <Row>
@@ -150,8 +148,10 @@ export default class CategoryProduct extends React.Component {
 
               <Heading title = {this.state.category}/>
 
+
+
                 {this.state.categoryProductList.map(item => (
-                <section>
+                  <Col sm={6} xs={6}>
 
                 <Link to={`/product/${ item.product_id } `}>
                 <section className="product-image">
@@ -166,7 +166,7 @@ export default class CategoryProduct extends React.Component {
                  </div>
                 </Link>
 
-                </section>
+                </Col>
                 ))}
 
 
@@ -175,10 +175,6 @@ export default class CategoryProduct extends React.Component {
 
 
              </Col>
-
-
-             </Row>
-             </Grid>
            </section>
          )
        }
