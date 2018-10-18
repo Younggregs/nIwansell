@@ -80,9 +80,17 @@ export default class CategoryProduct extends React.Component {
                        </p>
                        {this.state.categoryList.map(item => (
 
-                          <p className="category-item">
-                               <Button onClick={this.newCategory.bind(this, item.id, item.name)}>{item.name}</Button>
-                          </p>
+                         <div className="category-item">
+                             <Row>
+                               <Col lg={8} md={8}>
+                                <Button onClick={this.newCategory.bind(this, item.id, item.name)}>{item.name}</Button>
+                                {this.setMediaIcon(item.icon)}
+                               </Col>
+                               <Col lg={4} md={4}>
+                                 <Image width="50px" height="50px" src= { `${this.state.media}` } alt="iwansell" responsive/>
+                               </Col>
+                             </Row>
+                           </div>
                        ))}
                        </div>
 
@@ -133,9 +141,17 @@ export default class CategoryProduct extends React.Component {
                        </p>
                        {this.state.categoryList.map(item => (
 
-                          <p className="category-item">
-                               <Button onClick={this.newCategory.bind(this, item.id, item.name)}>{item.name}</Button>
-                          </p>
+                         <div className="category-item">
+                             <Row>
+                               <Col lg={8} md={8}>
+                                <Button onClick={this.newCategory.bind(this, item.id, item.name)}>{item.name}</Button>
+                                {this.setMediaIcon(item.icon)}
+                               </Col>
+                               <Col lg={4} md={4}>
+                                 <Image width="50px" height="50px" src= { `${this.state.media}` } alt="iwansell" responsive/>
+                               </Col>
+                             </Row>
+                           </div>
                        ))}
             </div>
             </Row>
@@ -143,7 +159,7 @@ export default class CategoryProduct extends React.Component {
 
 
               <Heading title = {this.state.category}/>
-            
+
 
               <div id="main-sm">
                {this.state.categoryProductList.map(item => (
