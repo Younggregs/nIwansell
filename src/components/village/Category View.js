@@ -100,7 +100,6 @@ export default class Home extends React.Component {
              <Navigation logged_in={this.state.isLoggedIn} account_id={this.state.account_id} campus_id={this.state.campus_id} market={this.state.market}/>
              <CategoryMain campus_id={this.state.campus_id} category_id= {this.props.match.params.category_id}/>
              <CategorySlide/>
-             <Merlin/>
              <GotoTop/>
              <Footer logged_in={this.state.isLoggedIn}/>
              <Copyright/>
