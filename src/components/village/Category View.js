@@ -4,7 +4,6 @@ import Footer from './neighborhoods/Footer'
 import GotoTop from './neighborhoods/blocks/houses/Goto Top'
 import Copyright from './neighborhoods/blocks/houses/Copyright'
 import CategorySlide from './neighborhoods/Category Slide'
-import Merlin from './neighborhoods/Merlin'
 import CategoryMain from './neighborhoods/Category Main'
 
 export default class Home extends React.Component {

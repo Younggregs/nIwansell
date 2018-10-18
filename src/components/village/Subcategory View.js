@@ -4,7 +4,6 @@ import Footer from './neighborhoods/Footer'
 import GotoTop from './neighborhoods/blocks/houses/Goto Top'
 import Copyright from './neighborhoods/blocks/houses/Copyright'
 import CategorySlide from './neighborhoods/Category Slide'
-import Merlin from './neighborhoods/Merlin'
 import SubcategoryMain from './neighborhoods/Subcategory Main'
 
 export default class SubcategoryView extends React.Component {
