@@ -88,6 +88,10 @@ export default class SponsoredGallery extends React.Component {
              </Col>
               </Row>
 
+              <Row>
+               <SubcategoryIcons/>
+             </Row>
+
            </section>
          )
        }
