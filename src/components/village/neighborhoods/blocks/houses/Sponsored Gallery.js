@@ -1,7 +1,7 @@
 import React from 'react'
 import Slider from 'react-slick'
+import SubcategoryIcons from './Subcategory Icons'
 import { Row, Col } from 'react-bootstrap'
-import Heading from './Heading.js'
 
 export default class SponsoredGallery extends React.Component {
 
