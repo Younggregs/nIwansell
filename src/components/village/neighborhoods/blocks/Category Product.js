@@ -64,6 +64,10 @@ export default class CategoryProduct extends React.Component {
     this.state.media = 'https://www.iwansell.com/api/media/' + media_name
   }
 
+  setMediaIcon(media_name){
+    this.state.media = 'https://www.iwansell.com/' + media_name
+  }
+
 
        render() {
          return (
