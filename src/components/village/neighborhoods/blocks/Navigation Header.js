@@ -15,7 +15,7 @@ export default class NavigationHeader extends React.Component {
                 </Col>
 
                 <Col lg={4} md={4} lgOffset={4} mdOffset={4} smHidden xsHidden>
-                 <p>Hotline <b>08109599597</b></p>
+                 <p>Hotline: <b>08109599597</b></p>
                 </Col>
 
                 <Col lgHidden mdHidden sm={7} xs={7}>
