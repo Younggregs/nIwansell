@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import { Row, Col, Image } from 'react-bootstrap'
 
 export default class SubcategoryIcons extends React.Component {
@@ -37,8 +38,10 @@ export default class SubcategoryIcons extends React.Component {
             { this.state.iconList.map(item => (
                 <Col lg={2} md={2}>
                    {this.setMedia(item.image)}
-                    <Image height="50px" width="50px" src= { `${this.state.media}` } alt="thumbnail"/>
-                    <p>{item.name}</p>
+                    <Link to={`/subcategory_view/${ item.id }/`}>
+                      <Image height="50px" width="50px" src= { `${this.state.media}` } alt="thumbnail"/>
+                      <p>{item.name}</p>
+                    </Link>
                 </Col>
                  )
                 )}

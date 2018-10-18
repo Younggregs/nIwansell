@@ -426,6 +426,10 @@ td{
   margin: 10px;
 }
 
+.sub-category-icons a{
+  color: white;
+}
+
 .sponsored-gallery {
   padding: 20px;
   margin: 10px;

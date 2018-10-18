@@ -46,7 +46,9 @@ export default class CategoryList extends React.Component {
                        {this.state.categoryList.map(item => (
                          <tr>
                           <td>
+                           <Link to={`/category_view/${ item.id }/`}>
                                <Button>{item.name}</Button>
+                            </Link>
                           </td>
                           </tr>
                        ))}

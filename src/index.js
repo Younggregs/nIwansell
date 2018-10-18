@@ -42,6 +42,8 @@ import ForgotPassword from './components/village/Forgot Password'
 import ResetPassword from './components/village/Reset Password'
 import Blog from './components/village/Blog'
 import BlogCategoryView from './components/village/Blog Category View'
+import CategoryView from './components/village/Category View'
+import SubcategoryView from './components/village/Subcategory View'
 import Logout from './components/village/Logout'
 import AuthTest from './components/village/Auth Test';
 
@@ -95,6 +97,8 @@ import AuthTest from './components/village/Auth Test';
                 <Route exact path="/blog" component={Blog}/>
                 <Route exact path="/blog/:blog_id" component={Blog}/>
                 <Route exact path="/blog_category/:category_id" component={BlogCategoryView}/>
+                <Route exact path="/category_view/:category_id" component={CategoryView}/>
+                <Route exact path="/subcategory_view/:subcategory_id" component={SubcategoryView}/>
                 <Route exact path="/logout" component={Logout}/>
               </div>
             </Router>
