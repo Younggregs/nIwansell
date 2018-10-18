@@ -31,7 +31,7 @@ export default class CategorySlide extends React.Component {
 
 
 setMedia(media_name){
-  this.state.media = 'https://www.iwansell.com/api' + media_name
+  this.state.media = 'https://www.iwansell.com/' + media_name
 }
 
 
