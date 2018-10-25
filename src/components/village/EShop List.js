@@ -2,12 +2,14 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import {Col, Row, Form , FormControl, Button, FormGroup, Glyphicon, InputGroup} from 'react-bootstrap'
 import EShopCategory from './neighborhoods/blocks/houses/EShop Category'
-
+import Spinner from 'react-activity/lib/Spinner';
+import 'react-activity/lib/Spinner/Spinner.css';
 
 
 export default class EshopList extends React.Component {
 
     state = {
+        isLoading: true,
         eshop_list : [],
         categorylist: []
     }
@@ -15,7 +17,7 @@ export default class EshopList extends React.Component {
 
   async componentDidMount() {
         try {
-          const res = await fetch('https://www.iwansell.com/api/eshop_list/');
+          const res = await fetch('https://www.iwansell.com/api/eshop_list/' +  this.props.match.params.campus_id + '/');
           const eshop_list = await res.json();
           this.setState({
             eshop_list
@@ -36,7 +38,7 @@ export default class EshopList extends React.Component {
         }
 
 
-
+        this.setState({ isLoading: false })
   }
 
 
@@ -48,13 +50,14 @@ export default class EshopList extends React.Component {
 
 async submitForm(){
 
+        this.setState({ isLoading: true })
         var eshop_name = document.getElementById("eshop_name").value
 
         var formData = new FormData()
         formData.append("eshop_name", eshop_name)
 
         try {
-            const res = await fetch('https://www.iwansell.com/api/eshop_list/', {
+            const res = await fetch('https://www.iwansell.com/api/eshop_list/' + this.props.match.params.campus_id + '/', {
 
              body: formData,
              method: 'POST'
@@ -68,14 +71,17 @@ async submitForm(){
             console.log(e);
           }
 
+          this.setState({ isLoading: false })
+
 }
 
 
 
 async sortByCategory(id){
 
+  this.setState({ isLoading: true })
   try {
-      const res = await fetch('https://www.iwansell.com/api/eshop_list_category/' + id + '/');
+      const res = await fetch('https://www.iwansell.com/api/eshop_list_category/' + this.props.match.params.campus_id + '/' + id + '/');
       const eshop_list = await res.json();
       this.setState({
         eshop_list
@@ -83,6 +89,8 @@ async sortByCategory(id){
     } catch (e) {
       console.log(e);
     }
+
+    this.setState({ isLoading: false })
 
 }
 
@@ -164,42 +172,47 @@ emptyResult(){
           </Col>
 
           <Col lg={4} lgOffset={1} md={4} mdOffset={1} sm={12} xs={12}>
-             <div className="eshop-list">
+          {this.state.isLoading ? (
+            <Spinner/>
+          ) : (
+            <div className="eshop-list">
 
-              <div className="menu-header">
-               <p>EShop List</p>
-              </div>
+             <div className="menu-header">
+              <p>EShop List</p>
+             </div>
 
-              {this.emptyResult() ? (
+             {this.emptyResult() ? (
 
-                  <p className="err-msg">No result found</p>
+                 <p className="err-msg">No result found</p>
 
-              ) : (
+             ) : (
 
-                <span>
+               <span>
 
-                {this.state.eshop_list.map(item => (
-                    <span>
-                    <hr />
-                    <div>
-                    <p className="eshop-name"><Link to={`/eshop/${ item.id } `}>
-                    {item.name}
-                    </Link>
-                    </p>
-                    <EShopCategory eshop_id = {item.id}/>
-                    <p><i>{item.about}</i></p>
-                    </div>
-                    <hr />
-                    </span>
-                ))}
+               {this.state.eshop_list.map(item => (
+                   <span>
+                   <hr />
+                   <div>
+                   <p className="eshop-name"><Link to={`/eshop/${ item.id } `}>
+                   {item.name}
+                   </Link>
+                   </p>
+                   <EShopCategory eshop_id = {item.id}/>
+                   <p><i>{item.about}</i></p>
+                   </div>
+                   <hr />
+                   </span>
+               ))}
 
-                </span>
+               </span>
 
-              )}
+             )}
 
 
 
-              </div>
+             </div>
+          )}
+
           </Col>
         </Row>
 

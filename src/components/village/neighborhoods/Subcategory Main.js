@@ -2,10 +2,13 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { Row, Col, Button, Image, Thumbnail } from 'react-bootstrap'
 import Heading from './blocks/houses/Heading'
+import Spinner from 'react-activity/lib/Spinner';
+import 'react-activity/lib/Spinner/Spinner.css';
 
 export default class SubcategoryMain extends React.Component {
 
   state = {
+    isLoading: true,
     category : 'Never stop dreaming, and working at it',
     categoryList: [],
     categoryProductList: [],
@@ -36,6 +39,8 @@ export default class SubcategoryMain extends React.Component {
       console.log(e);
     }
 
+    this.setState({ isLoading: false})
+
 
 
 
@@ -44,7 +49,7 @@ export default class SubcategoryMain extends React.Component {
 
   async newCategory(id,name) {
 
-    this.setState({category: name})
+    this.setState({category: name, isLoading: true })
 
     try {
       const res = await fetch('https://www.iwansell.com/api/category_product/' + this.state.campus_id + '/' + id);
@@ -55,6 +60,8 @@ export default class SubcategoryMain extends React.Component {
     } catch (e) {
       console.log(e);
     }
+
+    this.setState({ isLoading: false })
 
 }
 
@@ -101,28 +108,33 @@ export default class SubcategoryMain extends React.Component {
 
                     </Col>
 
-                    <Col lg={9} md={9}>
+                <Col lg={9} md={9}>
                 <Heading title = {this.state.category}/>
 
 
-              <div id="main">
-                {this.state.categoryProductList.map(item => (
-                 <div class="box">
-                 <div class="pic">
+              {this.state.isLoading ? (
+                <Spinner/>
+              ) : (
+                <div id="main">
+                  {this.state.categoryProductList.map(item => (
+                   <div class="box">
+                   <div class="pic">
 
-                <Link to={`/product/${ item.product_id } `}>
+                  <Link to={`/product/${ item.product_id } `}>
 
-                    {this.setMedia(item.product_image)}
-                    <Thumbnail alt="product-image" src= { `${this.state.media}` }>
+                      {this.setMedia(item.product_image)}
+                      <Thumbnail alt="product-image" src= { `${this.state.media}` }>
 
-                        <p>{item.product_name}</p>
-                        <p className="price">Starting price : {item.starting_price}</p>
-                    </Thumbnail>
-                </Link>
+                          <p>{item.product_name}</p>
+                          <p className="price">Starting price : {item.starting_price}</p>
+                      </Thumbnail>
+                  </Link>
 
-                </div></div>
-                ))}
-                </div>
+                  </div></div>
+                  ))}
+                  </div>
+              )}
+
                    </Col>
                 </Row>
 
@@ -158,22 +170,28 @@ export default class SubcategoryMain extends React.Component {
 
               <Heading title = {this.state.category}/>
 
-                 <div id="main-sm">
-                {this.state.categoryProductList.map(item => (
-                   <div class="box-sm">
-	                    <div class="pic-sm">
+              {this.state.isLoading ? (
+                <Spinner/>
+              ) : (
+                <div id="main-sm">
+               {this.state.categoryProductList.map(item => (
+                  <div class="box-sm">
+                     <div class="pic-sm">
 
-                 <Link to={`/product/${ item.product_id } `}>
-                   {this.setMedia(item.product_image)}
-                   <Thumbnail alt="product-image" src= { `${this.state.media}` }>
-                     <p>{item.product_name}</p>
-                     <p className="price">Starting price : {item.starting_price}</p>
-                   </Thumbnail>
-                 </Link>
+                <Link to={`/product/${ item.product_id } `}>
+                  {this.setMedia(item.product_image)}
+                  <Thumbnail alt="product-image" src= { `${this.state.media}` }>
+                    <p>{item.product_name}</p>
+                    <p className="price">Starting price : {item.starting_price}</p>
+                  </Thumbnail>
+                </Link>
 
-                 </div></div>
-                ))}
-                </div>
+                </div></div>
+               ))}
+               </div>
+
+
+              )}
 
              </Col>
            </section>

@@ -1,9 +1,12 @@
 import React from 'react'
 import {Row, Col , Image} from 'react-bootstrap'
+import Spinner from 'react-activity/lib/Spinner';
+import 'react-activity/lib/Spinner/Spinner.css';
 
 export default class BlogHeaderPost extends React.Component {
 
   state={
+    isLoading: true,
     blogTop: {},
     media: null,
   }
@@ -30,6 +33,8 @@ export default class BlogHeaderPost extends React.Component {
       console.log(e);
     }
 
+    this.setState({ isLoading: false })
+
 
   }
 
@@ -43,6 +48,10 @@ export default class BlogHeaderPost extends React.Component {
         return (
            <section className="blog-header-post">
 
+           {this.state.isLoading ? (
+             <Spinner/>
+           ) : (
+             <section>
              <Row>
              <section className="profile-image">
                  <div class="dp-image">
@@ -63,6 +72,11 @@ export default class BlogHeaderPost extends React.Component {
             <Row>
                     <p>{this.state.blogTop.blog_post}</p>
             </Row>
+             </section>
+
+           )}
+
+
 
            </section>
          )

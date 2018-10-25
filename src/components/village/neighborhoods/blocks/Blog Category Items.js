@@ -1,10 +1,13 @@
 import React from 'react'
 import { Row, Col, Image, Button } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
+import Spinner from 'react-activity/lib/Spinner';
+import 'react-activity/lib/Spinner/Spinner.css';
 
 export default class Blog extends React.Component {
 
   state={
+    isLoading: true,
     blogList: [],
   }
 
@@ -29,6 +32,8 @@ export default class Blog extends React.Component {
     } catch (e) {
       console.log(e);
     }
+
+    this.setState({ isLoading: false })
 
 
   }
@@ -57,46 +62,56 @@ export default class Blog extends React.Component {
         return (
            <section className="blog-items">
 
-            {this.emptyResult() ? (
+           {this.state.isLoading ? (
+             <Spinner/>
+           ) :(
+             <section>
 
-                <Row>
-                    <p className="err-msg">Nothing here yet, we are still looking for our pen</p>
-                </Row>
-            ) : (
+             {this.emptyResult() ? (
 
-                <Row>
-                 {this.state.blogList.map(item => (
-                     <Col lg={6} md={6}>
-                        <Row>
-             <section className="profile-image">
-                 <div class="dp-image">
-                 {this.setMedia(item.image)}
-                    <Image src= { `${this.state.media}` } alt="product_image" responsive/>
-                </div>
-            </section>
-            </Row>
+                 <Row>
+                     <p className="err-msg">Nothing here yet, we are still looking for our pen</p>
+                 </Row>
+             ) : (
+
+                 <Row>
+                  {this.state.blogList.map(item => (
+                      <Col lg={6} md={6}>
+                         <Row>
+              <section className="profile-image">
+                  <div class="dp-image">
+                  {this.setMedia(item.image)}
+                     <Image src= { `${this.state.media}` } alt="product_image" responsive/>
+                 </div>
+             </section>
+             </Row>
+
+              <Row>
+                     <p className="blog-header">{item.title}</p>
+             </Row>
 
              <Row>
-                    <p className="blog-header">{item.title}</p>
-            </Row>
+                     <p className="date"><i>{item.date}</i></p>
+             </Row>
 
-            <Row>
-                    <p className="date"><i>{item.date}</i></p>
-            </Row>
-
-            <Row>
-                    <p>{item.blog_post}
-                    <Link to={`/blog/${ item.blog_id }/`}>
-                        <Button bsStyle="success">Read more</Button>
-                    </Link>
-                    </p>
-            </Row>
-                     </Col>
-                 ))}
-            </Row>
+             <Row>
+                     <p>{item.blog_post}
+                     <Link to={`/blog/${ item.blog_id }/`}>
+                         <Button bsStyle="success">Read more</Button>
+                     </Link>
+                     </p>
+             </Row>
+                      </Col>
+                  ))}
+             </Row>
 
 
-            )}
+             )}
+
+             </section>
+           )}
+
+
 
            </section>
          )

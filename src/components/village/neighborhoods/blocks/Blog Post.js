@@ -1,9 +1,12 @@
 import React from 'react'
 import {Row, Col , Image} from 'react-bootstrap'
+import Spinner from 'react-activity/lib/Spinner';
+import 'react-activity/lib/Spinner/Spinner.css'
 
 export default class BlogPost extends React.Component {
 
   state={
+    isLoading: true,
     blogPost: {},
     media: null,
   }
@@ -30,6 +33,8 @@ export default class BlogPost extends React.Component {
       console.log(e);
     }
 
+    this.setState({ isLoading: false })
+
 
   }
 
@@ -43,27 +48,35 @@ export default class BlogPost extends React.Component {
         return (
            <section className="Blog Items">
 
-             <Row>
-             <section className="profile-image">
-                 <div class="dp-image">
-                 {this.setMedia(this.state.blogPost.image)}
-                    <Image src= { `${this.state.media}` } alt="product_image" responsive/>
-                    </div>
+           {this.state.isLoading ? (
+             <Spinner/>
+           ) : (
+             <section>
 
-            </section>
-            </Row>
+                          <Row>
+                          <section className="profile-image">
+                              <div class="dp-image">
+                              {this.setMedia(this.state.blogPost.image)}
+                                 <Image src= { `${this.state.media}` } alt="product_image" responsive/>
+                                 </div>
 
-                    <Row>
-                        <p className="blog-header">{this.state.blogPost.title}</p>
-                    </Row>
+                         </section>
+                         </Row>
 
-                    <Row>
-                        <p className="date"><i>{this.state.blogPost.date}</i></p>
-                    </Row>
+                                 <Row>
+                                     <p className="blog-header">{this.state.blogPost.title}</p>
+                                 </Row>
 
-                    <Row>
-                         <p>{this.state.blogPost.blog_post}</p>
-                    </Row>
+                                 <Row>
+                                     <p className="date"><i>{this.state.blogPost.date}</i></p>
+                                 </Row>
+
+                                 <Row>
+                                      <p>{this.state.blogPost.blog_post}</p>
+                                 </Row>
+             </section>
+           )}
+
 
            </section>
          )

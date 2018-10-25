@@ -73,7 +73,7 @@ import AuthTest from './components/village/Auth Test';
                 <Route exact path="/about_us" component={AboutUs}/>
                 <Route exact path="/contact_us" component={ContactUs}/>
                 <Route exact path="/howto" component={HowTo}/>
-                <Route exact path="/eshop_list" component={EShopList}/>
+                <Route exact path="/eshop_list/:campus_id" component={EShopList}/>
                 <Route exact path="/faq" component={FAQ}/>
                 <Route exact path="/why_us" component={WhyUs}/>
                 <Route exact path="/newproduct" component={NewProduct}/>

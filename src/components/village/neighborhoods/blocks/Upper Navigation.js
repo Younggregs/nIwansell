@@ -1,9 +1,9 @@
 import React from 'react'
-import { Row,Col } from 'react-bootstrap'
+import { Row,Col, Image } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 import Logo from './houses/Logo'
-import Slogan from './houses/Slogan'
 import UpperNavigationRoutes from './Upper Navigation Routes'
+import Slogan from './houses/Slogan'
 
 export default class UpperNavigation extends React.Component {
 
@@ -24,10 +24,10 @@ export default class UpperNavigation extends React.Component {
               )}
 
               {this.props.logged_in ? (
-                 <UpperNavigationRoutes logged_in={this.props.logged_in}/>
+                 <UpperNavigationRoutes logged_in={this.props.logged_in} campus_id = {this.props.campus_id}/>
               ) :
               (
-                <UpperNavigationRoutes/>
+                <UpperNavigationRoutes campus_id = {this.props.campus_id}/>
               )}
 
               <Slogan/>
@@ -39,15 +39,24 @@ export default class UpperNavigation extends React.Component {
               <Col lgHidden mdHidden sm={12} xs={12}>
               <Row>
                   <Col smOffset={1} sm={2}  xsOffset={1} xs={2}>
-                        <Link to="/eshop_list">e-SHOPS
+                  <Link to={`/eshop_list/${ this.props.campus_id }/`}>e-SHOPS
                         </Link>
                     </Col>
 
+                    {this.props.logged_in ? (
                       <Col sm={3} xs={3}>
-                        <Link to = "/product_valuation">
-                            BUSINESS MODE
-                        </Link>
+                       <Link to = "/product_valuation">
+                           BUSINESS MODE
+                       </Link>
                     </Col>
+                    ) : (
+                    <Col lg={3} md={3}>
+                      <Link to="/about_us">ABOUT
+                      </Link>
+                  </Col>
+                    )}
+
+
 
                      <Col sm={2} xs={2}>
                         <Link to="/blog">BLOG

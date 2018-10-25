@@ -10,7 +10,7 @@ export default class UpperNavigationRoutes extends React.Component {
                <section className="upper-routes" id="upper-routes">
               <Row>
                   <Col lg={2} md={2}>
-                        <Link to="/eshop_list">e-SHOPS
+                        <Link to={`/eshop_list/${ this.props.campus_id }/`}>e-SHOPS
                         </Link>
                     </Col>
 
