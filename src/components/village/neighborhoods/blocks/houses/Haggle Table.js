@@ -87,7 +87,7 @@ export default class HaggleTable extends React.Component {
                   </Col>
 
                   <Col sm={12} xs={12} lgHidden mdHidden>
-                  
+                  <br /><br />
                   <div className="haggle-table-sm">
                    { this.state.messages.map(item => 
                     <span>
