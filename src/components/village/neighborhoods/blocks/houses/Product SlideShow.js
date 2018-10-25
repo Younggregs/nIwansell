@@ -7,6 +7,7 @@ export default class ProductSlideShow extends React.Component {
 
   state = {
     imagesList: [],
+    media: null,
   }
 
   async componentWillMount() {
@@ -23,7 +24,7 @@ export default class ProductSlideShow extends React.Component {
   }
 
   setMedia(media_name){
-    this.state.media = 'https://www.iwansell.com/api' + media_name
+    this.state.media = 'https://www.iwansell.com/' + media_name
   }
 
        render() {
@@ -38,7 +39,7 @@ export default class ProductSlideShow extends React.Component {
 
 
          return (
-           <section className="sponsored"> 
+           <section className="sponsored">
                <Row>
                 <Heading title="More Images"/>
                </Row>
@@ -56,7 +57,7 @@ export default class ProductSlideShow extends React.Component {
                  )
                 )}
          </Slider>
-      
+
              </Col>
 
 			<Col sm={12} xs={12} lgHidden mdHidden>
@@ -69,12 +70,12 @@ export default class ProductSlideShow extends React.Component {
                     </div>
                  )
                 )}
-  
+
                 </div>
 
              </Col>
               </Row>
-              
+
            </section>
          )
        }

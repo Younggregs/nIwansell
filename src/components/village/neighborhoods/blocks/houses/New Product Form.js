@@ -51,7 +51,14 @@ export default class NewProductForm extends React.Component {
     }
 
     try {
-      const res = await fetch('https://www.iwansell.com/api/eshop_exist/');
+      const res = await fetch('https://www.iwansell.com/api/eshop_exist/',{
+
+        headers : {
+          'Authorization' : 'Token ' + auth,
+
+        },
+
+      } );
       const eshop_exist = await res.json();
       this.setState({
         eshop_exist

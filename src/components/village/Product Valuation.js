@@ -69,10 +69,10 @@ displayResult(){
             <p><Link to="/top_sold">Top Sold Products
            </Link></p>
 
-           <p><Link to="/top_for_sell">Top Products Up For Sale
+           <p><Link to="/top_for_sell">Top Products Up For Sell
            </Link></p>
 
-            <p><Link to="/least_for_sell">Least Products Up For Sale
+            <p><Link to="/least_for_sell">Least Products Up For Sell
            </Link></p>
 
             </div>
