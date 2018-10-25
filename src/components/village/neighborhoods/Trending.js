@@ -4,10 +4,14 @@ import { Grid, Row, Col, Image } from 'react-bootstrap'
 import CategoryProduct from './blocks/Category Product'
 import Heading from './blocks/houses/Heading'
 import ProductImage from './blocks/houses/Product Image'
+import Spinner from 'react-activity/lib/Spinner';
+import 'react-activity/lib/Spinner/Spinner.css';
+
 
 export default class Trending extends React.Component {
 
   state = {
+    isLoading: true,
     trendList_1: [],
     trendList_2: [],
     trendList_3: [],
@@ -91,6 +95,8 @@ export default class Trending extends React.Component {
       console.log(e);
     }
 
+    this.setState({ isLoading: false })
+
   }
 
   setMedia(media_name){
@@ -115,360 +121,366 @@ export default class Trending extends React.Component {
        render() {
          return (
            <section className="trending">
-               <Col lg={12} md={12} smHidden xsHidden>
+            {this.state.isLoading ? (
+                <Spinner/>
+              ) : (
+                <section>
+                <Col lg={12} md={12} smHidden xsHidden>
 
+                <Row>
+                <Heading title = {this.trending_1} trending={true}/>
 
-                 <Row>
-                 <Heading title = {this.trending_1} trending={true}/>
+                {this.emptyResult(this.state.trendList_1) ? (
+                  <p className="err-msg">No trends here yet</p>
+                ): (
+                  <div>
+                  {this.state.trendList_1.map(item =>
 
-                 {this.emptyResult(this.state.trendList_1) ? (
-                   <p className="err-msg">No trends here yet</p>
-                 ): (
-                   <div>
-                   {this.state.trendList_1.map(item =>
-
-                     <Col lg={3} md={3} smHidden xsHidden>
-
-
-
-                       {this.setMedia(item.product_image)}
-                       <Link to={`/product/${ item.id } `}>
-                       <section className="product-container">
-                         <ProductImage media={this.state.media}/>
-                         <div className="product-tip">
-                           <p>{item.product_name}</p>
-                         </div>
-                       </section>
-                       </Link>
-
-
-                     </Col>
-
-                     )}
-                      </div>
-
-
-                 )}
+                    <Col lg={3} md={3} smHidden xsHidden>
 
 
 
-                 </Row>
+                      {this.setMedia(item.product_image)}
+                      <Link to={`/product/${ item.id } `}>
+                      <section className="product-container">
+                        <ProductImage media={this.state.media}/>
+                        <div className="product-tip">
+                          <p>{item.product_name}</p>
+                        </div>
+                      </section>
+                      </Link>
+
+
+                    </Col>
+
+                    )}
+                     </div>
+
+
+                )}
 
 
 
-                 <Row>
-                 <Heading title = {this.trending_2} trending={true}/>
+                </Row>
 
-                 {this.emptyResult(this.state.trendList_2) ? (
-                   <p className="err-msg">No trends here yet</p>
-                 ): (
-                   <div>
 
-                 {this.state.trendList_2.map(item =>
 
-                 <Col lg={3} md={3} smHidden xsHidden>
-                  <div className="image-size">
+                <Row>
+                <Heading title = {this.trending_2} trending={true}/>
 
-                   {this.setMedia(item.product_image)}
+                {this.emptyResult(this.state.trendList_2) ? (
+                  <p className="err-msg">No trends here yet</p>
+                ): (
+                  <div>
 
-                   <Link to={`/product/${ item.id } `}>
-                   <section className="product-container">
-                         <ProductImage media={this.state.media}/>
-                         <div className="product-tip">
-                           <p>{item.product_name}</p>
-                         </div>
-                       </section>
-                   </Link>
+                {this.state.trendList_2.map(item =>
 
-                  </div>
-                 </Col>
+                <Col lg={3} md={3} smHidden xsHidden>
+                 <div className="image-size">
 
-                 )}
+                  {this.setMedia(item.product_image)}
+
+                  <Link to={`/product/${ item.id } `}>
+                  <section className="product-container">
+                        <ProductImage media={this.state.media}/>
+                        <div className="product-tip">
+                          <p>{item.product_name}</p>
+                        </div>
+                      </section>
+                  </Link>
+
                  </div>
-                 )}
-                 </Row>
+                </Col>
 
-                 <Row>
-                   <CategoryProduct campus_id={this.props.campus_id}/>
-                 </Row>
+                )}
+                </div>
+                )}
+                </Row>
+
+                <Row>
+                  <CategoryProduct campus_id={this.props.campus_id}/>
+                </Row>
 
 
 
-                 <Row>
-                 <Heading title = {this.trending_3} trending={true}/>
+                <Row>
+                <Heading title = {this.trending_3} trending={true}/>
 
 
-                 {this.emptyResult(this.state.trendList_3) ? (
-                   <p className="err-msg">No trends here yet</p>
-                 ): (
-                   <div>
-                 {this.state.trendList_3.map(item =>
+                {this.emptyResult(this.state.trendList_3) ? (
+                  <p className="err-msg">No trends here yet</p>
+                ): (
+                  <div>
+                {this.state.trendList_3.map(item =>
 
-                 <Col lg={3} md={3} smHidden xsHidden>
-                  <div className="image-size">
+                <Col lg={3} md={3} smHidden xsHidden>
+                 <div className="image-size">
 
-                   {this.setMedia(item.product_image)}
+                  {this.setMedia(item.product_image)}
 
-                   <Link to={`/product/${ item.id } `}>
-                   <section className="product-container">
-                         <ProductImage media={this.state.media}/>
-                         <div className="product-tip">
-                           <p>{item.product_name}</p>
-                         </div>
-                       </section>
-                   </Link>
+                  <Link to={`/product/${ item.id } `}>
+                  <section className="product-container">
+                        <ProductImage media={this.state.media}/>
+                        <div className="product-tip">
+                          <p>{item.product_name}</p>
+                        </div>
+                      </section>
+                  </Link>
 
-                  </div>
-                 </Col>
-
-                 )}
                  </div>
-                 )}
-                 </Row>
+                </Col>
+
+                )}
+                </div>
+                )}
+                </Row>
 
 
 
 
-                 <Row>
-                 <Heading title = {this.trending_4} trending={true}/>
+                <Row>
+                <Heading title = {this.trending_4} trending={true}/>
 
-                 {this.emptyResult(this.state.trendList_4) ? (
-                   <p className="err-msg">No trends here yet</p>
-                 ): (
-                   <div>
+                {this.emptyResult(this.state.trendList_4) ? (
+                  <p className="err-msg">No trends here yet</p>
+                ): (
+                  <div>
 
-                 {this.state.trendList_4.map(item =>
+                {this.state.trendList_4.map(item =>
 
-                 <Col lg={3} md={3} smHidden xsHidden>
-                  <div className="image-size">
+                <Col lg={3} md={3} smHidden xsHidden>
+                 <div className="image-size">
 
-                   {this.setMedia(item.product_image)}
+                  {this.setMedia(item.product_image)}
 
-                   <Link to={`/product/${ item.id } `}>
-                   <section className="product-container">
-                         <ProductImage media={this.state.media}/>
-                         <div className="product-tip">
-                           <p>{item.product_name}</p>
-                         </div>
-                       </section>
-                   </Link>
+                  <Link to={`/product/${ item.id } `}>
+                  <section className="product-container">
+                        <ProductImage media={this.state.media}/>
+                        <div className="product-tip">
+                          <p>{item.product_name}</p>
+                        </div>
+                      </section>
+                  </Link>
 
-                  </div>
-                 </Col>
-
-                 )}
                  </div>
-                 )}
-                 </Row>
+                </Col>
+
+                )}
+                </div>
+                )}
+                </Row>
 
 
 
-                 <Row>
-                 <Heading title = {this.trending_5} trending={true}/>
+                <Row>
+                <Heading title = {this.trending_5} trending={true}/>
 
-                 {this.emptyResult(this.state.trendList_5) ? (
-                   <p className="err-msg">No trends here yet</p>
-                 ): (
-                   <div>
+                {this.emptyResult(this.state.trendList_5) ? (
+                  <p className="err-msg">No trends here yet</p>
+                ): (
+                  <div>
 
-                 {this.state.trendList_5.map(item =>
+                {this.state.trendList_5.map(item =>
 
-                 <Col lg={3} md={3} smHidden xsHidden>
-                  <div className="image-size">
+                <Col lg={3} md={3} smHidden xsHidden>
+                 <div className="image-size">
 
 
-                   {this.setMedia(item.product_image)}
+                  {this.setMedia(item.product_image)}
 
-                   <Link to={`/product/${ item.id } `}>
-                   <section className="product-container">
-                         <ProductImage media={this.state.media}/>
-                         <div className="product-tip">
-                           <p>{item.product_name}</p>
-                         </div>
-                       </section>
-                   </Link>
+                  <Link to={`/product/${ item.id } `}>
+                  <section className="product-container">
+                        <ProductImage media={this.state.media}/>
+                        <div className="product-tip">
+                          <p>{item.product_name}</p>
+                        </div>
+                      </section>
+                  </Link>
 
-                  </div>
-                 </Col>
-
-                 )}
                  </div>
-                 )}
-                 </Row>
+                </Col>
+
+                )}
+                </div>
+                )}
+                </Row>
 
 
 
 
 
-              </Col>
+             </Col>
 
-              <Col sm={12} xs={12} lgHidden mdHidden>
+             <Col sm={12} xs={12} lgHidden mdHidden>
+
+             <Row>
+              <Heading title = {this.trending_1} trending={true}/>
+
+              {this.emptyResult(this.state.trendList_1) ? (
+                  <p className="err-msg">No trends here yet</p>
+                ): (
+
+              <div class="scrolling-wrapper">
+
+                {this.state.trendList_1.map(item =>
+
+                <div class="card">
+                  {this.setMedia(item.product_image)}
+
+                <Link to={`/product/${ item.id } `}>
+                  <img  height="100" width="auto" src= { `${this.state.media}` } alt="thumbnail"/>
+                  <p>{item.product_name}</p>
+                </Link>
+
+                </div>
+                )}
+
+              </div>
+              )}
+
+              </Row>
+
+
+
 
               <Row>
-               <Heading title = {this.trending_1} trending={true}/>
+              <Heading title = {this.trending_2} trending={true}/>
 
-               {this.emptyResult(this.state.trendList_1) ? (
-                   <p className="err-msg">No trends here yet</p>
-                 ): (
+              {this.emptyResult(this.state.trendList_2) ? (
+                  <p className="err-msg">No trends here yet</p>
+                ): (
 
-               <div class="scrolling-wrapper">
 
-                 {this.state.trendList_1.map(item =>
+              <div class="scrolling-wrapper">
 
-                 <div class="card">
-                   {this.setMedia(item.product_image)}
+                {this.state.trendList_2.map(item =>
 
-                 <Link to={`/product/${ item.id } `}>
-                   <img  height="100" width="auto" src= { `${this.state.media}` } alt="thumbnail"/>
-                   <p>{item.product_name}</p>
-                 </Link>
+                <div class="card">
+                {this.setMedia(item.product_image)}
 
-                 </div>
-                 )}
+              <Link to={`/product/${ item.id } `}>
+                <img  height="100" width="auto" src= { `${this.state.media}` } alt="thumbnail"/>
+                <p>{item.product_name}</p>
+              </Link>
 
-               </div>
-               )}
+              </div>
+                )}
 
-               </Row>
+              </div>
+              )}
 
+              </Row>
 
 
+              <CategoryProduct campus={this.props.campus_id}/>
 
-               <Row>
-               <Heading title = {this.trending_2} trending={true}/>
 
-               {this.emptyResult(this.state.trendList_2) ? (
-                   <p className="err-msg">No trends here yet</p>
-                 ): (
 
 
-               <div class="scrolling-wrapper">
+              <Row>
+              <Heading title = {this.trending_3} trending={true}/>
 
-                 {this.state.trendList_2.map(item =>
+              {this.emptyResult(this.state.trendList_3) ? (
+                  <p className="err-msg">No trends here yet</p>
+                ): (
 
-                 <div class="card">
-                 {this.setMedia(item.product_image)}
+              <div class="scrolling-wrapper">
 
-               <Link to={`/product/${ item.id } `}>
-                 <img  height="100" width="auto" src= { `${this.state.media}` } alt="thumbnail"/>
-                 <p>{item.product_name}</p>
-               </Link>
+                {this.state.trendList_3.map(item =>
 
-               </div>
-                 )}
+                <div class="card">
+                {this.setMedia(item.product_image)}
 
-               </div>
-               )}
+              <Link to={`/product/${ item.id } `}>
+                <img  height="100" width="auto" src= { `${this.state.media}` } alt="thumbnail"/>
+                <p>{item.product_name}</p>
+              </Link>
 
-               </Row>
+              </div>
+                )}
 
+              </div>
+                )}
 
-               <CategoryProduct campus={this.props.campus_id}/>
+              </Row>
 
 
 
 
-               <Row>
-               <Heading title = {this.trending_3} trending={true}/>
 
-               {this.emptyResult(this.state.trendList_3) ? (
-                   <p className="err-msg">No trends here yet</p>
-                 ): (
+              <Row>
+              <Heading title = {this.trending_4} trending={true}/>
 
-               <div class="scrolling-wrapper">
+              {this.emptyResult(this.state.trendList_4) ? (
+                  <p className="err-msg">No trends here yet</p>
+                ): (
 
-                 {this.state.trendList_3.map(item =>
+              <div class="scrolling-wrapper">
 
-                 <div class="card">
-                 {this.setMedia(item.product_image)}
+                {this.state.trendList_4.map(item =>
+                <div class="card">
+                {this.setMedia(item.product_image)}
 
-               <Link to={`/product/${ item.id } `}>
-                 <img  height="100" width="auto" src= { `${this.state.media}` } alt="thumbnail"/>
-                 <p>{item.product_name}</p>
-               </Link>
+              <Link to={`/product/${ item.id } `}>
+                <img  height="100" width="auto" src= { `${this.state.media}` } alt="thumbnail"/>
+                <p>{item.product_name}</p>
+              </Link>
 
-               </div>
-                 )}
+              </div>
+                )}
 
-               </div>
-                 )}
+              </div>
+                )}
 
-               </Row>
+              </Row>
 
 
 
 
 
-               <Row>
-               <Heading title = {this.trending_4} trending={true}/>
 
-               {this.emptyResult(this.state.trendList_4) ? (
-                   <p className="err-msg">No trends here yet</p>
-                 ): (
 
-               <div class="scrolling-wrapper">
 
-                 {this.state.trendList_4.map(item =>
-                 <div class="card">
-                 {this.setMedia(item.product_image)}
 
-               <Link to={`/product/${ item.id } `}>
-                 <img  height="100" width="auto" src= { `${this.state.media}` } alt="thumbnail"/>
-                 <p>{item.product_name}</p>
-               </Link>
 
-               </div>
-                 )}
+              <Row>
+              <Heading title = {this.trending_5} trending={true}/>
 
-               </div>
-                 )}
+              {this.emptyResult(this.state.trendList_5) ? (
+                  <p className="err-msg">No trends here yet</p>
+                ): (
 
-               </Row>
+              <div class="scrolling-wrapper">
 
+                {this.state.trendList_5.map(item =>
 
+                <div class="card">
+                  {this.setMedia(item.product_image)}
 
+                <Link to={`/product/${ item.id } `}>
+                  <Image  height="100" width="auto" src= { `${this.state.media}` } alt="thumbnail" responsive/>
+                  <p>{item.product_name}</p>
+                </Link>
 
+                </div>
+                )}
 
+              </div>
+                )}
 
+              </Row>
 
 
 
 
-               <Row>
-               <Heading title = {this.trending_5} trending={true}/>
 
-               {this.emptyResult(this.state.trendList_5) ? (
-                   <p className="err-msg">No trends here yet</p>
-                 ): (
 
-               <div class="scrolling-wrapper">
 
-                 {this.state.trendList_5.map(item =>
 
-                 <div class="card">
-                   {this.setMedia(item.product_image)}
-
-                 <Link to={`/product/${ item.id } `}>
-                   <Image  height="100" width="auto" src= { `${this.state.media}` } alt="thumbnail" responsive/>
-                   <p>{item.product_name}</p>
-                 </Link>
-
-                 </div>
-                 )}
-
-               </div>
-                 )}
-
-               </Row>
-
-
-
-
-
-
-
-
-              </Col>
+             </Col>
+            </section>
+              )}
+              
             </section>
          )
        }
