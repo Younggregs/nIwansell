@@ -1,10 +1,13 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { Row, Col, Image } from 'react-bootstrap'
+import Spinner from 'react-activity/lib/Spinner';
+import 'react-activity/lib/Spinner/Spinner.css';
 
 export default class SubcategoryIcons extends React.Component {
 
   state = {
+    isLoading: true,
     iconList: [],
     media: null,
     count: 0,
@@ -22,6 +25,8 @@ export default class SubcategoryIcons extends React.Component {
       console.log(e);
     }
 
+    this.setState({ isLoading: false })
+
   }
 
   setMedia(media_name){
@@ -32,7 +37,10 @@ export default class SubcategoryIcons extends React.Component {
 
          return (
            <section className="sub-category-icons">
-               <Row>
+            {this.state.isLoading ? (
+              <Spinner/>
+            ) : (
+              <Row>
                <Col smHidden xsHidden>
                 <Row>
             { this.state.iconList.map(item => (
@@ -49,6 +57,8 @@ export default class SubcategoryIcons extends React.Component {
              </Col>
             </Row>
 
+            )}
+               
            </section>
          )
        }

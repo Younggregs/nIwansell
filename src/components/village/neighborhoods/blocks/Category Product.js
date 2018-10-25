@@ -2,10 +2,13 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { Grid, Row, Col, Button, Image, FormControl, Thumbnail } from 'react-bootstrap'
 import Heading from './houses/Heading'
+import Spinner from 'react-activity/lib/Spinner';
+import 'react-activity/lib/Spinner/Spinner.css';
 
 export default class CategoryProduct extends React.Component {
 
   state = {
+    isLoading: true,
     category : 'All Categories',
     categoryList: [],
     categoryProductList: [],
@@ -36,6 +39,8 @@ export default class CategoryProduct extends React.Component {
       console.log(e);
     }
 
+    this.setState({ isLoading: false })
+
 
 
 
@@ -44,7 +49,7 @@ export default class CategoryProduct extends React.Component {
 
   async newCategory(id,name) {
 
-    this.setState({category: name})
+    this.setState({category: name, isLoading: true})
 
     try {
       const res = await fetch('https://www.iwansell.com/api/category_product/' + this.state.campus_id + '/' + id);
@@ -55,6 +60,8 @@ export default class CategoryProduct extends React.Component {
     } catch (e) {
       console.log(e);
     }
+
+    this.setState({ isLoading: false })
 
 }
 
@@ -73,7 +80,7 @@ export default class CategoryProduct extends React.Component {
          return (
            <section className="category-product">
               <Col lg={12} md={12} smHidden xsHidden>
-
+             
                 <Row>
                     <Col lg={3} md={3}>
                        <Heading title="Categories"/>
@@ -104,7 +111,10 @@ export default class CategoryProduct extends React.Component {
                     <Col lg={9} md={9}>
                 <Heading title = {this.state.category}/>
 
-                <div id="main">
+                {this.state.isLoading ? (
+                  <Spinner/>
+                ) : (
+                  <div id="main">
                                 {this.state.categoryProductList.map(item => (
                                  <div class="box">
                                  <div class="pic">
@@ -122,6 +132,8 @@ export default class CategoryProduct extends React.Component {
                                 </div></div>
                                 ))}
                     </div>
+                    )}
+                
                    </Col>
                 </Row>
 
@@ -164,23 +176,27 @@ export default class CategoryProduct extends React.Component {
 
               <Heading title = {this.state.category}/>
 
-
-              <div id="main-sm">
-               {this.state.categoryProductList.map(item => (
-                  <div class="box-sm">
-                     <div class="pic-sm">
-
-                <Link to={`/product/${ item.product_id } `}>
-                  {this.setMedia(item.product_image)}
-                  <Thumbnail alt="product-image" src= { `${this.state.media}` }>
-                    <p>{item.product_name}</p>
-                    <p className="price">Starting price : {item.starting_price}</p>
-                  </Thumbnail>
-                </Link>
-
-                </div></div>
-               ))}
-               </div>
+              {this.state.isLoading ? (
+                <Spinner/>
+              ) : (
+                <div id="main-sm">
+                {this.state.categoryProductList.map(item => (
+                   <div class="box-sm">
+                      <div class="pic-sm">
+ 
+                 <Link to={`/product/${ item.product_id } `}>
+                   {this.setMedia(item.product_image)}
+                   <Thumbnail alt="product-image" src= { `${this.state.media}` }>
+                     <p>{item.product_name}</p>
+                     <p className="price">Starting price : {item.starting_price}</p>
+                   </Thumbnail>
+                 </Link>
+ 
+                 </div></div>
+                ))}
+                </div>
+              )}
+             
 
 
              </Col>

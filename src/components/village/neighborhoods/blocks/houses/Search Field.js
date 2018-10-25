@@ -1,9 +1,13 @@
 import React from 'react'
 import { Col, Row, Form, Thumbnail, FormGroup,FormControl,InputGroup,Glyphicon, Button,ControlLabel,HelpBlock} from 'react-bootstrap'
+import Spinner from 'react-activity/lib/Spinner';
+import 'react-activity/lib/Spinner/Spinner.css';
+
 
 export default class SearchField extends React.Component {
 
   state = {
+    isLoading: false,
     categorylist: [],
     search_result: [],
     search_phrase: "",
@@ -30,6 +34,8 @@ export default class SearchField extends React.Component {
     var formData = new FormData()
     formData.append('search_phrase', this.state.search_phrase)
 
+    this.setState({ isLoading: true })
+
 
     try {
       const res = await fetch('https://www.iwansell.com/api/search/' + this.props.campus_id + '/' + this.state.category_id + '/',{
@@ -45,6 +51,8 @@ export default class SearchField extends React.Component {
     } catch (e) {
       console.log(e);
     }
+
+    this.setState({ isLoading: false })
   }
 
 
@@ -128,8 +136,13 @@ emptyResult(){
 
            <Row>
        {this.state.is_search ? (
-           <div>
+         <div>
+           {this.state.isLoading ? (
+             <Spinner/>
+           ) : (
+            <div>
             <br /><br />
+
             {this.emptyResult() ? (
               <p className="err-msg">No result found for <i>{this.state.search_phrase}</i></p>
             ) : (
@@ -152,9 +165,9 @@ emptyResult(){
             ))}
             </div>
 
-    ))}
-
            </div>
+           )}
+          </div>
           ) : (
             <div></div>
           )}
@@ -190,28 +203,34 @@ emptyResult(){
 
         <Row>
        {this.state.is_search ? (
-           <div>
-             <br /><br />
-             {this.emptyResult() ? (
-              <p className="err-msg">No result found for <i>{this.state.search_phrase}</i></p>
+          <div>
+            {this.state.isLoading ? (
+              <Spinner/>
             ) : (
-              <span></span>
+              <div>
+              <br /><br />
+              {this.emptyResult() ? (
+               <p className="err-msg">No result found for <i>{this.state.search_phrase}</i></p>
+             ) : (
+               <span></span>
+             )}
+ 
+              <div id="main">
+             {this.state.search_result.map(item => (
+               <div class="box">
+                <div class="pic">
+              {this.setMedia(item.product_image)}
+              <Thumbnail href={"product/" + item.product_id } alt="product-image" src= { `${this.state.media}` }>
+              <h3>{item.product_name}</h3>
+               <p className="price">Starting price : {item.starting_price}</p>
+              </Thumbnail>
+              </div></div>
+           ))}
+            </div>
+ 
+            </div>
             )}
-
-             <div id="main">
-            {this.state.search_result.map(item => (
-              <div class="box">
-	             <div class="pic">
-             {this.setMedia(item.product_image)}
-             <Thumbnail href={"product/" + item.product_id } alt="product-image" src= { `${this.state.media}` }>
-             <h3>{item.product_name}</h3>
-              <p className="price">Starting price : {item.starting_price}</p>
-             </Thumbnail>
-             </div></div>
-          ))}
-           </div>
-
-           </div>
+          </div>
           ) : (
             <div></div>
           )}

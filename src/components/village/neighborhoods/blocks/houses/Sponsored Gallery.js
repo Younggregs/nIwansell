@@ -2,10 +2,13 @@ import React from 'react'
 import Slider from 'react-slick'
 import SubcategoryIcons from './Subcategory Icons'
 import { Row, Col } from 'react-bootstrap'
+import Spinner from 'react-activity/lib/Spinner';
+import 'react-activity/lib/Spinner/Spinner.css';
 
 export default class SponsoredGallery extends React.Component {
 
   state = {
+    isLoading: true,
     sponsoredList: [],
     media: null,
     count: 0,
@@ -22,6 +25,8 @@ export default class SponsoredGallery extends React.Component {
     } catch (e) {
       console.log(e);
     }
+
+    this.setState({ isLoading: false })
 
   }
 
@@ -56,37 +61,44 @@ export default class SponsoredGallery extends React.Component {
 
          return (
            <section className="sponsored-gallery">
-               <Row>
-               <Col lg={10} lgOffset={1} md={10} mdOffset={1} smHidden xsHidden>
-          <Slider {...settings_lg}>
+           {this.state.isLoading ? (
+             <Spinner/>
+           ) : (
 
-            { this.state.sponsoredList.map(item => (
-                    <div className="sponsored-images">
-                      <div className="sponsored-image">
-                    {this.setMedia(item.product_image)}
-                    <img src= { `${this.state.media}` } alt="thumbnail"/>
-                    </div>
-                    </div>
-                 )
-                )}
-         </Slider>
+            <Row>
+            <Col lg={10} lgOffset={1} md={10} mdOffset={1} smHidden xsHidden>
+       <Slider {...settings_lg}>
 
-             </Col>
+         { this.state.sponsoredList.map(item => (
+                 <div className="sponsored-images">
+                   <div className="sponsored-image">
+                 {this.setMedia(item.product_image)}
+                 <img src= { `${this.state.media}` } alt="thumbnail"/>
+                 </div>
+                 </div>
+              )
+             )}
+      </Slider>
 
-						  <Col sm={12} xs={12} lgHidden mdHidden>
+          </Col>
+
+           <Col sm={12} xs={12} lgHidden mdHidden>
 
 
-                  <Slider {...settings_sm}>
-                { this.state.sponsoredList.map(item => (
-                    <div class="card">
-                    {this.setMedia(item.product_image)}
-                    <img src= { `${this.state.media}` } alt="thumbnail"/>
-                    </div>
-                 )
-                )}
-                  </Slider>
-             </Col>
-              </Row>
+               <Slider {...settings_sm}>
+             { this.state.sponsoredList.map(item => (
+                 <div class="card">
+                 {this.setMedia(item.product_image)}
+                 <img src= { `${this.state.media}` } alt="thumbnail"/>
+                 </div>
+              )
+             )}
+               </Slider>
+          </Col>
+           </Row>
+
+           )}
+
 
               <Row>
                <SubcategoryIcons/>

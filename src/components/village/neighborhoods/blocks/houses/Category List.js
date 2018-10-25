@@ -1,11 +1,13 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { Grid, Row, Col, Button, Table, FormControl } from 'react-bootstrap'
-import Heading from './Heading'
+import { Row, Col, Button, Table } from 'react-bootstrap'
+import Spinner from 'react-activity/lib/Spinner';
+import 'react-activity/lib/Spinner/Spinner.css';
 
 export default class CategoryList extends React.Component {
 
   state = {
+    isLoading: true,
     category : 'All Categories',
     categoryList: [],
     categoryProductList: [],
@@ -26,6 +28,8 @@ export default class CategoryList extends React.Component {
         console.log(e);
       }
 
+      this.setState({ isLoading: false })
+
 }
 
 
@@ -40,7 +44,10 @@ export default class CategoryList extends React.Component {
                         <th><p className="heading-lg">Category</p></th>
                     </tr>
                 </thead>
-                <tbody>
+                {this.state.isLoading ? (
+                  <Spinner/>
+                ) : (
+                  <tbody>
                 <tr>
                 </tr>
                        {this.state.categoryList.map(item => (
@@ -54,6 +61,8 @@ export default class CategoryList extends React.Component {
                        ))}
                 </tbody>
 
+                )}
+                
               </Table>
                 </Col>
              </Row>
