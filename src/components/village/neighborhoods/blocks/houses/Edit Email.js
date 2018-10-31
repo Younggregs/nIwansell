@@ -4,7 +4,7 @@ import { Button,FormGroup, FormControl, HelpBlock } from 'react-bootstrap';
 import Heading from './Heading'
 
 
-export default class EditPhone extends React.Component {
+export default class EditEmail extends React.Component {
 
   state = {
     message : [],
