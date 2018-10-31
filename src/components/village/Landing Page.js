@@ -121,7 +121,7 @@ async setMarket(){
                   type="text"
                   id="key_word"
                   name="key_word"
-                  placeholder="Start typing"
+                  placeholder="Start typing, e.g Futminna"
                   size="50"
                   onChange={this.getCampusList.bind(this)}/>
 
