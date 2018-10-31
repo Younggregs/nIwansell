@@ -90,6 +90,21 @@ async setMarket(){
 
 
 
+ emptyResult(){
+
+   var empty_set = false
+
+   if(this.state.campuslist.length <= 0 ){
+     empty_set = true
+   }
+
+   return empty_set
+
+
+ }
+
+
+
       render() {
 
         return (
@@ -136,20 +151,27 @@ async setMarket(){
                    {this.state.isLoading ? (
                       <Spinner/>
                     ) : (
+                      <div>
+                      {this.emptyResult ? (
+                        <p className="err-msg">Campus not available yet, we are working on it</p>
+                      ) : (
+                        <form>
+                          <FormGroup>
+                         <FormControl componentClass="select" placeholder="select" id="campus_id">
+                         {this.state.campuslist.map(item => (
+                          <option value={item.id}>{item.campus_code}</option>
+                          ))}
+                         </FormControl>
+                       </FormGroup>
 
-                    <form>
-                      <FormGroup>
-                     <FormControl componentClass="select" placeholder="select" id="campus_id">
-                     {this.state.campuslist.map(item => (
-                      <option value={item.id}>{item.campus_code}</option>
-                      ))}
-                     </FormControl>
-                   </FormGroup>
+                       <FormGroup>{' '}
+                      <Button bsStyle="success" onClick={this.setSchool.bind(this)}>continue</Button>
+                        </FormGroup>{' '}
+                        </form>
 
-                   <FormGroup>{' '}
-                  <Button bsStyle="success" onClick={this.setSchool.bind(this)}>continue</Button>
-                    </FormGroup>{' '}
-                    </form>
+                      )}
+
+                  </div>
 
                   )}
                     </Col>
