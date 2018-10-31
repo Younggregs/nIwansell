@@ -8,7 +8,7 @@ import GotoTop from './neighborhoods/blocks/houses/Goto Top'
 import Copyright from './neighborhoods/blocks/houses/Copyright'
 import EShopAds from './neighborhoods/blocks/EShop Ads'
 import CategorySlide from './neighborhoods/Category Slide'
-import {setMarket, setCampusId} from './neighborhoods/blocks/houses/auth/Auth'
+import {setMarket, setCampusId, setAccountId} from './neighborhoods/blocks/houses/auth/Auth'
 
 export default class Home extends React.Component {
 

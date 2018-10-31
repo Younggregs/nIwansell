@@ -79,7 +79,7 @@ async setMarket(){
       market
     });
 
-    setMarket(id)
+    setMarket(market)
   } catch (e) {
     console.log(e);
   }
