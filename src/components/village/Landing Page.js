@@ -152,7 +152,7 @@ async setMarket(){
                       <Spinner/>
                     ) : (
                       <div>
-                      {this.emptyResult ? (
+                      {this.emptyResult() ? (
                         <p className="err-msg">Campus not available yet, we are working on it</p>
                       ) : (
                         <form>
