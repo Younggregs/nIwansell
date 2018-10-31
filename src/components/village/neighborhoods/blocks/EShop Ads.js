@@ -17,21 +17,22 @@ export default class EShopAds extends React.Component {
                   <Heading title="TOP e-SHOPS"/>
                 </Row>
 
-              <Row className="eshop-ads-items">
-                <Image width="auto" height="500px" src={ require ('./houses/images/kuregs.png') } alt="iwansell" responsive/>
-              </Row>
-              <Row className="eshop-ads-items">
-                <Image width="auto" height="500px" src={ require ('./houses/images/kuregs.png') } alt="iwansell" responsive/>
-              </Row>
-              <Row className="eshop-ads-items">
-                <Image width="auto" height="500px" src={ require ('./houses/images/kuregs.png') } alt="iwansell" responsive/>
-              </Row>
-              <Row className="eshop-ads-items">
-                <Image width="auto" height="500px" src={ require ('./houses/images/kuregs.png') } alt="iwansell" responsive/>
-              </Row>
-              <Row className="eshop-ads-items">
-                <Image width="auto" height="500px"  src={ require ('./houses/images/kuregs.png') } alt="iwansell" responsive/>
-              </Row>
+                <Row className="eshop-ads-items">
+                    <Image width="auto" height="500px" src={ require ('./houses/images/slide1.png') } alt="iwansell" responsive/>
+                  </Row>
+                  <Row className="eshop-ads-items">
+                    <Image width="auto" height="500px" src={ require ('./houses/images/slide2.png') } alt="iwansell" responsive/>
+                  </Row>
+                  <Row className="eshop-ads-items">
+                    <Image width="auto" height="500px" src={ require ('./houses/images/slide3.png') } alt="iwansell" responsive/>
+                  </Row>
+                  <Row className="eshop-ads-items">
+                    <Image width="auto" height="500px" src={ require ('./houses/images/slide4.png') } alt="iwansell" responsive/>
+                  </Row>
+                  <Row className="eshop-ads-items">
+                    <Image width="auto" height="500px"  src={ require ('./houses/images/slide1.png') } alt="iwansell" responsive/>
+                  </Row>
+                  
               </Col>
            </section>
          )

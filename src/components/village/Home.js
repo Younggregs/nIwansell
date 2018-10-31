@@ -8,6 +8,7 @@ import GotoTop from './neighborhoods/blocks/houses/Goto Top'
 import Copyright from './neighborhoods/blocks/houses/Copyright'
 import EShopAds from './neighborhoods/blocks/EShop Ads'
 import CategorySlide from './neighborhoods/Category Slide'
+import {setMarket, setCampusId} from './neighborhoods/blocks/houses/auth/Auth'
 
 export default class Home extends React.Component {
 
@@ -35,6 +36,7 @@ export default class Home extends React.Component {
       this.setState({
         account_id
       });
+      setAccountId(account_id)
     } catch (e) {
       console.log(e);
     }
@@ -54,6 +56,7 @@ export default class Home extends React.Component {
       this.setState({
         campus_id
       });
+      setCampusId(campus_id)
     } catch (e) {
       console.log(e);
     }
@@ -65,9 +68,11 @@ export default class Home extends React.Component {
         this.setState({
           market
         });
+        setMarket(market)
       } catch (e) {
         console.log(e);
       }
+
 
 
 

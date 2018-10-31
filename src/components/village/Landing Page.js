@@ -12,11 +12,12 @@ import Heading from './neighborhoods/blocks/houses/Heading'
 import Footer from './neighborhoods/Footer'
 import GotoTop from './neighborhoods/blocks/houses/Goto Top'
 import Copyright from './neighborhoods/blocks/houses/Copyright'
+import {setMarket, setCampusId} from './neighborhoods/blocks/houses/auth/Auth'
 
 
 export default class LandingPage extends React.Component {
  state = {
-   isLoading: true,
+   isLoading: false,
    campuslist: [],
    market: "Your",
    show_school: true,
@@ -25,11 +26,24 @@ export default class LandingPage extends React.Component {
  }
 
 
+ async getCampusList() {
 
 
- async componentWillMount() {
+     this.setState({ isLoading: true})
+
+     var key_word = document.getElementById("key_word").value
+     var formData = new FormData()
+     formData.append('key_word', key_word)
+
      try {
-       const res = await fetch('https://www.iwansell.com/api/campus/');
+       const res = await fetch('https://www.iwansell.com/api/campus_search/', {
+
+         body :formData,
+         method: 'POST',
+         credentials: 'same-origin',
+         mode: 'cors',
+
+       });
        const campuslist = await res.json();
        this.setState({
          campuslist
@@ -37,9 +51,9 @@ export default class LandingPage extends React.Component {
      } catch (e) {
        console.log(e);
      }
+
      this.setState({ isLoading: false})
    }
-
 
 
 school_set(){
@@ -49,6 +63,8 @@ school_set(){
 
 setSchool(){
     var id = document.getElementById("campus_id").value
+    setCampusId(id)
+
     this.setState({ campus_id: id})
     this.school_set()
 
@@ -62,9 +78,12 @@ async setMarket(){
     this.setState({
       market
     });
+
+    setMarket(id)
   } catch (e) {
     console.log(e);
   }
+
 
  }
 
@@ -94,6 +113,21 @@ async setMarket(){
                   </Col>
             </Row><br />
 
+            <Row>
+              <Col lg={4} lgOffset={4} md={4} mdOffset={4} sm={10} smOffset={1} xs={10} xsOffset={1}>
+              <form>
+              <Heading title="Select Campus"/>
+              <FormControl
+                  type="text"
+                  id="key_word"
+                  name="key_word"
+                  placeholder="Start typing"
+                  size="50"
+                  onChange={this.getCampusList.bind(this)}/>
+
+                </form>
+              </Col>
+            </Row>
 
                  <Row>
                  {this.state.isLoading ? (

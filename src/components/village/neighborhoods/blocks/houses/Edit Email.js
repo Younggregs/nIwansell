@@ -8,7 +8,7 @@ export default class EditPhone extends React.Component {
 
   state = {
     message : [],
-    phone: null
+    email: null
   }
 
   async componentWillMount(){
@@ -17,15 +17,15 @@ export default class EditPhone extends React.Component {
 
 
     try {
-      const res = await fetch('https://www.iwansell.com/api/get_phone/', {
+      const res = await fetch('https://www.iwansell.com/api/get_email/', {
        headers : {
          'Authorization' : 'Token ' + auth
        }
 
       })
-      const phone = await res.json();
+      const email = await res.json();
         this.setState({
-          phone
+          email
         });
 
     } catch (e) {
@@ -41,13 +41,13 @@ export default class EditPhone extends React.Component {
 
     const auth = localStorage.getItem('auth_code')
 
-    var phone = document.getElementById("phone").value
+    var email = document.getElementById("email").value
 
     var formData = new FormData()
-    formData.append('phone', phone)
+    formData.append('email', email)
 
     try {
-      const res = await fetch('https://www.iwansell.com/api/reset_phone/', {
+      const res = await fetch('https://www.iwansell.com/api/reset_email/', {
 
 
        body : formData,
@@ -77,20 +77,20 @@ render(){
 
 const formInstance = (
   <section className="edit-profile-form">
-  <Heading title="Set/reset phone number"/>
+  <Heading title="Set/reset email"/>
 
 
   <form>
   <FormGroup>
         <FormControl
-            id="phone"
+            id="email"
             type="text"
-            label="Phone"
-            name="phone"
-            placeholder={this.state.phone}
+            label="eg example@gmail.com"
+            name="email"
+            placeholder={this.state.email}
 
         />
-        <HelpBlock>Phone number is needed for customers to reach you on phone</HelpBlock>
+        <HelpBlock>Email is needed for password recovery</HelpBlock>
 </FormGroup>
 
     {this.state.message.error_message ? (
@@ -105,7 +105,7 @@ const formInstance = (
       <span></span>
     )}
 
-    <Button onClick={this.update.bind(this)}>reset phone</Button>
+    <Button onClick={this.update.bind(this)}>reset email</Button>
   </form>
   </section>
 );
