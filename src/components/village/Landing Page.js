@@ -18,6 +18,7 @@ import {setMarket, setCampusId} from './neighborhoods/blocks/houses/auth/Auth'
 export default class LandingPage extends React.Component {
  state = {
    isLoading: false,
+   type: false,
    campuslist: [],
    market: "Your",
    show_school: true,
@@ -29,7 +30,7 @@ export default class LandingPage extends React.Component {
  async getCampusList() {
 
 
-     this.setState({ isLoading: true})
+     this.setState({ type: true, isLoading: true})
 
      var key_word = document.getElementById("key_word").value
      var formData = new FormData()
@@ -130,26 +131,32 @@ async setMarket(){
             </Row>
 
                  <Row>
-                 {this.state.isLoading ? (
-                    <Spinner/>
-                  ) : (
-                  <Col lg={4} lgOffset={4} md={4} mdOffset={4} sm={10} smOffset={1} xs={10} xsOffset={1}>
-                  <form>
-                      <Heading title="Select Campus"/>
-                    <FormGroup>
-                   <FormControl componentClass="select" placeholder="select" id="campus_id">
-                   {this.state.campuslist.map(item => (
-                    <option value={item.id}>{item.campus_code}</option>
-                    ))}
-                   </FormControl>
-                 </FormGroup>
+                 {this.state.type ? (
+                    <Col lg={4} lgOffset={4} md={4} mdOffset={4} sm={10} smOffset={1} xs={10} xsOffset={1}>
+                   {this.state.isLoading ? (
+                      <Spinner/>
+                    ) : (
 
-                 <FormGroup>{' '}
-                <Button bsStyle="success" onClick={this.setSchool.bind(this)}>continue</Button>
-                  </FormGroup>{' '}
-                  </form>
-                  </Col>
-                )}
+                    <form>
+                      <FormGroup>
+                     <FormControl componentClass="select" placeholder="select" id="campus_id">
+                     {this.state.campuslist.map(item => (
+                      <option value={item.id}>{item.campus_code}</option>
+                      ))}
+                     </FormControl>
+                   </FormGroup>
+
+                   <FormGroup>{' '}
+                  <Button bsStyle="success" onClick={this.setSchool.bind(this)}>continue</Button>
+                    </FormGroup>{' '}
+                    </form>
+
+                  )}
+                    </Col>
+
+                 ) : (
+                   <div></div>
+                 )}
 
                 </Row>
                </Grid>
