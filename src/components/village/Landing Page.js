@@ -22,8 +22,8 @@ export default class LandingPage extends React.Component {
    campuslist: [],
    market: "Your",
    show_school: true,
-   campus_id: '1',
-   school: "Futminna",
+   campus_id: 0,
+
  }
 
 
@@ -64,7 +64,6 @@ school_set(){
 
 setSchool(){
     var id = document.getElementById("campus_id").value
-    setCampusId(id)
 
     this.setState({ campus_id: id})
     this.school_set()
@@ -80,7 +79,6 @@ async setMarket(){
       market
     });
 
-    setMarket(market)
   } catch (e) {
     console.log(e);
   }

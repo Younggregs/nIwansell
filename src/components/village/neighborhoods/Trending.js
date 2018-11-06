@@ -131,7 +131,13 @@ export default class Trending extends React.Component {
                 <Heading title = {this.trending_1} trending={true}/>
 
                 {this.emptyResult(this.state.trendList_1) ? (
-                  <p className="err-msg">No trends here yet</p>
+                  <section className="product-image">
+                  <div class="image">
+
+                     <Image src={ require ('./blocks/houses/images/empty.png') } alt="product_image"/>
+                    )}
+                   </div>
+                </section>
                 ): (
                   <div>
                   {this.state.trendList_1.map(item =>
@@ -169,7 +175,13 @@ export default class Trending extends React.Component {
                 <Heading title = {this.trending_2} trending={true}/>
 
                 {this.emptyResult(this.state.trendList_2) ? (
-                  <p className="err-msg">No trends here yet</p>
+                  <section className="product-image">
+                  <div class="image">
+
+                     <Image src={ require ('./blocks/houses/images/empty1.png') } alt="product_image"/>
+                    )}
+                   </div>
+                </section>
                 ): (
                   <div>
 
@@ -208,7 +220,13 @@ export default class Trending extends React.Component {
 
 
                 {this.emptyResult(this.state.trendList_3) ? (
-                  <p className="err-msg">No trends here yet</p>
+                  <section className="product-image">
+                  <div class="image">
+
+                     <Image src={ require ('./blocks/houses/images/empty2.png') } alt="product_image"/>
+                    )}
+                   </div>
+                </section>
                 ): (
                   <div>
                 {this.state.trendList_3.map(item =>
@@ -242,7 +260,13 @@ export default class Trending extends React.Component {
                 <Heading title = {this.trending_4} trending={true}/>
 
                 {this.emptyResult(this.state.trendList_4) ? (
-                  <p className="err-msg">No trends here yet</p>
+                  <section className="product-image">
+                  <div class="image">
+
+                     <Image src={ require ('./blocks/houses/images/empty3.png') } alt="product_image"/>
+                    )}
+                   </div>
+                </section>
                 ): (
                   <div>
 
@@ -276,7 +300,13 @@ export default class Trending extends React.Component {
                 <Heading title = {this.trending_5} trending={true}/>
 
                 {this.emptyResult(this.state.trendList_5) ? (
-                  <p className="err-msg">No trends here yet</p>
+                  <section className="product-image">
+                    <div class="image">
+
+                       <Image src={ require ('./blocks/houses/images/empty4.png') } alt="product_image"/>
+                      )}
+                     </div>
+                  </section>
                 ): (
                   <div>
 
@@ -317,7 +347,7 @@ export default class Trending extends React.Component {
               <Heading title = {this.trending_1} trending={true}/>
 
               {this.emptyResult(this.state.trendList_1) ? (
-                  <p className="err-msg">No trends here yet</p>
+                 <img  height="100" width="auto" src={ require ('./blocks/houses/images/empty.png') } alt="thumbnail"/>
                 ): (
 
               <div class="scrolling-wrapper">
@@ -347,7 +377,7 @@ export default class Trending extends React.Component {
               <Heading title = {this.trending_2} trending={true}/>
 
               {this.emptyResult(this.state.trendList_2) ? (
-                  <p className="err-msg">No trends here yet</p>
+                   <img  height="100" width="auto" src={ require ('./blocks/houses/images/empty1.png') } alt="thumbnail"/>
                 ): (
 
 
@@ -381,7 +411,7 @@ export default class Trending extends React.Component {
               <Heading title = {this.trending_3} trending={true}/>
 
               {this.emptyResult(this.state.trendList_3) ? (
-                  <p className="err-msg">No trends here yet</p>
+                   <img  height="100" width="auto" src={ require ('./blocks/houses/images/empty2.png') } alt="thumbnail"/>
                 ): (
 
               <div class="scrolling-wrapper">
@@ -412,7 +442,7 @@ export default class Trending extends React.Component {
               <Heading title = {this.trending_4} trending={true}/>
 
               {this.emptyResult(this.state.trendList_4) ? (
-                  <p className="err-msg">No trends here yet</p>
+                   <img  height="100" width="auto" src={ require ('./blocks/houses/images/empty3.png') } alt="thumbnail"/>
                 ): (
 
               <div class="scrolling-wrapper">
@@ -447,7 +477,7 @@ export default class Trending extends React.Component {
               <Heading title = {this.trending_5} trending={true}/>
 
               {this.emptyResult(this.state.trendList_5) ? (
-                  <p className="err-msg">No trends here yet</p>
+                   <img  height="100" width="auto" src={ require ('./blocks/houses/images/empty4.png') } alt="thumbnail"/>
                 ): (
 
               <div class="scrolling-wrapper">
@@ -480,7 +510,7 @@ export default class Trending extends React.Component {
              </Col>
             </section>
               )}
-              
+
             </section>
          )
        }

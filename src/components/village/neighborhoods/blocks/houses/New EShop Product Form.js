@@ -13,7 +13,6 @@ export default class NewEShopProductForm extends React.Component {
     product_image:null,
     account_id : null,
     media:[],
-    eshop_exist: {},
   };
 
   async componentDidMount() {
@@ -51,24 +50,7 @@ export default class NewEShopProductForm extends React.Component {
       console.log(e);
     }
 
-
-
-
-
-
-
-    try {
-      const res = await fetch('https://www.iwansell.com/api/eshop_exist/');
-      const eshop_exist = await res.json();
-      this.setState({
-        eshop_exist
-      });
-    } catch (e) {
-      console.log(e);
-    }
-
-
-  }
+}
 
 
 async getSubcategory(){
@@ -132,7 +114,7 @@ const formInstance = (
 
   <Heading title="Add product"/>
 
-  { this.state.eshop_exist ? (
+ 
   <Row>
    <Col lg={4} lgOffset={1} md={4}  sm={6} xs={6}>
     <Link to="newproduct">
@@ -146,12 +128,8 @@ const formInstance = (
   </Link>
   </Col>
   </Row>
-  ) : (
-    <div></div>
-  )}
-
+ 
   <br />
-  <p className="success-msg">Note: Update phone number in your profile before or after adding a product, so clients can reach you on phone</p>
 
   <form method="POST" enctype="multipart/form-data" action={"https://www.iwansell.com/api/new_eshop_product/" + this.state.account_id + "/"}>
   <FormGroup>

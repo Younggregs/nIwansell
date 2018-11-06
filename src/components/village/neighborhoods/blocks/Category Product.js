@@ -30,7 +30,7 @@ export default class CategoryProduct extends React.Component {
       }
 
     try {
-      const res = await fetch('https://www.iwansell.com/api/category_product/' + this.state.campus_id + '/99');
+      const res = await fetch('https://www.iwansell.com/api/category_product/' + this.props.campus_id + '/99');
       const categoryProductList = await res.json();
       this.setState({
         categoryProductList
@@ -52,7 +52,7 @@ export default class CategoryProduct extends React.Component {
     this.setState({category: name, isLoading: true})
 
     try {
-      const res = await fetch('https://www.iwansell.com/api/category_product/' + this.state.campus_id + '/' + id);
+      const res = await fetch('https://www.iwansell.com/api/category_product/' + this.props.campus_id + '/' + id);
       const categoryProductList = await res.json();
       this.setState({
         categoryProductList
@@ -76,11 +76,25 @@ export default class CategoryProduct extends React.Component {
   }
 
 
+  emptyResult(){
+
+   var empty_set = false
+
+   if(this.state.categoryProductList.length <= 0 ){
+     empty_set = true
+   }
+
+   return empty_set
+
+
+ }
+
+
        render() {
          return (
            <section className="category-product">
               <Col lg={12} md={12} smHidden xsHidden>
-             
+
                 <Row>
                     <Col lg={3} md={3}>
                        <Heading title="Categories"/>
@@ -114,6 +128,18 @@ export default class CategoryProduct extends React.Component {
                 {this.state.isLoading ? (
                   <Spinner/>
                 ) : (
+
+                  <div>
+                  {this.emptyResult() ? (
+                 <section className="product-image">
+                 <div class="image">
+
+                    <Image src={ require ('./houses/images/empty.png') } alt="product_image"/>
+                   )}
+                  </div>
+                  </section>
+                ) : (
+
                   <div id="main">
                                 {this.state.categoryProductList.map(item => (
                                  <div class="box">
@@ -132,8 +158,11 @@ export default class CategoryProduct extends React.Component {
                                 </div></div>
                                 ))}
                     </div>
+                  )}
+                    </div>
                     )}
-                
+
+
                    </Col>
                 </Row>
 
@@ -179,11 +208,17 @@ export default class CategoryProduct extends React.Component {
               {this.state.isLoading ? (
                 <Spinner/>
               ) : (
+
+                <div>
+                {this.emptyResult() ? (
+                 <Thumbnail alt="product-image" src={ require ('./houses/images/empty.png') } />
+              ) : (
+
                 <div id="main-sm">
                 {this.state.categoryProductList.map(item => (
                    <div class="box-sm">
                       <div class="pic-sm">
- 
+
                  <Link to={`/product/${ item.product_id } `}>
                    {this.setMedia(item.product_image)}
                    <Thumbnail alt="product-image" src= { `${this.state.media}` }>
@@ -191,12 +226,14 @@ export default class CategoryProduct extends React.Component {
                      <p className="price">Starting price : {item.starting_price}</p>
                    </Thumbnail>
                  </Link>
- 
+
                  </div></div>
                 ))}
                 </div>
               )}
-             
+              </div>
+              )}
+
 
 
              </Col>

@@ -100,7 +100,7 @@ const formInstance = (
 
   <Heading title="Add product"/>
 
-  { this.state.eshop_exist ? (
+  {this.state.eshop_exist ? (
   <Row>
    <Col lg={4} lgOffset={1} md={4}  sm={6} xs={6}>
     <Link to="newproduct">
@@ -115,11 +115,17 @@ const formInstance = (
   </Col>
   </Row>
   ) : (
-    <div></div>
+  <Row>
+   <Col lg={4} lgOffset={1} md={4}  sm={6} xs={6}>
+    <Link to="newproduct">
+    <Button  bsStyle="success">Add product to account</Button>
+    </Link>
+  </Col>
+  </Row>
   )}
 
   <br />
-  <p className="success-msg">Note: Update phone number in your profile before or after adding a product, so clients can reach you on phone</p>
+
 
   <form method="POST" enctype="multipart/form-data" action={"https://www.iwansell.com/api/newproduct/" + this.state.account_id + "/"}>
   <FormGroup>
