@@ -84,7 +84,7 @@ export default class Home extends React.Component {
 
         return (
            <div className="home">
-             <Navigation logged_in={true} account_id={this.state.account_id} campus_id={this.state.campus_id} market={this.state.market}/>
+             <Navigation logged_in={true} account_id={this.state.account_id} campus_id={this.state.campus_id}/>
              <Row>
                <Col lg={9} md={9}>
                  <Row>
