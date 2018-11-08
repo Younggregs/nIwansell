@@ -50,7 +50,7 @@ export default class UpperNavigation extends React.Component {
                        </Link>
                     </Col>
                     ) : (
-                    <Col lg={3} md={3}>
+                    <Col sm={3} xs={3}>
                       <Link to="/about_us">ABOUT
                       </Link>
                   </Col>
