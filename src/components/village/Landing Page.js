@@ -68,10 +68,10 @@ setSchool(){
     this.setState({ campus_id: id})
     this.school_set()
 
-    this.setMarket()
+    this.setMarket(id)
 }
 
-async setMarket(){
+async setMarket(id){
   try {
     const res = await fetch('https://www.iwansell.com/api/campus_code/' + id + '/');
     const market = await res.json();
