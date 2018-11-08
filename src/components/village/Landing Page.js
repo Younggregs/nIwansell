@@ -64,6 +64,7 @@ school_set(){
 
 setSchool(){
     var id = document.getElementById("campus_id").value
+    setCampusId(id)
 
     this.setState({ campus_id: id})
     this.school_set()
