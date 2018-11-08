@@ -10,12 +10,17 @@ import NavigationHeader from './blocks/Navigation Header'
 export default class Navigation extends React.Component {
 
   state = {
-    profile_id : null
+    profile_id : null,
+    market: ""
   }
 
   async componentWillMount() {
 
     const auth = localStorage.getItem('auth_code')
+
+    if(this.props.market){
+      this.setState({market: this.props.market, campus_id: this.props.campus_id})
+    }else{this.setState({market: localStorage.getItem('market'), campus_id: localStorage.getItem('campus_id')})}
 
       if(this.props.logged_in){
         try {
@@ -50,8 +55,8 @@ export default class Navigation extends React.Component {
            <section>
 
            <Row>
-            <NavigationHeader market={this.props.market}/>
-            <UpperNavigation logged_in={this.props.logged_in} campus_id = {this.props.campus_id}/>
+            <NavigationHeader market={this.state.market}/>
+            <UpperNavigation logged_in={this.props.logged_in} campus_id = {this.state.campus_id}/>
               <Col lg={12} md={12} smHidden xsHidden>
               <section className="navigation" id="navigation">
               <Row>
@@ -64,7 +69,7 @@ export default class Navigation extends React.Component {
                <AppName/>
              )}
 
-             <SearchField campus_id = {this.props.campus_id}/>
+             <SearchField campus_id = {this.state.campus_id}/>
 
 
              {this.props.logged_in ? (
@@ -98,7 +103,7 @@ export default class Navigation extends React.Component {
              )}
               </Row>
               <Row>
-             <SearchField campus_id = {this.props.campus_id}/>
+             <SearchField campus_id = {this.state.campus_id}/>
               </Row>
               </section>
              </Col>

@@ -14,7 +14,8 @@ export default class Blog extends React.Component {
   state={
     account_id: null,
     isLoggedIn: true,
-    campus_id: 1
+    campus_id: 1,
+    market: "Your",
   }
 
   async componentWillMount() {
