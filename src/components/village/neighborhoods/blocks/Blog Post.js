@@ -16,15 +16,7 @@ export default class BlogPost extends React.Component {
     console.log(auth)
 
     try {
-      const res = await fetch('https://www.iwansell.com/api/blog_post/' + this.props.blog_id + '/',{
-
-       credentials: 'same-origin',
-       mode: 'cors',
-       headers : {
-         'Authorization' : 'Token ' + auth
-       },
-
-      });
+      const res = await fetch('https://www.iwansell.com/api/blog_post/' + this.props.blog_id + '/');
       const blogPost = await res.json();
       this.setState({
         blogPost

@@ -16,15 +16,7 @@ export default class BlogHeaderPost extends React.Component {
     console.log(auth)
 
     try {
-      const res = await fetch('https://www.iwansell.com/api/blog_top/',{
-
-       credentials: 'same-origin',
-       mode: 'cors',
-       headers : {
-         'Authorization' : 'Token ' + auth
-       },
-
-      });
+      const res = await fetch('https://www.iwansell.com/api/blog_top/');
       const blogTop = await res.json();
       this.setState({
         blogTop
