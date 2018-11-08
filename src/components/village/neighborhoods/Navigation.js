@@ -17,7 +17,7 @@ export default class Navigation extends React.Component {
 
     const auth = localStorage.getItem('auth_code')
 
-      if(this.props.this.props.logged_in){
+      if(this.props.logged_in){
         try {
           const res = await fetch('https://www.iwansell.com/api/myaccount_id/', {
 

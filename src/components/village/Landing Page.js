@@ -73,7 +73,7 @@ setSchool(){
 
 async setMarket(){
   try {
-    const res = await fetch('https://www.iwansell.com/api/campus_code/' + this.state.campus_id + '/');
+    const res = await fetch('https://www.iwansell.com/api/campus_code/' + id + '/');
     const market = await res.json();
     this.setState({
       market
@@ -155,7 +155,7 @@ async setMarket(){
                       ) : (
                         <form>
                           <FormGroup>
-                         <FormControl componentClass="select" placeholder="select" id="campus_id">
+                         <FormControl componentClass="select" placeholder="select" id="campus_id" name="campus_id">
                          {this.state.campuslist.map(item => (
                           <option value={item.id}>{item.campus_code}</option>
                           ))}
