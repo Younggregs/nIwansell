@@ -76,7 +76,8 @@ a{
   padding: 10;
   height: 50px;
   text-align: center;
-  background-color: white
+  background-color: white;
+  font-family: "Audiowide"
 }
 
 .buyer-business-header{
@@ -86,7 +87,8 @@ a{
   padding: 10;
   height: 50px;
   text-align: center;
-  background-color: white
+  background-color: white;
+  font-family: "Audiowide"
 }
 
 
