@@ -18,13 +18,26 @@ export default class NavigationHeader extends React.Component {
                  <p>Hotline: <b>08109599597</b></p>
                 </Col>
 
-                <Col lgHidden mdHidden sm={7} xs={7}>
-                  <p>Welcome to <b>{this.props.market} Campus Marketplace</b></p>
-                </Col>
+                <Col lgHidden mdHidden sm={6} xs={6}>
+                   <p><b>{this.props.market}</b></p>
+                  </Col>
 
-                <Col lgHidden mdHidden sm={5} xs={5}>
-                  <p>Hotline: <b>08109599597</b></p>
-                </Col>
+                  <Col lgHidden mdHidden sm={3} xs={3}>
+                  <Link to="/newproduct">
+                  <Button bsStyle="success">
+                    <span className="blink-me"> SELL IT </span>
+                  </Button>
+                 </Link>&nbsp;&nbsp;
+                  </Col>
+
+                  <Col lgHidden mdHidden sm={3} xs={3}>
+                  <Link to="/buyer_transaction_window">
+                  <Button bsStyle="danger">
+                    <span className="blink-me"> BUY IT </span>
+                  </Button>
+                  </Link>&nbsp;&nbsp;
+                  </Col>
+
                </section>
 
 
