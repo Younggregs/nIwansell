@@ -3,6 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "html2canvas": "^1.0.0-alpha.12",
+    "jspdf": "^1.4.1",
     "lodash": "^4.17.10",
     "react": "^16.2.0",
     "react-activity": "^1.2.2",

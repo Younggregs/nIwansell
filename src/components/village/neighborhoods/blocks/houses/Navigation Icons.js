@@ -111,7 +111,7 @@ export default class NavigationIcons extends React.Component {
                 </Button>
                </Link>&nbsp;&nbsp;
 
-             <Link to={`/profile/${ this.props.account_id } `}>
+             <Link to={`/profile/${ this.props.account_id }`}>
              <OverlayTrigger placement="left" overlay={profile}>
                 <span className="glyphs"><Glyphicon glyph="user"/></span>
              </OverlayTrigger>
@@ -132,7 +132,7 @@ export default class NavigationIcons extends React.Component {
 
 
               {this.state.have_eshop ? (
-                <Link to={`/eshop/${ this.state.eshop_id } `}>
+                <Link to={`/eshop/${ this.state.eshop_id }`}>
                   <OverlayTrigger placement="right" overlay={eshop}>
                  <span className="glyphs"><Glyphicon glyph="home"/></span>
                   </OverlayTrigger>
@@ -147,7 +147,7 @@ export default class NavigationIcons extends React.Component {
 
             <div className="sm-nav-glyphs">
              <Col sm={2} xs={2} lgHidden mdHidden>
-             <Link to={`/profile/${ this.props.account_id } `}>
+             <Link to={`/profile/${ this.props.account_id }`}>
                 <span className="glyphs"><Glyphicon glyph="user"/></span>
              </Link>
              </Col>
@@ -160,7 +160,7 @@ export default class NavigationIcons extends React.Component {
 
              {this.state.have_eshop ? (
                 <Col sm={2} xs={2} lgHidden mdHidden>
-                <Link to={`/eshop/${ this.state.eshop_id } `}>
+                <Link to={`/eshop/${ this.state.eshop_id }`}>
                    <span className="glyphs"><Glyphicon glyph="home"/></span>
                 </Link>
                 </Col>

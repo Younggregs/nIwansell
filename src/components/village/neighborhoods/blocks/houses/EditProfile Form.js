@@ -1,6 +1,7 @@
 import React from 'react';
 import { Label, Button,FormGroup, FormControl, ControlLabel, HelpBlock } from 'react-bootstrap';
 import EditEmail from './Edit Email'
+import EditCampus from './Edit Campus'
 import EditPassword from './Edit Password'
 import EditDP from './Edit DP'
 
@@ -13,6 +14,7 @@ render(){
        <section className="edit-profile-form">
 
        <EditEmail profile_id = {this.props.profile_id}/>
+       <EditCampus profile_id = {this.props.profile_id}/>
        <EditPassword profile_id = {this.props.profile_id}/>
        <EditDP profile_id = {this.props.profile_id}/>
 

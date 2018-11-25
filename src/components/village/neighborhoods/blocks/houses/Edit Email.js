@@ -94,13 +94,13 @@ const formInstance = (
 </FormGroup>
 
     {this.state.message.error_message ? (
-      <p className="err-msg">{this.state.statement.error_message}</p>
+      <p className="err-msg">{this.state.message.error_message}</p>
     ) : (
       <span></span>
     )}
 
     {this.state.message.code ? (
-       <span><Redirect to={`/profile/${ this.props.profile_id } `}/></span>
+       <span><Redirect to={`/profile/${ this.props.profile_id }`}/></span>
     ) : (
       <span></span>
     )}

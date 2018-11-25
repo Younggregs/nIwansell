@@ -9,21 +9,21 @@ export default class EditDP extends React.Component {
     state = {
         message : []
       }
-    
+
       async update(){
-    
+
         const auth = localStorage.getItem('auth_code')
-    
+
         var fileField = document.querySelector("input[type='file']");
-        
-    
+
+
         var formData = new FormData()
         formData.append('display_pic', fileField.files[0]);
-      
-      
+
+
         try {
           const res = await fetch('https://www.iwansell.com/api/reset_dp/', {
-          
+
            body : formData,
            method: 'POST',
            credentials: 'same-origin',
@@ -31,19 +31,19 @@ export default class EditDP extends React.Component {
            headers : {
              'Authorization' : 'Token ' + auth
            }
-    
+
           })
           const message = await res.json();
             this.setState({
               message
             });
-      
+
         } catch (e) {
           console.log(e);
         }
-    
+
     }
-    
+
 
 
 render(){
@@ -61,19 +61,19 @@ const formInstance = (
             type="file"
             name="display_pic"
             value={null}
-        
+
         />
         <HelpBlock>An image of yourself would be great</HelpBlock>
 </FormGroup>
 
 {this.state.message.error_message ? (
-      <p className="err-msg">{this.state.statement.error_message}</p>
+      <p className="err-msg">{this.state.message.error_message}</p>
     ) : (
       <span></span>
     )}
 
-    {this.state.message.code ? ( 
-       <span><Redirect to={`/profile/${ this.props.profile_id } `}/></span>
+    {this.state.message.code ? (
+       <span><Redirect to={`/profile/${ this.props.profile_id }`}/></span>
     ) : (
       <span></span>
     )}

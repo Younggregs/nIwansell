@@ -44,6 +44,11 @@ import Blog from './components/village/Blog'
 import BlogCategoryView from './components/village/Blog Category View'
 import CategoryView from './components/village/Category View'
 import SubcategoryView from './components/village/Subcategory View'
+import SellerTransactionWindow from './components/village/Seller Transaction Window'
+import BuyerTransactionWindow from './components/village/Buyer Transaction Window'
+import Sold from './components/village/Sold'
+import Bought from './components/village/Bought'
+import ViewReceipt from './components/village/View Receipt'
 import Logout from './components/village/Logout'
 import AuthTest from './components/village/Auth Test';
 
@@ -99,6 +104,11 @@ import AuthTest from './components/village/Auth Test';
                 <Route exact path="/blog_category/:category_id" component={BlogCategoryView}/>
                 <Route exact path="/category_view/:category_id" component={CategoryView}/>
                 <Route exact path="/subcategory_view/:subcategory_id" component={SubcategoryView}/>
+                <Route exact path="/seller_transaction_window/:product_id" component={SellerTransactionWindow}/>
+                <Route exact path="/buyer_transaction_window/" component={BuyerTransactionWindow}/>
+                <Route exact path="/sold/:profile_id" component={Sold}/>
+                <Route exact path="/bought/:profile_id" component={Bought}/>
+                <Route exact path="/view_receipt/:transaction_id" component={ViewReceipt}/>
                 <Route exact path="/logout" component={Logout}/>
               </div>
             </Router>

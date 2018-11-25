@@ -33,6 +33,22 @@ async componentWillMount(){
 
 
 
+  emptyResult(){
+
+    var empty_set = false
+
+    if(this.state.product_list.length <= 0 ){
+      empty_set = true
+    }
+
+    return empty_set
+
+
+  }
+
+
+
+
        render() {
          return (
            <section className="business_mode">
@@ -69,6 +85,10 @@ async componentWillMount(){
             <p className="menu-header">Top Searched Products</p>
         </Row>
 
+
+        {this.emptyResult() ? (
+          <p className="err-msg">Its empty here, No result found</p>
+        ) : (
         <Row className="business-text">
         <Col lg={9} lgOffset={3} md={9} mdOffset={3} sm={12} xs={12}>
          <div className="business-list">
@@ -89,9 +109,9 @@ async componentWillMount(){
                 ))}
             </table>
          </div>
-
          </Col>
         </Row>
+      )}
 
 
             </Col>

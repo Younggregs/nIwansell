@@ -10,7 +10,7 @@ export default class ProfileDetails extends React.Component {
     myaccount: null,
     media : null
   }
- 
+
    async componentWillMount() {
      try {
        const res = await fetch('https://www.iwansell.com/api/accounts/' + this.props.profile_id);
@@ -25,7 +25,7 @@ export default class ProfileDetails extends React.Component {
    }
 
    setMedia(media_name){
-    this.state.media = 'https://www.iwansell.com/api' + media_name
+    this.state.media = 'https://www.iwansell.com/api/media/' + media_name
   }
 
 
@@ -36,7 +36,7 @@ export default class ProfileDetails extends React.Component {
             <Grid>
              <br /><br /><Row>
               <Col lg={6} lgOffset={3} md={6} mdOffset={3} sm={12} xs={12}>
-              
+
               {this.setMedia(this.state.profileDetail.display_pic)}
               <ProfileImage media={this.state.media}/>
               </Col>
@@ -44,11 +44,11 @@ export default class ProfileDetails extends React.Component {
 
              <Row>
               <Col lg={6} lgOffset={3} md={6} mdOffset={3} sm={12} xs={12}>
-              <ProfileDescription 
+              <ProfileDescription
               logged_in = {this.props.logged_in}
               is_myprofile = {this.props.is_myprofile}
               firstname ={this.state.profileDetail.firstname}
-              lastname = {this.state.profileDetail.lastname} 
+              lastname = {this.state.profileDetail.lastname}
               ismyaccount = {this.state.ismyaccount}
               profile_id = {this.props.profile_id}
               />

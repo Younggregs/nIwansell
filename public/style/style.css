@@ -45,6 +45,98 @@ a{
   color: orange
 }
 
+.receipt-div{
+  color: black;
+  background-color: white;
+  padding: 10px;
+}
+
+.receipt-header{
+  text-align: center;
+  text-transform: uppercase;
+  color: black;
+  font-weight: bold;
+  font-size: 1.2em;
+}
+
+.receipt-detail{
+  color: black;
+  text-align: center;
+}
+
+.additional{
+  text-align: left;
+  color: black;
+}
+
+.seller-business-header{
+  color: green;
+  font-weight: bold;
+  font-size: 1.7em;
+  padding: 10;
+  height: 50px;
+  text-align: center;
+  background-color: white
+}
+
+.buyer-business-header{
+  color: red;
+  font-weight: bold;
+  font-size: 1.7em;
+  padding: 10;
+  height: 50px;
+  text-align: center;
+  background-color: white
+}
+
+
+.transaction-success{
+  text-align: center;
+  font-weight: bold;
+  font-size: 1.5em;
+  color: white;
+}
+
+.transaction-token-product{
+  text-align: left;
+  color: white;
+  font-size: 0.9em;
+  font-weight: bold;
+}
+
+.seller-product{
+  text-align: center;
+  font-weight: bold;
+  color: white;
+  font-size: 1.5em;
+}
+
+.seller-transaction-window{
+  background-color: green;
+  color: white;
+  width: 100%;
+  padding-top: 50px;
+  height: 700px;
+}
+
+
+.buyer-transaction-window{
+  background-color: red;
+  color: white;
+  width: 100%;
+  padding-top: 50px;
+  height: 700px;
+}
+
+.transaction-header{
+  text-align: center;
+  font-weight: bold;
+  color: white;
+  padding-bottom: 20px;
+  font-size: 1.8em;
+  text-decoration: underline
+}
+
 .menu-nav{
  background-color: white;
  font-weight: bold;
@@ -859,6 +951,7 @@ img{
   border-top-style: solid;
   border-top-color: white;
   border-radius: 5px;
+  margin-top: 20px;
 }
 
 .haggler-from{

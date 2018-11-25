@@ -22,11 +22,11 @@ export default class EditPassword extends React.Component {
     formData.append('old_password', old_password)
     formData.append('new_password', new_password)
     formData.append('confirm_password', confirm_password)
-  
+
     try {
       const res = await fetch('https://www.iwansell.com/api/update_password/', {
-      
-      
+
+
        body : formData,
        method: 'POST',
        credentials: 'same-origin',
@@ -40,7 +40,7 @@ export default class EditPassword extends React.Component {
         this.setState({
           message
         });
-  
+
     } catch (e) {
       console.log(e);
     }
@@ -66,31 +66,31 @@ const formInstance = (
 
   <form>
     <FieldGroup
-     id="old_password" 
-     name="old_password" 
-     label="Old Password" 
+     id="old_password"
+     name="old_password"
+     label="Old Password"
      type="password" />
 
     <FieldGroup
-     id="new_password" 
-     name="new_password" 
-     label="New Password" 
+     id="new_password"
+     name="new_password"
+     label="New Password"
      type="password" />
 
-    <FieldGroup 
-    id="confirm_password" 
-    name="confirm_password" 
-    label="Confirm Password" 
+    <FieldGroup
+    id="confirm_password"
+    name="confirm_password"
+    label="Confirm Password"
     type="password" />
 
     {this.state.message.error_message ? (
-      <p className="err-msg">{this.state.statement.error_message}</p>
+      <p className="err-msg">{this.state.message.error_message}</p>
     ) : (
       <span></span>
     )}
 
-    {this.state.message.code ? ( 
-       <span><Redirect to={`/profile/${ this.props.profile_id } `}/></span>
+    {this.state.message.code ? (
+       <span><Redirect to={`/profile/${ this.props.profile_id }`}/></span>
     ) : (
       <span></span>
     )}

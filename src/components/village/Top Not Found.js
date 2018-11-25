@@ -34,6 +34,22 @@ async componentWillMount(){
 
 
 
+  emptyResult(){
+
+    var empty_set = false
+
+    if(this.state.product_list.length <= 0 ){
+      empty_set = true
+    }
+
+    return empty_set
+
+
+  }
+
+
+
+
 
 
 
@@ -73,28 +89,35 @@ async componentWillMount(){
             <p className="menu-header">Top Not Found Searched Products</p>
         </Row>
 
-        <Row className="business-text">
-        <Col lg={9} lgOffset={3} md={9} mdOffset={3} sm={12} xs={12}>
-            <div className="business-list">
+        {this.emptyResult() ? (
+          <p className="err-msg">Its empty here, No result found</p>
+        ) : (
 
-            <table>
-                <thead>
-                    <td><b>Rank</b></td>
-                    <td><b>Product</b></td>
-                    <td><b>Frequency</b></td>
-                </thead>
+          <Row className="business-text">
+          <Col lg={9} lgOffset={3} md={9} mdOffset={3} sm={12} xs={12}>
+              <div className="business-list">
 
-                {this.state.product_list.map(item => (
-                    <tr>
-                        <td>{item.product_rank}</td>
-                        <td>{item.product_name}</td>
-                        <td><b>{item.product_frequency}</b></td>
-                    </tr>
-                ))}
-            </table>
-         </div>
-         </Col>
-        </Row>
+              <table>
+                  <thead>
+                      <td><b>Rank</b></td>
+                      <td><b>Product</b></td>
+                      <td><b>Frequency</b></td>
+                  </thead>
+
+                  {this.state.product_list.map(item => (
+                      <tr>
+                          <td>{item.product_rank}</td>
+                          <td>{item.product_name}</td>
+                          <td><b>{item.product_frequency}</b></td>
+                      </tr>
+                  ))}
+              </table>
+           </div>
+           </Col>
+          </Row>
+
+
+        )}
 
 
             </Col>
