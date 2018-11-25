@@ -236,7 +236,9 @@ return (
                 </Col>
 
                  <Col lg={3} md={3} sm={6} xs={6}>
+                 <Link to="/home">
                     <br /><Button bsStyle="danger">Cancel</Button>
+                 </Link>
                 </Col>
 
             </Row>

@@ -126,7 +126,9 @@ export default class TransactionTokenProduct extends React.Component {
               <tr>
               <td><p><br /><Button bsStyle="success" onClick={this.submit.bind(this)}>Proceed</Button></p></td>
                 <td>
-               <p><br /><Button bsStyle="danger">Cancel</Button></p>
+               <p><Link to="/home">
+                  <br /><Button bsStyle="danger">Cancel</Button>
+               </Link>></p>
                 </td>
               </tr>
               </tbody>

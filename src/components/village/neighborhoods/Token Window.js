@@ -146,7 +146,9 @@ export default class TokenWindow extends React.Component {
                          <p><br /><Button bsStyle="success" onClick={this.proceed.bind(this)}>Proceed</Button></p>
                        </td>
                         <td>
-                        <p><br /><Button bsStyle="danger">Cancel</Button></p>
+                        <p><Link to="/home">
+                           <br /><Button bsStyle="danger">Cancel</Button>
+                        </Link>></p>
                         </td>
                      </tr>
                    </tbody>
