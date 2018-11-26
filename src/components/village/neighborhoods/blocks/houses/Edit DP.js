@@ -2,16 +2,20 @@ import React from 'react';
 import { Redirect } from 'react-router-dom'
 import { Button,FormGroup, FormControl, HelpBlock } from 'react-bootstrap';
 import Heading from './Heading'
+import Spinner from 'react-activity/lib/Spinner';
+import 'react-activity/lib/Spinner/Spinner.css';
 
 export default class EditDP extends React.Component {
 
 
     state = {
+        isLoading: false,
         message : []
       }
 
       async update(){
 
+        this.setState({ isLoading: true})
         const auth = localStorage.getItem('auth_code')
 
         var fileField = document.querySelector("input[type='file']");
@@ -41,6 +45,8 @@ export default class EditDP extends React.Component {
         } catch (e) {
           console.log(e);
         }
+
+        this.setState({ isLoading: false})
 
     }
 
@@ -78,6 +84,11 @@ const formInstance = (
       <span></span>
     )}
 
+    {this.state.isLoading ? (
+      <Spinner color="#ff0000" size={32}/>
+    ) : (
+      <div/>
+    )}
     <Button onClick={this.update.bind(this)}>reset dp</Button>
   </form>
   </section>

@@ -27,7 +27,7 @@ export default class EShopAdmin extends React.Component {
 
                  <p>
                 <div>
-                 <Link to ={`/eshop_rr/${ this.props.eshop_id } `}>
+                 <Link to ={`/eshop_rr/${ this.props.eshop_id }`}>
                  <p className="profile-name">Ratings-Reviews
                  <span className="heart-glyphs">
                <Rating
@@ -47,7 +47,7 @@ export default class EShopAdmin extends React.Component {
                   </Link>
                 </p>
                 <p>
-                  <Link to ={`/soldproduct/${ this.props.eshop_id } `}>
+                  <Link to ={`/soldproduct/${ this.props.eshop_id }`}>
                    <Button>Sold products</Button>
                   </Link>
                 </p>

@@ -16,6 +16,7 @@ export default class EshopList extends React.Component {
 
 
   async componentDidMount() {
+       this.setState({ isLoading: true})
         try {
           const res = await fetch('https://www.iwansell.com/api/eshop_list/' +  this.props.match.params.campus_id + '/');
           const eshop_list = await res.json();
@@ -193,7 +194,7 @@ emptyResult(){
                    <span>
                    <hr />
                    <div>
-                   <p className="eshop-name"><Link to={`/eshop/${ item.id } `}>
+                   <p className="eshop-name"><Link to={`/eshop/${ item.id }`}>
                    {item.name}
                    </Link>
                    </p>

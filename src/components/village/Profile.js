@@ -18,10 +18,10 @@ export default class Profile extends React.Component {
 
 
     const auth = localStorage.getItem('auth_code')
-  
+
     try {
       const res = await fetch('https://www.iwansell.com/api/is_myprofile/' + this.props.match.params.profile_id + '/', {
-      
+
        credentials: 'same-origin',
        mode: 'cors',
        headers : {
@@ -33,7 +33,7 @@ export default class Profile extends React.Component {
         this.setState({
           is_myprofile
         });
-  
+
     } catch (e) {
       console.log(e);
     }
@@ -42,7 +42,7 @@ export default class Profile extends React.Component {
 
     try {
       const res = await fetch('https://www.iwansell.com/api/isloggedin/', {
-      
+
        credentials: 'same-origin',
        mode: 'cors',
        headers : {
@@ -60,14 +60,14 @@ export default class Profile extends React.Component {
 
   }
 
-  
+
       render() {
         return (
            <div className="profile">
-             <Navigation logged_in = {this.state.loggedin} account_id= {this.props.match.params.profile_id}/>
-             <ProfileDetails logged_in = {this.state.loggedin} is_myprofile={this.state.is_myprofile} profile_id= {this.props.match.params.profile_id}/>
+             <Navigation logged_in = {this.state.isloggedin} account_id= {this.props.match.params.profile_id}/>
+             <ProfileDetails logged_in = {this.state.isloggedin} is_myprofile={this.state.is_myprofile} profile_id= {this.props.match.params.profile_id}/>
              <GotoTop/>
-             <Footer/>
+             <Footer logged_in = {this.state.isloggedin}/>
              <Copyright/>
            </div>
          )

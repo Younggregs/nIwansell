@@ -5,54 +5,55 @@ import Heading from './Heading'
 import Spinner from 'react-activity/lib/Spinner';
 import 'react-activity/lib/Spinner/Spinner.css';
 
-export default class EditEmail extends React.Component {
+
+export default class BankAccountForm extends React.Component {
 
   state = {
     isLoading: false,
     message : [],
-    email: null
+    banklist: []
   }
 
   async componentWillMount(){
     this.setState({ isLoading: true})
+
     const auth = localStorage.getItem('auth_code')
 
 
     try {
-      const res = await fetch('https://www.iwansell.com/api/get_email/', {
+      const res = await fetch('https://www.iwansell.com/api/bank_account/', {
        headers : {
          'Authorization' : 'Token ' + auth
        }
 
       })
-      const email = await res.json();
+      const banklist = await res.json();
         this.setState({
-          email
+          banklist
         });
 
     } catch (e) {
       console.log(e);
     }
 
+
     this.setState({ isLoading: false})
-
-
   }
 
 
 
   async update(){
-    this.setState({ isLoading: true})
 
+    this.setState({ isLoading: true})
     const auth = localStorage.getItem('auth_code')
 
-    var email = document.getElementById("email").value
+    var account_number = document.getElementById("account_number").value
 
     var formData = new FormData()
-    formData.append('email', email)
+    formData.append('account_number', account_number)
 
     try {
-      const res = await fetch('https://www.iwansell.com/api/reset_email/', {
+      const res = await fetch('https://www.iwansell.com/api/bank_account/', {
 
 
        body : formData,
@@ -62,18 +63,33 @@ export default class EditEmail extends React.Component {
        }
 
       })
-      const message = await res.json();
+      const banklist = await res.json();
         this.setState({
-          message
+          banklist
         });
 
     } catch (e) {
       console.log(e);
     }
 
-    this.setState({ isLoading: false})
+    false
 
 }
+
+
+emptyResult(){
+
+  var empty_set = false
+
+  if(this.state.banklist.length <= 0 ){
+    empty_set = true
+  }
+
+  return empty_set
+
+
+}
+
 
 
 
@@ -84,20 +100,44 @@ render(){
 
 const formInstance = (
   <section className="edit-profile-form">
-  <Heading title="Set/reset email"/>
+  <Heading title="Add Bank Account"/>
+
+  {this.state.isLoading ? (
+    <Spinner color="#ff0000" size={32}/>
+  ) : (
+    <div>
+     {this.emptyResult() ? (
+       <p>Its empty here, add bank account</p>
+     ) : (
+
+       <div>
+       {this.state.banklist.map(item =>
+       <div>
+         <p>{item.account_number}</p>
+         <p>{item.account_name}</p>
+       </div>
+       )}
+       </div>
+
+     )}
+   </div>
+  )}
+
+
+
 
 
   <form>
   <FormGroup>
         <FormControl
-            id="email"
+            id="account_number"
             type="text"
-            label="eg example@gmail.com"
-            name="email"
-            placeholder={this.state.email}
+            label="Account Number"
+            name="account_number"
+            placeholder="eg 0838320302"
 
         />
-        <HelpBlock>Email is needed for password recovery</HelpBlock>
+        <HelpBlock>Add Account Number here for faster electronic transaction</HelpBlock>
 </FormGroup>
 
     {this.state.message.error_message ? (
@@ -118,7 +158,7 @@ const formInstance = (
       <div/>
     )}
 
-    <Button onClick={this.update.bind(this)}>reset email</Button>
+    <Button onClick={this.update.bind(this)}>add new</Button>
   </form>
   </section>
 );

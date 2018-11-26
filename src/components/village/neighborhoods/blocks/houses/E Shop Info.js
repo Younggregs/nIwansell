@@ -80,7 +80,7 @@ async componentWillMount(){
 
                 <p>
                 <div>
-                <Link to ={`/eshop_rr/${ this.props.eshop_id } `}>
+                <Link to ={`/eshop_rr/${ this.props.eshop_id }`}>
                 <p className="profile-name">Ratings-Reviews
                 <span className="heart-glyphs">
                <Rating
@@ -93,7 +93,7 @@ async componentWillMount(){
                 </div>
                 </p>
 
-                <p className="boss">Boss : <Link to={`/profile/${ this.state.boss_info.id } `}>{this.state.boss_info.boss}</Link></p>
+                <p className="boss">Boss : <Link to={`/profile/${ this.state.boss_info.id }`}>{this.state.boss_info.boss}</Link></p>
                 <p className="profile-name">Mobile : {this.state.boss_info.phone}</p>
 
 

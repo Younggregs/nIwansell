@@ -13,10 +13,11 @@ render(){
 
        <section className="edit-profile-form">
 
+       <EditDP profile_id = {this.props.profile_id}/>
        <EditEmail profile_id = {this.props.profile_id}/>
        <EditCampus profile_id = {this.props.profile_id}/>
        <EditPassword profile_id = {this.props.profile_id}/>
-       <EditDP profile_id = {this.props.profile_id}/>
+
 
        </section>
 

@@ -48,11 +48,11 @@ emptyResult(){
 
               ) : (
 
-                <p>
+                <p><b>Category</b> :
 
                 {this.state.eshop_category.map(item => (
 
-                    <b><i>{item.category_name}</i></b>
+                    <b><i> {item.category_name}</i></b>
 
                 ))}
 

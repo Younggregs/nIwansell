@@ -2,16 +2,19 @@ import React from 'react';
 import { Redirect } from 'react-router-dom'
 import { Button,FormGroup, FormControl, ControlLabel, HelpBlock } from 'react-bootstrap';
 import Heading from './Heading'
-
+import Spinner from 'react-activity/lib/Spinner';
+import 'react-activity/lib/Spinner/Spinner.css';
 
 export default class EditPassword extends React.Component {
 
   state = {
+    isLoading: false,
     message : []
   }
 
   async update(){
 
+    this.setState({ isLoading: true })
     const auth = localStorage.getItem('auth_code')
 
     var old_password = document.getElementById("old_password").value
@@ -44,6 +47,8 @@ export default class EditPassword extends React.Component {
     } catch (e) {
       console.log(e);
     }
+
+    this.setState({ isLoading: false })
 
 }
 
@@ -90,9 +95,15 @@ const formInstance = (
     )}
 
     {this.state.message.code ? (
-       <span><Redirect to={`/profile/${ this.props.profile_id }`}/></span>
+       <p className="success-msg">Success!</p>
     ) : (
       <span></span>
+    )}
+
+    {this.state.isLoading ? (
+      <Spinner color="#ff0000" size={32}/>
+    ) : (
+      <div/>
     )}
 
     <Button onClick={this.update.bind(this)}>reset password</Button>

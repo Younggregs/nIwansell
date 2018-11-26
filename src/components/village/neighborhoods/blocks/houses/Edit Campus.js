@@ -2,18 +2,20 @@ import React from 'react';
 import { Redirect } from 'react-router-dom'
 import { Button,FormGroup, FormControl, HelpBlock, ControlLabel } from 'react-bootstrap';
 import Heading from './Heading'
-
+import Spinner from 'react-activity/lib/Spinner';
+import 'react-activity/lib/Spinner/Spinner.css';
 
 export default class EditCampus extends React.Component {
 
   state = {
+    isLoading: false,
     message : [],
     campuslist: [],
     campus_code: null
   }
 
   async componentWillMount(){
-
+    this.setState({ isLoading: true })
     const auth = localStorage.getItem('auth_code')
 
 
@@ -45,10 +47,14 @@ export default class EditCampus extends React.Component {
         console.log(e);
       }
 
+      this.setState({ isLoading: false})
+
 
   }
 
   async update(){
+
+    this.setState({ isLoading: true})
 
     const auth = localStorage.getItem('auth_code')
 
@@ -77,6 +83,7 @@ export default class EditCampus extends React.Component {
       console.log(e);
     }
 
+    this.setState({ isLoading: false })
 
 }
 
@@ -110,9 +117,15 @@ const formInstance = (
     )}
 
     {this.state.message.code ? (
-       <span><Redirect to={`/profile/${ this.props.profile_id }`}/></span>
+       <p className="success-msg">Success!</p>
     ) : (
       <span></span>
+    )}
+
+    {this.state.isLoading ? (
+      <Spinner color="#ff0000" size={32}/>
+    ) : (
+      <div/>
     )}
 
     <Button bsStyle="success" onClick={this.update.bind(this)}>update campus</Button>

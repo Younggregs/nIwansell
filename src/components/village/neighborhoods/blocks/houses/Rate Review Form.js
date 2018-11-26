@@ -20,8 +20,8 @@ export default class RateReviewForm extends React.Component {
     console.log(value)
 
     this.setState({ value : value })
-    
-    
+
+
   }
 
 
@@ -38,10 +38,10 @@ export default class RateReviewForm extends React.Component {
     formData.append('rating', this.state.value)
 
     const auth = localStorage.getItem('auth_code')
-  
+
     try {
       const res = await fetch('https://www.iwansell.com/api/rate_review/' + this.props.status_code + '/' + this.props.id  + '/', {
-      
+
        body : formData,
        method: 'POST',
        headers : {
@@ -57,7 +57,7 @@ export default class RateReviewForm extends React.Component {
       console.log(e);
     }
 
-    
+
   }
 
 
@@ -71,16 +71,16 @@ render(){
 
 var Rating = require('react-rating');
 
-  
+
 const formInstance = (
   <section className="rate-review-form">
   <Row>
- 
+
    <Col lg={6} md={6} sm={6} xs={6}>
    <ControlLabel>Rate</ControlLabel>
       <div>
       <span className="heart-glyphs">
-        <Rating 
+        <Rating
          emptySymbol="glyphicon glyphicon-heart-empty"
          fullSymbol="glyphicon glyphicon-heart"
         {...this.props} initialRating={this.state.value} onChange={this.handleRatingChange} />
@@ -90,7 +90,7 @@ const formInstance = (
    </Col>
 
   <form>
-  
+
 
   <Col lg={6} md={6} sm={12} xs={12}>
     <FormGroup>
@@ -101,13 +101,13 @@ const formInstance = (
 
    <Row>
    {this.state.message.error_message ? (
-      <p className="err-msg">{this.state.statement.error_message}</p>
+      <p className="err-msg">{this.state.message.error_message}</p>
     ) : (
       <span></span>
     )}
 
-    {this.state.message.code ? ( 
-       <span><Redirect to={`/eshop/${ this.props.id } `}/></span>
+    {this.state.message.code ? (
+       <span><Redirect to={`/eshop/${ this.props.id }`}/></span>
     ) : (
       <span></span>
     )}
@@ -123,7 +123,7 @@ const formInstance = (
   </Row>
   </form>
   </Row>
-  
+
   </section>
 );
 

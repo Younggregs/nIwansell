@@ -1,10 +1,13 @@
 import React from 'react';
 import  { Redirect } from 'react-router-dom'
 import { Row, Col, Button,FormGroup, FormControl, ControlLabel, HelpBlock } from 'react-bootstrap';
+import Spinner from 'react-activity/lib/Spinner';
+import 'react-activity/lib/Spinner/Spinner.css';
 
 export default class NewEShopForm extends React.Component {
 
   state = {
+    isLoading: false,
     statement: [],
     categorylist: []
 
@@ -12,7 +15,7 @@ export default class NewEShopForm extends React.Component {
 
 
 async componentDidMount() {
-
+    this.setState({ isLoading: true })
     try {
       const res = await fetch('https://www.iwansell.com/api/category/');
       const categorylist = await res.json();
@@ -23,7 +26,7 @@ async componentDidMount() {
       console.log(e);
     }
 
-
+    this.setState({ isLoading: false })
 
   }
 
@@ -43,6 +46,8 @@ async componentDidMount() {
 
 
   async newEShop(){
+
+    this.setState({ isLoading: true })
 
     var category = document.getElementById('category').value
     var eshop_name = document.getElementById('eshop_name').value
@@ -79,6 +84,8 @@ async componentDidMount() {
       console.log(e);
     }
 
+    this.setState({ isLoading: false })
+
 }
 
 redirect(){
@@ -112,16 +119,21 @@ const formInstance = (
 
   <FormGroup>
       <ControlLabel>Select eshop category</ControlLabel>
-      <FormControl
-      componentClass="select"
-      placeholder="select"
-      id="category"
-      name="category"
-      multiple>
-      {this.state.categorylist.map(item => (
-        <option value={item.id}>{item.name}</option>
-      ))}
-      </FormControl>
+      {this.state.isLoading ? (
+        <Spinner color="#ff0000" size={32}/>
+      ) : (
+        <FormControl
+          componentClass="select"
+          placeholder="select"
+          id="category"
+          name="category"
+          multiple>
+          {this.state.categorylist.map(item => (
+            <option value={item.id}>{item.name}</option>
+          ))}
+          </FormControl>
+      )}
+
       <HelpBlock>You can select multiple categories for your eshop</HelpBlock>
     </FormGroup>
 
@@ -155,10 +167,17 @@ const formInstance = (
     ) : (
       <span></span>
     )}
+    <HelpBlock><b>Note: eShop is now in free trial mode</b></HelpBlock>
 
 
+        {this.state.isLoading ? (
+          <Spinner color="#ff0000" size={32}/>
+        ) : (
+          <div/>
+        )}
 
-    <Button bsStyle="success" onClick={this.newEShop.bind(this)}>create eshop</Button>
+
+    <Button bsStyle="success" onClick={this.newEShop.bind(this)}>create eShop[trial mode]</Button>
     </Col>
    </Row>
   </form>
