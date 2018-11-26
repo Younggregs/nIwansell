@@ -113,8 +113,8 @@ const formInstance = (
        <div>
        {this.state.banklist.map(item =>
        <div>
-         <p>{item.account_number}</p>
-         <p>{item.account_name}</p>
+         <p>Account Name: {item.account_number}</p>
+         <p>Account Number: {item.account_name}</p>
        </div>
        )}
        </div>
