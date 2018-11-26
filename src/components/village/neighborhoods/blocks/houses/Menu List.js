@@ -64,14 +64,20 @@ export default class MenuList extends React.Component {
                <div/>
              )}
 
-
-
+            <tr>
+            <td><Link to = "/newproduct">
+              Upload item for sell
+            </Link></td></tr>
 
             <tr>
-             <td><Link to = "/logout">
-               Logout
-             </Link></td>
-            </tr>
+            <td><Link to = "/productmanager">
+              Sell your item
+            </Link></td></tr>
+
+            <tr>
+            <td><Link to = "/buyer_transaction_window">
+              Buy an item
+            </Link></td></tr>
 
           <tr>
             <td><Link to="/why_us">Why Us
@@ -104,6 +110,13 @@ export default class MenuList extends React.Component {
              <td><Link to="/contact_us">Contact Us
            </Link></td>
            </tr>
+
+           <tr>
+            <td><Link to = "/logout">
+              Logout
+            </Link></td>
+           </tr>
+
 
 
 
