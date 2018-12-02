@@ -97,7 +97,7 @@ export default class LandingShow extends React.Component {
                    <Col lg={12} lgHidden md={12} mdHidden sm={12} xs={12}>
                    <Row>
                         <div className="welcome-logo-sm">
-                         <Image src={ require ('./neighborhoods/blocks/houses/images/logo.png') } alt="iwansell-logo" responsive/>
+                         <Image src={ require ('./neighborhoods/blocks/houses/images/bg.jpg') } alt="iwansell-logo" responsive/>
                         </div>
                     </Row>
 
