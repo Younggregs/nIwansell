@@ -21,12 +21,12 @@ export default class ProductList extends React.Component {
 
       try {
         const res = await fetch('https://www.iwansell.com/api/product_list/', {
-    
+
           headers : {
             'Authorization' : 'Token ' + auth,
-            
+
           },
-        
+
         });
         const productList = await res.json();
         this.setState({
@@ -35,7 +35,21 @@ export default class ProductList extends React.Component {
       } catch (e) {
         console.log(e);
       }
-      
+
+  }
+
+
+  emptyResult(){
+
+    var empty_set = false
+
+    if(this.state.productList.length <= 0 ){
+      empty_set = true
+    }
+
+    return empty_set
+
+
   }
 
 
@@ -53,20 +67,29 @@ export default class ProductList extends React.Component {
            <Heading title="My Business History"/>
 
            <Row>
-             {this.state.productList.map(item => (
+            {this.emptyResult() ? (
+              <p className="err-msg">Its empty here, what you waiting for? start uploading!</p>
+            ) : (
 
-               <ProductList2 
+              <Row>
+                {this.state.productList.map(item => (
 
-               product_id = {item.product_id}
-               product_name = {item.product_name}
-               product_image = {item.product_image}
-               starting_price = {item.starting_price}
+                  <ProductList2
 
-               
-               />
-               
-             ))}
-           </Row>
+                  product_id = {item.product_id}
+                  product_name = {item.product_name}
+                  product_image = {item.product_image}
+                  starting_price = {item.starting_price}
+
+
+                  />
+
+                ))}
+              </Row>
+
+            )}
+
+
 
            </section>
          )

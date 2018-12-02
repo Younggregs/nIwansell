@@ -20,12 +20,12 @@ export default class ProductList2 extends React.Component {
 
     try {
       const res = await fetch('https://www.iwansell.com/api/sold_product/' + product_id + '/', {
-  
+
         headers : {
           'Authorization' : 'Token ' + auth,
-          
+
         },
-      
+
       });
       const sold = await res.json();
       this.setState({
@@ -34,7 +34,7 @@ export default class ProductList2 extends React.Component {
     } catch (e) {
       console.log(e);
     }
-    
+
 }
   async removeProduct(product_id){
 
@@ -43,12 +43,12 @@ export default class ProductList2 extends React.Component {
 
     try {
       const res = await fetch('https://www.iwansell.com/api/remove_product/' + product_id + '/', {
-  
+
         headers : {
           'Authorization' : 'Token ' + auth,
-          
+
         },
-      
+
       });
       const remove = await res.json();
       this.setState({
@@ -71,7 +71,7 @@ export default class ProductList2 extends React.Component {
 
        render() {
          return (
-           <section className="product-list "> 
+           <section className="product-list ">
                <Col lg={3} md={3} smHidden xsHidden>
                <div className="product-image">
                 <div class="image">
@@ -80,18 +80,22 @@ export default class ProductList2 extends React.Component {
                </div></div>
 
                <div className="product-options">
-               <Link to={`/product/${ this.props.product_id } `}>
+               <Link to={`/product/${ this.props.product_id }`}>
                <h3>{this.props.product_name}</h3>
                </Link>
 
                 <p className="lg-fonts">Starting price : {this.props.starting_price}</p>
-                
+
                 <Row>
                   {this.state.sold ? (
-                   
-                    <Col lg={6} md={6}><Button bsStyle="success">sold</Button></Col>
+
+                    <Col lg={6} md={6}><Button bsStyle="success" disabled>sold</Button></Col>
                   ) : (
-                    <Col lg={6} md={6}><Button onClick={this.soldProduct.bind(this, this.props.product_id)}>sold</Button></Col>
+                    <Col lg={6} md={6}>
+                    <Link to={`/seller_transaction_window/${ this.props.product_id }`}>
+                      <Button>sell</Button>
+                    </Link>
+                    </Col>
                   )}
 
                   {this.state.removed ? (
@@ -99,9 +103,9 @@ export default class ProductList2 extends React.Component {
                   ) : (
                     <Col lg={6} md={6}><Button onClick={this.removeProduct.bind(this, this.propsproduct_id)}>remove</Button ></Col>
                   )}
-               
+
                 </Row>
-                
+
                </div><br /><br />
 
                </Col>
@@ -111,25 +115,29 @@ export default class ProductList2 extends React.Component {
             <Col sm={10} smOffset={1} xs={10} xsOffset={1} lgHidden mdHidden>
              {this.setMedia(this.props.product_image)}
              <Thumbnail href={"product/" + this.props.product_id } alt="product-image" src= { `${this.state.media}` }/>
-             
+
              <div className="product-options">
              <Link to={`/product/${ this.props.product_id } `}>
              <h3>{this.props.product_name}</h3>
              </Link>
               <p className="sm-fonts">Starting price : {this.props.starting_price}</p>
-             
+
               <Row>
               {this.state.sold ? (
-                   
-                   <Col lg={6} md={6}><Button bsStyle="success">sold</Button></Col>
+
+                   <Col sm={6} xs={6}><Button bsStyle="success" disabled>sold</Button></Col>
                  ) : (
-                   <Col lg={6} md={6}><Button onClick={this.soldProduct.bind(this, this.props.product_id)}>sold</Button></Col>
+                   <Col sm={6} xs={6}>
+                    <Link to={`/seller_transaction_window/${ this.props.product_id }`}>
+                      <Button>sell</Button>
+                    </Link>
+                   </Col>
                  )}
 
                  {this.state.removed ? (
-                   <Col lg={6} md={6}><Button bsStyle="success">removed</Button></Col>
+                   <Col sm={6} xs={6}><Button bsStyle="success">removed</Button></Col>
                  ) : (
-                   <Col lg={6} md={6}><Button onClick={this.removeProduct.bind(this, this.props.product_id)}>remove</Button ></Col>
+                   <Col sm={6} xs={6}><Button onClick={this.removeProduct.bind(this, this.props.product_id)}>remove</Button ></Col>
                 )}
 
               </Row>
