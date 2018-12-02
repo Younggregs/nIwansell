@@ -72,7 +72,7 @@ export default class BankAccountForm extends React.Component {
       console.log(e);
     }
 
-    false
+    this.setState({ isLoading: false })
 
 }
 
@@ -112,9 +112,9 @@ const formInstance = (
 
        <div>
        {this.state.banklist.map(item =>
-       <div>
-         <p>Account Name: {item.account_number}</p>
-         <p>Account Number: {item.account_name}</p>
+       <div className="bank-account">
+         <p>Account number: {item.account_number}</p>
+         <p>Account name: {item.account_name}</p>
        </div>
        )}
        </div>

@@ -67,6 +67,12 @@ export default class ProfileDescription extends React.Component {
                     </Link>
                   </p>
 
+                  <p>
+                 <Link to ={`/bank_account/${ this.props.profile_id }`}>
+                      Manage Banking Details
+                   </Link>
+                 </p>
+
               <p>
                <Link to="/newproduct">
                 Add New Product

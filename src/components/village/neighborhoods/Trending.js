@@ -402,7 +402,7 @@ export default class Trending extends React.Component {
               </Row>
 
 
-              <CategoryProduct campus={this.props.campus_id}/>
+              <CategoryProduct campus_id={this.props.campus_id}/>
 
 
 

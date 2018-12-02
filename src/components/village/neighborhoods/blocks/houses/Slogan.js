@@ -8,7 +8,7 @@ export default class Slogan extends React.Component {
            <div className="slogan" id="slogan">
              <Col lg={2} md={2} smHidden xsHidden>
              <Link to="/blog">
-                <Image width="100px" height="100px" src={ require ('./images/closer.png') } alt="iwansell" responsive/>
+                <Image width="100px" height="100px" src={ require ('./images/bg.jpg') } alt="iwansell" responsive/>
              </Link>
              </Col>
            </div>
