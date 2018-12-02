@@ -25,7 +25,7 @@ export default class ProfileDetails extends React.Component {
    }
 
    setMedia(media_name){
-    this.state.media = 'https://www.iwansell.com/api/media/' + media_name
+    this.state.media = 'https://www.iwansell.com/' + media_name
   }
 
 
