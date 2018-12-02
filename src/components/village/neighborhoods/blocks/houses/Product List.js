@@ -88,6 +88,7 @@ export default class ProductList extends React.Component {
               </Row>
 
             )}
+            </Row>
 
 
 
