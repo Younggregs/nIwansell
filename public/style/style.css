@@ -45,6 +45,14 @@ a{
   color: orange
 }
 
+.bank-account{
+  background-color: darkslateblue;
+  padding: 5px;
+  margin: 10px;
+  text-align: center;
+  color: white;
+}
+
 .receipt-div{
   color: black;
   background-color: white;
