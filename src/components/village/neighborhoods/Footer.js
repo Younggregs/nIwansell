@@ -40,7 +40,7 @@ export default class Footer extends React.Component {
            <section className="footer">
              <Grid>
                <Row>
-                 <About logged_in={this.props.isloggedin}/>
+                 <About logged_in={this.state.isloggedin}/>
                </Row>
              </Grid>
            </section>
