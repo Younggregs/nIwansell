@@ -12,7 +12,7 @@ export default class NewProductForm extends React.Component {
     product_image:null,
     account_id: null,
     media:[],
-    eshop_exist: {},
+    eshop_exist: false,
   };
 
   async componentDidMount() {
@@ -159,6 +159,7 @@ const formInstance = (
         placeholder="e.g 60k"
       />
 
+    <p><b>Note: Image size should not be more than 2.5mb</b></p>
     <ControlLabel>Product image</ControlLabel>
     <FormGroup>
         <FormControl

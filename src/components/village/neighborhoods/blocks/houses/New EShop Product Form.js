@@ -114,7 +114,7 @@ const formInstance = (
 
   <Heading title="Add product"/>
 
- 
+
   <Row>
    <Col lg={4} lgOffset={1} md={4}  sm={6} xs={6}>
     <Link to="newproduct">
@@ -128,7 +128,7 @@ const formInstance = (
   </Link>
   </Col>
   </Row>
- 
+
   <br />
 
   <form method="POST" enctype="multipart/form-data" action={"https://www.iwansell.com/api/new_eshop_product/" + this.state.account_id + "/"}>
@@ -160,6 +160,7 @@ const formInstance = (
       placeholder="e.g Samsung s6 edge"
     />
 
+    <p><b>Note: Image size should not be more than 2.5mb</b></p>
     <FormGroup controlId="formControlsTextarea">
       <ControlLabel>Describe Product</ControlLabel>
       <FormControl componentClass="textarea" placeholder="e.g Gold plated, 64gb ROM, 3gb ROM, used ..." id="description" name="description"/>
