@@ -211,10 +211,10 @@ html2canvas(input)
                   </div>
 
                   <Row>
-                  <Col lg={3} lgOffset={2} md={3} mdOffset={5} sm={3} smOffset={2} xs={3} xsOffset={2}>
+                  <Col lg={5} lgOffset={2} md={5} mdOffset={5} sm={5} smOffset={2} xs={5} xsOffset={2}>
                     <Button bsStyle="success" onClick={this.pdf.bind(this)}>Download pdf</Button>
                   </Col>
-                  <Col lg={3} md={3} sm={3} xs={3}>
+                  <Col lg={5} md={5} sm={5} xs={5}>
                     <Link to='/home'>
                       <Button bsStyle="success">Finish</Button>
                     </Link>
