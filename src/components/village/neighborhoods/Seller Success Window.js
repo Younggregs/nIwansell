@@ -94,7 +94,7 @@ export default class SellerSuccessWindow extends React.Component {
                   </div>
                 ) : (
                   <section>
-                  <div className="receipt-div">
+                  <div className="receipt-div" id="receipt-div">
                     <div className="receipt-header">
                       <p>Iwansell Group #Business</p>
                       <p>{this.state.receipt_register.campus}</p>
