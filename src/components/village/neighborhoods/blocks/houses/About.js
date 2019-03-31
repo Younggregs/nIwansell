@@ -10,7 +10,7 @@ export default class About extends React.Component {
             <Col lg={6} lgOffset={1} md={6} mdOffset={1} sm={6} smOffset={1} xs={6} xsOffset={1}>
               <Row>
 
-          <p><Link to="/eshop_list">e-shops
+          <p><Link to="/eshop_list/1">e-shops
            </Link></p>
 
            <p><Link to="/why_us">Why Us

@@ -14,9 +14,18 @@ export default class EShopAds extends React.Component {
 
               <Col lg={12} md={12} smHidden xsHidden>
               <Row>
-                  <Heading title="TOP e-SHOPS"/>
+                  <Heading title="Trending"/>
                 </Row>
 
+                <Row className="eshop-ads-items">
+                    <Image width="auto" height="500px"  src={ require ('./houses/images/grill.jpg') } alt="iwansell" responsive/>
+                  </Row>
+                  <Row className="eshop-ads-items">
+                    <Image width="auto" height="500px"  src={ require ('./houses/images/grill1.jpg') } alt="iwansell" responsive/>
+                  </Row>
+                  <Row className="eshop-ads-items">
+                    <Image width="auto" height="500px"  src={ require ('./houses/images/peruzzi.jpg') } alt="iwansell" responsive/>
+                  </Row>
                 <Row className="eshop-ads-items">
                     <Image width="auto" height="500px" src={ require ('./houses/images/slide1.png') } alt="iwansell" responsive/>
                   </Row>
@@ -32,6 +41,17 @@ export default class EShopAds extends React.Component {
                   <Row className="eshop-ads-items">
                     <Image width="auto" height="500px"  src={ require ('./houses/images/slide1.png') } alt="iwansell" responsive/>
                   </Row>
+                  <Row className="eshop-ads-items">
+                    <Image width="auto" height="500px"  src={ require ('./houses/images/grill1.jpg') } alt="iwansell" responsive/>
+                  </Row>
+                  <Row className="eshop-ads-items">
+                    <Image width="auto" height="500px"  src={ require ('./houses/images/peruzzi.jpg') } alt="iwansell" responsive/>
+                  </Row>
+                  <Row className="eshop-ads-items">
+                    <Image width="auto" height="500px"  src={ require ('./houses/images/grill.jpg') } alt="iwansell" responsive/>
+                  </Row>
+                  
+                  
                   
               </Col>
            </section>

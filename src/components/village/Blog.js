@@ -22,7 +22,7 @@ export default class Blog extends React.Component {
     const auth = localStorage.getItem('auth_code')
 
     try {
-      const res = await fetch('https://www.iwansell.com/api/isloggedin/', {
+      const res = await fetch('http://127.0.0.1:8000/api/isloggedin/', {
 
        credentials: 'same-origin',
        mode: 'cors',
@@ -44,7 +44,7 @@ export default class Blog extends React.Component {
 
 
     try {
-      const res = await fetch('https://www.iwansell.com/api/get_account/',{
+      const res = await fetch('http://127.0.0.1:8000/api/get_account/',{
 
        credentials: 'same-origin',
        mode: 'cors',
@@ -63,7 +63,7 @@ export default class Blog extends React.Component {
 
 
     try {
-      const res = await fetch('https://www.iwansell.com/api/get_campus/',{
+      const res = await fetch('http://127.0.0.1:8000/api/get_campus/',{
 
        credentials: 'same-origin',
        mode: 'cors',

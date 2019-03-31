@@ -26,7 +26,7 @@ export default class SigninForm extends React.Component {
 
 
     try {
-      const res = await fetch('https://www.iwansell.com/api/signin/', {
+      const res = await fetch('http://127.0.0.1:8000/api/signin/', {
 
        body :formData,
        method: 'POST',

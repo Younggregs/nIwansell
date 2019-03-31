@@ -17,7 +17,7 @@ export default class BlogCategory extends React.Component {
   async componentWillMount() {
 
     try {
-        const res = await fetch('https://www.iwansell.com/api/category/');
+        const res = await fetch('http://127.0.0.1:8000/api/category/');
         const categoryList = await res.json();
         this.setState({
           categoryList
@@ -34,12 +34,8 @@ export default class BlogCategory extends React.Component {
            <section className="category-list">
              <Row>
               <Col lg={12} md={12} smHidden xsHidden>
+              <Heading title="Category"/>
               <Table responsive>
-                 <thead>
-                    <tr>
-                        <th>Category</th>
-                    </tr>
-                </thead>
                 <tbody>
                 <tr>
                 </tr>

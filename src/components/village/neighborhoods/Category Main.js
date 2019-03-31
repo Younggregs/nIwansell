@@ -20,7 +20,7 @@ export default class CategoryMain extends React.Component {
   async componentWillMount() {
 
     try {
-        const res = await fetch('https://www.iwansell.com/api/category/');
+        const res = await fetch('http://127.0.0.1:8000/api/category/');
         const categoryList = await res.json();
         this.setState({
           categoryList
@@ -30,7 +30,7 @@ export default class CategoryMain extends React.Component {
       }
 
     try {
-      const res = await fetch('https://www.iwansell.com/api/category_product/' + this.props.campus_id + '/' + this.props.category_id + '/');
+      const res = await fetch('http://127.0.0.1:8000/api/category_product/' + this.props.campus_id + '/' + this.props.category_id + '/');
       const categoryProductList = await res.json();
       this.setState({
         categoryProductList
@@ -52,7 +52,7 @@ export default class CategoryMain extends React.Component {
     this.setState({category: name, isLoading: true })
 
     try {
-      const res = await fetch('https://www.iwansell.com/api/category_product/' + this.state.campus_id + '/' + id);
+      const res = await fetch('http://127.0.0.1:8000/api/category_product/' + this.state.campus_id + '/' + id + '/1');
       const categoryProductList = await res.json();
       this.setState({
         categoryProductList
@@ -68,11 +68,11 @@ export default class CategoryMain extends React.Component {
 
 
   setMediaIcon(media_name){
-    this.state.media = 'https://www.iwansell.com/' + media_name
+    this.state.media = 'http://127.0.0.1:8000' + media_name
   }
 
   setMedia(media_name){
-    this.state.media = 'https://www.iwansell.com/api/media/' + media_name
+    this.state.media = 'http://127.0.0.1:8000' + media_name
   }
 
 

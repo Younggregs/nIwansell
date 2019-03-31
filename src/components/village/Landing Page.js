@@ -20,9 +20,8 @@ export default class LandingPage extends React.Component {
    isLoading: false,
    type: false,
    campuslist: [],
-   market: "Your",
-   show_school: true,
-   campus_id: 0,
+   show_school: false,
+   campus_id: 1,
 
  }
 
@@ -37,7 +36,7 @@ export default class LandingPage extends React.Component {
      formData.append('key_word', key_word)
 
      try {
-       const res = await fetch('https://www.iwansell.com/api/campus_search/', {
+       const res = await fetch('http://127.0.0.1:8000/api/campus_search/', {
 
          body :formData,
          method: 'POST',
@@ -74,8 +73,9 @@ setSchool(){
 
 async getMarket(id){
   try {
-    const res = await fetch('https://www.iwansell.com/api/campus_code/' + id + '/');
+    const res = await fetch('http://127.0.0.1:8000/api/campus_code/' + id + '/');
     const market = await res.json();
+
     this.setState({
       market
     });

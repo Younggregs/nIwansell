@@ -50,6 +50,7 @@ import Sold from './components/village/Sold'
 import Bought from './components/village/Bought'
 import ViewReceipt from './components/village/View Receipt'
 import BankAccount from './components/village/Bank Account'
+import ViewMore from './components/village/View More'
 import Logout from './components/village/Logout'
 import AuthTest from './components/village/Auth Test';
 
@@ -111,6 +112,7 @@ import AuthTest from './components/village/Auth Test';
                 <Route exact path="/bought/:profile_id" component={Bought}/>
                 <Route exact path="/view_receipt/:transaction_id" component={ViewReceipt}/>
                 <Route exact path="/bank_account/:profile_id" component={BankAccount}/>
+                <Route exact path="/view_more" component={ViewMore}/>
                 <Route exact path="/logout" component={Logout}/>
               </div>
             </Router>

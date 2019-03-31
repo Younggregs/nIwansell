@@ -18,7 +18,7 @@ export default class CategorySlide extends React.Component {
   async componentWillMount() {
 
     try {
-        const res = await fetch('https://www.iwansell.com/api/category/');
+        const res = await fetch('http://127.0.0.1:8000/api/category/');
         const categoryList = await res.json();
         this.setState({
           categoryList
@@ -31,7 +31,7 @@ export default class CategorySlide extends React.Component {
 
 
 setMedia(media_name){
-  this.state.media = 'https://www.iwansell.com/' + media_name
+  this.state.media = 'http://127.0.0.1:8000' + media_name
 }
 
 

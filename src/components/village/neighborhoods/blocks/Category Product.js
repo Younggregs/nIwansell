@@ -20,7 +20,7 @@ export default class CategoryProduct extends React.Component {
   async componentWillMount() {
 
     try {
-        const res = await fetch('https://www.iwansell.com/api/category/');
+        const res = await fetch('http://127.0.0.1:8000/api/category/');
         const categoryList = await res.json();
         this.setState({
           categoryList
@@ -29,14 +29,27 @@ export default class CategoryProduct extends React.Component {
         console.log(e);
       }
 
-    try {
-      const res = await fetch('https://www.iwansell.com/api/category_product/' + this.props.campus_id + '/99');
-      const categoryProductList = await res.json();
-      this.setState({
-        categoryProductList
-      });
-    } catch (e) {
-      console.log(e);
+    
+    if (this.props.show_more){
+      try {
+        const res = await fetch('http://127.0.0.1:8000/api/category_product/' + this.props.campus_id + '/99' + '/1');
+        const categoryProductList = await res.json();
+        this.setState({
+          categoryProductList
+        });
+      } catch (e) {
+        console.log(e);
+      }
+    }else{
+      try {
+        const res = await fetch('http://127.0.0.1:8000/api/category_product/' + this.props.campus_id + '/99' + '/0');
+        const categoryProductList = await res.json();
+        this.setState({
+          categoryProductList
+        });
+      } catch (e) {
+        console.log(e);
+      }
     }
 
     this.setState({ isLoading: false })
@@ -52,7 +65,7 @@ export default class CategoryProduct extends React.Component {
     this.setState({category: name, isLoading: true})
 
     try {
-      const res = await fetch('https://www.iwansell.com/api/category_product/' + this.props.campus_id + '/' + id);
+      const res = await fetch('http://127.0.0.1:8000/api/category_product/' + this.props.campus_id + '/' + id);
       const categoryProductList = await res.json();
       this.setState({
         categoryProductList
@@ -68,11 +81,11 @@ export default class CategoryProduct extends React.Component {
 
 
   setMedia(media_name){
-    this.state.media = 'https://www.iwansell.com/api/media/' + media_name
+    this.state.media = 'http://127.0.0.1:8000' + media_name
   }
 
   setMediaIcon(media_name){
-    this.state.media = 'https://www.iwansell.com/' + media_name
+    this.state.media = 'http://127.0.0.1:8000' + media_name
   }
 
 
@@ -145,7 +158,7 @@ export default class CategoryProduct extends React.Component {
                                  <div class="box">
                                  <div class="pic">
 
-                                <Link to={`/product/${ item.product_id } `}>
+                                <Link to={`/product/${ item.id } `}>
 
                                     {this.setMedia(item.product_image)}
                                     <Thumbnail alt="product-image" src= { `${this.state.media}` }>
@@ -162,9 +175,17 @@ export default class CategoryProduct extends React.Component {
                     </div>
                     )}
 
-
+                  {this.props.show_more ? (
+                    <Link to='/view_more'>
+                    <Heading title="View More"/>
+                  </Link>
+                  ) : (
+                    <div/>
+                  )}
+                   
                    </Col>
                 </Row>
+               
 
              </Col>
 

@@ -42,7 +42,7 @@ export default class AboutUs extends React.Component {
 
               <div className="menu-body">
             <p><b>Iwansell</b></p>
-            <p>Iwansell is an online marketplace for campus with a unique feature called and e-shop.</p>
+            <p>Iwansell is an online marketplace for campus with a unique feature 'the eshop'.</p>
             <p>A campus is a very important, influential and well populated higher learning institution.</p>
             <p>Iwansell is a subsidiary of <b>Merlin's Beard Labs.</b></p>
               </div>

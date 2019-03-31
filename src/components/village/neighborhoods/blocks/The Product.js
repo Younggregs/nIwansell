@@ -14,7 +14,7 @@ export default class TheProduct extends React.Component {
  
    async componentWillMount() {
      try {
-       const res = await fetch('https://www.iwansell.com/api/product/' + this.props.product_id);
+       const res = await fetch('http://127.0.0.1:8000/api/product/' + this.props.product_id);
        const productDetail = await res.json();
        this.setState({
          productDetail
@@ -30,7 +30,7 @@ export default class TheProduct extends React.Component {
     const auth = localStorage.getItem('auth_code')
   
     try {
-      const res = await fetch('https://www.iwansell.com/api/favorite/2/' + this.props.product_id, {
+      const res = await fetch('http://127.0.0.1:8000/api/favorite/2/' + this.props.product_id, {
       
        credentials: 'same-origin',
        mode: 'cors',
@@ -53,12 +53,12 @@ export default class TheProduct extends React.Component {
 
 
    setMedia(media_name){
-    var media = 'https://www.iwansell.com/api/media/' + media_name
+    var media = 'http://127.0.0.1:8000/media/' + media_name
     this.state.media = media
   }
 
   setDp(dp){
-    var display_pic = 'https://www.iwansell.com/api/media/' + dp
+    var display_pic = 'http://127.0.0.1:8000/media/' + dp
     this.state.dp = display_pic
   }
 
@@ -98,16 +98,7 @@ export default class TheProduct extends React.Component {
                       <p>Starting price: {this.state.productDetail.starting_price}</p>
                       
 
-                      <p>Favorite product
-                        {this.state.isfavorited ? (
-                          <Button onClick={this.favorite.bind(this)}><span className="fav-glyphs"><Glyphicon glyph="star"/></span></Button>
-                          ) : (
-                        <Button onClick={this.favorite.bind(this)}><span className="fav-glyphs"><Glyphicon glyph="star-empty"/></span></Button>
-                        )}
-                
-                      </p>
-
-
+                    
 
                       {this.props.logged_in ? (
 
@@ -125,18 +116,31 @@ export default class TheProduct extends React.Component {
                       ) : (
 
                         <Row>
-                      <Col lg={6} lgOffset={3} md={6} mdOffset={3} smHidden xsHidden>
+                      <Col lg={6} md={6} smHidden xsHidden>
                         <BuzzMe phone={this.state.productDetail.phone}/>&nbsp;
                       </Col>
                       </Row>
 
                       )}
+
+
+                <p>Favorite product
+                        {this.state.isfavorited ? (
+                          <Button onClick={this.favorite.bind(this)}><span className="fav-glyphs"><Glyphicon glyph="star"/></span></Button>
+                          ) : (
+                        <Button onClick={this.favorite.bind(this)}><span className="fav-glyphs"><Glyphicon glyph="star-empty"/></span></Button>
+                        )}
+                
+                      </p>
                       
 
                 </div>
                 </Col>
 
                 </Row>
+
+
+
 
                 </Col>
 
@@ -174,27 +178,41 @@ export default class TheProduct extends React.Component {
                       
 
 
+                    
+
+
+                      
+                      {this.props.logged_in ? (
+
+                        <Row>
+                      <Col lg={6} md={6} smHidden xsHidden>
+                        <BuzzMe phone={this.state.productDetail.phone} />&nbsp;
+                      </Col>
+                      <Col lg={6} md={6} smHidden xsHidden>
+                      <Link to={`/hagglemates/${ this.state.productDetail.profile_id }`}>
+                        <Button bsStyle="primary">Message me</Button>
+                      </Link>
+                      </Col>
+                      </Row>
+
+                      ) : (
+
+                        <Row>
+                      <Col lg={6} md={6} smHidden xsHidden>
+                        <BuzzMe phone={this.state.productDetail.phone}/>&nbsp;
+                      </Col>
+                      </Row>
+
+                      )}
+
+
                       <p>Favorite product
                         {this.state.isfavorited ? (
                           <Button onClick={this.favorite.bind(this)}><span className="fav-glyphs"><Glyphicon glyph="star"/></span></Button>
                           ) : (
                         <Button onClick={this.favorite.bind(this)}><span className="fav-glyphs"><Glyphicon glyph="star-empty"/></span></Button>
                         )}
-                
                       </p>
-
-
-                      
-                      <Row>
-                        <Col sm={6} xs={6}>
-                         <BuzzMe phone={this.state.productDetail.phone}/>
-                        </Col>
-                        <Col sm={6} xs={6}>
-                        <Link to={`/hagglemates/${ this.state.productDetail.profile_id }`}>
-                         <Button bsStyle="primary">Message me</Button>
-                        </Link>
-                        </Col>
-                      </Row>
                         </Thumbnail>
 
                       </Col>

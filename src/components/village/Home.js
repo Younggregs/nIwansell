@@ -15,7 +15,7 @@ export default class Home extends React.Component {
   state={
     account_id: null,
     campus_id: 1,
-    market: "Your"
+    market: "FUTminna"
   }
 
   async componentWillMount() {
@@ -23,7 +23,7 @@ export default class Home extends React.Component {
     console.log(auth)
 
     try {
-      const res = await fetch('https://www.iwansell.com/api/get_account/',{
+      const res = await fetch('http://127.0.0.1:8000/api/get_account/',{
 
        credentials: 'same-origin',
        mode: 'cors',
@@ -42,8 +42,8 @@ export default class Home extends React.Component {
     }
 
 
-    try {
-      const res = await fetch('https://www.iwansell.com/api/get_campus/',{
+    /*try {
+      const res = await fetch('http://127.0.0.1:8000/api/get_campus/',{
 
        credentials: 'same-origin',
        mode: 'cors',
@@ -59,11 +59,12 @@ export default class Home extends React.Component {
       setCampusId(campus_id)
     } catch (e) {
       console.log(e);
-    }
+    }*/
+    setCampusId(this.state.campus_id)
 
 
-      try {
-        const res = await fetch('https://www.iwansell.com/api/campus_code/' + this.state.campus_id + '/');
+      /*try {
+        const res = await fetch('http://127.0.0.1:8000/api/campus_code/' + this.state.campus_id + '/');
         const market = await res.json();
         this.setState({
           market
@@ -71,7 +72,8 @@ export default class Home extends React.Component {
         setMarket(market)
       } catch (e) {
         console.log(e);
-      }
+      }*/
+      setMarket(this.state.market)
 
 
 

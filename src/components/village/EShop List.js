@@ -18,7 +18,7 @@ export default class EshopList extends React.Component {
   async componentDidMount() {
        this.setState({ isLoading: true})
         try {
-          const res = await fetch('https://www.iwansell.com/api/eshop_list/' +  this.props.match.params.campus_id + '/');
+          const res = await fetch('http://127.0.0.1:8000/api/eshop_list/' +  this.props.match.params.campus_id + '/');
           const eshop_list = await res.json();
           this.setState({
             eshop_list
@@ -29,7 +29,7 @@ export default class EshopList extends React.Component {
 
 
         try {
-          const res = await fetch('https://www.iwansell.com/api/category/');
+          const res = await fetch('http://127.0.0.1:8000/api/category/');
           const categorylist = await res.json();
           this.setState({
             categorylist
@@ -58,7 +58,7 @@ async submitForm(){
         formData.append("eshop_name", eshop_name)
 
         try {
-            const res = await fetch('https://www.iwansell.com/api/eshop_list/' + this.props.match.params.campus_id + '/', {
+            const res = await fetch('http://127.0.0.1:8000/api/eshop_list/' + this.props.match.params.campus_id + '/', {
 
              body: formData,
              method: 'POST'
@@ -82,7 +82,7 @@ async sortByCategory(id){
 
   this.setState({ isLoading: true })
   try {
-      const res = await fetch('https://www.iwansell.com/api/eshop_list_category/' + this.props.match.params.campus_id + '/' + id + '/');
+      const res = await fetch('http://127.0.0.1:8000/api/eshop_list_category/' + this.props.match.params.campus_id + '/' + id + '/');
       const eshop_list = await res.json();
       this.setState({
         eshop_list

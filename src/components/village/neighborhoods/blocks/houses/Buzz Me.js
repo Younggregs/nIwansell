@@ -14,7 +14,7 @@ export default class BuzzMe extends React.Component {
     return (
       <div>
         <Button bsStyle="primary" onClick={() => this.setState({ open: !this.state.open })}>
-          Buzzme
+          Click to see Phone
         </Button>
         <Collapse in={this.state.open}>
           <div>

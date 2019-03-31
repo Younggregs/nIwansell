@@ -290,12 +290,12 @@ a{
 
 
 .category-list{
-  background-color:white;
+  background-color: rgb(7, 3, 31);;
   padding: 10px;
 }
 
 .category-list-sm{
-  background-color: white;
+  background-color:  rgb(7, 3, 31);;
   padding: 10px;
   height: 150px;
   overflow: auto;
@@ -313,12 +313,6 @@ a{
 .category-item{
   padding-bottom: 10px;
   min-height: 50px;
-  border-right-color:black;
-  border-right-style: solid;
-  border-right-width: 1px;
-  border-bottom-color:orange;
-  border-bottom-style: solid;
-  border-bottom-width: 1px;
 }
 
 .category-product{

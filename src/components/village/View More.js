@@ -1,19 +1,18 @@
 import React from 'react'
-import {Row,Col} from 'react-bootstrap'
+import {Row, Col } from 'react-bootstrap'
 import Navigation from './neighborhoods/Navigation'
-import BlogCategory from './neighborhoods/blocks/houses/Blog Category'
-import BlogCategoryItems from './neighborhoods/blocks/Blog Category Items'
+import CategoryProduct from './neighborhoods/blocks/Category Product'
 import Footer from './neighborhoods/Footer'
 import GotoTop from './neighborhoods/blocks/houses/Goto Top'
 import Copyright from './neighborhoods/blocks/houses/Copyright'
-import RecentStories from './neighborhoods/blocks/Recent Stories'
+import {setMarket, setCampusId, setAccountId} from './neighborhoods/blocks/houses/auth/Auth'
 
-export default class BlogCategoryView extends React.Component {
+export default class ViewMore extends React.Component {
 
   state={
     account_id: null,
     campus_id: 1,
-    market: null
+    market: "FUTminna"
   }
 
   async componentWillMount() {
@@ -34,12 +33,13 @@ export default class BlogCategoryView extends React.Component {
       this.setState({
         account_id
       });
+      setAccountId(account_id)
     } catch (e) {
       console.log(e);
     }
 
 
-    try {
+    /*try {
       const res = await fetch('http://127.0.0.1:8000/api/get_campus/',{
 
        credentials: 'same-origin',
@@ -53,49 +53,44 @@ export default class BlogCategoryView extends React.Component {
       this.setState({
         campus_id
       });
+      setCampusId(campus_id)
     } catch (e) {
       console.log(e);
-    }
+    }*/
+    setCampusId(this.state.campus_id)
 
 
-    try {
-      const res = await fetch('http://127.0.0.1:8000/campus_code/' + this.state.campus_id + '/');
-      const market = await res.json();
-      this.setState({
-        market
-      });
-    } catch (e) {
-      console.log(e);
-    }
+      /*try {
+        const res = await fetch('http://127.0.0.1:8000/api/campus_code/' + this.state.campus_id + '/');
+        const market = await res.json();
+        this.setState({
+          market
+        });
+        setMarket(market)
+      } catch (e) {
+        console.log(e);
+      }*/
+      setMarket(this.state.market)
+
+
 
 
 
   }
 
+
       render() {
 
         return (
            <div className="home">
-             <Navigation logged_in={true} account_id={this.state.account_id} campus_id={this.state.campus_id} market={this.state.market}/>
+             <Navigation logged_in={true} account_id={this.state.account_id} campus_id={this.state.campus_id}/>
              <Row>
-               <Col lg={2} md={2} smHidden xsHidden>
-                    <BlogCategory/>
+               <Col lg={12} md={12} sm={12} xs={12}>
+                 <Row>
+                    <CategoryProduct campus_id={this.state.campus_id} show_more={false}/>
+                 </Row>
                 </Col>
-
-                <Col lg={7} md={7} sm={12} xs={12}>
-                    <BlogCategoryItems category_id={this.props.match.params.category_id}/>
-                </Col>
-
-
-               <Col lg={3} md={3} sm={12} xs={12}>
-                  <RecentStories/>
-               </Col>
-
-               <Col lgHidden mdHidden sm={12} xs={12}>
-                    <BlogCategory/>
-                </Col>
-
-              </Row>
+             </Row>
              <GotoTop/>
              <Footer logged_in={true}/>
              <Copyright/>
