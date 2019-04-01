@@ -19,7 +19,7 @@ export default class EditEmail extends React.Component {
 
 
     try {
-      const res = await fetch('https://www.iwansell.com/api/get_email/', {
+      const res = await fetch('http://www.iwansell.com/api/get_email/', {
        headers : {
          'Authorization' : 'Token ' + auth
        }
@@ -52,7 +52,7 @@ export default class EditEmail extends React.Component {
     formData.append('email', email)
 
     try {
-      const res = await fetch('https://www.iwansell.com/api/reset_email/', {
+      const res = await fetch('http://www.iwansell.com/api/reset_email/', {
 
 
        body : formData,

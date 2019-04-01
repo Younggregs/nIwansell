@@ -19,7 +19,7 @@ async componentDidMount() {
 const auth = localStorage.getItem('auth_code')
 
 try {
-  const res = await fetch('http://165.22.140.170:8000/api/eshop/' + this.props.match.params.eshop_id);
+  const res = await fetch('http://www.iwansell.com/api/eshop/' + this.props.match.params.eshop_id);
   const eshop = await res.json();
   this.setState({
     eshop
@@ -30,7 +30,7 @@ try {
 
 
 try {
-  const res = await fetch('http://165.22.140.170:8000/api/ismyeshop/' + this.props.match.params.eshop_id, {
+  const res = await fetch('http://www.iwansell.com/api/ismyeshop/' + this.props.match.params.eshop_id, {
 
     headers : {
       'Authorization' : 'Token ' + auth,
@@ -52,7 +52,7 @@ try {
 
 
 setMedia(media_name){
-  this.state.media = 'http://165.22.140.170:8000/api' + media_name
+  this.state.media = 'http://www.iwansell.com' + media_name
 }
 
       render() {

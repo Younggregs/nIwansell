@@ -24,7 +24,7 @@ export default class FeedBack extends React.Component {
 
 
     try {
-      const res = await fetch('http://165.22.140.170:8000/api/feedback/', {
+      const res = await fetch('http://www.iwansell.com/api/feedback/', {
 
        body :formData,
        method: 'POST',

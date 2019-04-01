@@ -127,7 +127,7 @@ const formInstance = (
   <br />
 
 
-  <form method="POST" enctype="multipart/form-data" action={"http://127.0.0.1:8000/api/newproduct/" + this.state.account_id + "/"}>
+  <form method="POST" enctype="multipart/form-data" action={"http://www.iwansell.com/api/newproduct/" + this.state.account_id + "/"}>
   <FormGroup>
       <ControlLabel>Categories</ControlLabel>
       <FormControl componentClass="select" placeholder="select" id="category" name="category">

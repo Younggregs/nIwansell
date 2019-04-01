@@ -23,7 +23,7 @@ export default class Home extends React.Component {
     console.log(auth)
 
     try {
-      const res = await fetch('http://165.22.140.170:8000/api/get_account/',{
+      const res = await fetch('http://www.iwansell.com/api/get_account/',{
 
        credentials: 'same-origin',
        mode: 'cors',

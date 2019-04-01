@@ -20,7 +20,7 @@ export default class SubcategoryView extends React.Component {
 
 
     try {
-        const res = await fetch('http://165.22.140.170:8000/api/isloggedin/', {
+        const res = await fetch('http://www.iwansell.com/api/isloggedin/', {
 
          credentials: 'same-origin',
          mode: 'cors',
@@ -43,7 +43,7 @@ export default class SubcategoryView extends React.Component {
 
 
     try {
-      const res = await fetch('http://165.22.140.170:8000/api/get_account/',{
+      const res = await fetch('http://www.iwansell.com/api/get_account/',{
 
        credentials: 'same-origin',
        mode: 'cors',
@@ -62,7 +62,7 @@ export default class SubcategoryView extends React.Component {
 
 
     try {
-      const res = await fetch('http://165.22.140.170:8000/api/get_campus/',{
+      const res = await fetch('http://www.iwansell.com/api/get_campus/',{
 
        credentials: 'same-origin',
        mode: 'cors',
@@ -81,7 +81,7 @@ export default class SubcategoryView extends React.Component {
 
 
     try {
-      const res = await fetch('http://165.22.140.170:8000/api/campus_code/' + this.state.campus_id + '/');
+      const res = await fetch('http://www.iwansell.com/api/campus_code/' + this.state.campus_id + '/');
       const market = await res.json();
       this.setState({
         market

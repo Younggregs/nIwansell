@@ -19,7 +19,7 @@ export default class SearchField extends React.Component {
 
   async componentDidMount() {
     try {
-      const res = await fetch('http://165.22.140.170:8000/api/category/');
+      const res = await fetch('http://www.iwansell.com/api/category/');
       const categorylist = await res.json();
       this.setState({
         categorylist
@@ -38,7 +38,7 @@ export default class SearchField extends React.Component {
 
 
     try {
-      const res = await fetch('http://165.22.140.170:8000/api/search/' + this.props.campus_id + '/' + this.state.category_id + '/',{
+      const res = await fetch('http://www.iwansell.com/api/search/' + this.props.campus_id + '/' + this.state.category_id + '/',{
 
       body : formData,
       method: 'POST'
@@ -88,7 +88,7 @@ getCategoryId(){
 
 
 setMedia(media_name){
-  this.state.media = 'http://165.22.140.170:8000' + media_name
+  this.state.media = 'http://www.iwansell.com' + media_name
 }
 
 emptyResult(){

@@ -14,7 +14,7 @@ export default class TheProduct extends React.Component {
  
    async componentWillMount() {
      try {
-       const res = await fetch('http://165.22.140.170:8000/api/product/' + this.props.product_id);
+       const res = await fetch('http://www.iwansell.com/api/product/' + this.props.product_id);
        const productDetail = await res.json();
        this.setState({
          productDetail
@@ -30,7 +30,7 @@ export default class TheProduct extends React.Component {
     const auth = localStorage.getItem('auth_code')
   
     try {
-      const res = await fetch('http://165.22.140.170:8000/api/favorite/2/' + this.props.product_id, {
+      const res = await fetch('http://www.iwansell.com/api/favorite/2/' + this.props.product_id, {
       
        credentials: 'same-origin',
        mode: 'cors',
@@ -53,12 +53,12 @@ export default class TheProduct extends React.Component {
 
 
    setMedia(media_name){
-    var media = 'http://165.22.140.170:8000/media/' + media_name
+    var media = 'http://www.iwansell.com/media/' + media_name
     this.state.media = media
   }
 
   setDp(dp){
-    var display_pic = 'http://165.22.140.170:8000/media/' + dp
+    var display_pic = 'http://www.iwansell.com/media/' + dp
     this.state.dp = display_pic
   }
 

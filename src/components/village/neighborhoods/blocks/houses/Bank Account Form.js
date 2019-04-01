@@ -21,7 +21,7 @@ export default class BankAccountForm extends React.Component {
 
 
     try {
-      const res = await fetch('https://www.iwansell.com/api/bank_account/', {
+      const res = await fetch('http://www.iwansell.com/api/bank_account/', {
        headers : {
          'Authorization' : 'Token ' + auth
        }
@@ -53,7 +53,7 @@ export default class BankAccountForm extends React.Component {
     formData.append('account_number', account_number)
 
     try {
-      const res = await fetch('https://www.iwansell.com/api/bank_account/', {
+      const res = await fetch('http://www.iwansell.com/api/bank_account/', {
 
 
        body : formData,
