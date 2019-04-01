@@ -36,7 +36,7 @@ export default class LandingPage extends React.Component {
      formData.append('key_word', key_word)
 
      try {
-       const res = await fetch('http://127.0.0.1:8000/api/campus_search/', {
+       const res = await fetch('http://165.22.140.170:8000/api/campus_search/', {
 
          body :formData,
          method: 'POST',
@@ -73,7 +73,7 @@ setSchool(){
 
 async getMarket(id){
   try {
-    const res = await fetch('http://127.0.0.1:8000/api/campus_code/' + id + '/');
+    const res = await fetch('http://165.22.140.170:8000/api/campus_code/' + id + '/');
     const market = await res.json();
 
     this.setState({

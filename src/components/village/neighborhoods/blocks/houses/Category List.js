@@ -19,7 +19,7 @@ export default class CategoryList extends React.Component {
   async componentWillMount() {
 
     try {
-        const res = await fetch('http://127.0.0.1:8000/api/category/');
+        const res = await fetch('http://165.22.140.170:8000/api/category/');
         const categoryList = await res.json();
         this.setState({
           categoryList

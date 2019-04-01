@@ -17,7 +17,7 @@ export default class ProfileDescription extends React.Component {
     const auth = localStorage.getItem('auth_code')
 
     try {
-      const res = await fetch('http://127.0.0.1:8000/api/favorite/0/' + this.props.profile_id + '/', {
+      const res = await fetch('http://165.22.140.170:8000/api/favorite/0/' + this.props.profile_id + '/', {
 
        credentials: 'same-origin',
        mode: 'cors',

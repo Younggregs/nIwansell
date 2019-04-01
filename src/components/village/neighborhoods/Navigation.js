@@ -24,7 +24,7 @@ export default class Navigation extends React.Component {
     */
       if(this.props.logged_in){
         try {
-          const res = await fetch('http://127.0.0.1:8000/api/myaccount_id/', {
+          const res = await fetch('http://165.22.140.170:8000/api/myaccount_id/', {
 
             headers : {
               'Authorization' : 'Token ' + auth,

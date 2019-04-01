@@ -17,7 +17,7 @@ export default class NavigationIcons extends React.Component {
 
 
       try {
-        const res = await fetch('http://127.0.0.1:8000/api/unread_messages/', {
+        const res = await fetch('http://165.22.140.170:8000/api/unread_messages/', {
 
           headers : {
             'Authorization' : 'Token ' + auth,
@@ -35,7 +35,7 @@ export default class NavigationIcons extends React.Component {
 
 
       try {
-        const res = await fetch('http://127.0.0.1:8000/api/have_eshop/', {
+        const res = await fetch('http://165.22.140.170:8000/api/have_eshop/', {
 
           headers : {
             'Authorization' : 'Token ' + auth,
@@ -57,7 +57,7 @@ export default class NavigationIcons extends React.Component {
 
 
         try {
-          const res = await fetch('http://127.0.0.1:8000/api/my_eshopid/', {
+          const res = await fetch('http://165.22.140.170:8000/api/my_eshopid/', {
 
             headers : {
               'Authorization' : 'Token ' + auth,

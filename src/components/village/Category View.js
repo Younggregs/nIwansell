@@ -19,7 +19,7 @@ export default class Home extends React.Component {
     const auth = localStorage.getItem('auth_code')
 
     try {
-        const res = await fetch('http://127.0.0.1:8000/api/isloggedin/', {
+        const res = await fetch('http://165.22.140.170:8000/api/isloggedin/', {
 
          credentials: 'same-origin',
          mode: 'cors',
@@ -42,7 +42,7 @@ export default class Home extends React.Component {
 
 
     try {
-      const res = await fetch('http://127.0.0.1:8000/api/get_account/',{
+      const res = await fetch('http://165.22.140.170:8000/api/get_account/',{
 
        credentials: 'same-origin',
        mode: 'cors',
@@ -61,7 +61,7 @@ export default class Home extends React.Component {
 
 
     try {
-      const res = await fetch('http://127.0.0.1:8000/api/get_campus/',{
+      const res = await fetch('http://165.22.140.170:8000/api/get_campus/',{
 
        credentials: 'same-origin',
        mode: 'cors',
@@ -80,7 +80,7 @@ export default class Home extends React.Component {
 
 
     try {
-      const res = await fetch('http://127.0.0.1:8000/api/campus_code/' + this.state.campus_id + '/');
+      const res = await fetch('http://165.22.140.170:8000/api/campus_code/' + this.state.campus_id + '/');
       const market = await res.json();
       this.setState({
         market
