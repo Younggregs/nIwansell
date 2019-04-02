@@ -30,7 +30,7 @@ export default class Heading extends React.Component {
            <section className="heading-sm">
              { this.props.trending ? (
                 <Row>
-                  <p>Trending in {this.props.title}</p>
+                  <p><i>New</i> in {this.props.title}</p>
                 </Row>
              )
              : (
