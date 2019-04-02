@@ -20,7 +20,7 @@ export default class EditCampus extends React.Component {
 
 
     try {
-      const res = await fetch('http://www.iwansell.com/api/campus/')
+      const res = await fetch('https://www.iwansell.com/api/campus/')
       const campuslist = await res.json();
         this.setState({
           campuslist
@@ -32,7 +32,7 @@ export default class EditCampus extends React.Component {
 
 
     try {
-        const res = await fetch('http://www.iwansell.com/api/get_campus_code/', {
+        const res = await fetch('https://www.iwansell.com/api/get_campus_code/', {
          headers : {
            'Authorization' : 'Token ' + auth
          }
@@ -64,7 +64,7 @@ export default class EditCampus extends React.Component {
     formData.append('campus', campus)
 
     try {
-      const res = await fetch('http://www.iwansell.com/api/reset_campus/', {
+      const res = await fetch('https://www.iwansell.com/api/reset_campus/', {
 
 
        body : formData,

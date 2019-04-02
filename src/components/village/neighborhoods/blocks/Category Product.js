@@ -20,7 +20,7 @@ export default class CategoryProduct extends React.Component {
   async componentWillMount() {
 
     try {
-        const res = await fetch('http://www.iwansell.com/api/category/');
+        const res = await fetch('https://www.iwansell.com/api/category/');
         const categoryList = await res.json();
         this.setState({
           categoryList
@@ -32,7 +32,7 @@ export default class CategoryProduct extends React.Component {
     
     if (this.props.show_more){
       try {
-        const res = await fetch('http://www.iwansell.com/api/category_product/' + this.props.campus_id + '/99' + '/1');
+        const res = await fetch('https://www.iwansell.com/api/category_product/' + this.props.campus_id + '/99' + '/1');
         const categoryProductList = await res.json();
         this.setState({
           categoryProductList
@@ -42,7 +42,7 @@ export default class CategoryProduct extends React.Component {
       }
     }else{
       try {
-        const res = await fetch('http://www.iwansell.com/api/category_product/' + this.props.campus_id + '/99' + '/0');
+        const res = await fetch('https://www.iwansell.com/api/category_product/' + this.props.campus_id + '/99' + '/0');
         const categoryProductList = await res.json();
         this.setState({
           categoryProductList
@@ -65,7 +65,7 @@ export default class CategoryProduct extends React.Component {
     this.setState({category: name, isLoading: true})
 
     try {
-      const res = await fetch('http://www.iwansell.com/api/category_product/' + this.props.campus_id + '/' + id);
+      const res = await fetch('https://www.iwansell.com/api/category_product/' + this.props.campus_id + '/' + id);
       const categoryProductList = await res.json();
       this.setState({
         categoryProductList
@@ -81,11 +81,11 @@ export default class CategoryProduct extends React.Component {
 
 
   setMedia(media_name){
-    this.state.media = 'http://www.iwansell.com' + media_name
+    this.state.media = 'https://www.iwansell.com' + media_name
   }
 
   setMediaIcon(media_name){
-    this.state.media = 'http://www.iwansell.com' + media_name
+    this.state.media = 'https://www.iwansell.com' + media_name
   }
 
 

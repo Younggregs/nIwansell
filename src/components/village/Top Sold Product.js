@@ -15,7 +15,7 @@ async componentWillMount(){
     const auth = localStorage.getItem('auth_code')
 
         try {
-            const res = await fetch('http://165.22.140.170:8000/api/top_sold/', {
+            const res = await fetch('https://www.iwansell.com/api/top_sold/', {
 
              headers : {
                 'Authorization' : 'Token ' + auth,

@@ -20,7 +20,7 @@ export default class SubcategoryMain extends React.Component {
   async componentWillMount() {
 
     try {
-        const res = await fetch('http://www.iwansell.com/api/subcategory_main/');
+        const res = await fetch('https://www.iwansell.com/api/subcategory_main/');
         const categoryList = await res.json();
         this.setState({
           categoryList
@@ -30,7 +30,7 @@ export default class SubcategoryMain extends React.Component {
       }
 
     try {
-      const res = await fetch('http://www.iwansell.com/api/subcategory_product/' + this.props.campus_id + '/' + this.props.subcategory_id + '/');
+      const res = await fetch('https://www.iwansell.com/api/subcategory_product/' + this.props.campus_id + '/' + this.props.subcategory_id + '/');
       const categoryProductList = await res.json();
       this.setState({
         categoryProductList
@@ -52,7 +52,7 @@ export default class SubcategoryMain extends React.Component {
     this.setState({category: name, isLoading: true })
 
     try {
-      const res = await fetch('http://www.iwansell.com/api/subcategory_product/' + this.state.campus_id + '/' + id);
+      const res = await fetch('https://www.iwansell.com/api/subcategory_product/' + this.state.campus_id + '/' + id);
       const categoryProductList = await res.json();
       this.setState({
         categoryProductList
@@ -68,11 +68,11 @@ export default class SubcategoryMain extends React.Component {
 
 
   setMediaIcon(media_name){
-    this.state.media = 'http://www.iwansell.com' + media_name
+    this.state.media = 'https://www.iwansell.com' + media_name
   }
 
   setMedia(media_name){
-    this.state.media = 'http://www.iwansell.com' + media_name
+    this.state.media = 'https://www.iwansell.com' + media_name
   }
 
 

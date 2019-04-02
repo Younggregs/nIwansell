@@ -12,7 +12,7 @@ export default class ProductSlideShow extends React.Component {
 
   async componentWillMount() {
     try {
-        const res = await fetch('http://www.iwansell.com/api/product_images/' + this.props.product_id);
+        const res = await fetch('https://www.iwansell.com/api/product_images/' + this.props.product_id);
         const imagesList = await res.json();
         this.setState({
           imagesList
@@ -24,7 +24,7 @@ export default class ProductSlideShow extends React.Component {
   }
 
   setMedia(media_name){
-    this.state.media = 'http://www.iwansell.com' + media_name
+    this.state.media = 'https://www.iwansell.com' + media_name
   }
 
        render() {

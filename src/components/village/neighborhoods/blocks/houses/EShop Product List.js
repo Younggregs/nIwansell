@@ -20,7 +20,7 @@ export default class EShopProductList extends React.Component {
 
 
       try {
-        const res = await fetch('http://www.iwansell.com/api/eshop_product_list/', {
+        const res = await fetch('https://www.iwansell.com/api/eshop_product_list/', {
     
           headers : {
             'Authorization' : 'Token ' + auth,
@@ -41,7 +41,7 @@ export default class EShopProductList extends React.Component {
 
 
   setMedia(media_name){
-    this.state.media = 'http://www.iwansell.com/api/media/' + media_name
+    this.state.media = 'https://www.iwansell.com/api/media/' + media_name
   }
 
 

@@ -73,7 +73,7 @@ setSchool(){
 
 async getMarket(id){
   try {
-    const res = await fetch('http://www.iwansell.com/api/campus_code/' + id + '/');
+    const res = await fetch('https://www.iwansell.com/api/campus_code/' + id + '/');
     const market = await res.json();
 
     this.setState({

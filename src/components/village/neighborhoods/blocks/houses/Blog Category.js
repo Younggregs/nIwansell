@@ -17,7 +17,7 @@ export default class BlogCategory extends React.Component {
   async componentWillMount() {
 
     try {
-        const res = await fetch('http://www.iwansell.com/api/category/');
+        const res = await fetch('https://www.iwansell.com/api/category/');
         const categoryList = await res.json();
         this.setState({
           categoryList

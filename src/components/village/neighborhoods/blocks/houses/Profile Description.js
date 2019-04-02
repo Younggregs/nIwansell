@@ -17,7 +17,7 @@ export default class ProfileDescription extends React.Component {
     const auth = localStorage.getItem('auth_code')
 
     try {
-      const res = await fetch('http://www.iwansell.com/api/favorite/0/' + this.props.profile_id + '/', {
+      const res = await fetch('https://www.iwansell.com/api/favorite/0/' + this.props.profile_id + '/', {
 
        credentials: 'same-origin',
        mode: 'cors',

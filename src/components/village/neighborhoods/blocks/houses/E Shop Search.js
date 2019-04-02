@@ -20,7 +20,7 @@ export default class EShopSearch extends React.Component {
     formData.append("search_phrase", search_phrase)
 
     try {
-      const res = await fetch('http://www.iwansell.com/api/eshop_search/' + this.props.eshop_id + '/',{
+      const res = await fetch('https://www.iwansell.com/api/eshop_search/' + this.props.eshop_id + '/',{
 
       body : formData,
       method : 'POST'

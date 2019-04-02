@@ -16,7 +16,7 @@ export default class SubcategoryIcons extends React.Component {
 
   async componentWillMount() {
     try {
-      const res = await fetch('http://www.iwansell.com/api/sub_category_icons/');
+      const res = await fetch('https://www.iwansell.com/api/sub_category_icons/');
       const iconList = await res.json();
       this.setState({
         iconList
@@ -30,7 +30,7 @@ export default class SubcategoryIcons extends React.Component {
   }
 
   setMedia(media_name){
-    this.state.media = 'http://www.iwansell.com' + media_name
+    this.state.media = 'https://www.iwansell.com' + media_name
   }
 
        render() {

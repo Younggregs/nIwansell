@@ -17,7 +17,7 @@ export default class SoldProductList extends React.Component {
 
 
       try {
-        const res = await fetch('http://www.iwansell.com/api/sold_product/' + this.props.profile_id + '/', {
+        const res = await fetch('https://www.iwansell.com/api/sold_product/' + this.props.profile_id + '/', {
 
           headers : {
             'Authorization' : 'Token ' + auth,

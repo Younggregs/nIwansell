@@ -14,7 +14,7 @@ export default class SignupForm extends React.Component {
 
   async componentWillMount() {
     try {
-      const res = await fetch('http://www.iwansell.com/api/campus/');
+      const res = await fetch('https://www.iwansell.com/api/campus/');
       const campuslist = await res.json();
       this.setState({
         campuslist
@@ -45,7 +45,7 @@ export default class SignupForm extends React.Component {
 
 
     try {
-      const res = await fetch('http://www.iwansell.com/api/accounts/', {
+      const res = await fetch('https://www.iwansell.com/api/accounts/', {
 
        body :formData,
        method: 'POST',

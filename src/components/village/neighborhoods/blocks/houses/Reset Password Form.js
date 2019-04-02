@@ -37,7 +37,7 @@ export default class ResetPasswordForm extends React.Component {
 
 
     try {
-      const res = await fetch('http://www.iwansell.com/api/reset_password/' + this.props.reset_code + '/', {
+      const res = await fetch('https://www.iwansell.com/api/reset_password/' + this.props.reset_code + '/', {
       
        body :formData,
        method: 'POST',

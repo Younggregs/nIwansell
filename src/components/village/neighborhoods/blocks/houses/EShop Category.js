@@ -9,7 +9,7 @@ export default class EshopCategory extends React.Component {
 
 async componentDidMount() {
         try {
-          const res = await fetch('http://www.iwansell.com/api/eshop_category/' + this.props.eshop_id);
+          const res = await fetch('https://www.iwansell.com/api/eshop_category/' + this.props.eshop_id);
           const eshop_category = await res.json();
           this.setState({
             eshop_category

@@ -14,7 +14,7 @@ export default class MenuList extends React.Component {
   const auth = localStorage.getItem('auth_code')
 
   try {
-    const res = await fetch('http://www.iwansell.com/api/have_eshop/', {
+    const res = await fetch('https://www.iwansell.com/api/have_eshop/', {
 
       headers : {
         'Authorization' : 'Token ' + auth,

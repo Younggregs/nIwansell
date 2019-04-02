@@ -25,7 +25,7 @@ export default class EditEShopForm extends React.Component {
 
 
     try {
-      const res = await fetch('http://www.iwansell.com/api/edit_eshop/', {
+      const res = await fetch('https://www.iwansell.com/api/edit_eshop/', {
 
        body : formData,
        method: 'POST',

@@ -21,7 +21,7 @@ export default class BlogCategoryView extends React.Component {
     console.log(auth)
 
     try {
-      const res = await fetch('http://127.0.0.1:8000/api/get_account/',{
+      const res = await fetch('https://www.iwansell.com/api/get_account/',{
 
        credentials: 'same-origin',
        mode: 'cors',
@@ -40,7 +40,7 @@ export default class BlogCategoryView extends React.Component {
 
 
     try {
-      const res = await fetch('http://127.0.0.1:8000/api/get_campus/',{
+      const res = await fetch('https://www.iwansell.com/api/get_campus/',{
 
        credentials: 'same-origin',
        mode: 'cors',
@@ -59,7 +59,7 @@ export default class BlogCategoryView extends React.Component {
 
 
     try {
-      const res = await fetch('http://127.0.0.1:8000/campus_code/' + this.state.campus_id + '/');
+      const res = await fetch('https://www.iwansell.com/campus_code/' + this.state.campus_id + '/');
       const market = await res.json();
       this.setState({
         market
