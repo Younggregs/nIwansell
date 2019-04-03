@@ -53,12 +53,12 @@ export default class TheProduct extends React.Component {
 
 
    setMedia(media_name){
-    var media = 'https://www.iwansell.com/media/' + media_name
+    var media = 'https://www.iwansell.com/api/media/' + media_name
     this.state.media = media
   }
 
   setDp(dp){
-    var display_pic = 'https://www.iwansell.com/media/' + dp
+    var display_pic = 'https://www.iwansell.com/api/media/' + dp
     this.state.dp = display_pic
   }
 
