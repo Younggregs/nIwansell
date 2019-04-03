@@ -131,7 +131,7 @@ const formInstance = (
 
   <br />
 
-  <form method="POST" enctype="multipart/form-data" action={"http://www.iwansell.com/api/new_eshop_product/" + this.state.account_id + "/"}>
+  <form method="POST" enctype="multipart/form-data" action={"https://www.iwansell.com/api/new_eshop_product/" + this.state.account_id + "/"}>
   <FormGroup>
       <ControlLabel>Categories</ControlLabel>
       <FormControl componentClass="select" placeholder="select" id="category" name="category" onChange={this.getCategoryId.bind(this)}>
