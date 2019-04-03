@@ -30,14 +30,13 @@ export default class Trending extends React.Component {
   trending_url_2='shoes'
 
   trending_3 = 'Accomodation'
-  trending_url_3='accomodation'
+  trending_url_3='accommodation'
 
   trending_4 = 'Phones/Tablets'
-  trending_url_4='phones_tablets'
+  trending_url_4='phones_and_tablets'
 
   trending_5 = 'Computers/Laptops'
-  trending_url_5 ='computers_laptops'
-
+  trending_url_5 ='computers_and_laptops'
 
 
   async componentWillMount() {
