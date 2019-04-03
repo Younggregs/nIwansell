@@ -29,7 +29,7 @@ export default class EshopList extends React.Component {
 
 
         try {
-          const res = await fetch('http://www.iwansell.com/api/category/');
+          const res = await fetch('https://www.iwansell.com/api/category/');
           const categorylist = await res.json();
           this.setState({
             categorylist
