@@ -33,7 +33,7 @@ export default class CategoryList extends React.Component {
              <Table responsive>
                  <thead>
                     <tr>
-                        <th>Recent Stories</th>
+                        <th><Button>RECENT STORIES</Button></th>
                     </tr>
                 </thead>
 
@@ -41,10 +41,10 @@ export default class CategoryList extends React.Component {
 
                 {this.state.blogList.map(item => (
                     <tr>
-                    <td>
+                    <td><Button>
                      <Link to={`/blog/${ item.id }/`}>
                         {item.title}
-                      </Link>
+                      </Link></Button>
                     </td>
                     </tr>
                 ))}

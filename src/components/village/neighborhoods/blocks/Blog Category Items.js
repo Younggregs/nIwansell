@@ -3,6 +3,7 @@ import { Row, Col, Image, Button } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 import Spinner from 'react-activity/lib/Spinner';
 import 'react-activity/lib/Spinner/Spinner.css';
+import truncate from './houses/truncate'
 
 export default class Blog extends React.Component {
 
@@ -87,8 +88,8 @@ export default class Blog extends React.Component {
              </Row>
 
              <Row>
-                     <p>{item.blog_post}
-                     <Link to={`/blog/${ item.blog_id }/`}>
+                     <p>{truncate(item.blog_post)}
+                     <Link to={`/blog/${ item.id }/`}>
                          <Button bsStyle="success">Read more</Button>
                      </Link>
                      </p>

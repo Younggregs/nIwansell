@@ -1,7 +1,9 @@
 import React from 'react'
-import {Row, Col , Image} from 'react-bootstrap'
+import {Link} from 'react-router-dom'
+import {Row, Col , Image, Button} from 'react-bootstrap'
 import Spinner from 'react-activity/lib/Spinner';
 import 'react-activity/lib/Spinner/Spinner.css';
+import truncate from './houses/truncate'
 
 export default class BlogHeaderPost extends React.Component {
 
@@ -62,7 +64,11 @@ export default class BlogHeaderPost extends React.Component {
             </Row>
 
             <Row>
-                    <p>{this.state.blogTop.blog_post}</p>
+                    <p>{truncate(this.state.blogTop.blog_post)}
+                    <Link to={`/blog/${ this.state.blogTop.id }/`}>
+                        <Button bsStyle="success">Read more</Button>
+                    </Link>
+                    </p>
             </Row>
              </section>
 

@@ -11,7 +11,8 @@ export default class Navigation extends React.Component {
 
   state = {
     profile_id : null,
-    market: 'FUTMinna'
+    market: 'FUTMinna',
+    campus_id: 1
   }
 
   async componentWillMount() {
