@@ -81,7 +81,7 @@ export default class MyUploader extends Component {
           accept="image/*"
           onDrop={this.onPreviewDrop}
         >
-          Drop images of product to sell here
+          Click or Drag and drop images of product to sell here
         </ReactDropzone>
         {this.state.files.length > 0 &&
           <Fragment>
