@@ -135,7 +135,7 @@ export default class CategoryProduct extends React.Component {
 
                     </Col>
 
-                    <Col lg={9} md={9}>
+                <Col lg={9} md={9}>
                 <Heading title = {this.state.category}/>
 
                 {this.state.isLoading ? (
@@ -223,7 +223,7 @@ export default class CategoryProduct extends React.Component {
             </Row>
 
 
-
+              <Row>
               <Heading title = {this.state.category}/>
 
               {this.state.isLoading ? (
@@ -254,6 +254,18 @@ export default class CategoryProduct extends React.Component {
               )}
               </div>
               )}
+
+                {this.props.show_more ? (
+                    <Link to='/view_more'>
+                    <Heading title="View More"/>
+                  </Link>
+                  ) : (
+                    <div/>
+                )}
+
+
+
+          </Row>
 
 
 
