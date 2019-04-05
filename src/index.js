@@ -51,6 +51,7 @@ import Bought from './components/village/Bought'
 import ViewReceipt from './components/village/View Receipt'
 import BankAccount from './components/village/Bank Account'
 import ViewMore from './components/village/View More'
+import MediaUpload from './components/village/Media Upload'
 import Logout from './components/village/Logout'
 import AuthTest from './components/village/Auth Test';
 
@@ -113,6 +114,7 @@ import AuthTest from './components/village/Auth Test';
                 <Route exact path="/view_receipt/:transaction_id" component={ViewReceipt}/>
                 <Route exact path="/bank_account/:profile_id" component={BankAccount}/>
                 <Route exact path="/view_more" component={ViewMore}/>
+                <Route exact path="/media_upload/:product_id" component={MediaUpload}/>
                 <Route exact path="/logout" component={Logout}/>
               </div>
             </Router>
