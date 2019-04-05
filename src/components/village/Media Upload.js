@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link, Redirect } from 'react-router-dom';
-import Dropzone from 'react-dropzone-uploader'
 import { Row, Col, Form, Button,FormGroup, FormControl, ControlLabel,Label, HelpBlock } from 'react-bootstrap';
 import Heading from './neighborhoods/blocks/houses/Heading'
 import AppName from './neighborhoods/blocks/houses/App Name'
