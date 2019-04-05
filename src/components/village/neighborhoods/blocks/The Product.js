@@ -185,10 +185,10 @@ export default class TheProduct extends React.Component {
                       {this.props.logged_in ? (
 
                         <Row>
-                      <Col lg={6} md={6} smHidden xsHidden>
+                      <Col xs={6} sm={6} lgHidden mdHidden>
                         <BuzzMe phone={this.state.productDetail.phone} />&nbsp;
                       </Col>
-                      <Col lg={6} md={6} smHidden xsHidden>
+                      <Col xs={6} sm={6} lgHidden mdHidden>
                       <Link to={`/hagglemates/${ this.state.productDetail.profile_id }`}>
                         <Button bsStyle="primary">Message me</Button>
                       </Link>
@@ -198,7 +198,7 @@ export default class TheProduct extends React.Component {
                       ) : (
 
                         <Row>
-                      <Col lg={6} md={6} smHidden xsHidden>
+                      <Col xs={6} sm={6} lgHidden mdHidden>
                         <BuzzMe phone={this.state.productDetail.phone}/>&nbsp;
                       </Col>
                       </Row>

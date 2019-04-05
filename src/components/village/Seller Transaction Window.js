@@ -202,7 +202,7 @@ return (
                 <ControlLabel>Select Payment Method</ControlLabel>
                 <FormControl componentClass="select" placeholder="select" name="payment_method" id="payment_method">
                             {this.state.payment_methods.map(item => (
-                                <option value={item.id}>{item.method}</option>
+                                <option value={item.id}>{item.payment_method}</option>
                             ))}
                 </FormControl>
                 </FormGroup>
