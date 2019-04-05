@@ -4,7 +4,6 @@ import { render } from "react-dom";
 import { Button } from 'react-bootstrap'
 import Spinner from 'react-activity/lib/Spinner';
 import 'react-activity/lib/Spinner/Spinner.css';
-import request from "superagent";
 import ReactDropzone from "react-dropzone";
 
 
