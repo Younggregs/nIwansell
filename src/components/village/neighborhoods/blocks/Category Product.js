@@ -81,7 +81,7 @@ export default class CategoryProduct extends React.Component {
 
 
   setMedia(media_name){
-    this.state.media = 'https://www.iwansell.com/' + media_name
+    this.state.media = 'https://www.iwansell.com' + media_name
   }
 
   setMediaIcon(media_name){
