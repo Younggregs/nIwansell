@@ -1,8 +1,11 @@
 import React from 'react'
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import { Row, Col,Button,FormGroup, FormControl, ControlLabel,HelpBlock } from 'react-bootstrap';
 import Heading from './Heading';
 import AppName from './App Name'
+import Spinner from 'react-activity/lib/Spinner';
+import 'react-activity/lib/Spinner/Spinner.css';
+
 
 export default class NewEShopProductForm extends React.Component {
 
@@ -12,6 +15,7 @@ export default class NewEShopProductForm extends React.Component {
     category_id: null,
     product_image:null,
     account_id : null,
+    message: [],
     media:[],
   };
 
@@ -83,19 +87,65 @@ this.setCategoryId(category_id);
 
 
 
+async submitForm(){
+
+  this.setState({ isLoading: true})
+
+  var category= this.state.category_id
+  var subcategory= document.getElementById("subcategory","").value
+  var product_name= document.getElementById("product_name").value
+  var description= document.getElementById("description").value
+  var starting_price= document.getElementById("starting_price").value
+
+  var formData = new FormData()
+
+  formData.append('category', category)
+  formData.append('subcategory', subcategory)
+  formData.append('product_name', product_name)
+  formData.append('description', description)
+  formData.append('starting_price', starting_price)
+
+  const auth = localStorage.getItem('auth_code')
+
+  try {
+    const res = await fetch('https://www.iwansell.com/api/new_eshop_product/' + this.state.account_id + '/', {
+
+     body : formData,
+     method: 'POST',
+     headers : {
+       'Authorization' : 'Token ' + auth
+     }
+
+    })
+    const message = await res.json();
+      this.setState({
+        message
+      });
+  } catch (e) {
+    console.log(e);
+  }
+
+  this.setState({ isLoading: false})
+
+
+}
+
+
+
+
+
 
 
 render(){
-  function FieldGroup({ id, label, help, ...props }) {
-    return (
-      <FormGroup controlId={id}>
-        <ControlLabel>{label}</ControlLabel>
-        <FormControl {...props} />
-        {help && <HelpBlock>{help}</HelpBlock>}
-      </FormGroup>
-  );
+function FieldGroup({ id, label, help, ...props }) {
+  return (
+    <FormGroup controlId={id}>
+      <ControlLabel>{label}</ControlLabel>
+      <FormControl {...props} />
+      {help && <HelpBlock>{help}</HelpBlock>}
+    </FormGroup>
+);
 }
-
 
 
 
@@ -131,7 +181,7 @@ const formInstance = (
 
   <br />
 
-  <form method="POST" enctype="multipart/form-data" action={"https://www.iwansell.com/api/new_eshop_product/" + this.state.account_id + "/"}>
+  <form>
   <FormGroup>
       <ControlLabel>Categories</ControlLabel>
       <FormControl componentClass="select" placeholder="select" id="category" name="category" onChange={this.getCategoryId.bind(this)}>
@@ -174,36 +224,29 @@ const formInstance = (
         placeholder="e.g 60k"
       />
 
-    <ControlLabel>Product image</ControlLabel>
-    <FormGroup>
-        <FormControl
-            id="product_image"
-            type="file"
-            name="product_image"
-            value={null}
-            {...this.state.product_image}
+<Row>
+   {this.state.message.error_message ? (
+      <p className="err-msg">{this.state.message.error_message}</p>
+    ) : (
+      <span></span>
+    )}
 
-        />
-        <HelpBlock>This is the image that would be displayed as the product</HelpBlock>
-</FormGroup>
+    {this.state.message.code ? (
+       <span><Redirect to={`/media_upload/${ this.state.message.code }`}/></span>
+    ) : (
+      <span></span>
+    )}
+</Row>
 
 
-  <ControlLabel>More media( Optional )</ControlLabel>
-  <FormGroup>
-        <FormControl
-            multiple
-            id="media"
-            type="file"
-            name="media"
-            value={null}
-            {...this.state.media}
-
-        />
-        <HelpBlock>Convince the buyer with more media(multiple images and video clips)</HelpBlock>
-</FormGroup>
 
  <FormGroup>
-   <Button bsStyle="success" type="submit">Add to eshop</Button>
+ {this.state.isLoading ? (
+  <Spinner color="#ff0000" size={32}/>
+) : (
+  <div/>
+)}
+   <Button bsStyle="success" onClick={this.submitForm.bind(this)}>Continue</Button>
  </FormGroup>
  </form>
   </section>
