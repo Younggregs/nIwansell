@@ -210,7 +210,6 @@ const formInstance = (
       placeholder="e.g Samsung s6 edge"
     />
 
-    <p><b>Note: Image size should not be more than 2.5mb</b></p>
     <FormGroup controlId="formControlsTextarea">
       <ControlLabel>Describe Product</ControlLabel>
       <FormControl componentClass="textarea" placeholder="e.g Gold plated, 64gb ROM, 3gb ROM, used ..." id="description" name="description"/>
