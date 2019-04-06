@@ -114,6 +114,7 @@ const formInstance = (
   <section className="signin-form">
 
   <form>
+  <HelpBlock><b>Note: eShop is now in free trial mode</b></HelpBlock>
   <Row>
   <Col lg={6} lgOffset={3} md={6} mdOffset={3} sm={12} xs={12}>
 

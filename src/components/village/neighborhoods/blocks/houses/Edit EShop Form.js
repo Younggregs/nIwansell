@@ -15,12 +15,12 @@ export default class EditEShopForm extends React.Component {
     const auth = localStorage.getItem('auth_code')
 
     var fileField = document.querySelector("input[type='file']")
-    var about = document.getElementById('about').value
+
 
 
     var formData = new FormData()
     formData.append('catch_board', fileField.files[0])
-    formData.append('about', about)
+
 
 
 
@@ -80,15 +80,6 @@ const formInstance = (
         <HelpBlock>This is the image that would be displayed as your eshop catch board</HelpBlock>
 </FormGroup>
 
-
-<ControlLabel>About eshop</ControlLabel><br />
-
-<textarea
-  name="about"
-  id="about"
-  placeholder="What are you selling">
-</textarea><br />
-
     <Button bsStyle="success" onClick={this.update.bind(this)}>update e-shop</Button>
   </form>
   </Col>
@@ -103,7 +94,7 @@ const formInstance = (
     )}
 
     {this.state.message.code ? (
-       <span className="success-msg">Catch board updated successfully</span>
+       <span><Redirect to={`/eshop/${ this.state.message.code }`}/></span>
     ) : (
       <span></span>
     )}
