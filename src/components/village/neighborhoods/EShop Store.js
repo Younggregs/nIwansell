@@ -30,10 +30,6 @@ export default class EShopStore extends React.Component {
 
 
 
-  setMedia(media_name){
-    this.state.media = 'https://www.iwansell.com/api' + media_name
-  }
-
 
        render() {
          return (
