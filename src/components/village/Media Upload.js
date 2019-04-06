@@ -108,7 +108,7 @@ render(){
     </Row><br />
     
     <Row>
-      <Col lg={8} lgOffset={2} md={8} mdOffset={2} sm={12} xs={12}>
+      <Col lg={8} lgOffset={2} md={8} mdOffset={2} sm={10} smOffset={2} xs={10} xsOffset={2}>
       <Heading title="Upload product images"/>
       </Col>
     </Row>
@@ -116,7 +116,7 @@ render(){
       <br />
 
       <Row>
-      <Col lg={6} lgOffset={3} md={6} mdOffset={3} sm={12} xs={12}>
+      <Col lg={6} lgOffset={3} md={6} mdOffset={3} sm={10} smOffset={2} xs={10} xsOffset={2}>
           <MyUploader product_id={this.props.match.params.product_id}/>
       </Col>
       </Row>
