@@ -164,7 +164,7 @@ const formInstance = (
     )}
 
     {this.state.statement.code ? (
-       <span><Redirect to={`/eshop/${ this.state.statement.code } `}/></span>
+       <span><Redirect to={`/eshop/${ this.state.statement.code }`}/></span>
     ) : (
       <span></span>
     )}
