@@ -61,14 +61,14 @@ export default class RatingsReviews extends React.Component {
                 </Col>
 
                 <Col lg={6} md={6} sm={6} xs={6}>
-                  {item.client_name}
+                  <b>{item.client_name}</b>
                 </Col>
 
                </div>
               </Row>
               <Row>
                <Col lg={6} lgOffset={3} md={6} mdOffset={3} sm={8} smOffset={2} xs={8} xsOffset={2}>
-               {item.review}
+               <i>{item.review}</i>
                <br /><br />
                <Rating rating= {item.rating}/>
                </Col>
