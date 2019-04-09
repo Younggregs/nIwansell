@@ -3,12 +3,12 @@ import { Link } from 'react-router-dom'
 import { Table, Row, Col } from 'react-bootstrap';
 import MenuNavigation from './neighborhoods/Menu Navigation'
 
-export default class TopNotFound extends React.Component {
+export default class LeastSold extends React.Component {
 
 
     state = {
-        product_list : [], 
-        rank : 0,
+        product_list : [],
+        rank : 0
     }
 
 
@@ -16,7 +16,7 @@ async componentWillMount(){
     const auth = localStorage.getItem('auth_code')
 
         try {
-            const res = await fetch('https://www.iwansell.com/api/top_not_found/', {
+            const res = await fetch('https://www.iwansell.com/api/least_sold/', {
 
              headers : {
                 'Authorization' : 'Token ' + auth,
@@ -96,41 +96,38 @@ async componentWillMount(){
 
         <Col lg={6} md={6} sm={12} xs={12}>
         <Row className="business-text">
-            <p className="menu-header">Top Not Found Searched Products</p>
+            <p className="menu-header">Least Product Sold</p>
         </Row>
 
         {this.emptyResult() ? (
           <p className="err-msg">Its empty here, No result found</p>
         ) : (
+        <Row className="business-text">
+        <Col lg={9} lgOffset={1} md={9} mdOffset={1} sm={12} xs={12}>
+            <div className="business-list">
 
-          <Row className="business-text">
-          <Col lg={9} lgOffset={1} md={9} mdOffset={1} sm={12} xs={12}>
-              <div className="business-list">
-
-              <Table striped bordered hover>
-                  <thead>
+           <Table striped bordered hover>
+                <thead>
+                  <tr>
+                    <td><b>Rank</b></td>
+                    <td><b>Product</b></td>
+                    <td><b>Frequency</b></td>
+                  </tr>
+                </thead>
+                <tbody>
+                {this.state.product_list.map(item => (
                     <tr>
-                      <td><b>Rank</b></td>
-                      <td><b>Product</b></td>
-                      <td><b>Frequency</b></td>
+                        <td>{this.nextRank()}</td>
+                        <td>{item.product_name}</td>
+                        <td><b>{item.frequency}</b></td>
                     </tr>
-                  </thead>
-                  <tbody>
-                  {this.state.product_list.map(item => (
-                      <tr>
-                          <td>{this.nextRank()}</td>
-                          <td>{item.product_name}</td>
-                          <td><b>{item.frequency}</b></td>
-                      </tr>
-                  ))}
-                  </tbody>
-              </Table>
-           </div>
-           </Col>
-          </Row>
-
-
-        )}
+                ))}
+                </tbody>
+            </Table>
+         </div>
+         </Col>
+        </Row>
+      )}
 
 
             </Col>

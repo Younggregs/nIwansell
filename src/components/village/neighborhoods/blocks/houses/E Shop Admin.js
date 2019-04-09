@@ -6,8 +6,61 @@ export default class EShopAdmin extends React.Component {
 
         constructor(props) {
           super(props)
-          this.state = {value: 3}
+          this.state = {value: 3, boss_info: []}
         }
+
+        async componentWillMount(){
+          try {
+            const res = await fetch('https://www.iwansell.com/api/about_eshop/' + this.props.eshop_id + '/')
+            const boss_info = await res.json();
+              this.setState({
+                boss_info
+              });
+          } catch (e) {
+            console.log(e);
+          }
+
+          try {
+            const res = await fetch('https://www.iwansell.com/api/rating/' + this.props.eshop_id + '/')
+            const value = await res.json();
+              this.setState({
+                value
+              });
+          } catch (e) {
+            console.log(e);
+          }
+        
+        }
+        
+        
+        
+        
+        
+          async favorite(){
+        
+            const auth = localStorage.getItem('auth_code')
+        
+            try {
+              const res = await fetch('https://www.iwansell.com/api/favorite/2/' + this.props.eshop_id + '/', {
+        
+               credentials: 'same-origin',
+               mode: 'cors',
+               headers : {
+                 'Authorization' : 'Token ' + auth
+               }
+        
+              })
+              const isfavorited = await res.json();
+                this.setState({
+                  isfavorited
+                });
+            } catch (e) {
+              console.log(e);
+            }
+        
+    }
+
+
 
 
 
@@ -40,6 +93,11 @@ export default class EShopAdmin extends React.Component {
                   </Link>
                 </div>
                 </p>
+
+
+                <p className="boss">Boss : <Link to={`/profile/${ this.state.boss_info.id }`}>{this.state.boss_info.boss}</Link></p>
+                <p className="profile-name">Mobile : {this.state.boss_info.phone}</p>
+
 
                 <p>
                   <Link to ="/new_eshop_product">

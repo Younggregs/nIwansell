@@ -2,16 +2,21 @@ import React from 'react';
 import { Redirect } from 'react-router-dom'
 import { Button,FormGroup, FormControl, ControlLabel, HelpBlock ,Row,Col,Label} from 'react-bootstrap';
 import AppName from './App Name'
+import Spinner from 'react-activity/lib/Spinner';
+import 'react-activity/lib/Spinner/Spinner.css';
 
 
 export default class EditEShopForm extends React.Component {
 
   state = {
+    isLoading: false,
     message : []
   }
 
   async update(){
 
+
+    this.setState({ isLoading: true })
     const auth = localStorage.getItem('auth_code')
 
     var fileField = document.querySelector("input[type='file']")
@@ -42,6 +47,8 @@ export default class EditEShopForm extends React.Component {
     } catch (e) {
       console.log(e);
     }
+
+    this.setState({ isLoading: false })
 
 }
 
@@ -79,6 +86,14 @@ const formInstance = (
         />
         <HelpBlock>This is the image that would be displayed as your eshop catch board</HelpBlock>
 </FormGroup>
+
+
+        {this.state.isLoading ? (
+          <Spinner color="#ff0000" size={32}/>
+        ) : (
+          <div/>
+        )}
+
 
     <Button bsStyle="success" onClick={this.update.bind(this)}>update e-shop</Button>
   </form>

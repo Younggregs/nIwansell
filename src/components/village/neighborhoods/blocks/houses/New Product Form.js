@@ -188,6 +188,7 @@ const formInstance = (
   <FormGroup>
       <ControlLabel>Categories</ControlLabel>
       <FormControl componentClass="select" placeholder="select" id="category" name="category">
+      <option value={1}>select category</option>
       {this.state.categorylist.map(item => (
         <option value={item.id}>{item.name}</option>
       ))}

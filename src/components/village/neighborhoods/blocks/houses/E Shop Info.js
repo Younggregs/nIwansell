@@ -20,6 +20,16 @@ async componentWillMount(){
     console.log(e);
   }
 
+  try {
+    const res = await fetch('https://www.iwansell.com/api/rating/' + this.props.eshop_id + '/')
+    const value = await res.json();
+      this.setState({
+        value
+      });
+  } catch (e) {
+    console.log(e);
+  }
+
 }
 
 
@@ -31,7 +41,7 @@ async componentWillMount(){
     const auth = localStorage.getItem('auth_code')
 
     try {
-      const res = await fetch('https://www.iwansell.com/api/favorite/2/' + this.props.eshop_id + '/', {
+      const res = await fetch('http://127.0.0.1:8000/api/favorite/2/' + this.props.eshop_id + '/', {
 
        credentials: 'same-origin',
        mode: 'cors',

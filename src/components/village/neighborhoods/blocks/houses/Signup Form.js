@@ -3,11 +3,14 @@ import { Link, Redirect } from 'react-router-dom';
 import { Button,FormGroup, FormControl, ControlLabel, HelpBlock ,Row,Col} from 'react-bootstrap';
 import { login } from './auth/Auth'
 import AppName from './App Name'
+import Spinner from 'react-activity/lib/Spinner';
+import 'react-activity/lib/Spinner/Spinner.css';
 
 
 export default class SignupForm extends React.Component {
 
   state={
+    isLoading: false,
     campuslist: [],
     statement: []
   }
@@ -27,6 +30,8 @@ export default class SignupForm extends React.Component {
 
 
   async submitForm(){
+
+    this.setState({ isLoading: true})
 
     var firstname = document.getElementById("firstname").value
     var lastname = document.getElementById("lastname").value
@@ -63,6 +68,8 @@ export default class SignupForm extends React.Component {
     }
 
     login(phone, password)
+
+    this.setState({ isLoading: false})
 
 
   }
@@ -166,6 +173,11 @@ const formInstance = (
     </Col>
 
     <Col lg={6} md={6} sm={12} xs={12}>
+    {this.state.isLoading ? (
+      <Spinner color="#ff0000" size={32}/>
+    ) : (
+      <div/>
+    )}
     <br /><Button bsStyle="success" onClick={this.submitForm.bind(this)}>Sign up</Button>
     </Col>
   </Row>

@@ -13,6 +13,7 @@ import TopNotFound from './components/village/Top Not Found'
 import TopSoldProduct from './components/village/Top Sold Product'
 import TopForSell from './components/village/Top For Sell'
 import LeastForSell from './components/village/Least For Sell'
+import LeastSold from './components/village/Least Sold'
 import Menu from './components/village/Menu'
 import FeedBack from './components/village/Feedback'
 import AboutUs from './components/village/About Us'
@@ -76,6 +77,7 @@ import AuthTest from './components/village/Auth Test';
                 <Route exact path="/top_sold" component={TopSoldProduct}/>
                 <Route exact path="/top_for_sell" component={TopForSell}/>
                 <Route exact path="/least_for_sell" component={LeastForSell}/>
+                <Route exact path="/least_sold" component={LeastSold}/>
                 <Route exact path="/menu" component={Menu}/>
                 <Route exact path="/feedback" component={FeedBack}/>
                 <Route exact path="/about_us" component={AboutUs}/>

@@ -185,7 +185,7 @@ const formInstance = (
   <FormGroup>
       <ControlLabel>Categories</ControlLabel>
       <FormControl componentClass="select" placeholder="select" id="category" name="category" onChange={this.getCategoryId.bind(this)}>
-      <option value="99">select category</option>
+      <option value={1}>select category</option>
       {this.state.categorylist.map(item => (
         <option value={item.id}>{item.name}</option>
       ))}

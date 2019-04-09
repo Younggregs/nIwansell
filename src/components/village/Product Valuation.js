@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link, Redirect } from 'react-router-dom'
-import { Row, Col, Button,FormControl, FormGroup, Form, InputGroup, Glyphicon } from 'react-bootstrap';
+import { Table, Row, Col, Button,FormControl, FormGroup, Form, InputGroup, Glyphicon } from 'react-bootstrap';
 import MenuNavigation from './neighborhoods/Menu Navigation'
 
 export default class ProductValuation extends React.Component {
@@ -57,23 +57,26 @@ displayResult(){
             <Col lg={3} lgOffset={1} md={3} mdOffset={1} sm={12} xs={12}>
             <div className="business-menu">
 
-           <p><Link to="/product_valuation">Product Valuation
-           </Link></p>
+                <p><Link to="/product_valuation">Product Valuation
+                </Link></p>
 
-           <p><Link to="/top_search">Top Searched Products
-           </Link></p>
+                <p><Link to="/top_search">Top Searched Products
+                </Link></p>
 
-           <p><Link to="/top_not_found">Top Not Found Searched Products
-           </Link></p>
+                <p><Link to="/top_not_found">Top Not Found Searched Products
+                </Link></p>
 
-            <p><Link to="/top_sold">Top Sold Products
-           </Link></p>
+                <p><Link to="/top_sold">Top Sold Products
+                </Link></p>
 
-           <p><Link to="/top_for_sell">Top Products Up For Sell
-           </Link></p>
+                <p><Link to="/least_sold">Least Sold Products
+                </Link></p>
 
-            <p><Link to="/least_for_sell">Least Products Up For Sell
-           </Link></p>
+                <p><Link to="/top_for_sell">Top Products Up For Sell
+                </Link></p>
+
+                <p><Link to="/least_for_sell">Least Products Up For Sell
+                </Link></p>
 
             </div>
             </Col>
@@ -109,34 +112,36 @@ displayResult(){
         </Row>
 
         <Row className="business-text">
-        <Col lg={9} lgOffset={3} md={9} mdOffset={3} sm={12} xs={12}>
+        <Col lg={9} lgOffset={1} md={9} mdOffset={1} sm={12} xs={12}>
         {this.state.display_result ? (
             <div className="product-review">
             <p>
                 Product Review for product <i><b>{this.state.product}</b></i>
             </p>
-            <table>
+            <Table striped bordered hover>
+            <tbody>
                 <tr>
-                    <td>Searches for product </td>
+                    <td>Times  <i><b>{this.state.product}</b></i> was searched for</td>
                     <td>&nbsp;&nbsp;</td>
-                    <td><b>{this.state.product_review.searchedProduct}</b></td>
+                    <td><b>{this.state.product_review.searched_frequency}</b></td>
                 </tr>
                 <tr>
-                    <td>Not found searches for product </td>
+                    <td>Times  <i><b>{this.state.product}</b></i> was searched for and not found</td>
                     <td>&nbsp;&nbsp;</td>
-                    <td><b>{this.state.product_review.notFoundProduct}</b></td>
+                    <td><b>{this.state.product_review.notFound_frequency}</b></td>
                 </tr>
                 <tr>
-                    <td>Number of product up for sale </td>
+                    <td>Number of  <i><b>{this.state.product}</b></i> up for sell </td>
                     <td>&nbsp;&nbsp;</td>
-                    <td><b>{this.state.product_review.productForSell}</b></td>
+                    <td><b>{this.state.product_review.forSell_frequency}</b></td>
                 </tr>
                 <tr>
-                    <td>Product sold </td>
+                    <td>Number of  <i><b>{this.state.product}</b></i> sold </td>
                     <td>&nbsp;&nbsp;</td>
-                    <td><b>{this.state.product_review.productSold}</b></td>
+                    <td><b>{this.state.product_review.sold_frequency}</b></td>
                 </tr>
-            </table>
+                </tbody>
+            </Table>
          </div>
 
         ) : (

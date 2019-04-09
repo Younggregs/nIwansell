@@ -1,11 +1,14 @@
 import React from 'react';
 import { Redirect } from 'react-router-dom'
 import { Row, Col, Button,FormGroup, FormControl, ControlLabel} from 'react-bootstrap';
+import Spinner from 'react-activity/lib/Spinner';
+import 'react-activity/lib/Spinner/Spinner.css';
+
 
 export default class RateReviewForm extends React.Component {
   constructor(props) {
     super(props)
-    this.state = {value: 0, message: []}
+    this.state = {value: 0, message: [], isLoading: false}
 
     this.handleClick = this.handleClick.bind(this)
     this.handleRatingChange = this.handleRatingChange.bind(this)
@@ -30,6 +33,7 @@ export default class RateReviewForm extends React.Component {
 
   async submitForm(){
 
+    this.setState({ isLoading: true })
     var review = document.getElementById("review").value
 
     var formData = new FormData()
@@ -56,6 +60,8 @@ export default class RateReviewForm extends React.Component {
     } catch (e) {
       console.log(e);
     }
+
+    this.setState({ isLoading: false })
 
 
   }
@@ -117,6 +123,11 @@ const formInstance = (
 
   <Row>
   <Col lg={6} lgOffset={4} md={6} mdOffset={4} sm={6} smOffset={3} xs={6} xsOffset={3}>
+  {this.state.isLoading ? (
+          <Spinner color="#ff0000" size={32}/>
+        ) : (
+          <div/>
+        )}
 
     <Button onClick={this.submitForm.bind(this)}>rate and review</Button>
     </Col>

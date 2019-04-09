@@ -22,7 +22,7 @@ export default class HaggleMates extends React.Component {
     if (this.props.match.params.profile_id){
 
       try {
-        const res = await fetch('https://www.iwansell.com/api/new_hagglers/' + this.props.match.params.profile_id, {
+        const res = await fetch('https://www.iwansell.com/api/new_hagglers/' + this.props.match.params.profile_id + '/', {
 
           headers : {
             'Authorization' : 'Token ' + auth,

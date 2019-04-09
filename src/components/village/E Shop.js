@@ -30,7 +30,7 @@ try {
 
 
 try {
-  const res = await fetch('https://www.iwansell.com/api/ismyeshop/' + this.props.match.params.eshop_id, {
+  const res = await fetch('https://www.iwansell.com/api/ismyeshop/' + this.props.match.params.eshop_id + '/', {
 
     headers : {
       'Authorization' : 'Token ' + auth,

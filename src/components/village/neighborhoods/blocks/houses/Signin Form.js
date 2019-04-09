@@ -3,17 +3,22 @@ import { Link, Redirect } from 'react-router-dom';
 import { Row, Col, Button,FormGroup, FormControl, ControlLabel, HelpBlock } from 'react-bootstrap';
 import { login } from './auth/Auth'
 import AppName from './App Name'
+import Spinner from 'react-activity/lib/Spinner';
+import 'react-activity/lib/Spinner/Spinner.css';
 
 
 export default class SigninForm extends React.Component {
 
   state= {
+    isLoading: false,
     auth_code: null,
     statement: []
   }
 
 
  async submitForm(){
+
+  this.setState({ isLoading: true})
 
     var username = document.getElementById("username").value
     var password = document.getElementById("password").value
@@ -45,6 +50,8 @@ export default class SigninForm extends React.Component {
 
 
     login(username, password)
+
+    this.setState({ isLoading: false})
 
 
   }
@@ -126,6 +133,11 @@ const formInstance = (
 
    <Row>
     <Col lg={2} lgOffset={4} md={2} mdOffset={4} sm={12} xs={12}>
+    {this.state.isLoading ? (
+      <Spinner color="#ff0000" size={32}/>
+    ) : (
+      <div/>
+    )}
     <Button bsStyle="success" onClick={this.submitForm.bind(this)}>Sign in</Button>
     </Col>
     <Col lg={4} md={4}  sm={12} xs={12}>

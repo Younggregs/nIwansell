@@ -1,12 +1,13 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { Row, Col } from 'react-bootstrap';
+import { Table, Row, Col } from 'react-bootstrap';
 import MenuNavigation from './neighborhoods/Menu Navigation'
 
 export default class TopForSell extends React.Component {
 
     state = {
-        product_list : []
+        product_list : [],
+        rank: 0,
     }
 
 
@@ -49,6 +50,12 @@ async componentWillMount(){
 
   }
 
+  nextRank(){
+    this.state.rank = this.state.rank + 1
+
+    return this.state.rank
+  }
+
 
 
 
@@ -62,23 +69,26 @@ async componentWillMount(){
             <Col lg={3} lgOffset={1} md={3} mdOffset={1} sm={12} xs={12}>
             <div className="business-menu">
 
-           <p><Link to="/product_valuation">Product Valuation
-           </Link></p>
+                <p><Link to="/product_valuation">Product Valuation
+                </Link></p>
 
-           <p><Link to="/top_search">Top Searched Products
-           </Link></p>
+                <p><Link to="/top_search">Top Searched Products
+                </Link></p>
 
-           <p><Link to="/top_not_found">Top Not Found Searched Products
-           </Link></p>
+                <p><Link to="/top_not_found">Top Not Found Searched Products
+                </Link></p>
 
-            <p><Link to="/top_sold">Top Sold Products
-           </Link></p>
+                <p><Link to="/top_sold">Top Sold Products
+                </Link></p>
 
-           <p><Link to="/top_for_sell">Top Products Up For Sale
-           </Link></p>
+                <p><Link to="/least_sold">Least Sold Products
+                </Link></p>
 
-            <p><Link to="/least_for_sell">Least Products Up For Sale
-           </Link></p>
+                <p><Link to="/top_for_sell">Top Products Up For Sell
+                </Link></p>
+
+                <p><Link to="/least_for_sell">Least Products Up For Sell
+                </Link></p>
 
             </div>
             </Col>
@@ -86,31 +96,34 @@ async componentWillMount(){
 
         <Col lg={6} md={6} sm={12} xs={12}>
         <Row className="business-text">
-            <p className="menu-header">Top Products Up For Sale</p>
+            <p className="menu-header">Top Products Up For Sell</p>
         </Row>
 
         {this.emptyResult() ? (
           <p className="err-msg">Its empty here, No result found</p>
         ) : (
         <Row className="business-text">
-        <Col lg={9} lgOffset={3} md={9} mdOffset={3} sm={12} xs={12}>
+        <Col lg={9} lgOffset={1} md={9} mdOffset={1} sm={12} xs={12}>
             <div className="business-list">
 
-            <table>
+            <Table striped bordered hover>
                 <thead>
+                   <tr>
                     <td><b>Rank</b></td>
                     <td><b>Product</b></td>
                     <td><b>Frequency</b></td>
+                   </tr>
                 </thead>
-
+                <tbody>
                 {this.state.product_list.map(item => (
                     <tr>
-                        <td>{item.product_rank}</td>
+                        <td>{this.nextRank()}</td>
                         <td>{item.product_name}</td>
-                        <td><b>{item.product_frequency}</b></td>
+                        <td><b>{item.frequency}</b></td>
                     </tr>
                 ))}
-            </table>
+                </tbody>
+            </Table>
          </div>
          </Col>
         </Row>
