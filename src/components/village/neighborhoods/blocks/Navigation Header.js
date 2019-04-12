@@ -22,7 +22,10 @@ export default class NavigationHeader extends React.Component {
                    <p><b>{this.props.market}</b> Campus Marketplace</p>
                   </Col>
 
-                  <Col lgHidden mdHidden sm={3} xs={3}>
+                
+                  {this.props.logged_in ? (
+                    <span>
+                    <Col lgHidden mdHidden sm={3} xs={3}>
                   <Link to="/newproduct">
                   <Button bsStyle="success">
                     <span className="blink-me"> SELL IT </span>
@@ -37,6 +40,27 @@ export default class NavigationHeader extends React.Component {
                   </Button>
                   </Link>&nbsp;&nbsp;
                   </Col>
+                    </span>
+                  ) : (
+                    <span>
+                    <Col lgHidden mdHidden sm={3} xs={3}>
+                  <Link to="/signup">
+                  <Button bsStyle="success">
+                    <span className="blink-me"> SELL IT </span>
+                  </Button>
+                 </Link>&nbsp;&nbsp;
+                  </Col>
+
+                  <Col lgHidden mdHidden sm={3} xs={3}>
+                  <Link to="/signup">
+                  <Button bsStyle="danger">
+                    <span className="blink-me"> BUY IT </span>
+                  </Button>
+                  </Link>&nbsp;&nbsp;
+                  </Col>
+                  </span>
+                  )}
+                  
 
                </section>
 
