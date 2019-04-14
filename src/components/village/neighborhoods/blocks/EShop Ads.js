@@ -42,13 +42,13 @@ export default class EShopAds extends React.Component {
                     <Image width="auto" height="500px"  src={ require ('./houses/images/slide1.png') } alt="iwansell" responsive/>
                   </Row>
                   <Row className="eshop-ads-items">
-                    <Image width="auto" height="500px"  src={ require ('./houses/images/grill1.jpg') } alt="iwansell" responsive/>
+                    <Image width="auto" height="500px"  src={ require ('./houses/images/iws.jpg') } alt="iwansell" responsive/>
                   </Row>
                   <Row className="eshop-ads-items">
-                    <Image width="auto" height="500px"  src={ require ('./houses/images/peruzzi.jpg') } alt="iwansell" responsive/>
+                    <Image width="auto" height="500px"  src={ require ('./houses/images/b1.jpg') } alt="iwansell" responsive/>
                   </Row>
                   <Row className="eshop-ads-items">
-                    <Image width="auto" height="500px"  src={ require ('./houses/images/grill.jpg') } alt="iwansell" responsive/>
+                    <Image width="auto" height="500px"  src={ require ('./houses/images/b2.jpg') } alt="iwansell" responsive/>
                   </Row>
                   
                   
