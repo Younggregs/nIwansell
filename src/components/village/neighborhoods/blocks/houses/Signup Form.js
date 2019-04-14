@@ -11,11 +11,13 @@ export default class SignupForm extends React.Component {
 
   state={
     isLoading: false,
+    isLoading2: false,
     campuslist: [],
     statement: []
   }
 
   async componentWillMount() {
+    this.setState({ isLoading2: true})
     try {
       const res = await fetch('https://www.iwansell.com/api/campus/');
       const campuslist = await res.json();
@@ -25,6 +27,8 @@ export default class SignupForm extends React.Component {
     } catch (e) {
       console.log(e);
     }
+
+    this.setState({ isLoading2: false})
   }
 
 
@@ -158,6 +162,16 @@ const formInstance = (
 
     <FormGroup>
     <ControlLabel>Select Campus</ControlLabel>
+    <p>
+      {this.state.isLoading2 ? (
+        <div>
+        <p><b><i>Fetching Campus</i></b></p>
+        <p><Spinner color="#ff0000" size={32}/></p>
+        </div>
+        ) : (
+          <div/>
+        )}
+        </p>
     <FormControl componentClass="select" placeholder="select" name="campus" id="campus">
                    {this.state.campuslist.map(item => (
                     <option value={item.id}>{item.campus_code}</option>

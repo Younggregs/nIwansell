@@ -1,21 +1,57 @@
 import React from 'react';
-import  { Redirect } from 'react-router-dom'
-import { Row, Col, Button,FormGroup, FormControl, ControlLabel, HelpBlock } from 'react-bootstrap';
+import { Link, Redirect } from 'react-router-dom';
+import { Row, Col, Form, Button,FormGroup, FormControl, ControlLabel,Label, HelpBlock } from 'react-bootstrap';
+import Heading from './Heading'
+import AppName from './App Name'
+import NewProductMedia from './New Product Media'
 import Spinner from 'react-activity/lib/Spinner';
 import 'react-activity/lib/Spinner/Spinner.css';
 
-export default class NewEShopForm extends React.Component {
+
+export default class NewProductForm extends React.Component {
 
   state = {
-    isLoading: false,
-    statement: [],
-    categorylist: []
+    categorylist: [],
+    product_image:null,
+    account_id: null,
+    message: [],
+    media:[],
+    eshop_exist: false,
+    isloading: false,
+    next_view: false,
+    category: null,
+    product_name: null,
+    description: null,
+    starting_price: null
+  };
 
-  }
+  async componentDidMount() {
+
+    this.setState({ isLoading: true})
+    
+    const auth = localStorage.getItem('auth_code')
+
+    try {
+      const res = await fetch('https://www.iwansell.com/api/myaccount_id/', {
+
+        headers : {
+          'Authorization' : 'Token ' + auth,
+
+        },
+
+      });
+      const account_id = await res.json();
+      this.setState({
+        account_id
+      });
+    } catch (e) {
+      console.log(e);
+    }
 
 
-async componentDidMount() {
-    this.setState({ isLoading: true })
+
+    
+
     try {
       const res = await fetch('https://www.iwansell.com/api/category/');
       const categorylist = await res.json();
@@ -26,7 +62,37 @@ async componentDidMount() {
       console.log(e);
     }
 
-    this.setState({ isLoading: false })
+    try {
+      const res = await fetch('https://www.iwansell.com/api/eshop_exist/',{
+
+        headers : {
+          'Authorization' : 'Token ' + auth,
+
+        },
+
+      } );
+      const eshop_exist = await res.json();
+      this.setState({
+        eshop_exist
+      });
+    } catch (e) {
+      console.log(e);
+    }
+
+    this.setState({ isLoading: false})
+
+
+  }
+
+  nextView(){
+
+    this.setState({
+      category: document.getElementById("category").value,
+      product_name: document.getElementById("product_name").value,
+      description: document.getElementById("description").value,
+      starting_price: document.getElementById("starting_price").value,
+      next_view: true
+    })
 
   }
 
@@ -36,67 +102,54 @@ async componentDidMount() {
 
 
 
+  async submitForm(){
 
+    this.setState({ isLoading: true})
 
-
-
-
-
-
-
-
-  async newEShop(){
-
-    this.setState({ isLoading: true })
-
-    var category = document.getElementById('category').value
-    var eshop_name = document.getElementById('eshop_name').value
-    var about = document.getElementById('about').value
+    var category= document.getElementById("category").value
+    var product_name= document.getElementById("product_name").value
+    var description= document.getElementById("description").value
+    var starting_price= document.getElementById("starting_price").value
 
     var formData = new FormData()
 
     formData.append('category', category)
-    formData.append('eshop_name', eshop_name)
-    formData.append('about', about)
-
+    formData.append('product_name', product_name)
+    formData.append('description', description)
+    formData.append('starting_price', starting_price)
 
     const auth = localStorage.getItem('auth_code')
-    console.log(auth)
 
     try {
-      const res = await fetch('https://www.iwansell.com/api/new_eshop/', {
+      const res = await fetch('https://www.iwansell.com/api/newproduct/' + this.state.account_id + '/', {
 
-      body: formData,
-      method: 'POST',
-      headers : {
-        'Authorization' : 'Token ' + auth,
+       body : formData,
+       method: 'POST',
+       headers : {
+         'Authorization' : 'Token ' + auth
+       }
 
-      },
-
-      });
-      const statement = await res.json();
-      this.setState({
-        statement
-      });
-      console.log('console log :' + this.state.statement.code)
-
+      })
+      const message = await res.json();
+        this.setState({
+          message
+        });
     } catch (e) {
       console.log(e);
     }
 
-    this.setState({ isLoading: false })
+    this.setState({ isLoading: false})
 
-}
 
-redirect(){
+  }
 
-    return <Redirect to='/eshop'/>
 
-}
+
+
+  
 
 
 render(){
-
   function FieldGroup({ id, label, help, ...props }) {
     return (
       <FormGroup controlId={id}>
@@ -111,80 +164,113 @@ render(){
 
 
 const formInstance = (
-  <section className="signin-form">
+  <section className="new-product-form">
+
+  <Row>
+  <div className="login-appname">
+   <Col lg={6} lgOffset={4} md={6} mdOffset={4} sm={12} xs={12}>
+  <Link to="/home">
+    <AppName logged_in = {true}/>
+  </Link>
+  </Col>
+  </div>
+</Row><br />
+
+  <Heading title="Add product"/>
+
+  {this.state.eshop_exist ? (
+  <Row>
+   <Col lg={4} lgOffset={1} md={4}  sm={6} xs={6}>
+    <Link to="newproduct">
+    <Button  bsStyle="success">Add product to account</Button>
+    </Link>
+  </Col>
+
+  <Col lg={4} lgOffset={1} md={4} sm={6} xs={6}>
+  <Link to="new_eshop_product">
+    <Button>Add product to eshop</Button>
+  </Link>
+  </Col>
+  </Row>
+  ) : (
+  <Row>
+   <Col lg={4} lgOffset={1} md={4}  sm={6} xs={6}>
+    <Link to="newproduct">
+    <Button  bsStyle="success">Add product to account</Button>
+    </Link>
+  </Col>
+  </Row>
+  )}
+
+  <br />
+
 
   <form>
-  <HelpBlock><b>Note: eShop is now in free trial mode</b></HelpBlock>
-  <Row>
-  <Col lg={6} lgOffset={3} md={6} mdOffset={3} sm={12} xs={12}>
-
+  
   <FormGroup>
-      <ControlLabel>Select eshop category</ControlLabel>
+      <ControlLabel>Categories</ControlLabel>
+      <p>
       {this.state.isLoading ? (
-        <Spinner color="#ff0000" size={32}/>
-      ) : (
-        <FormControl
-          componentClass="select"
-          placeholder="select"
-          id="category"
-          name="category"
-          multiple>
-          {this.state.categorylist.map(item => (
-            <option value={item.id}>{item.name}</option>
-          ))}
-          </FormControl>
-      )}
-
-      <HelpBlock>You can select multiple categories for your eshop</HelpBlock>
-    </FormGroup>
-
-
-
-
-    <FieldGroup
-      id="eshop_name"
-      type="text"
-      label="Name of e-shop"
-      name="eshop_name"
-      placeholder="e.g Iceprince' Wardrope "
-    />
-
-  <ControlLabel>About eshop</ControlLabel><br />
-
-    <textarea
-    name="about"
-    id="about"
-    placeholder="What are you selling">
-    </textarea><br />
-
-    {this.state.statement.error_message ? (
-      <p className="err-msg">{this.state.statement.error_message}</p>
-    ) : (
-      <span></span>
-    )}
-
-    {this.state.statement.code ? (
-       <span><Redirect to={`/eshop/${ this.state.statement.code }`}/></span>
-    ) : (
-      <span></span>
-    )}
-    <HelpBlock><b>Note: eShop is now in free trial mode</b></HelpBlock>
-
-
-        {this.state.isLoading ? (
-          <Spinner color="#ff0000" size={32}/>
+        <div>
+        <p><b><i>Fetching Categories</i></b></p>
+        <p><Spinner color="#ff0000" size={32}/></p>
+        </div>
         ) : (
           <div/>
         )}
+        </p>
+      <FormControl componentClass="select" placeholder="select" id="category" name="category">
+      {this.state.categorylist.map(item => (
+        <option value={item.id}>{item.name}</option>
+      ))}
+      </FormControl>
+    </FormGroup>
+
+  
 
 
-    <Button bsStyle="success" onClick={this.newEShop.bind(this)}>create eShop[trial mode]</Button>
-    </Col>
-   </Row>
-  </form>
+    <FieldGroup
+      id="product_name"
+      type="text"
+      label="Product Name"
+      name="product_name"
+      placeholder="e.g Samsung s6 edge"
+    />
+
+    <FormGroup controlId="formControlsTextarea">
+      <ControlLabel>Describe Product</ControlLabel>
+      <FormControl componentClass="textarea" placeholder="e.g Gold plated, 64gb ROM, 3gb ROM, used ..." id="description" name="description"/>
+    </FormGroup>
+
+      <FieldGroup
+        id="starting_price"
+        type="text"
+        label="Starting Price(Naira)"
+        name="starting_price"
+        placeholder="e.g 60k"
+      />
+
+ <FormGroup>
+   <Button bsStyle="success" onClick={this.nextView.bind(this)}>Continue</Button>
+ </FormGroup>
+ </form>
   </section>
 );
 
-    return (formInstance);
+ return (
+    <div>
+      {this.state.next_view ? (
+        <NewProductMedia
+          account_id={this.state.account_id}
+          category={this.state.category}
+          product_name={this.state.product_name}
+          description={this.state.description}
+          starting_price={this.state.starting_price}
+        />
+      ) : (
+          formInstance
+      )}
+    </div>);
+
   }
 }

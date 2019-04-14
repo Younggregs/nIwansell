@@ -5,11 +5,14 @@ import Heading from './Heading';
 import AppName from './App Name'
 import Spinner from 'react-activity/lib/Spinner';
 import 'react-activity/lib/Spinner/Spinner.css';
+import NewProductMedia from './New Product Media'
 
 
 export default class NewEShopProductForm extends React.Component {
 
   state = {
+    isLoading: false,
+    isLoading2: false,
     categorylist: [],
     subcategorylist: [],
     category_id: null,
@@ -17,11 +20,19 @@ export default class NewEShopProductForm extends React.Component {
     account_id : null,
     message: [],
     media:[],
+    next_view: false,
+    category: null,
+    subcategory: null,
+    product_name: null,
+    description: null,
+    starting_price: null
   };
 
   async componentDidMount() {
 
     const auth = localStorage.getItem('auth_code')
+
+    this.setState({ isLoading: true})
 
     try {
       const res = await fetch('https://www.iwansell.com/api/myaccount_id/', {
@@ -54,10 +65,14 @@ export default class NewEShopProductForm extends React.Component {
       console.log(e);
     }
 
+    this.setState({ isLoading: false})
+
 }
 
 
 async getSubcategory(){
+
+  this.setState({ isLoading2: true})
 
   try {
     const res = await fetch('https://www.iwansell.com/api/subcategory/' + this.state.category_id);
@@ -68,6 +83,8 @@ async getSubcategory(){
   } catch (e) {
     console.log(e);
   }
+
+  this.setState({ isLoading2: false})
 
 
 }
@@ -84,6 +101,24 @@ var category_id = e.options[e.selectedIndex].value;
 this.setCategoryId(category_id);
 
 }
+
+
+
+
+nextView(){
+
+  this.setState({
+    subcategory: document.getElementById("subcategory").value,
+    product_name: document.getElementById("product_name").value,
+    description: document.getElementById("description").value,
+    starting_price: document.getElementById("starting_price").value,
+    next_view: true
+  })
+
+}
+
+
+
 
 
 
@@ -184,8 +219,18 @@ const formInstance = (
   <form>
   <FormGroup>
       <ControlLabel>Categories</ControlLabel>
+      <p>
+      {this.state.isLoading ? (
+        <div>
+        <p><b><i>Fetching Categories</i></b></p>
+        <p><Spinner color="#ff0000" size={32}/></p>
+        </div>
+        ) : (
+          <div/>
+        )}
+        </p>
       <FormControl componentClass="select" placeholder="select" id="category" name="category" onChange={this.getCategoryId.bind(this)}>
-      <option value={1}>select category</option>
+      <option value="99">select category</option>
       {this.state.categorylist.map(item => (
         <option value={item.id}>{item.name}</option>
       ))}
@@ -194,6 +239,16 @@ const formInstance = (
 
   <FormGroup>
     <ControlLabel>Sub-Categories</ControlLabel>
+    <p>
+      {this.state.isLoading2 ? (
+        <div>
+        <p><b><i>Fetching Subcategories</i></b></p>
+        <p><Spinner color="#ff0000" size={32}/></p>
+        </div>
+        ) : (
+          <div/>
+        )}
+        </p>
       <FormControl componentClass="select" placeholder="select" id="subcategory" name="subcategory">
       {this.state.subcategorylist.map(item => (
         <option value={item.id}>{item.name}</option>
@@ -210,6 +265,7 @@ const formInstance = (
       placeholder="e.g Samsung s6 edge"
     />
 
+    <p><b>Note: Image size should not be more than 2.5mb</b></p>
     <FormGroup controlId="formControlsTextarea">
       <ControlLabel>Describe Product</ControlLabel>
       <FormControl componentClass="textarea" placeholder="e.g Gold plated, 64gb ROM, 3gb ROM, used ..." id="description" name="description"/>
@@ -240,18 +296,27 @@ const formInstance = (
 
 
  <FormGroup>
- {this.state.isLoading ? (
-  <Spinner color="#ff0000" size={32}/>
-) : (
-  <div/>
-)}
-   <Button bsStyle="success" onClick={this.submitForm.bind(this)}>Continue</Button>
+   <Button bsStyle="success" onClick={this.nextView.bind(this)}>Continue</Button>
  </FormGroup>
  </form>
   </section>
 );
 
- return (formInstance);
+return (
+  <div>
+    {this.state.next_view ? (
+      <NewProductMedia
+        account_id={this.state.account_id}
+        category={this.state.category_id}
+        subcategory={this.state.subcategory}
+        product_name={this.state.product_name}
+        description={this.state.description}
+        starting_price={this.state.starting_price}
+      />
+    ) : (
+        formInstance
+    )}
+  </div>);
 
-  }
+}
 }
