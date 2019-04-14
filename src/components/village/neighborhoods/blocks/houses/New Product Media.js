@@ -1,12 +1,10 @@
 import React, { Component, Fragment } from "react";
 import { Redirect } from 'react-router-dom'
-import { render } from "react-dom";
 import { Button } from 'react-bootstrap'
 import Spinner from 'react-activity/lib/Spinner';
 import 'react-activity/lib/Spinner/Spinner.css';
-import request from "superagent";
 import ReactDropzone from "react-dropzone";
-import Dropzone from 'react-dropzone-uploader'
+
 
 export default class MyUploader extends Component {
   constructor(props) {
