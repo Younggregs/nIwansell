@@ -197,7 +197,7 @@ const formInstance = (
   </div>
 </Row><br />
 
-  <Heading title="Add product"/>
+  <Heading title="Add product to eshop"/>
 
 
   <Row>

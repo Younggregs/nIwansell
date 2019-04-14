@@ -176,7 +176,7 @@ const formInstance = (
   </div>
 </Row><br />
 
-  <Heading title="Add product"/>
+  <Heading title="Add product to marketplace"/>
 
   {this.state.eshop_exist ? (
   <Row>
@@ -203,7 +203,6 @@ const formInstance = (
   )}
 
   <br />
-
 
   <form>
   
