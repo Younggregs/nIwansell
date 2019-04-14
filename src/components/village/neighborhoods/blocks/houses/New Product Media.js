@@ -1,9 +1,11 @@
 import React, { Component, Fragment } from "react";
-import { Redirect } from 'react-router-dom'
-import { Button } from 'react-bootstrap'
+import { Redirect, Link } from 'react-router-dom'
+import { Button, Row, Col } from 'react-bootstrap'
 import Spinner from 'react-activity/lib/Spinner';
 import 'react-activity/lib/Spinner/Spinner.css';
 import ReactDropzone from "react-dropzone";
+import Heading from './Heading'
+import AppName from './App Name'
 
 
 export default class MyUploader extends Component {
@@ -152,6 +154,18 @@ export default class MyUploader extends Component {
 
     return (
       <div className="app">
+      <Row>
+      <div className="login-appname">
+        <Col lg={6} lgOffset={4} md={6} mdOffset={4} sm={12} xs={12}>
+        <Link to="/home">
+          <AppName logged_in = {true}/>
+        </Link>
+        </Col>
+    </div>
+    </Row><br />
+
+  <Heading title="Add images of product"/>
+
         <ReactDropzone
           accept="image/*"
           onDrop={this.onPreviewDrop}
