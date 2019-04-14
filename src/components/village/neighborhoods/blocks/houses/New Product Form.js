@@ -3,6 +3,7 @@ import { Link, Redirect } from 'react-router-dom';
 import { Row, Col, Form, Button,FormGroup, FormControl, ControlLabel,Label, HelpBlock } from 'react-bootstrap';
 import Heading from './Heading'
 import AppName from './App Name'
+import NewProductMedia from './New Product Media'
 import Spinner from 'react-activity/lib/Spinner';
 import 'react-activity/lib/Spinner/Spinner.css';
 
@@ -17,10 +18,16 @@ export default class NewProductForm extends React.Component {
     media:[],
     eshop_exist: false,
     isloading: false,
+    next_view: false,
+    category: null,
+    product_name: null,
+    description: null,
+    starting_price: null
   };
 
   async componentDidMount() {
 
+    this.setState({ isLoading: true})
     
     const auth = localStorage.getItem('auth_code')
 
@@ -43,7 +50,7 @@ export default class NewProductForm extends React.Component {
 
 
 
-
+    
 
     try {
       const res = await fetch('https://www.iwansell.com/api/category/');
@@ -72,6 +79,20 @@ export default class NewProductForm extends React.Component {
       console.log(e);
     }
 
+    this.setState({ isLoading: false})
+
+
+  }
+
+  nextView(){
+
+    this.setState({
+      category: document.getElementById("category").value,
+      product_name: document.getElementById("product_name").value,
+      description: document.getElementById("description").value,
+      starting_price: document.getElementById("starting_price").value,
+      next_view: true
+    })
 
   }
 
@@ -185,15 +206,27 @@ const formInstance = (
 
 
   <form>
+  
   <FormGroup>
       <ControlLabel>Categories</ControlLabel>
+      <p>
+      {this.state.isLoading ? (
+        <div>
+        <p><b><i>Fetching Categories</i></b></p>
+        <p><Spinner color="#ff0000" size={32}/></p>
+        </div>
+        ) : (
+          <div/>
+        )}
+        </p>
       <FormControl componentClass="select" placeholder="select" id="category" name="category">
-      <option value={1}>select category</option>
       {this.state.categorylist.map(item => (
         <option value={item.id}>{item.name}</option>
       ))}
       </FormControl>
     </FormGroup>
+
+  
 
 
     <FieldGroup
@@ -217,36 +250,27 @@ const formInstance = (
         placeholder="e.g 60k"
       />
 
-
-<Row>
-   {this.state.message.error_message ? (
-      <p className="err-msg">{this.state.message.error_message}</p>
-    ) : (
-      <span></span>
-    )}
-
-    {this.state.message.code ? (
-       <span><Redirect to={`/media_upload/${ this.state.message.code }`}/></span>
-    ) : (
-      <span></span>
-    )}
-</Row>
-
-
-
  <FormGroup>
- {this.state.isLoading ? (
-  <Spinner color="#ff0000" size={32}/>
-) : (
-  <div/>
-)}
-   <Button bsStyle="success" onClick={this.submitForm.bind(this)}>Continue</Button>
+   <Button bsStyle="success" onClick={this.nextView.bind(this)}>Continue</Button>
  </FormGroup>
  </form>
   </section>
 );
 
- return (formInstance);
+ return (
+    <div>
+      {this.state.next_view ? (
+        <NewProductMedia
+          account_id={this.state.account_id}
+          category={this.state.category}
+          product_name={this.state.product_name}
+          description={this.state.description}
+          starting_price={this.state.starting_price}
+        />
+      ) : (
+          formInstance
+      )}
+    </div>);
 
   }
 }
