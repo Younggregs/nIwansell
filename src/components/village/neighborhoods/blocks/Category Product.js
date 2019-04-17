@@ -235,10 +235,10 @@ export default class CategoryProduct extends React.Component {
                  <Thumbnail alt="product-image" src={ require ('./houses/images/empty.png') } />
               ) : (
 
-                <div id="main-sm">
+                <div id="main">
                 {this.state.categoryProductList.map(item => (
-                   <div class="box-sm">
-                      <div class="pic-sm">
+                   <div class="box">
+                      <div class="pic">
 
                  <Link to={`/product/${ item.id }`}>
                    {this.setMedia(item.product_image)}
