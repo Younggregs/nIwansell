@@ -9,6 +9,7 @@ export default class AlternatePhone extends React.Component {
 
   state = {
     isLoading: false,
+    isLoading2: false,
     message : [],
     phone: [],
     mobile: null
@@ -62,7 +63,7 @@ export default class AlternatePhone extends React.Component {
 
 
   async update(){
-    this.setState({ isLoading: true})
+    this.setState({ isLoading2: true})
 
     const auth = localStorage.getItem('auth_code')
 
@@ -93,7 +94,7 @@ export default class AlternatePhone extends React.Component {
       console.log(e);
     }
 
-    this.setState({ isLoading: false})
+    this.setState({ isLoading2: false})
 
 }
 
@@ -118,7 +119,10 @@ const formInstance = (
   <section className="edit-profile-form">
   <Heading title="Set/reset alternate phone"/>
 
-  <Table bordered striped hover>
+  {this.state.isLoading ? (
+      <Spinner color="#ff0000" size={32}/>
+    ) : (
+      <Table bordered striped hover>
       <tbody>
           <tr>
               <th>#1 {this.state.mobile}</th>
@@ -131,6 +135,8 @@ const formInstance = (
           </tr>
       </tbody>
   </Table>
+    )}
+  
   <form>
   <FormGroup>
   <HelpBlock>Add or update alternate phone number</HelpBlock>
@@ -167,7 +173,7 @@ const formInstance = (
       <span></span>
     )}
 
-    {this.state.isLoading ? (
+  {this.state.isLoading2 ? (
       <Spinner color="#ff0000" size={32}/>
     ) : (
       <div/>
