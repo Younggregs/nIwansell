@@ -42,9 +42,13 @@ export default class About extends React.Component {
            {this.props.logged_in ? (
 
              <Col lg={6} md={6} sm={12} xs={12}>
-             <p><Link to = "/new_eshop">
-               Rent an e-shop
+             {this.props.eshop_exist ? (
+                <span/>
+              ) : (
+              <p><Link to = "/new_eshop">
+                  Rent an e-shop
              </Link></p>
+              )}
              <p><Link to = "/product_valuation">
                Business Mode
              </Link></p>

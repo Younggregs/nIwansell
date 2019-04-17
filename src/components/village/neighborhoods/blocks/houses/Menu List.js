@@ -5,7 +5,7 @@ import {  Table, Image } from 'react-bootstrap'
 export default class MenuList extends React.Component {
 
   state = {
-    have_eshop : false,
+    eshop_exist : false,
   }
 
 
@@ -14,7 +14,7 @@ export default class MenuList extends React.Component {
   const auth = localStorage.getItem('auth_code')
 
   try {
-    const res = await fetch('https://www.iwansell.com/api/have_eshop/', {
+    const res = await fetch('https://www.iwansell.com/api/eshop_exist/', {
 
       headers : {
         'Authorization' : 'Token ' + auth,
@@ -22,9 +22,9 @@ export default class MenuList extends React.Component {
       },
 
     });
-    const have_eshop = await res.json();
+    const eshop_exist = await res.json();
     this.setState({
-      have_eshop
+      eshop_exist
     });
   } catch (e) {
     console.log(e);
@@ -54,14 +54,14 @@ export default class MenuList extends React.Component {
              </Link></td>
              </tr>
 
-             {this.state.have_eshop ? (
+             {this.state.eshop_exist.eshop_exist ? (
+              <div/>
+             ) : (
               <tr>
               <td><Link to = "/new_eshop">
                 Rent an e-shop
               </Link></td>
               </tr>
-             ) : (
-               <div/>
              )}
 
             <tr>

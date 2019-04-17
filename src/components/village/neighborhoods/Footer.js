@@ -5,7 +5,8 @@ import About from './blocks/houses/About.js';
 export default class Footer extends React.Component {
 
   state = {
-    isloggedin : false
+    isloggedin : false,
+    eshop_exist: false
   }
 
   async componentDidMount(){
@@ -30,6 +31,26 @@ export default class Footer extends React.Component {
           console.log(e);
         }
 
+        try {
+          const res = await fetch('https://www.iwansell.com/api/eshop_exist/',{
+    
+            headers : {
+              'Authorization' : 'Token ' + auth,
+    
+            },
+    
+          } );
+          const eshop_exist = await res.json();
+          this.setState({
+            eshop_exist
+          });
+        } catch (e) {
+          console.log(e);
+        }
+
+
+
+
 }
 
 
@@ -40,7 +61,7 @@ export default class Footer extends React.Component {
            <section className="footer">
              <Grid>
                <Row>
-                 <About logged_in={this.state.isloggedin}/>
+                 <About logged_in={this.state.isloggedin} eshop_exist={this.state.eshop_exist.eshop_exist}/>
                </Row>
              </Grid>
            </section>

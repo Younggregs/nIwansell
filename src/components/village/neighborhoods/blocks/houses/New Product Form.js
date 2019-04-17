@@ -176,33 +176,18 @@ const formInstance = (
   </div>
 </Row><br />
 
-  <Heading title="Add product to marketplace"/>
+<Heading title="Upload product to marketplace"/>
 
-  {this.state.eshop_exist ? (
-  <Row>
-   <Col lg={4} lgOffset={1} md={4}  sm={6} xs={6}>
-    <Link to="newproduct">
-    <Button  bsStyle="success">Add product to account</Button>
-    </Link>
-  </Col>
-
-  <Col lg={4} lgOffset={1} md={4} sm={6} xs={6}>
-  <Link to="new_eshop_product">
-    <Button>Add product to eshop</Button>
+  
+<Row>
+<Col lg={6} lgOffset={4} md={6} mdOffset={4} sm={12} xs={12}>
+  <Link to="newproduct">
+  <Button  bsStyle="success">Add product to marketplace</Button>
   </Link>
-  </Col>
-  </Row>
-  ) : (
-  <Row>
-   <Col lg={4} lgOffset={1} md={4}  sm={6} xs={6}>
-    <Link to="newproduct">
-    <Button  bsStyle="success">Add product to account</Button>
-    </Link>
-  </Col>
-  </Row>
-  )}
+</Col>
+</Row>
 
-  <br />
+<br />
 
   <form>
   
