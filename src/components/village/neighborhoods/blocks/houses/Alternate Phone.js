@@ -75,7 +75,7 @@ export default class AlternatePhone extends React.Component {
     formData.append('phone2', phone2)
 
     try {
-      const res = await fetch('http://127.0.0.1:8000/api/alternate_phone/', {
+      const res = await fetch('https://www.iwansell.com/api/alternate_phone/', {
 
 
        body : formData,
