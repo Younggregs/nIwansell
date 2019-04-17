@@ -158,7 +158,7 @@ export default class CategoryProduct extends React.Component {
                                  <div class="box">
                                  <div class="pic">
 
-                                <Link to={`/product/${ item.id } `}>
+                                <Link to={`/product/${ item.id }`}>
 
                                     {this.setMedia(item.product_image)}
                                     <Thumbnail alt="product-image" src= { `${this.state.media}` }>
@@ -240,7 +240,7 @@ export default class CategoryProduct extends React.Component {
                    <div class="box-sm">
                       <div class="pic-sm">
 
-                 <Link to={`/product/${ item.product_id } `}>
+                 <Link to={`/product/${ item.id }`}>
                    {this.setMedia(item.product_image)}
                    <Thumbnail alt="product-image" src= { `${this.state.media}` }>
                      <p>{item.product_name}</p>
