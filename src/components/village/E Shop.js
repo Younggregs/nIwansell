@@ -1,4 +1,6 @@
 import React from 'react'
+import Spinner from 'react-activity/lib/Spinner';
+import 'react-activity/lib/Spinner/Spinner.css';
 import EShopNavigation from './neighborhoods/E Shop Navigation'
 import EShopProduct from './neighborhoods/E Shop Product'
 import CatchBoard from './neighborhoods/blocks/houses/Catch Board'
@@ -9,14 +11,15 @@ import EshopInfo from './neighborhoods/blocks/houses/E Shop Info'
 export default class EShop extends React.Component {
 
   state = {
+    isLoading: false,
     eshop : {},
-    my_eshop : null,
+    my_eshop : true,
     media: null
 }
 
-async componentDidMount() {
+async componentWillMount() {
 
-const auth = localStorage.getItem('auth_code')
+  this.setState({ isLoading: true})
 
 try {
   const res = await fetch('https://www.iwansell.com/api/eshop/' + this.props.match.params.eshop_id);
@@ -28,10 +31,13 @@ try {
   console.log(e);
 }
 
+const auth = localStorage.getItem('auth_code')
 
 try {
   const res = await fetch('https://www.iwansell.com/api/ismyeshop/' + this.props.match.params.eshop_id + '/', {
 
+    credentials: 'same-origin',
+    mode: 'cors',
     headers : {
       'Authorization' : 'Token ' + auth,
 
@@ -46,6 +52,8 @@ try {
   console.log(e);
 }
 
+this.setState({ isLoading: false })
+
 
 }
 
@@ -59,8 +67,11 @@ setMedia(media_name){
 
         return (
            <div className="eshop">
-
-                  <EShopNavigation eshop_name = {this.state.eshop.name} eshop_id = {this.props.match.params.eshop_id}/>
+                {this.state.isLoading ? (
+                      <Spinner/>
+                    ) : (
+                      <EShopNavigation eshop_name = {this.state.eshop.name} eshop_id = {this.props.match.params.eshop_id}/>
+                    )}
                   {this.setMedia(this.state.eshop.catch_board)}
                   <CatchBoard media = {this.state.media}/>
                   { this.state.my_eshop ? (
@@ -69,8 +80,13 @@ setMedia(media_name){
                     <EshopInfo eshop_id = {this.props.match.params.eshop_id} about = {this.state.eshop.about}/>
                 )}
 
+                {this.state.isLoading ? (
+                    <Spinner/>
+                  ) : (  
                   <EShopProduct eshop_id = {this.props.match.params.eshop_id}/>
-           </div>
+                )}
+
+                  </div>
          )
      }
 }
