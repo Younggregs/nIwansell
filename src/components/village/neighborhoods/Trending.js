@@ -29,8 +29,8 @@ export default class Trending extends React.Component {
   trending_2 = 'Shoes'
   trending_url_2='shoes'
 
-  trending_3 = 'Accomodation'
-  trending_url_3='accommodation'
+  trending_3 = 'Accessories'
+  trending_url_3='accessories'
 
   trending_4 = 'Phones/Tablets'
   trending_url_4='phones_and_tablets'
