@@ -2,10 +2,13 @@ import React from 'react'
 import { Link, Redirect } from 'react-router-dom'
 import { Table, Row, Col, Button,FormControl, FormGroup, Form, InputGroup, Glyphicon } from 'react-bootstrap';
 import MenuNavigation from './neighborhoods/Menu Navigation'
+import Spinner from 'react-activity/lib/Spinner';
+import 'react-activity/lib/Spinner/Spinner.css';
 
 export default class ProductValuation extends React.Component {
 
     state = {
+        isLoading: false,
         product_review : {},
         display_result : false,
         product : null
@@ -13,7 +16,10 @@ export default class ProductValuation extends React.Component {
 
 
 async submitForm(){
-    const auth = localStorage.getItem('auth_code')
+
+        this.setState({ isLoading: true })
+
+        const auth = localStorage.getItem('auth_code')
 
         var product = document.getElementById("product").value
         this.setState({ product : product})
@@ -39,6 +45,7 @@ async submitForm(){
           } catch (e) {
             console.log(e);
           }
+          this.setState({ isLoading: false })
 
           this.displayResult()
 
@@ -111,6 +118,9 @@ displayResult(){
         </Col>
         </Row>
 
+        {this.state.isLoading ? (
+            <Spinner/>
+        ) : (
         <Row className="business-text">
         <Col lg={9} lgOffset={1} md={9} mdOffset={1} sm={12} xs={12}>
         {this.state.display_result ? (
@@ -150,6 +160,8 @@ displayResult(){
 
          </Col>
         </Row>
+
+        )}
 
 
             </Col>
