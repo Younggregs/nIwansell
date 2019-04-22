@@ -139,7 +139,10 @@ export default class CategoryProduct extends React.Component {
                 <Heading title = {this.state.category}/>
 
                 {this.state.isLoading ? (
-                  <Spinner/>
+                  <div className="isloading">
+                  <p><b><i>loading...</i></b></p>
+                  <p><Spinner color="#ff0000" size={32}/></p>
+                  </div>
                 ) : (
 
                   <div>
@@ -227,7 +230,10 @@ export default class CategoryProduct extends React.Component {
               <Heading title = {this.state.category}/>
 
               {this.state.isLoading ? (
-                <Spinner/>
+                <div className="isloading">
+                <p><b><i>loading...</i></b></p>
+                <p><Spinner color="#ff0000" size={32}/></p>
+                </div>
               ) : (
 
                 <div>

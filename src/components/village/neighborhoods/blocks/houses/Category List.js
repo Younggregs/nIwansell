@@ -45,7 +45,10 @@ export default class CategoryList extends React.Component {
                     </tr>
                 </thead>
                 {this.state.isLoading ? (
-                  <Spinner/>
+                  <div className="isloading">
+                  <p><b><i>loading...</i></b></p>
+                  <p><Spinner color="#ff0000" size={32}/></p>
+                  </div>
                 ) : (
                   <tbody>
                 <tr>

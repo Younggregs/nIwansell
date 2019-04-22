@@ -62,7 +62,10 @@ export default class SponsoredGallery extends React.Component {
          return (
            <section className="sponsored-gallery">
            {this.state.isLoading ? (
-             <Spinner/>
+             <div className="isloading">
+             <p><b><i>loading...</i></b></p>
+             <p><Spinner color="#ff0000" size={32}/></p>
+             </div>
            ) : (
 
             <Row>

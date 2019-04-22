@@ -113,7 +113,10 @@ export default class SubcategoryMain extends React.Component {
 
 
               {this.state.isLoading ? (
-                <Spinner/>
+                <div className="isloading">
+                <p><b><i>loading...</i></b></p>
+                <p><Spinner color="#ff0000" size={32}/></p>
+                </div>
               ) : (
                 <div id="main">
                   {this.state.categoryProductList.map(item => (
@@ -171,7 +174,10 @@ export default class SubcategoryMain extends React.Component {
               <Heading title = {this.state.category}/>
 
               {this.state.isLoading ? (
-                <Spinner/>
+                <div className="isloading">
+                <p><b><i>loading...</i></b></p>
+                <p><Spinner color="#ff0000" size={32}/></p>
+                </div>
               ) : (
                 <div id="main-sm">
                {this.state.categoryProductList.map(item => (

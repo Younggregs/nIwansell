@@ -138,7 +138,10 @@ emptyResult(){
        {this.state.is_search ? (
          <div>
            {this.state.isLoading ? (
-             <Spinner/>
+             <div className="isloading">
+             <p><b><i>loading...</i></b></p>
+             <p><Spinner color="#ff0000" size={32}/></p>
+             </div>
            ) : (
             <div>
             <br /><br />
@@ -205,7 +208,10 @@ emptyResult(){
        {this.state.is_search ? (
           <div>
             {this.state.isLoading ? (
-              <Spinner/>
+              <div className="isloading">
+              <p><b><i>loading...</i></b></p>
+              <p><Spinner color="#ff0000" size={32}/></p>
+              </div>
             ) : (
               <div>
               <br /><br />

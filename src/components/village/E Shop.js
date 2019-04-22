@@ -68,7 +68,10 @@ setMedia(media_name){
         return (
            <div className="eshop">
                 {this.state.isLoading ? (
-                      <Spinner/>
+                      <div className="isloading">
+                      <p><b><i>loading...</i></b></p>
+                      <p><Spinner color="#ff0000" size={32}/></p>
+                      </div>
                     ) : (
                       <EShopNavigation eshop_name = {this.state.eshop.name} eshop_id = {this.props.match.params.eshop_id}/>
                     )}
@@ -81,7 +84,10 @@ setMedia(media_name){
                 )}
 
                 {this.state.isLoading ? (
-                    <Spinner/>
+                    <div className="isloading">
+                    <p><b><i>loading...</i></b></p>
+                    <p><Spinner color="#ff0000" size={32}/></p>
+                    </div>
                   ) : (  
                   <EShopProduct eshop_id = {this.props.match.params.eshop_id}/>
                 )}

@@ -174,7 +174,10 @@ emptyResult(){
 
           <Col lg={4} lgOffset={1} md={4} mdOffset={1} sm={12} xs={12}>
           {this.state.isLoading ? (
-            <Spinner/>
+            <div className="isloading">
+            <p><b><i>loading...</i></b></p>
+            <p><Spinner color="#ff0000" size={32}/></p>
+            </div>
           ) : (
             <div className="eshop-list">
 

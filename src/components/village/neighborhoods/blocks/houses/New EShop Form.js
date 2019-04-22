@@ -121,7 +121,10 @@ const formInstance = (
   <FormGroup>
       <ControlLabel>Select eshop category</ControlLabel>
       {this.state.isLoading ? (
-        <Spinner color="#ff0000" size={32}/>
+        <div className="isloading">
+        <p><b><i>loading...</i></b></p>
+        <p><Spinner color="#ff0000" size={32}/></p>
+        </div>
       ) : (
         <FormControl
           componentClass="select"
@@ -172,7 +175,10 @@ const formInstance = (
 
 
         {this.state.isLoading ? (
-          <Spinner color="#ff0000" size={32}/>
+          <div className="isloading">
+          <p><b><i>loading...</i></b></p>
+          <p><Spinner color="#ff0000" size={32}/></p>
+          </div>
         ) : (
           <div/>
         )}

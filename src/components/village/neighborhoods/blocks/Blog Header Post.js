@@ -43,7 +43,10 @@ export default class BlogHeaderPost extends React.Component {
            <section className="blog-header-post">
 
            {this.state.isLoading ? (
-             <Spinner/>
+             <div className="isloading">
+             <p><b><i>loading...</i></b></p>
+             <p><Spinner color="#ff0000" size={32}/></p>
+             </div>
            ) : (
              <section>
              <Row>

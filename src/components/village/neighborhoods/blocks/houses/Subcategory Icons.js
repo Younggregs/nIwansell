@@ -38,7 +38,10 @@ export default class SubcategoryIcons extends React.Component {
          return (
            <section className="sub-category-icons">
             {this.state.isLoading ? (
-              <Spinner/>
+              <div className="isloading">
+              <p><b><i>loading...</i></b></p>
+              <p><Spinner color="#ff0000" size={32}/></p>
+              </div>
             ) : (
               <Row>
                <Col smHidden xsHidden>

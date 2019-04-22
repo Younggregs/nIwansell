@@ -134,7 +134,10 @@ const formInstance = (
    <Row>
     <Col lg={2} lgOffset={4} md={2} mdOffset={4} sm={12} xs={12}>
     {this.state.isLoading ? (
-      <Spinner color="#ff0000" size={32}/>
+      <div className="isloading">
+      <p><b><i>loading...</i></b></p>
+      <p><Spinner color="#ff0000" size={32}/></p>
+      </div>
     ) : (
       <div/>
     )}

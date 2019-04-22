@@ -150,7 +150,10 @@ async getMarket(id){
                  {this.state.type ? (
                     <Col lg={4} lgOffset={4} md={4} mdOffset={4} sm={10} smOffset={1} xs={10} xsOffset={1}>
                    {this.state.isLoading ? (
-                      <Spinner/>
+                      <div className="isloading">
+                      <p><b><i>loading...</i></b></p>
+                      <p><Spinner color="#ff0000" size={32}/></p>
+                      </div>
                     ) : (
                       <div>
                       {this.emptyResult() ? (

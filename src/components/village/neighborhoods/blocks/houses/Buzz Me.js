@@ -45,7 +45,10 @@ export default class BuzzMe extends React.Component {
     return (
       <div>
         {this.state.isLoading ? (
-        <Spinner color="#ff0000" size={32}/>
+          <div className="isloading">
+          <p><b><i>loading...</i></b></p>
+          <p><Spinner color="#ff0000" size={32}/></p>
+          </div>
         ) : (
           <div/>
         )}

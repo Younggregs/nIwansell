@@ -121,7 +121,10 @@ export default class Trending extends React.Component {
          return (
            <section className="trending">
             {this.state.isLoading ? (
-                <Spinner/>
+                <div className="isloading">
+                <p><b><i>loading...</i></b></p>
+                <p><Spinner color="#ff0000" size={32}/></p>
+                </div>
               ) : (
                 <section>
                 <Col lg={12} md={12} smHidden xsHidden>
