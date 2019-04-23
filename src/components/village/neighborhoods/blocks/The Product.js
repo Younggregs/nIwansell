@@ -104,7 +104,8 @@ export default class TheProduct extends React.Component {
 
                         <Row>
                       <Col lg={6} md={6} smHidden xsHidden>
-                        <BuzzMe phone={this.state.productDetail.phone} />&nbsp;
+                        <BuzzMe phone = {this.state.productDetail.phone} 
+                                account_id = {this.state.productDetail.profile_id}/>&nbsp;
                       </Col>
                       <Col lg={6} md={6} smHidden xsHidden>
                       <Link to={`/hagglemates/${ this.state.productDetail.profile_id }`}>
@@ -117,7 +118,8 @@ export default class TheProduct extends React.Component {
 
                         <Row>
                       <Col lg={6} md={6} smHidden xsHidden>
-                        <BuzzMe phone={this.state.productDetail.phone}/>&nbsp;
+                        <BuzzMe phone={this.state.productDetail.phone}
+                                account_id = {this.state.productDetail.profile_id}/>&nbsp;
                       </Col>
                       </Row>
 
@@ -186,7 +188,8 @@ export default class TheProduct extends React.Component {
 
                         <Row>
                       <Col xs={6} sm={6} lgHidden mdHidden>
-                        <BuzzMe phone={this.state.productDetail.phone} />&nbsp;
+                        <BuzzMe phone={this.state.productDetail.phone} 
+                                account_id = {this.state.productDetail.profile_id}/>&nbsp;
                       </Col>
                       <Col xs={6} sm={6} lgHidden mdHidden>
                       <Link to={`/hagglemates/${ this.state.productDetail.profile_id }`}>
@@ -199,7 +202,8 @@ export default class TheProduct extends React.Component {
 
                         <Row>
                       <Col xs={6} sm={6} lgHidden mdHidden>
-                        <BuzzMe phone={this.state.productDetail.phone}/>&nbsp;
+                        <BuzzMe phone={this.state.productDetail.phone}
+                                account_id = {this.state.productDetail.profile_id}/>&nbsp;
                       </Col>
                       </Row>
 

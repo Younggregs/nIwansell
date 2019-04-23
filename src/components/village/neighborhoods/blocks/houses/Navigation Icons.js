@@ -143,7 +143,7 @@ export default class NavigationIcons extends React.Component {
 
               <Link to="/buyer_transaction_window">
                <Button bsStyle="danger">
-                 <span className="blink-me"> BUY IT </span>
+                 <span> BUY IT </span>
                </Button>
               </Link>
 

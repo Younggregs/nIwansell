@@ -28,7 +28,7 @@ export default class NavigationHeader extends React.Component {
                     <Col lgHidden mdHidden sm={3} xs={3}>
                   <Link to="/newproduct">
                   <Button bsStyle="success">
-                    <span className="blink-me"> SELL IT </span>
+                    <span> SELL IT </span>
                   </Button>
                  </Link>&nbsp;&nbsp;
                   </Col>
@@ -36,7 +36,7 @@ export default class NavigationHeader extends React.Component {
                   <Col lgHidden mdHidden sm={3} xs={3}>
                   <Link to="/buyer_transaction_window">
                   <Button bsStyle="danger">
-                    <span className="blink-me"> BUY IT </span>
+                    <span> BUY IT </span>
                   </Button>
                   </Link>&nbsp;&nbsp;
                   </Col>
@@ -46,7 +46,7 @@ export default class NavigationHeader extends React.Component {
                     <Col lgHidden mdHidden sm={3} xs={3}>
                   <Link to="/signup">
                   <Button bsStyle="success">
-                    <span className="blink-me"> SELL IT </span>
+                    <span> SELL IT </span>
                   </Button>
                  </Link>&nbsp;&nbsp;
                   </Col>
@@ -54,7 +54,7 @@ export default class NavigationHeader extends React.Component {
                   <Col lgHidden mdHidden sm={3} xs={3}>
                   <Link to="/signup">
                   <Button bsStyle="danger">
-                    <span className="blink-me"> BUY IT </span>
+                    <span> BUY IT </span>
                   </Button>
                   </Link>&nbsp;&nbsp;
                   </Col>

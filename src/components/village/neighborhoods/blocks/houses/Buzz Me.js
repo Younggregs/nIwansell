@@ -22,7 +22,7 @@ export default class BuzzMe extends React.Component {
 
 
     try {
-        const res = await fetch('https://www.iwansell.com/api/alternate_phone/', {
+        const res = await fetch('https://www.iwansell.com/api/alternate_phone_seller/' + this.props.account_id + '/', {
          headers : {
            'Authorization' : 'Token ' + auth
          }
