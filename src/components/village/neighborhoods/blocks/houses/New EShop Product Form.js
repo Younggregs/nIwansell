@@ -25,7 +25,10 @@ export default class NewEShopProductForm extends React.Component {
     subcategory: null,
     product_name: null,
     description: null,
-    starting_price: null
+    starting_price: null,
+    product_name_err: false,
+    description_err: false,
+    starting_price_err: false
   };
 
   async componentDidMount() {
@@ -107,13 +110,42 @@ this.setCategoryId(category_id);
 
 nextView(){
 
-  this.setState({
-    subcategory: document.getElementById("subcategory").value,
-    product_name: document.getElementById("product_name").value,
-    description: document.getElementById("description").value,
-    starting_price: document.getElementById("starting_price").value,
-    next_view: true
-  })
+    this.setState({ 
+      product_name_err: false,
+      description: false,
+      starting_price: false
+    })
+
+    var subcategory = document.getElementById("subcategory").value
+    var product_name = document.getElementById("product_name").value
+    var description = document.getElementById("description").value
+    var starting_price = document.getElementById("starting_price").value
+
+      if(product_name){
+
+        if(description){
+
+          if(starting_price){
+
+            this.setState({
+              subcategory: subcategory,
+              product_name: product_name,
+              description: description,
+              starting_price: starting_price,
+              next_view: true
+            })
+
+          }else{
+            this.setState({starting_price_err: true})
+          }
+
+        }else{
+          this.setState({description_err: true})
+        }
+
+      }else{
+        this.setState({product_name_err: true})
+      }
 
 }
 
@@ -172,16 +204,6 @@ async submitForm(){
 
 
 render(){
-function FieldGroup({ id, label, help, ...props }) {
-  return (
-    <FormGroup controlId={id}>
-      <ControlLabel>{label}</ControlLabel>
-      <FormControl {...props} />
-      {help && <HelpBlock>{help}</HelpBlock>}
-    </FormGroup>
-);
-}
-
 
 
 const formInstance = (
@@ -200,15 +222,15 @@ const formInstance = (
 <Heading title="Upload product to eshop"/>
 
 
-<Row>
-<Col lg={6} lgOffset={4} md={6} mdOffset={4} sm={12} xs={12}>
-<Link to="new_eshop_product">
-  <Button bsStyle="success">Add product to eshop</Button>
-</Link>
-</Col>
-</Row>
+  <Row>
+  <Col lg={6} lgOffset={4} md={6} mdOffset={4} sm={12} xs={12}>
+  <Link to="new_eshop_product">
+    <Button bsStyle="success">Add product to eshop</Button>
+  </Link>
+  </Col>
+  </Row>
 
-<br />
+  <br />
 
   <form>
   <FormGroup>
@@ -251,27 +273,47 @@ const formInstance = (
   </FormGroup>
 
 
-    <FieldGroup
-      id="product_name"
-      type="text"
-      label="Product Name"
-      name="product_name"
-      placeholder="e.g Samsung s6 edge"
-    />
+    <FormGroup>
+      <ControlLabel>Product Name
+      {this.state.product_name_err ? (
+      <span className="err-msg">
+       * product name required 
+      </span>
+    ) : (
+      <div/>
+    )}
+      </ControlLabel>
+      <FormControl placeholder="e.g Samsung s6 edge" id="product_name" name="product_name"/>
+    </FormGroup>
 
-    <p><b>Note: Image size should not be more than 2.5mb</b></p>
+
+  
     <FormGroup controlId="formControlsTextarea">
-      <ControlLabel>Describe Product</ControlLabel>
+      <ControlLabel>Describe Product
+      {this.state.description_err ? (
+      <span className="err-msg">
+       * description required 
+      </span>
+    ) : (
+      <div/>
+    )}
+      </ControlLabel>
       <FormControl componentClass="textarea" placeholder="e.g Gold plated, 64gb ROM, 3gb ROM, used ..." id="description" name="description"/>
     </FormGroup>
 
-      <FieldGroup
-        id="starting_price"
-        type="text"
-        label="Starting Price(Naira)"
-        name="starting_price"
-        placeholder="e.g 60k"
-      />
+      
+    <FormGroup>
+      <ControlLabel>Starting Price
+      {this.state.starting_price_err ? (
+      <span className="err-msg">
+       * starting price required 
+      </span>
+    ) : (
+      <div/>
+    )}
+      </ControlLabel>
+      <FormControl placeholder="e.g 70k" id="starting_price" name="starting_price"/>
+    </FormGroup>
 
 <Row>
    {this.state.message.error_message ? (
