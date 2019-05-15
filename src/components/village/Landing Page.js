@@ -158,13 +158,9 @@ async getMarket(id){
 
                 </form>
 
-                <br />
-                <Button bsStyle="success" onClick={this.school_set.bind(this)}>Continue to marketplace</Button>
-                <br /><br />
-
                 <Row>
                  {this.state.type ? (
-                    <Col lg={12}  md={12}  sm={10} smOffset={1} xs={10} xsOffset={1}>
+                    <Col lg={12}  md={12} sm={10} smOffset={1} xs={10} xsOffset={1}>
                    {this.state.isLoading ? (
                       <Spinner/>
                     ) : (
@@ -198,9 +194,13 @@ async getMarket(id){
                  )}
 
                 </Row>
+
+                <br />
+                <Button bsStyle="success" onClick={this.school_set.bind(this)}>Continue to marketplace</Button>
+                <br /><br />
                 
                 <Row>
-                <Col lg={12} md={12} sm={10} smOffset={1} xs={10} xsOffset={1}>
+                <Col lg={12} md={12} sm={12} xs={12}>
                   <WelcomeMessage/>
                   <Button bsStyle="success" onClick={this.school_set.bind(this)}>Continue to marketplace</Button><br /><br />
                 </Col>
@@ -233,12 +233,11 @@ async getMarket(id){
                </Row>
 
              <CategorySlide/>
-             <GotoTop/>
-             <Footer logged_in={false}/>
               </div>
              )}
 
-             
+             <GotoTop/>
+             <Footer logged_in={false}/>
              <Copyright/>
 
            </div>
