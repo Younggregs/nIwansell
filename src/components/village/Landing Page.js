@@ -159,7 +159,7 @@ async getMarket(id){
                 </form>
 
                 <br />
-                <Button bsStyle="success" onClick={this.setSchool.bind(this)}>Continue to marketplace</Button>
+                <Button bsStyle="success" onClick={this.school_set.bind(this)}>Continue to marketplace</Button>
                 <br /><br />
 
                 <Row>
@@ -202,7 +202,7 @@ async getMarket(id){
                 <Row>
                 <Col lg={12} md={12} sm={10} smOffset={1} xs={10} xsOffset={1}>
                   <WelcomeMessage/>
-                  <Button bsStyle="success" onClick={this.setSchool.bind(this)}>Continue to marketplace</Button><br /><br />
+                  <Button bsStyle="success" onClick={this.school_set.bind(this)}>Continue to marketplace</Button><br /><br />
                 </Col>
                 </Row>
 
