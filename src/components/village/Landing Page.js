@@ -12,6 +12,8 @@ import Heading from './neighborhoods/blocks/houses/Heading'
 import Footer from './neighborhoods/Footer'
 import GotoTop from './neighborhoods/blocks/houses/Goto Top'
 import Copyright from './neighborhoods/blocks/houses/Copyright'
+import WelcomeMessage from './neighborhoods/blocks/houses/Welcome Message'
+import SigninForm from './neighborhoods/blocks/houses/Signin Form.js';
 import {setMarket, setCampusId} from './neighborhoods/blocks/houses/auth/Auth'
 
 
@@ -20,7 +22,7 @@ export default class LandingPage extends React.Component {
    isLoading: false,
    type: false,
    campuslist: [],
-   show_school: false,
+   show_school: true,
    campus_id: 1,
 
  }
@@ -36,7 +38,7 @@ export default class LandingPage extends React.Component {
      formData.append('key_word', key_word)
 
      try {
-       const res = await fetch('http://www.iwansell.com/api/campus_search/', {
+       const res = await fetch('https://www.iwansell.com/api/campus_search/', {
 
          body :formData,
          method: 'POST',
@@ -131,7 +133,19 @@ async getMarket(id){
             </Row><br />
 
             <Row>
-              <Col lg={4} lgOffset={4} md={4} mdOffset={4} sm={10} smOffset={1} xs={10} xsOffset={1}>
+              <div className="login-appname">
+                <p className="welcome-text">Welcome To Iwansell!</p>
+              </div>
+            </Row>
+
+            
+
+            <Row>
+              <Col lg={4} md={4} smHidden xsHidden>
+                  <br /><SigninForm/>
+              </Col>
+              <Col lg={7} md={7} sm={10} smOffset={1} xs={10} xsOffset={1}>
+              
               <form>
               <Heading title="Select Campus"/>
               <FormControl
@@ -143,17 +157,16 @@ async getMarket(id){
                   onChange={this.getCampusList.bind(this)}/>
 
                 </form>
-              </Col>
-            </Row>
 
-                 <Row>
+                <br />
+                <Button bsStyle="success" onClick={this.setSchool.bind(this)}>Continue to marketplace</Button>
+                <br /><br />
+
+                <Row>
                  {this.state.type ? (
-                    <Col lg={4} lgOffset={4} md={4} mdOffset={4} sm={10} smOffset={1} xs={10} xsOffset={1}>
+                    <Col lg={12}  md={12}  sm={10} smOffset={1} xs={10} xsOffset={1}>
                    {this.state.isLoading ? (
-                      <div className="isloading">
-                      <p><b><i>loading...</i></b></p>
-                      <p><Spinner color="#ff0000" size={32}/></p>
-                      </div>
+                      <Spinner/>
                     ) : (
                       <div>
                       {this.emptyResult() ? (
@@ -185,6 +198,19 @@ async getMarket(id){
                  )}
 
                 </Row>
+                
+                <Row>
+                <Col lg={12} md={12} sm={10} smOffset={1} xs={10} xsOffset={1}>
+                  <WelcomeMessage/>
+                  <Button bsStyle="success" onClick={this.setSchool.bind(this)}>Continue to marketplace</Button><br /><br />
+                </Col>
+                </Row>
+
+              </Col>
+            </Row>
+            
+
+
                </Grid>
                </div>
              ) : (
@@ -207,13 +233,12 @@ async getMarket(id){
                </Row>
 
              <CategorySlide/>
+              </div>
+             )}
+
              <GotoTop/>
              <Footer logged_in={false}/>
              <Copyright/>
-              </div>
-             )
-
-             }
 
            </div>
          )

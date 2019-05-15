@@ -831,6 +831,16 @@ img{
   font-size: .89em;
 }
 
+.welcome-message{
+  font-size: 1.4em;
+  color: black;
+  text-align: left;
+}
+
+.welcome-text{
+  font-size:1.5em;
+}
+
 
 .welcome-text-lg{
   font-size: 1.9em;
