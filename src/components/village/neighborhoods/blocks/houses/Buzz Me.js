@@ -17,17 +17,21 @@ export default class BuzzMe extends React.Component {
 
   async componentWillMount(){
     this.setState({ isLoading: true})
-    const auth = localStorage.getItem('auth_code')
-
-
+    
 
     try {
-        const res = await fetch('https://www.iwansell.com/api/alternate_phone_seller/' + this.props.account_id + '/', {
-         headers : {
-           'Authorization' : 'Token ' + auth
-         }
+        const res = await fetch('https://www.iwansell.com/api/alternate_phone_seller/' + this.props.account_id)
+        const phone = await res.json();
+          this.setState({
+            phone
+          });
   
-        })
+      } catch (e) {
+        console.log(e);
+      }
+
+      try {
+        const res = await fetch('https://www.iwansell.com/api/alternate_phone_seller/' + this.props.account_id)
         const phone = await res.json();
           this.setState({
             phone

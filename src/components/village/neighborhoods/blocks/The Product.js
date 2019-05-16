@@ -80,12 +80,12 @@ export default class TheProduct extends React.Component {
                     <Row>
                     
                     <Col lg={3} md={3} smHidden xsHidden>
-                     <Link to={`/profile/${ this.state.productDetail.profile_id } `}>
+                     <Link to={`/profile/${ this.state.productDetail.profile_id }`}>
                       <Image alt="client's-image" circle responsive  src= { `${this.state.dp}` }/>
                      </Link>
                     </Col>
                     <Col lg={6} md={6} smHidden xsHidden>
-                     <Link to={`/profile/${ this.state.productDetail.profile_id } `}>
+                     <Link to={`/profile/${ this.state.productDetail.profile_id }`}>
                       {this.state.productDetail.firstname} {this.state.productDetail.lastname} 
                      </Link>
                     </Col>
@@ -158,12 +158,12 @@ export default class TheProduct extends React.Component {
                     <Row>
                     
                     <Col sm={3} xs={3}>
-                    <Link to={`/profile/${ this.state.productDetail.profile_id } `}>
+                    <Link to={`/profile/${ this.state.productDetail.profile_id }`}>
                       <Image alt="client's-image" circle responsive  src= { `${this.state.dp}` }/>
                     </Link>
                     </Col>
                     <Col sm={6} xs={6}>
-                     <Link to={`/profile/${ this.state.productDetail.profile_id } `}>
+                     <Link to={`/profile/${ this.state.productDetail.profile_id }`}>
                       {this.state.productDetail.firstname} {this.state.productDetail.lastname} 
                      </Link>
                       </Col>
