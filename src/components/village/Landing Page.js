@@ -1,5 +1,5 @@
 import React from 'react'
-import { Grid,Row,Col, Form, FormGroup,FormControl, Button } from 'react-bootstrap'
+import { Grid,Row,Col, FormGroup,FormControl, Button } from 'react-bootstrap'
 import Spinner from 'react-activity/lib/Spinner';
 import 'react-activity/lib/Spinner/Spinner.css';
 import Navigation from './neighborhoods/Navigation'
@@ -13,7 +13,7 @@ import Footer from './neighborhoods/Footer'
 import GotoTop from './neighborhoods/blocks/houses/Goto Top'
 import Copyright from './neighborhoods/blocks/houses/Copyright'
 import WelcomeMessage from './neighborhoods/blocks/houses/Welcome Message'
-import SigninForm from './neighborhoods/blocks/houses/Signin Form.js';
+import SignupForm from './neighborhoods/blocks/houses/Signup Form.js';
 import {setMarket, setCampusId} from './neighborhoods/blocks/houses/auth/Auth'
 
 
@@ -142,7 +142,7 @@ async getMarket(id){
 
             <Row>
               <Col lg={4} md={4} smHidden xsHidden>
-                  <br /><SigninForm/>
+                  <br /><SignupForm/>
               </Col>
               <Col lg={7} md={7} sm={10} smOffset={1} xs={10} xsOffset={1}>
               
