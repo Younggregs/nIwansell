@@ -42,7 +42,7 @@ export default class Home extends React.Component {
     }
 
 
-    /*try {
+    try {
       const res = await fetch('https://www.iwansell.com/api/get_campus/',{
 
        credentials: 'same-origin',
@@ -57,22 +57,26 @@ export default class Home extends React.Component {
         campus_id
       });
       setCampusId(campus_id)
+      setCampusId(campus_id)
     } catch (e) {
       console.log(e);
-    }*/
+    }
+    setCampusId(this.state.campus_id)
     setCampusId(this.state.campus_id)
 
 
-      /*try {
+      try {
         const res = await fetch('https://www.iwansell.com/api/campus_code/' + this.state.campus_id + '/');
         const market = await res.json();
         this.setState({
           market
         });
         setMarket(market)
+        setMarket(market)
       } catch (e) {
         console.log(e);
-      }*/
+      }
+      setMarket(this.state.market)
       setMarket(this.state.market)
 
 
