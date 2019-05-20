@@ -18,7 +18,7 @@ export default class Home extends React.Component {
     market: "FUTminna"
   }
 
-  async componentWillMount() {
+  async componentDidMount() {
     const auth = localStorage.getItem('auth_code')
     console.log(auth)
 
@@ -57,12 +57,12 @@ export default class Home extends React.Component {
         campus_id
       });
       setCampusId(campus_id)
-      setCampusId(campus_id)
+      
     } catch (e) {
       console.log(e);
     }
     setCampusId(this.state.campus_id)
-    setCampusId(this.state.campus_id)
+ 
 
 
       try {
@@ -72,12 +72,12 @@ export default class Home extends React.Component {
           market
         });
         setMarket(market)
-        setMarket(market)
+        
       } catch (e) {
         console.log(e);
       }
       setMarket(this.state.market)
-      setMarket(this.state.market)
+     
 
 
 

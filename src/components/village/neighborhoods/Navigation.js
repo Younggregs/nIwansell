@@ -15,7 +15,7 @@ export default class Navigation extends React.Component {
     campus_id: 1
   }
 
-  async componentWillMount() {
+  async componentDidMount() {
 
     const auth = localStorage.getItem('auth_code')
 

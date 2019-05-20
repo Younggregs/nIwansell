@@ -94,7 +94,7 @@ school_set(){
 
 setSchool(id){
     setCampusId(id)
-    setCampusId(id)
+   
 
     this.setState({ campus_id: id})
     this.getMarket(id)
@@ -116,10 +116,7 @@ async getMarket(id){
     });
       setMarket(market)
 
-    this.setState({
-        market: market
-    });
-    setMarket(market)
+    
 
   } catch (e) {
     console.log(e);
