@@ -234,12 +234,11 @@ async getMarket(id){
                </Row>
 
              <CategorySlide/>
-              </div>
-             )}
-
              <GotoTop/>
              <Footer logged_in={false}/>
-             <Copyright/>
+              </div>
+             )}
+             <br /><br /><br /><Copyright/>
 
            </div>
          )
