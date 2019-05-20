@@ -150,7 +150,7 @@ export default class CategoryProduct extends React.Component {
                  <section className="product-image">
                  <div class="image">
 
-                    <Image src={ require ('./houses/images/empty.png') } alt="product_image"/>
+                 <Link to="/signup"><Image src={ require ('./houses/images/empty.png') } alt="product_image"/></Link>
                    )}
                   </div>
                   </section>
@@ -238,7 +238,7 @@ export default class CategoryProduct extends React.Component {
 
                 <div>
                 {this.emptyResult() ? (
-                 <Thumbnail alt="product-image" src={ require ('./houses/images/empty.png') } />
+                 <Link to="/signup"><Thumbnail alt="product-image" src={ require ('./houses/images/empty.png') } /></Link>
               ) : (
 
                 <div id="main-sm">

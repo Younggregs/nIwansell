@@ -136,7 +136,7 @@ export default class Trending extends React.Component {
                   <section className="product-image">
                   <div class="image">
 
-                     <Image src={ require ('./blocks/houses/images/empty.png') } alt="product_image"/>
+                  <Link to="/signup"><Image src={ require ('./blocks/houses/images/empty.png') } alt="product_image"/></Link>
                     )}
                    </div>
                 </section>
@@ -180,7 +180,7 @@ export default class Trending extends React.Component {
                   <section className="product-image">
                   <div class="image">
 
-                     <Image src={ require ('./blocks/houses/images/empty1.png') } alt="product_image"/>
+                  <Link to="/signup"><Image src={ require ('./blocks/houses/images/empty1.png') } alt="product_image"/></Link>
                     )}
                    </div>
                 </section>
@@ -225,7 +225,7 @@ export default class Trending extends React.Component {
                   <section className="product-image">
                   <div class="image">
 
-                     <Image src={ require ('./blocks/houses/images/empty2.png') } alt="product_image"/>
+                  <Link to="/signup"><Image src={ require ('./blocks/houses/images/empty2.png') } alt="product_image"/></Link>
                     )}
                    </div>
                 </section>
@@ -265,7 +265,7 @@ export default class Trending extends React.Component {
                   <section className="product-image">
                   <div class="image">
 
-                     <Image src={ require ('./blocks/houses/images/empty3.png') } alt="product_image"/>
+                  <Link to="/signup"><Image src={ require ('./blocks/houses/images/empty3.png') } alt="product_image"/></Link>
                     )}
                    </div>
                 </section>
@@ -305,7 +305,7 @@ export default class Trending extends React.Component {
                   <section className="product-image">
                     <div class="image">
 
-                       <Image src={ require ('./blocks/houses/images/empty4.png') } alt="product_image"/>
+                    <Link to="/signup"><Image src={ require ('./blocks/houses/images/empty4.png') } alt="product_image"/></Link>
                       )}
                      </div>
                   </section>
@@ -349,7 +349,7 @@ export default class Trending extends React.Component {
               <Heading title = {this.trending_1} trending={true}/>
 
               {this.emptyResult(this.state.trendList_1) ? (
-                 <img  height="100" width="auto" src={ require ('./blocks/houses/images/empty.png') } alt="thumbnail"/>
+                 <Link to="/signup"><img  height="100" width="auto" src={ require ('./blocks/houses/images/empty.png') } alt="thumbnail"/></Link>
                 ): (
 
               <div class="scrolling-wrapper">
@@ -379,7 +379,7 @@ export default class Trending extends React.Component {
               <Heading title = {this.trending_2} trending={true}/>
 
               {this.emptyResult(this.state.trendList_2) ? (
-                   <img  height="100" width="auto" src={ require ('./blocks/houses/images/empty1.png') } alt="thumbnail"/>
+                   <Link to="/signup"><img  height="100" width="auto" src={ require ('./blocks/houses/images/empty1.png') } alt="thumbnail"/></Link>
                 ): (
 
 
@@ -413,7 +413,7 @@ export default class Trending extends React.Component {
               <Heading title = {this.trending_3} trending={true}/>
 
               {this.emptyResult(this.state.trendList_3) ? (
-                   <img  height="100" width="auto" src={ require ('./blocks/houses/images/empty2.png') } alt="thumbnail"/>
+                   <Link to="/signup"><img  height="100" width="auto" src={ require ('./blocks/houses/images/empty2.png') } alt="thumbnail"/></Link>
                 ): (
 
               <div class="scrolling-wrapper">
@@ -444,7 +444,7 @@ export default class Trending extends React.Component {
               <Heading title = {this.trending_4} trending={true}/>
 
               {this.emptyResult(this.state.trendList_4) ? (
-                   <img  height="100" width="auto" src={ require ('./blocks/houses/images/empty3.png') } alt="thumbnail"/>
+                   <Link to="/signup"><img  height="100" width="auto" src={ require ('./blocks/houses/images/empty3.png') } alt="thumbnail"/></Link>
                 ): (
 
               <div class="scrolling-wrapper">
@@ -479,7 +479,7 @@ export default class Trending extends React.Component {
               <Heading title = {this.trending_5} trending={true}/>
 
               {this.emptyResult(this.state.trendList_5) ? (
-                   <img  height="100" width="auto" src={ require ('./blocks/houses/images/empty4.png') } alt="thumbnail"/>
+                   <Link to="/signup"><img  height="100" width="auto" src={ require ('./blocks/houses/images/empty4.png') } alt="thumbnail"/></Link>
                 ): (
 
               <div class="scrolling-wrapper">

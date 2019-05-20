@@ -1,5 +1,6 @@
 import React from 'react'
-import { Grid,Row,Col, FormGroup,FormControl, Button } from 'react-bootstrap'
+import { Link } from 'react-router-dom';
+import { Grid, Row, Col } from 'react-bootstrap'
 import Spinner from 'react-activity/lib/Spinner';
 import 'react-activity/lib/Spinner/Spinner.css';
 import Navigation from './neighborhoods/Navigation'
@@ -12,7 +13,6 @@ import Heading from './neighborhoods/blocks/houses/Heading'
 import Footer from './neighborhoods/Footer'
 import GotoTop from './neighborhoods/blocks/houses/Goto Top'
 import Copyright from './neighborhoods/blocks/houses/Copyright'
-import WelcomeMessage from './neighborhoods/blocks/houses/Welcome Message'
 import SignupForm from './neighborhoods/blocks/houses/Signup Form.js';
 import {setMarket, setCampusId} from './neighborhoods/blocks/houses/auth/Auth'
 
@@ -20,12 +20,40 @@ import {setMarket, setCampusId} from './neighborhoods/blocks/houses/auth/Auth'
 export default class LandingPage extends React.Component {
  state = {
    isLoading: false,
+   isLoading2: false,
    type: false,
    campuslist: [],
    show_school: true,
    campus_id: 1,
-
  }
+
+
+ async componentDidMount() {
+
+  try{
+    if (this.props.match.params.campus_id){
+      this.setSchool(this.props.match.params.campus_id)
+    }
+  }catch (e){
+    this.setState({ isLoading2: true})
+    try {
+    const res = await fetch('https://www.iwansell.com/api/campus/');
+    const campuslist = await res.json();
+    this.setState({
+      campuslist
+    });
+  } catch (e) {
+    console.log(e);
+  }
+
+  this.setState({ isLoading2: false})
+  }
+
+  
+
+  
+}
+
 
 
  async getCampusList() {
@@ -63,15 +91,18 @@ school_set(){
 }
 
 
-setSchool(){
-    var id = document.getElementById("campus_id").value
+setSchool(id){
     setCampusId(id)
 
     this.setState({ campus_id: id})
+    this.getMarket(id)
+
     this.school_set()
 
-    this.getMarket(id)
+    
 }
+
+
 
 async getMarket(id){
   try {
@@ -79,7 +110,7 @@ async getMarket(id){
     const market = await res.json();
 
     this.setState({
-      market
+      market: market
     });
       setMarket(market)
   } catch (e) {
@@ -146,65 +177,35 @@ async getMarket(id){
               </Col>
               <Col lg={7} md={7} sm={10} smOffset={1} xs={10} xsOffset={1}>
               
-              <form>
-              <Heading title="Select Campus"/>
-              <FormControl
-                  type="text"
-                  id="key_word"
-                  name="key_word"
-                  placeholder="Start typing, e.g Futminna"
-                  size="50"
-                  onChange={this.getCampusList.bind(this)}/>
-
-                </form>
-
-                <Row>
-                 {this.state.type ? (
-                    <Col lg={12}  md={12} sm={10} smOffset={1} xs={10} xsOffset={1}>
-                   {this.state.isLoading ? (
-                      <Spinner/>
+              <div className="welcome-message">
+               <br /><p>Iwansell is a place to buy and sell on a campus.</p><br />
+                <p>We have opened up Iwansell for popular consumption in these campuses:</p>
+              </div>
+                
+                   {this.state.isLoading2 ? (
+                       <div>
+                       <p><b><i>Fetching Campus</i></b></p>
+                       <p><Spinner color="#ff0000" size={32}/></p>
+                       </div>
                     ) : (
-                      <div>
-                      {this.emptyResult() ? (
-                        <p className="err-msg">Campus not available yet, we are working on it</p>
-                      ) : (
-                        <form>
-                          <FormGroup>
-                         <FormControl componentClass="select" placeholder="select" id="campus_id" name="campus_id">
+                    
+                      <div className="campus-list">
                          {this.state.campuslist.map(item => (
-                          <option value={item.id}>{item.campus_code}</option>
-                          ))}
-                         </FormControl>
-                       </FormGroup>
-
-                       <FormGroup>{' '}
-                      <Button bsStyle="success" onClick={this.setSchool.bind(this)}>continue</Button>
-                        </FormGroup>{' '}
-                        </form>
-
-                      )}
-
-                  </div>
+                         <span><Link to={`/iwansell/${ item.id } `}>{item.campus_code}</Link></span>
+                        ))}
+                     
+                      </div>
 
                   )}
-                    </Col>
-
-                 ) : (
-                   <div></div>
-                 )}
-
-                </Row>
-
-                <br />
-                <Button bsStyle="success" onClick={this.school_set.bind(this)}>Continue to marketplace</Button>
-                <br /><br />
-                
-                <Row>
-                <Col lg={12} md={12} sm={12} xs={12}>
-                  <WelcomeMessage/>
-                  <Button bsStyle="success" onClick={this.school_set.bind(this)}>Continue to marketplace</Button><br /><br />
-                </Col>
-                </Row>
+                  <div className="welcome-message">
+                  <br /><p>You can use Iwansell to :</p>
+                    <ul>
+                      <li><b>Sell</b> anything you want</li>
+                      <li><b>Buy</b> anything you can find</li>
+                      <li>Rent online stores<b>(eShops)</b></li>
+                      <li>Carry out market valuation using <b>Business Mode</b></li>
+                      </ul><br />
+                    </div>
 
               </Col>
             </Row>
@@ -233,15 +234,12 @@ async getMarket(id){
                </Row>
 
              <CategorySlide/>
-             <GotoTop/>
-             <Footer logged_in={false}/>
-             
               </div>
              )}
 
+             <GotoTop/>
+             <Footer logged_in={false}/>
              <Copyright/>
-
-             
 
            </div>
          )

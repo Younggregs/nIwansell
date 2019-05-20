@@ -837,6 +837,20 @@ img{
   text-align: left;
 }
 
+.campus-list{
+  font-size: 1.4em;
+  color: blue;
+  word-spacing: 4em;
+  text-align: center;
+}
+
+.campus-list a{
+  word-spacing: 5em;
+  color: blue;
+  padding-right: 30px;
+  font-weight: 'bold';
+}
+
 .welcome-text{
   font-size:1.5em;
 }

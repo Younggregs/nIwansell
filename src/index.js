@@ -65,6 +65,7 @@ import AuthTest from './components/village/Auth Test';
                 <Route exact path="/auth_test" component={AuthTest}/>
                 <Route exact path="/" component={Welcome}/>
                 <Route exact path="/iwansell" component={LandingPage}/>
+                <Route exact path="/iwansell/:campus_id" component={LandingPage}/>
                 <Route exact path="/home" component={Home}/>
                 <Route exact path="/signin" component={Signin}/>
                 <Route exact path="/signup" component={Signup}/>

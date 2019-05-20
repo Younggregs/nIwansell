@@ -19,10 +19,10 @@ export default class Navigation extends React.Component {
 
     const auth = localStorage.getItem('auth_code')
 
-    /*if(this.props.market){
+    if(this.props.market){
       this.setState({market: this.props.market, campus_id: this.props.campus_id})
     }else{this.setState({market: localStorage.getItem('market'), campus_id: localStorage.getItem('campus_id')})}
-    */
+    
       if(this.props.logged_in){
         try {
           const res = await fetch('https://www.iwansell.com/api/myaccount_id/', {

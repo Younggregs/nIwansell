@@ -173,6 +173,7 @@ const formInstance = (
         )}
         </p>
     <FormControl componentClass="select" placeholder="select" name="campus" id="campus">
+                    <option value={1}>Select Campus</option>
                    {this.state.campuslist.map(item => (
                     <option value={item.id}>{item.campus_code}</option>
                     ))}
