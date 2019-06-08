@@ -4,34 +4,7 @@ import {  Table, Image } from 'react-bootstrap'
 
 export default class MenuList extends React.Component {
 
-  state = {
-    eshop_exist : false,
-  }
-
-
-  async componentWillMount(){
-
-  const auth = localStorage.getItem('auth_code')
-
-  try {
-    const res = await fetch('https://www.iwansell.com/api/eshop_exist/', {
-
-      headers : {
-        'Authorization' : 'Token ' + auth,
-
-      },
-
-    });
-    const eshop_exist = await res.json();
-    this.setState({
-      eshop_exist
-    });
-  } catch (e) {
-    console.log(e);
-  }
-
-}
-
+ 
        render() {
          return (
            <section className="menu_list">
@@ -47,37 +20,11 @@ export default class MenuList extends React.Component {
                 </Link></td>
             </tr>
 
-
              <tr>
              <td><Link to = "/product_valuation">
                Business Mode
              </Link></td>
              </tr>
-
-             {this.state.eshop_exist.eshop_exist ? (
-              <div/>
-             ) : (
-              <tr>
-              <td><Link to = "/new_eshop">
-                Rent an e-shop
-              </Link></td>
-              </tr>
-             )}
-
-            <tr>
-            <td><Link to = "/newproduct">
-              Upload item for sell
-            </Link></td></tr>
-
-            <tr>
-            <td><Link to = "/productmanager">
-              Sell your item
-            </Link></td></tr>
-
-            <tr>
-            <td><Link to = "/buyer_transaction_window">
-              Buy an item
-            </Link></td></tr>
 
           <tr>
             <td><Link to="/why_us">Why Us

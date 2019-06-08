@@ -4,6 +4,8 @@ import Footer from './neighborhoods/Footer'
 import GotoTop from './neighborhoods/blocks/houses/Goto Top'
 import Copyright from './neighborhoods/blocks/houses/Copyright'
 import ProductDescription from './neighborhoods/Product Description'
+import NavigationHeader from './neighborhoods/blocks/Navigation Header'
+import Post from './neighborhoods/blocks/houses/Post'
 
 export default class ProductDetails extends React.Component {
 
@@ -45,13 +47,16 @@ export default class ProductDetails extends React.Component {
 
       render() {
         return (
-           <div className="product-details">
-             <Navigation logged_in = {this.state.response}/>
-             <ProductDescription product_id={this.props.match.params.product_id} logged_in = {this.state.response}/>
+           <section>
+             <div className="search-page">
+                <NavigationHeader/>
+                <Post logged_in = {this.state.response}/>
+                <ProductDescription product_id={this.props.match.params.product_id} logged_in = {this.state.response}/>
+             </div> 
              <GotoTop/>
              <Footer/>
              <Copyright/>
-           </div>
+           </section>
          )
      }
 }

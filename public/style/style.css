@@ -471,7 +471,7 @@ td{
 }
 
 .search-page{
-  height: 100vh;
+  min-height: 100vh;
 }
 
 .ratings-reviews{
@@ -947,6 +947,9 @@ img{
   color: blue;
   word-spacing: 4em;
   text-align: center;
+  padding: 10px;
+  word-wrap: break-word;
+
 }
 
 
@@ -955,6 +958,7 @@ img{
   color: blue;
   padding-right: 30px;
   font-weight: 'bold';
+  word-wrap: break-word;
 }
 
 .new-campus-list{

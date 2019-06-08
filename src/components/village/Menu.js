@@ -9,7 +9,7 @@ export default class Menu extends React.Component {
 
 
   state = {
-    account_id: null
+    islogged_in: false
   }
 
 
@@ -17,24 +17,26 @@ export default class Menu extends React.Component {
 
 
     const auth = localStorage.getItem('auth_code')
-
+  
     try {
-        const res = await fetch('https://www.iwansell.com/api/get_account/',{
+      const res = await fetch('https://www.iwansell.com/api/isloggedin/', {
+      
+       credentials: 'same-origin',
+       mode: 'cors',
+       headers : {
+         'Authorization' : 'Token ' + auth
+       }
 
-         credentials: 'same-origin',
-         mode: 'cors',
-         headers : {
-           'Authorization' : 'Token ' + auth
-         },
-
-        });
-        const account_id = await res.json();
-        this.setState({
-          account_id
-        });
-      } catch (e) {
-        console.log(e);
-      }
+      })
+      .then(response => {
+        if (response.status === 200) {
+            this.setState({ islogged_in: true })
+        }
+      })
+  
+    } catch (e) {
+      console.log(e);
+    }
 
 
 
@@ -45,8 +47,8 @@ export default class Menu extends React.Component {
         return (
            <div className="profile">
              <NavigationHeader market={this.state.market}/>
-             <Post logged_in={this.props.logged_in} campus_id = {this.state.campus_id}/> 
-             <MenuList logged_in = {this.state.loggedin}/>
+             <Post logged_in={this.state.islogged_in} campus_id = {this.state.campus_id}/> 
+             <MenuList logged_in = {this.state.islogged_in}/>
            </div>
          )
      }
