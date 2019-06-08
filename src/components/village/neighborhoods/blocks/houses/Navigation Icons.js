@@ -104,63 +104,63 @@ export default class NavigationIcons extends React.Component {
 
          return (
            <section className="ehaggler-icon">
-              <Col lg={2} md={2} smHidden xsHidden>
-              <Link to="/newproduct">
-                <Button bsStyle="success">
-                  Sell it
-                </Button>
-               </Link>&nbsp;&nbsp;
 
+            <Col lg={2} md={2} smHidden xsHidden>
              <Link to={`/profile/${ this.props.account_id }`}>
              <OverlayTrigger placement="left" overlay={profile}>
-                <span className="glyphs"><Glyphicon glyph="user"/></span>
+                <span className="glyphs"><Glyphicon glyph="user" style={{ fontSize: 20}} /></span>
              </OverlayTrigger>
              </Link>&nbsp;&nbsp;
+             </Col>
 
 
+             <Col lg={2} md={2} smHidden xsHidden>
              <Link to="/hagglemates">
              <OverlayTrigger placement="bottom" overlay={ehaggler}>
-                <span className="glyphs"><Glyphicon glyph="envelope"/>
+                <span className="glyphs">
                 {this.state.unread_msgs.code ? (
                   <sup><Badge>{this.state.unread_msgs.code}</Badge></sup>
-                ) :(
-                  <span></span>
+                ) : (
+                  <span/>
                 )}
+                <Glyphicon glyph="envelope" style={{ fontSize: 20}}/>
                   </span>
                </OverlayTrigger>
              </Link>&nbsp;&nbsp;
+             </Col>
 
 
+            <Col lg={2} md={2} smHidden xsHidden>
               {this.state.have_eshop ? (
                 <Link to={`/eshop/${ this.state.eshop_id }`}>
                   <OverlayTrigger placement="right" overlay={eshop}>
-                 <span className="glyphs"><Glyphicon glyph="home"/></span>
+                 <span className="glyphs"><Glyphicon glyph="home" style={{ fontSize: 20}}/></span>
                   </OverlayTrigger>
                </Link>
               ): (
                 <span></span>
               )}
-
-              <Link to="/buyer_transaction_window">
-               <Button bsStyle="danger">
-                 <span> BUY IT </span>
-               </Button>
-              </Link>
-
-
              </Col>
 
 
             <div className="sm-nav-glyphs">
-             <Col sm={2} xs={2} lgHidden mdHidden>
+             <Col sm={3} xs={3} lgHidden mdHidden>
              <Link to={`/profile/${ this.props.account_id }`}>
                 <span className="glyphs"><Glyphicon glyph="user"/></span>
              </Link>
              </Col>
 
-             <Col sm={2} xs={2} lgHidden mdHidden>
+             <Col sm={3} xs={3} lgHidden mdHidden>
              <Link to="/hagglemates">
-                <span className="glyphs"><Glyphicon glyph="envelope"/><sup>{this.state.unread_msgs.code}</sup></span>
+                <span className="glyphs">
+                {this.state.unread_msgs.code ? (
+                  <sup><Badge>{this.state.unread_msgs.code}</Badge></sup>
+                ) : (
+                  <span/>
+                )}
+                <Glyphicon glyph="envelope"/>
+                </span>
+                
              </Link>
              </Col>
 
@@ -173,15 +173,6 @@ export default class NavigationIcons extends React.Component {
              ) : (
                  <span></span>
              )}
-
-
-
-
-             <Col sm={2} xs={2} lgHidden mdHidden>
-             <Link to='/menu'>
-              <span className="glyphs"><Glyphicon glyph="menu-hamburger"/></span>
-             </Link>
-             </Col>
 
 
              </div>
