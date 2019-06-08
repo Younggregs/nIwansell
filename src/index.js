@@ -54,6 +54,8 @@ import BankAccount from './components/village/Bank Account'
 import ViewMore from './components/village/View More'
 import MediaUpload from './components/village/Media Upload'
 import SearchPage from './components/village/Search Page'
+import PrivacyPolicy from './components/village/Privacy Policy'
+import Disclaimer from './components/village/Disclaimer'
 import Logout from './components/village/Logout'
 import AuthTest from './components/village/Auth Test';
 import About from './components/village/About'
@@ -122,6 +124,8 @@ import About from './components/village/About'
                 <Route exact path="/view_more" component={ViewMore}/>
                 <Route exact path="/media_upload/:product_id" component={MediaUpload}/>
                 <Route exact path="/search_page" component={SearchPage}/>
+                <Route exact path="/privacy_policy" component={PrivacyPolicy}/>
+                <Route exact path="/disclaimer" component={Disclaimer}/>
                 <Route exact path="/about" component={About}/>
                 <Route exact path="/logout" component={Logout}/>
               </div>
