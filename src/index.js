@@ -56,7 +56,8 @@ import MediaUpload from './components/village/Media Upload'
 import SearchPage from './components/village/Search Page'
 import Logout from './components/village/Logout'
 import AuthTest from './components/village/Auth Test';
-import Search from './components/village/Search Page';
+import About from './components/village/About'
+
 
 
     class App extends React.Component {
@@ -121,6 +122,7 @@ import Search from './components/village/Search Page';
                 <Route exact path="/view_more" component={ViewMore}/>
                 <Route exact path="/media_upload/:product_id" component={MediaUpload}/>
                 <Route exact path="/search_page" component={SearchPage}/>
+                <Route exact path="/about" component={About}/>
                 <Route exact path="/logout" component={Logout}/>
               </div>
             </Router>
