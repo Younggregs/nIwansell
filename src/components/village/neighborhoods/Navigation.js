@@ -1,11 +1,9 @@
 import React from 'react'
-import { Row,Col } from 'react-bootstrap'
-import AppName from './blocks/houses/App Name'
-import NavigationIcons from './blocks/houses/Navigation Icons'
-import SigninSignup from './blocks/houses/Signin Signup'
-import SearchField from './blocks/houses/Search Field'
+import { Row } from 'react-bootstrap'
 import UpperNavigation from './blocks/Upper Navigation'
 import NavigationHeader from './blocks/Navigation Header'
+import SlideImage from './blocks/houses/Slide Image'
+import Post from './blocks/houses/Post'
 
 export default class Navigation extends React.Component {
 
@@ -15,7 +13,7 @@ export default class Navigation extends React.Component {
     campus_id: 1
   }
 
-  async componentDidMount() {
+  async componentWillMount() {
 
     const auth = localStorage.getItem('auth_code')
 
@@ -25,7 +23,7 @@ export default class Navigation extends React.Component {
     
       if(this.props.logged_in){
         try {
-          const res = await fetch('https://www.iwansell.com/api/myaccount_id/', {
+          const res = await fetch('http://127.0.0.1:8000/api/myaccount_id/', {
 
             headers : {
               'Authorization' : 'Token ' + auth,
@@ -56,59 +54,10 @@ export default class Navigation extends React.Component {
            <section>
 
            <Row>
-            <NavigationHeader market={this.state.market} logged_in={this.props.logged_in}/>
-            <UpperNavigation logged_in={this.props.logged_in} campus_id = {this.state.campus_id}/>
-              <Col lg={12} md={12} smHidden xsHidden>
-              <section className="navigation" id="navigation">
-              <Row>
-               <Col lg={12} md={12} smHidden xsHidden>
-
-             {this.props.logged_in ? (
-                <AppName logged_in={this.props.logged_in}/>
-             ) :
-             (
-               <AppName/>
-             )}
-
-             <SearchField campus_id = {this.state.campus_id}/>
-
-
-             {this.props.logged_in ? (
-                <NavigationIcons account_id = {this.state.profile_id}/>
-             ) :
-             (
-               <SigninSignup/>
-             )}
-               </Col>
-              </Row>
-              </section>
-             </Col>
-
-
-
-             <Col sm={12} xs={12} lgHidden mdHidden>
-             <section className="sm-navigation" id="sm-navigation">
-              <Row>
-             {this.props.logged_in ? (
-                <AppName logged_in={this.props.logged_in}/>
-             ) :
-             (
-               <AppName/>
-             )}
-
-             {this.props.logged_in ? (
-                <NavigationIcons account_id = {this.state.profile_id}/>
-             ) :
-             (
-               <SigninSignup/>
-             )}
-              </Row>
-              <Row>
-             <SearchField campus_id = {this.state.campus_id}/>
-              </Row>
-              </section>
-             </Col>
-
+            <NavigationHeader market={this.state.market}/>
+            <Post logged_in={this.props.logged_in} campus_id = {this.state.campus_id} account_id={this.state.profile_id}/>
+            <SlideImage logged_in={this.props.logged_in} campus_id = {this.state.campus_id} account_id={this.state.profile_id}/>
+            <UpperNavigation logged_in={this.props.logged_in} campus_id = {this.state.campus_id} account_id={this.state.profile_id}/>
            </Row>
 
            </section>

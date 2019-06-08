@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { Row, Col, Thumbnail, Image } from 'react-bootstrap'
+import { Row, Col, Image } from 'react-bootstrap'
 import Slider from 'react-slick'
 import Heading from './blocks/houses/Heading'
 
@@ -59,7 +59,7 @@ setMedia(media_name){
          return (
            <section>
              <Row>
-              <Col lg={12} md={8} smHidden xsHidden>
+              <Col lg={12} md={12} smHidden xsHidden>
 
                     <Heading title="SHOP BY CATEGORY"/>
 

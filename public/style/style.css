@@ -2,11 +2,13 @@
 @import url('https://fonts.googleapis.com/css?family=Ubuntu');
 @import url('https://fonts.googleapis.com/css?family=Permanent+Marker');
 @import url('https://fonts.googleapis.com/css?family=Audiowide');
+@import url('https://fonts.googleapis.com/css?family=Righteous');
+@import url('https://fonts.googleapis.com/css?family=Pacifico');
 @import "~slick-carousel/slick/slick.css";
 @import "~slick-carousel/slick/slick-theme.css";
 
 body{
-  background-color:white;
+  background-color:whitesmoke;
   font-family: "Ubuntu";
 }
 
@@ -18,12 +20,24 @@ a{
 }
 
 #app-name a{
-  color:white;
+  color:black;
   font-family: "Audiowide";
 }
 
 #about a{
   color:white;
+}
+
+#logo a{
+  color: black;
+  font-size: 2.3em;
+  font-family: 'Pacifico';
+}
+
+#logo-sm a{
+  color: black;
+  font-size: 2.2em;
+  font-family: 'Righteous';
 }
 
 #profile-description a{
@@ -215,17 +229,40 @@ a{
   padding-top: 20px;
 }
 
+.post-object{
+  border-right-color: whitesmoke;
+  border-right-style: solid;
+  border-right-width: 2px;
+  padding-top: 5px;
+}
+
+.post-objectb{
+  padding-top: 5px;
+}
+
+
+.post-object-sm{
+  border-color: whitesmoke;
+  border-style: solid;
+  border-width: 1px;
+  padding-top: 5px;
+}
+
+
+
+.post{
+  height: 50px;
+  background-color: white;
+}
+
 .upper-navigation{
   background-color:white;
-  height: 100px;
+  height: 60px;
   font-size: 0.9em;
   padding-top: 10px;
   padding-left: 50px;
   padding-right: 10px;
   padding-bottom: 10px;
-}
-
-.logo{
 
 }
 
@@ -265,15 +302,37 @@ a{
 .upper-routes{
   vertical-align: middle;
   padding-top: 30px;
+  margin-bottom: 30px;
   padding-bottom: 10px;
+  border-color: darkblue;
+  border-style: solid;
+  border-width: 2px;
+  border-radius: 5px;
+  box-shadow: 0 0 2px #666;
+  background-color: white;
 }
 
+
+.welcome-messageb{
+  vertical-align: middle;
+  padding-top: 30px;
+  padding-bottom: 10px;
+  border-color: white;
+  border-style: solid;
+  border-width: 2px;
+  border-radius: 5px;
+  box-shadow: 0 0 2px #666;
+}
+
+
+
+
 .navigation-header{
-  background-color:rgb(234, 239, 241);
+  background-color:darkblue;
   height: 40px;
   font-size: 0.9em;
   padding: 5px;
-  color: black;
+  color: white;
   margin-left: 10px;
 }
 
@@ -290,7 +349,9 @@ a{
 
 
 .category-list{
-  background-color: rgb(7, 3, 31);;
+  background-color: white;
+  box-shadow: 0 0 2px #666;
+  margin-top: 10px;
   padding: 10px;
 }
 
@@ -313,6 +374,9 @@ a{
 .category-item{
   padding-bottom: 10px;
   min-height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .category-product{
@@ -384,6 +448,15 @@ td{
   padding-right: 5px;
 }
 
+.sign-in{
+  height: 100vh;
+  background-color: darkblue;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
 .signup-form{
   background-color: white;
   padding-bottom: 10px;
@@ -392,8 +465,13 @@ td{
 }
 
 .glyphs{
-  font-size: 1.5em;
-  color: white;
+  font-size: 2em;
+  color: darkblue;
+  padding: 5px;
+}
+
+.search-page{
+  height: 100vh;
 }
 
 .ratings-reviews{
@@ -517,19 +595,38 @@ td{
 }
 
 .sub-category-icons{
-  color: white;
+  color: darkblue;
   padding: 20px;
   margin: 10px;
 }
 
 .sub-category-icons a{
-  color: white;
+  color: darkblue;
 }
 
 .sponsored-gallery {
   padding: 20px;
   margin: 10px;
-  background-color: rgb(7, 3, 31);
+  background-color: white;
+  box-shadow: 0 0 2px #666;
+}
+
+.sponsored {
+  margin: 15;
+}
+
+.slide-image {
+  height: 250px;
+  width: '100%';
+  background-image: url('tshirt-md.jpg');
+  background-position: center;
+  background-color: whitesmoke;
+  background-repeat: repeat;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  
 }
 
 .category-slide {
@@ -576,6 +673,14 @@ td{
 
 .search-field{
   font-size: 0.9em;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.result-view{
+  margin-top: 80px;
 }
 
 .image{
@@ -752,9 +857,9 @@ img{
   background-color: white;
   font-size: 1.5em;
   font-weight: bold;
-  color: black;
+  color: darkblue;
   text-align: left;
-  font-family: "Ubuntu";
+  font-family: "Righteous";
 }
 
 
@@ -771,7 +876,7 @@ img{
   border-top-width:5px;
   color: black;
   text-align: center;
-  font-family: "Ubuntu";
+  font-family: "Righteous";
 }
 
 
@@ -832,9 +937,9 @@ img{
 }
 
 .welcome-message{
-  font-size: 1.4em;
-  color: black;
-  text-align: left;
+  font-size: 1.5em;
+  color: white;
+  text-align: center;
 }
 
 .campus-list{
@@ -844,11 +949,19 @@ img{
   text-align: center;
 }
 
+
 .campus-list a{
   word-spacing: 5em;
   color: blue;
   padding-right: 30px;
   font-weight: 'bold';
+}
+
+.new-campus-list{
+  background-color: whitesmoke;
+  padding: 10px;
+  box-shadow: 0 0 5px #666;
+  border-radius: 5px;
 }
 
 .welcome-text{
@@ -885,6 +998,25 @@ img{
   height: 250px;
 
 }
+
+.logo {
+  color: darkblue;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.logo-sm {
+  color: darkblue;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+
 
 .welcome {
   background-color: white;
@@ -923,6 +1055,12 @@ img{
 .landing-page{
   text-align: center;
   color: white;
+}
+
+.landing-view{
+  background: darkblue;
+  height: 100vh;
+  padding-bottom: 20px;
 }
 
 .campus-text{
@@ -1024,8 +1162,14 @@ img{
 
 .login-appname{
   padding: 10px;
-  background-color:  rgb(7, 3, 31);
   height: 50px;
+  background-color: white;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  box-shadow: 0 0 5px #666;
+  border-radius: 5px;
+  padding: 5px;
 }
 
 .go-to-top{
@@ -1064,6 +1208,9 @@ img{
   min-width: 150px;
   height: 150px;
   background: white;
+  vertical-align: middle;
+  text-align: center;
+
 }
 
 
@@ -1144,7 +1291,7 @@ img{
 	  border: 1px solid #ccc;
 	  border-radius: 5px;
 	  width: 180px;
-	  box-shadow: 0 0 5px #666;
+	  box-shadow: 0 0 1px #666;
 	}
 
 .pic img {
@@ -1169,7 +1316,7 @@ img{
   border: 1px solid #ccc;
   border-radius: 5px;
   width: 140px;
-  box-shadow: 0 0 5px #666;
+  box-shadow: 0 0 1px #666;
 }
 
 .pic-sm img {

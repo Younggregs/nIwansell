@@ -10,13 +10,14 @@ import 'react-activity/lib/Spinner/Spinner.css';
 export default class SignupForm extends React.Component {
 
   state={
-    isLoading: false,
-    isLoading2: false,
     campuslist: [],
-    statement: []
+    statement: [],
+    isLoading: false,
+    isLoading2: false
   }
 
   async componentWillMount() {
+
     this.setState({ isLoading2: true})
     try {
       const res = await fetch('https://www.iwansell.com/api/campus/');
@@ -34,8 +35,6 @@ export default class SignupForm extends React.Component {
 
 
   async submitForm(){
-
-    this.setState({ isLoading: true})
 
     var firstname = document.getElementById("firstname").value
     var lastname = document.getElementById("lastname").value
@@ -73,8 +72,6 @@ export default class SignupForm extends React.Component {
 
     login(phone, password)
 
-    this.setState({ isLoading: false})
-
 
   }
 
@@ -101,7 +98,7 @@ const formInstance = (
   <Row>
   <div className="login-appname">
    <Col lg={6} lgOffset={4} md={6} mdOffset={4} sm={12} xs={12}>
-  <Link to="/iwansell">
+  <Link to="/">
     <AppName/>
   </Link>
   </Col>
@@ -118,7 +115,7 @@ const formInstance = (
 
   <Col lg={4} lgOffset={2} md={4} mdOffset={2} sm={6} xs={6}>
   <Link to="/Signup">
-    <Button bsStyle="success">Signup</Button>
+    <Button bsStyle="primary">Signup</Button>
   </Link>
   </Col>
   </Row><br />
@@ -183,21 +180,14 @@ const formInstance = (
   </Row>
 
   <Row>
-  <Col lg={6} md={6} sm={12} xs={12}>
+   <Col lg={6} md={6} sm={12} xs={12}>
     <FieldGroup id="password" label="Password" type="password" name="password" placeholder="Password"/>
     </Col>
 
-    <Col lg={6} md={6} sm={12} xs={12}>
-    {this.state.isLoading ? (
-      <div className="isloading">
-      <p><b><i>loading...</i></b></p>
-      <p><Spinner color="#ff0000" size={32}/></p>
-      </div>
-    ) : (
-      <div/>
-    )}
-    <br /><Button bsStyle="success" onClick={this.submitForm.bind(this)}>Sign up</Button>
+    <Col lg={6} md={6} sm={3} smOffset={4} xs={3} xsOffset={4}>
+        <br /><Button bsStyle="primary" onClick={this.submitForm.bind(this)}>Submit</Button>
     </Col>
+
   </Row>
   </form>
 
@@ -214,14 +204,6 @@ const formInstance = (
       <span></span>
     )}
    </Row>
-
-  <Row>
-  <Col lg={6} lgOffset={6} md={6} mdOffset={6} sm={12} xs={12}>
-   <Link to ="forgot_password">
-      <p>Forgot password?</p>
-   </Link>
-  </Col>
-  </Row>
   </section>
 );
 

@@ -53,8 +53,10 @@ import ViewReceipt from './components/village/View Receipt'
 import BankAccount from './components/village/Bank Account'
 import ViewMore from './components/village/View More'
 import MediaUpload from './components/village/Media Upload'
+import SearchPage from './components/village/Search Page'
 import Logout from './components/village/Logout'
 import AuthTest from './components/village/Auth Test';
+import Search from './components/village/Search Page';
 
 
     class App extends React.Component {
@@ -118,6 +120,7 @@ import AuthTest from './components/village/Auth Test';
                 <Route exact path="/bank_account/:profile_id" component={BankAccount}/>
                 <Route exact path="/view_more" component={ViewMore}/>
                 <Route exact path="/media_upload/:product_id" component={MediaUpload}/>
+                <Route exact path="/search_page" component={SearchPage}/>
                 <Route exact path="/logout" component={Logout}/>
               </div>
             </Router>

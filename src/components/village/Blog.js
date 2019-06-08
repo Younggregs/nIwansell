@@ -1,6 +1,7 @@
 import React from 'react'
 import {Row,Col} from 'react-bootstrap'
-import Navigation from './neighborhoods/Navigation'
+import NavigationHeader from './neighborhoods/blocks/Navigation Header'
+import Post from './neighborhoods/blocks/houses/Post'
 import BlogCategory from './neighborhoods/blocks/houses/Blog Category'
 import BlogList from './neighborhoods/Blog List'
 import BlogPost from './neighborhoods/blocks/Blog Post'
@@ -87,7 +88,8 @@ export default class Blog extends React.Component {
 
         return (
            <div className="home">
-             <Navigation logged_in={this.state.isLoggedIn} account_id={this.state.account_id} campus_id={this.state.campus_id}/>
+              <NavigationHeader/>
+              <Post logged_in={this.state.isLoggedIn} account_id={this.state.account_id} campus_id={this.state.campus_id}/>
              <Row>
                <Col lg={2} md={2} smHidden xsHidden>
                     <BlogCategory/>

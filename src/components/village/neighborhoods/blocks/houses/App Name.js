@@ -12,7 +12,7 @@ export default class AppName extends React.Component {
                   <span>iwansell</span>
                </Link>
              ) : (
-              <Link to="/iwansell">
+              <Link to="/">
                   <span>iwansell</span>
               </Link>
              )}
@@ -25,7 +25,7 @@ export default class AppName extends React.Component {
                   <span>iwansell</span>
                </Link>
              ) : (
-              <Link to="/iwansell">
+              <Link to="/">
                   <span>iwansell</span>
               </Link>
              )}

@@ -47,7 +47,7 @@ export default class SubcategoryIcons extends React.Component {
                <Col smHidden xsHidden>
                 <Row>
             { this.state.iconList.map(item => (
-                <Col lg={2} md={2}>
+                <Col lg={2} md={2} className="post-object-sm">
                    {this.setMedia(item.image)}
                     <Link to={`/subcategory_view/${ item.id }/`}>
                       <Image height="50px" width="50px" src= { `${this.state.media}` } alt="thumbnail"/>

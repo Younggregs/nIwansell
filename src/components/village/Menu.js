@@ -1,6 +1,8 @@
 import React from 'react'
 import Navigation from './neighborhoods/Navigation'
 import MenuList from './neighborhoods/blocks/houses/Menu List'
+import Post from './neighborhoods/blocks/houses/Post'
+import NavigationHeader from './neighborhoods/blocks/Navigation Header'
 
 
 export default class Menu extends React.Component {
@@ -42,7 +44,8 @@ export default class Menu extends React.Component {
       render() {
         return (
            <div className="profile">
-             <Navigation logged_in = {true} account_id={this.state.account_id}/>
+             <NavigationHeader market={this.state.market}/>
+             <Post logged_in={this.props.logged_in} campus_id = {this.state.campus_id}/> 
              <MenuList logged_in = {this.state.loggedin}/>
            </div>
          )

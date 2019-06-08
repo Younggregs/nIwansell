@@ -1,12 +1,12 @@
 import React from 'react';
-import ProfileDetails from './neighborhoods/Profile Details.js';
 import Footer from './neighborhoods/Footer.js';
 import GotoTop from './neighborhoods/blocks/houses/Goto Top.js';
 import Copyright from './neighborhoods/blocks/houses/Copyright.js';
-import NavigationHeader from './neighborhoods/blocks/Navigation Header'
 import Post from './neighborhoods/blocks/houses/Post'
+import NavigationHeader from './neighborhoods/blocks/Navigation Header'
+import SearchView from './neighborhoods/blocks/houses/Search View'
 
-export default class Profile extends React.Component {
+export default class Search extends React.Component {
 
 
   state = {
@@ -64,16 +64,13 @@ export default class Profile extends React.Component {
 
       render() {
         return (
-           <div className="profile">
-             <div className="search-page">
+           <section className="landing-page">
+            <div className="search-page">
                 <NavigationHeader/>
-                <Post logged_in = {this.state.isloggedin}/>
-                <ProfileDetails logged_in = {this.state.isloggedin} is_myprofile={this.state.is_myprofile} profile_id= {this.props.match.params.profile_id}/>
-             </div> 
-             <GotoTop/>
-             <Footer logged_in = {this.state.isloggedin}/>
-             <Copyright/>
-           </div>
+                <Post/>
+                <SearchView campus_id={1}/> 
+            </div> 
+           </section>
          )
      }
 }

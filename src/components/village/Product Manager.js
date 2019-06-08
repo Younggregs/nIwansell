@@ -5,12 +5,17 @@ import ProductList from './neighborhoods/blocks/houses/Product List.js';
 import Footer from './neighborhoods/Footer.js';
 import GotoTop from './neighborhoods/blocks/houses/Goto Top.js';
 import Copyright from './neighborhoods/blocks/houses/Copyright.js';
+import NavigationHeader from './neighborhoods/blocks/Navigation Header'
+import Post from './neighborhoods/blocks/houses/Post'
 
 export default class ProductManager extends React.Component {
       render() {
         return (
            <div className="product-manager">
-             <Navigation logged_in={true}/>
+             <div className="search-page">
+                <NavigationHeader/>
+                <Post logged_in = {this.state.response}/>
+            
              <Grid>
               <br /><Row>
               
@@ -20,6 +25,7 @@ export default class ProductManager extends React.Component {
               
               </Row><br /><br />
              </Grid>
+             </div> 
              <GotoTop/>
              <Footer/>
              <Copyright/>

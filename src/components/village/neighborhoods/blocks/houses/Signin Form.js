@@ -3,22 +3,17 @@ import { Link, Redirect } from 'react-router-dom';
 import { Row, Col, Button,FormGroup, FormControl, ControlLabel, HelpBlock } from 'react-bootstrap';
 import { login } from './auth/Auth'
 import AppName from './App Name'
-import Spinner from 'react-activity/lib/Spinner';
-import 'react-activity/lib/Spinner/Spinner.css';
 
 
 export default class SigninForm extends React.Component {
 
   state= {
-    isLoading: false,
     auth_code: null,
     statement: []
   }
 
 
  async submitForm(){
-
-  this.setState({ isLoading: true})
 
     var username = document.getElementById("username").value
     var password = document.getElementById("password").value
@@ -51,8 +46,6 @@ export default class SigninForm extends React.Component {
 
     login(username, password)
 
-    this.setState({ isLoading: false})
-
 
   }
 
@@ -74,7 +67,7 @@ const formInstance = (
   <Row>
   <div className="login-appname">
    <Col lg={6} lgOffset={4} md={6} mdOffset={4} sm={12} xs={12}>
-  <Link to="/iwansell">
+  <Link to="/">
     <AppName/>
   </Link>
   </Col>
@@ -84,7 +77,7 @@ const formInstance = (
   <Row>
    <Col lg={4} lgOffset={2} md={4} mdOffset={2} sm={4} smOffset={2} xs={4} xsOffset={2}>
   <Link to="/Signin">
-    <Button bsStyle="success">Signin</Button>
+    <Button bsStyle="primary">Signin</Button>
   </Link>
   </Col>
 
@@ -132,18 +125,10 @@ const formInstance = (
    </Row>
 
    <Row>
-    <Col lg={2} lgOffset={4} md={2} mdOffset={4} sm={12} xs={12}>
-    {this.state.isLoading ? (
-      <div className="isloading">
-      <p><b><i>loading...</i></b></p>
-      <p><Spinner color="#ff0000" size={32}/></p>
-      </div>
-    ) : (
-      <div/>
-    )}
-    <Button bsStyle="success" onClick={this.submitForm.bind(this)}>Sign in</Button>
+    <Col lg={2} lgOffset={4} md={2} mdOffset={4} sm={3} smOffset={3} xs={3} xsOffset={3}>
+    <Button bsStyle="primary" onClick={this.submitForm.bind(this)}>Submit</Button>
     </Col>
-    <Col lg={4} md={4}  sm={12} xs={12}>
+    <Col lg={4} md={4} sm={3} smOffset={1} xs={3} xs={1}>
     <Link to ="forgot_password">
      <p>Forgot password?</p>
     </Link>

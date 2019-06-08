@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
-import { Grid, Row, Col } from 'react-bootstrap'
+import { Grid, Row, Col, Glyphicon, Button } from 'react-bootstrap'
 import Spinner from 'react-activity/lib/Spinner';
 import 'react-activity/lib/Spinner/Spinner.css';
 import Navigation from './neighborhoods/Navigation'
@@ -8,12 +8,10 @@ import Sponsored from './neighborhoods/Sponsored'
 import Trending from './neighborhoods/Trending'
 import EShopAds from './neighborhoods/blocks/EShop Ads'
 import CategorySlide from './neighborhoods/Category Slide'
-import AppName from './neighborhoods/blocks/houses/App Name'
-import Heading from './neighborhoods/blocks/houses/Heading'
+import Logo from './neighborhoods/blocks/houses/Logo'
 import Footer from './neighborhoods/Footer'
 import GotoTop from './neighborhoods/blocks/houses/Goto Top'
 import Copyright from './neighborhoods/blocks/houses/Copyright'
-import SignupForm from './neighborhoods/blocks/houses/Signup Form.js';
 import {setMarket, setCampusId} from './neighborhoods/blocks/houses/auth/Auth'
 
 
@@ -25,13 +23,15 @@ export default class LandingPage extends React.Component {
    campuslist: [],
    show_school: true,
    campus_id: 1,
-   market: null,
+   market: false
+
  }
 
 
  async componentDidMount() {
 
   try{
+
     if (this.props.match.params.campus_id){
       this.setSchool(this.props.match.params.campus_id)
     }
@@ -94,14 +94,10 @@ school_set(){
 
 setSchool(id){
     setCampusId(id)
-   
 
     this.setState({ campus_id: id})
     this.getMarket(id)
 
-    this.school_set()
-
-    
 }
 
 
@@ -115,14 +111,12 @@ async getMarket(id){
       market: market
     });
       setMarket(market)
-
-    
-
   } catch (e) {
     console.log(e);
   }
 
-
+  this.school_set()
+  //window.location.reload();
 
 
  }
@@ -150,42 +144,44 @@ async getMarket(id){
            <div className="landing-page">
 
              { this.state.show_school ? (
-               <div>
+               <div className="landing-view">
                  <Grid>
                  <Row>
-                    <Col lg={6} lgOffset={3} md={6} mdOffset={3} sm={12} xs={12}>
-                    <div className="login-appname">
 
                      <Row>
-                        <Col lg={6} lgOffset={4} md={6} mdOffset={4} sm={12} xs={12}>
+                        <Col lg={6} md={6} sm={6} xs={6}>
+                        <div className="login-appname">
+                          <Logo/>
+                          </div>
+                        </Col>
 
-                    <AppName/>
+                        <Col lg={3} lgOffset={3}  md={3} mdOffset={3} sm={6} xs={6}>
+                        <Link to = "/signin" style={{ padding: 10 }}>
+                              <span style={{ color: 'white'}}>Sign In</span>     
+                        </Link>
+
+                        <Link to = "/signup" style={{ padding: 10 }}>
+                        <Button bsStyle="primary">
+                            Sign Up
+                        </Button>
+                        </Link>
+
 
                         </Col>
                     </Row>
-
-                    </div>
-                  </Col>
-            </Row><br />
-
-            <Row>
-              <div className="login-appname">
-                <p className="welcome-text">Welcome To Iwansell!</p>
-              </div>
-            </Row>
+                </Row>
 
             
 
             <Row>
-              <Col lg={4} md={4} smHidden xsHidden>
-                  <br /><SignupForm/>
-              </Col>
-              <Col lg={7} md={7} sm={10} smOffset={1} xs={10} xsOffset={1}>
-              
+              <Col lg={8} lgOffset={2} md={8} mdOffset={2} sm={10} smOffset={1} xs={10} xsOffset={1}>
               <div className="welcome-message">
-               <br /><p>Iwansell is a place to buy and sell on a campus.</p><br />
+               <br /><p>Welcome to Iwansell!</p><br />
+               <p>Iwansell is a place to buy and sell on a campus.</p>
                 <p>We have opened up Iwansell for popular consumption in these campuses:</p>
               </div>
+
+              <div className="new-campus-list">
                 
                    {this.state.isLoading2 ? (
                        <div>
@@ -202,15 +198,32 @@ async getMarket(id){
                       </div>
 
                   )}
-                  <div className="welcome-message">
+              </div>
+
+
+                  <div className="welcome-messageb">
                   <br /><p>You can use Iwansell to :</p>
-                    <ul>
-                      <li><b>Sell</b> anything you want</li>
-                      <li><b>Buy</b> anything you can find</li>
-                      <li>Rent online stores<b>(eShops)</b></li>
-                      <li>Carry out market valuation using <b>Business Mode</b></li>
-                      </ul><br />
-                    </div>
+                  <Row>
+                    <Col lg={3} md={3} sm={6} xs={6}>
+                      <Glyphicon glyph="log-out"/>
+                      <p><b>Sell</b> anything you want</p>
+                    </Col>
+                    <Col lg={3} md={3} sm={6} xs={6}>
+                    <Glyphicon glyph="log-in"/>
+                      <p><b>Buy</b> anything you can find</p>
+                    </Col>
+
+                    <Col lg={3} md={3} sm={6} xs={6}>
+                    <Glyphicon glyph="home"/>
+                      <p>Rent online stores<b>(eShops)</b></p>
+                    </Col>
+
+                    <Col lg={3} md={3} sm={6} xs={6}>
+                    <Glyphicon glyph="tasks"/>
+                      <p>For market valuation using <b>Business Mode</b></p>
+                    </Col>
+                  </Row>             
+                  </div>
 
               </Col>
             </Row>
@@ -241,9 +254,12 @@ async getMarket(id){
              <CategorySlide/>
              <GotoTop/>
              <Footer logged_in={false}/>
+             <Copyright/>
               </div>
              )}
-             <br /><br /><br /><Copyright/>
+
+             
+             
 
            </div>
          )

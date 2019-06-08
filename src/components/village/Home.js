@@ -89,7 +89,7 @@ export default class Home extends React.Component {
       render() {
 
         return (
-           <div className="home">
+           <div className="landing-page">
              <Navigation logged_in={true} account_id={this.state.account_id} campus_id={this.state.campus_id}/>
              <Row>
                <Col lg={9} md={9}>

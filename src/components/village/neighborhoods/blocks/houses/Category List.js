@@ -39,11 +39,7 @@ export default class CategoryList extends React.Component {
              <Row>
               <Col lg={12} md={12} sm={12} xs={12}>
               <Table responsive>
-                 <thead>
-                    <tr>
-                        <th><p className="heading-lg">Category</p></th>
-                    </tr>
-                </thead>
+      
                 {this.state.isLoading ? (
                   <div className="isloading">
                   <p><b><i>loading...</i></b></p>

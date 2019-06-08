@@ -10,11 +10,15 @@ export default class NavigationHeader extends React.Component {
 
              <Row>
                <section className="navigation-header" id="navigation-header">
-               <Col lg={4} md={4} smHidden xsHidden>
+               <Col lg={3} md={3} smHidden xsHidden>
                   <p>Welcome to <b>{this.props.market} Campus Marketplace</b></p>
                 </Col>
 
-                <Col lg={4} md={4} lgOffset={4} mdOffset={4} smHidden xsHidden>
+                <Col lg={4} lgOffset={1} md={4} mdOffset={1} smHidden xsHidden>
+                  <p><b>#1 PLACE TO BUY AND SELL ON CAMPUS</b></p>
+                </Col>
+
+                <Col lg={3} lgOffset={1} md={3} mdOffset={1} smHidden xsHidden>
                  <p>Hotline: <b>08109599597</b></p>
                 </Col>
 
@@ -22,12 +26,9 @@ export default class NavigationHeader extends React.Component {
                    <p><b>{this.props.market}</b> Campus Marketplace</p>
                   </Col>
 
-                
-                  {this.props.logged_in ? (
-                    <span>
-                    <Col lgHidden mdHidden sm={3} xs={3}>
+                  <Col lgHidden mdHidden sm={3} xs={3}>
                   <Link to="/newproduct">
-                  <Button bsStyle="success">
+                  <Button bsStyle="primary">
                     <span> SELL IT </span>
                   </Button>
                  </Link>&nbsp;&nbsp;
@@ -40,27 +41,6 @@ export default class NavigationHeader extends React.Component {
                   </Button>
                   </Link>&nbsp;&nbsp;
                   </Col>
-                    </span>
-                  ) : (
-                    <span>
-                    <Col lgHidden mdHidden sm={3} xs={3}>
-                  <Link to="/signup">
-                  <Button bsStyle="success">
-                    <span> SELL IT </span>
-                  </Button>
-                 </Link>&nbsp;&nbsp;
-                  </Col>
-
-                  <Col lgHidden mdHidden sm={3} xs={3}>
-                  <Link to="/signup">
-                  <Button bsStyle="danger">
-                    <span> BUY IT </span>
-                  </Button>
-                  </Link>&nbsp;&nbsp;
-                  </Col>
-                  </span>
-                  )}
-                  
 
                </section>
 
