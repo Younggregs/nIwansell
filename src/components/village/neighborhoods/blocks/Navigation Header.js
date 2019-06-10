@@ -6,10 +6,9 @@ export default class NavigationHeader extends React.Component {
 
        render() {
          return (
-           <section>
+          <section className="navigation-header" id="navigation-header">
 
              <Row>
-               <section className="navigation-header" id="navigation-header">
                <Col lg={3} md={3} smHidden xsHidden>
                   <p>Welcome to <b>{this.props.market} Campus Marketplace</b></p>
                 </Col>
@@ -41,10 +40,6 @@ export default class NavigationHeader extends React.Component {
                   </Button>
                   </Link>&nbsp;&nbsp;
                   </Col>
-
-               </section>
-
-
             </Row>
 
            </section>

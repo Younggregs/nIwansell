@@ -9,6 +9,7 @@ export default class Post extends React.Component {
 
        render() {
          return (
+           <section className="sticky-header">
             <Row>
             <section className="post" id="post">
             <Col lg={4} md={4} smHidden xsHidden>
@@ -129,6 +130,7 @@ export default class Post extends React.Component {
               </Col>
               </section>
          </Row>
+         </section>
          )
        }
   }

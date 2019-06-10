@@ -253,6 +253,9 @@ a{
 .post{
   height: 50px;
   background-color: white;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
 }
 
 .upper-navigation{
@@ -325,6 +328,12 @@ a{
 }
 
 
+.sticky-header{
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
 
 
 .navigation-header{
@@ -334,6 +343,9 @@ a{
   padding: 5px;
   color: white;
   margin-left: 10px;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
 }
 
 .date{
