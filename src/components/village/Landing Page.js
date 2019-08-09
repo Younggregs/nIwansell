@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import { Grid, Row, Col, Glyphicon, Button } from 'react-bootstrap'
 import Spinner from 'react-activity/lib/Spinner';
 import 'react-activity/lib/Spinner/Spinner.css';
@@ -147,7 +147,6 @@ async getMarket(id){
                <div className="landing-view">
                  <Grid>
                  <Row>
-
                      <Row>
                         <Col lg={6} md={6} sm={6} xs={6}>
                         <div className="login-appname">
@@ -192,7 +191,7 @@ async getMarket(id){
                     
                       <div className="campus-list">
                          {this.state.campuslist.map(item => (
-                         <span><Link to={`/iwansell/${ item.id } `}>{item.campus_code}</Link></span>
+                         <span><Redirect to={`/iwansell/${ item.id } `}>{item.campus_code}</Link></span>
                         ))}
                      
                       </div>
