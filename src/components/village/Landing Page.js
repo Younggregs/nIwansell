@@ -147,6 +147,7 @@ async getMarket(id){
                <div className="landing-view">
                  <Grid>
                  <Row>
+
                      <Row>
                         <Col lg={6} md={6} sm={6} xs={6}>
                         <div className="login-appname">
@@ -191,7 +192,7 @@ async getMarket(id){
                     
                       <div className="campus-list">
                          {this.state.campuslist.map(item => (
-                         <span><Redirect to={`/iwansell/${ item.id } `}>{item.campus_code}</Link></span>
+                         <span><a href={`/iwansell/${ item.id } `}>{item.campus_code}</a></span>
                         ))}
                      
                       </div>
