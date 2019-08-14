@@ -1,6 +1,4 @@
 import React from 'react'
-import { apiClient } from './neighborhoods/blocks/houses/auth/ApiClient'
-import LandingShow from './Landing Show'
 import LandingPage from './Landing Page'
 import Home from './Home'
 
@@ -9,8 +7,6 @@ export default class Welcome extends React.Component {
 
     state = {
         response: false,
-        show_welcome: true,
-        welcome: '#1 place to buy and sell on campus'
     }
 
 
@@ -52,32 +48,16 @@ export default class Welcome extends React.Component {
 
 
 
-
-
-
-  async componentWillMount(){
-    setTimeout( () => {
-      this.setState({show_welcome: false});
-    }, 7000)
-  }
-
-
-
   render(){
-      return (
+      return(
         <div>
-          {this.state.show_welcome ? (
-            <LandingShow welcome_message = {this.state.welcome}/>
-          ) : (
-            <div>
-                { this.state.response ? (
+
+          { this.state.response ? (
             <Home/>
           ): (
             <LandingPage/>
           )}
-            </div>
 
-          )}
 
         </div>
       )

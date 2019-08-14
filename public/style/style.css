@@ -67,6 +67,35 @@ a{
   color: white;
 }
 
+.floating-action{
+  z-index: 11;
+}
+
+.contact-button{
+  background: #01579b;
+  width: 100%;
+  height: 50px;
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+  text-align: center;
+  vertical-align: 25px;
+  padding: 15px;
+}
+
+.contact-button2{
+  background: #01579b;
+  height: 50px;
+  width: 300px;
+  margin-left: 500px;
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+  text-align: center;
+  vertical-align: 25px;
+  padding: 15px;
+}
+
 .receipt-div{
   color: black;
   background-color: white;

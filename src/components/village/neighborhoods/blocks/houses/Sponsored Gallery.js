@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import Slider from 'react-slick'
 import SubcategoryIcons from './Subcategory Icons'
 import { Row, Col } from 'react-bootstrap'
@@ -61,6 +62,9 @@ export default class SponsoredGallery extends React.Component {
 
          return (
            <section className="sponsored-gallery">
+             <Link to="/listings/1">
+              <div className="contact-button">See what people need here!</div>
+             </Link>
            {this.state.isLoading ? (
              <div className="isloading">
              <p><b><i>loading...</i></b></p>

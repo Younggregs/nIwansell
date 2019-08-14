@@ -57,8 +57,11 @@ import SearchPage from './components/village/Search Page'
 import PrivacyPolicy from './components/village/Privacy Policy'
 import Disclaimer from './components/village/Disclaimer'
 import Logout from './components/village/Logout'
-import AuthTest from './components/village/Auth Test';
+import AuthTest from './components/village/Auth Test'
 import About from './components/village/About'
+import Listings from './components/village/Listings'
+import NewListings from './components/village/New Listings'
+import ManageListings from './components/village/Manage Listing'
 
 
 
@@ -90,6 +93,9 @@ import About from './components/village/About'
                 <Route exact path="/contact_us" component={ContactUs}/>
                 <Route exact path="/howto" component={HowTo}/>
                 <Route exact path="/eshop_list/:campus_id" component={EShopList}/>
+                <Route exact path="/listings/:campus_id" component={Listings}/>
+                <Route exact path="/new_listing" component={NewListings}/>
+                <Route exact path="/manage_listing" component={ManageListings}/>
                 <Route exact path="/faq" component={FAQ}/>
                 <Route exact path="/why_us" component={WhyUs}/>
                 <Route exact path="/newproduct" component={NewProduct}/>

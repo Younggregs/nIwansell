@@ -136,6 +136,9 @@ export default class CategoryProduct extends React.Component {
                     </Col>
 
                 <Col lg={9} md={9}>
+                <Link to="/listings/1">
+                  <div className="contact-button">See what people need here!</div>
+                </Link>
                 <Heading title = {this.state.category}/>
 
                 {this.state.isLoading ? (
@@ -202,6 +205,9 @@ export default class CategoryProduct extends React.Component {
              <Col sm={12} xs={12} lgHidden mdHidden>
 
              <Row>
+             <Link to="/listings/1">
+              <div className="contact-button">See what people need here!</div>
+             </Link>
               <Heading title="View products by category"/>
 
               <div className="category-list-sm">

@@ -67,22 +67,29 @@ export default class ProfileDescription extends React.Component {
                     </Link>
                   </p>
 
-                  <p>
-                 <Link to ={`/bank_account/${ this.props.profile_id }`}>
-                      Manage Banking Details
-                   </Link>
-                 </p>
-
+                  
               <p>
                <Link to="/newproduct">
                 Add New Product
                </Link>
               </p>
 
+              <p>
+               <Link to="new_listing">
+                Add Listing - What You Need
+               </Link>
+              </p>
+
+              <p>
+               <Link to="/manage_listing">
+                Manage Listing
+               </Link>
+              </p>
+
 
               <p>
                <Link to="/productmanager">
-                Sell your product
+                  Sell your product
                </Link>
               </p>
 
@@ -125,25 +132,6 @@ export default class ProfileDescription extends React.Component {
                 Favorites
                </Link>
               </p>
-
-
-              <p>
-              <Link to={`/sold/${ this.props.profile_id }`}>
-                Sold products
-               </Link>
-              </p>
-
-              <p>
-              <Link to={`/bought/${ this.props.profile_id }`}>
-                Bought products
-               </Link>
-              </p>
-
-
-
-
-
-
 
 
            </section>

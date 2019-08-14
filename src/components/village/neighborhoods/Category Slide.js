@@ -60,7 +60,9 @@ setMedia(media_name){
            <section>
              <Row>
               <Col lg={12} md={12} smHidden xsHidden>
-
+              <Link to="/listings/1">
+                <div className="contact-button">See what people need here!</div>
+              </Link>
                     <Heading title="SHOP BY CATEGORY"/>
 
                     <section className="category-slide">

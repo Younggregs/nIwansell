@@ -1,26 +1,30 @@
 import React from 'react';
-import { Grid , Row } from 'react-bootstrap';
+import { Grid , Row, Col } from 'react-bootstrap';
 import Navigation from './neighborhoods/Navigation.js';
-import SoldProductList from './neighborhoods/blocks/houses/Sold Product List.js';
+import ListingProduct from './neighborhoods/blocks/houses/Listing Product.js';
 import Footer from './neighborhoods/Footer.js';
 import GotoTop from './neighborhoods/blocks/houses/Goto Top.js';
 import Copyright from './neighborhoods/blocks/houses/Copyright.js';
+import NavigationHeader from './neighborhoods/blocks/Navigation Header'
 
 
-export default class Sold extends React.Component {
+export default class ProductManager extends React.Component {
       render() {
         return (
            <div className="product-manager">
-             <Navigation logged_in={true}/>
+             <div className="search-page">
+                <NavigationHeader/>
+               
              <Grid>
               <br /><Row>
-
-              <div className="sign-in">
-               <SoldProductList profile_id = {this.props.match.params.profile_id}/>
+              
+              <div>
+               <ListingProduct/>
               </div>
-
+              
               </Row><br /><br />
              </Grid>
+             </div> 
              <GotoTop/>
              <Footer/>
              <Copyright/>

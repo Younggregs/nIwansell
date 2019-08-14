@@ -1,7 +1,4 @@
 import React from 'react';
-import Footer from './neighborhoods/Footer.js';
-import GotoTop from './neighborhoods/blocks/houses/Goto Top.js';
-import Copyright from './neighborhoods/blocks/houses/Copyright.js';
 import Post from './neighborhoods/blocks/houses/Post'
 import NavigationHeader from './neighborhoods/blocks/Navigation Header'
 import SearchView from './neighborhoods/blocks/houses/Search View'
