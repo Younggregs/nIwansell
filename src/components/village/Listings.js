@@ -133,7 +133,7 @@ emptyResult(){
 
 
   setMedia(media_name){
-    this.state.media = 'https://www.iwansell.com/media/' + media_name
+    this.state.media = 'https://www.iwansell.com' + media_name
   }
 
 
