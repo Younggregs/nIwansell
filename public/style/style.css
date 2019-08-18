@@ -60,7 +60,7 @@ a{
 }
 
 .bank-account{
-  background-color: darkslateblue;
+  background-color: #01579b;
   padding: 5px;
   margin: 10px;
   text-align: center;
@@ -69,6 +69,39 @@ a{
 
 .floating-action{
   z-index: 11;
+}
+
+.thread{
+  height: auto;
+  width: 100%;
+  background: white;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.a-row{
+  flex-direction: row;
+}
+
+.comment-box{
+  margin-top: 10px;
+  height: auto;
+  width: 100%;
+  background: white;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.reply-line{
+  border-left-color: #E1E8ED;
+  border-left-style: solid;
+  border-left-width: 2px;
+  padding-left: 15px;
+  padding-top: 15px;
+  padding-right: 5px;
+  padding-bottom: 15px;
+  height: auto;
+  width: 100%;
 }
 
 .contact-button{
@@ -336,7 +369,7 @@ a{
   padding-top: 30px;
   margin-bottom: 30px;
   padding-bottom: 10px;
-  border-color: darkblue;
+  border-color: #01579b;
   border-style: solid;
   border-width: 2px;
   border-radius: 5px;
@@ -366,7 +399,7 @@ a{
 
 
 .navigation-header{
-  background-color:darkblue;
+  background-color:#01579b;
   height: 40px;
   font-size: 0.9em;
   padding: 5px;
@@ -432,7 +465,7 @@ a{
 }
 
 .business-menu a{
-  color: darkslateblue;
+  color: #01579b;
 }
 
 .product-review{
@@ -451,7 +484,7 @@ td{
 }
 
 .business-menu{
-  border-right-color: darkslateblue;
+  border-right-color: #01579b;
   border-right-style: double;
   border-right-width: 2px;
   font-weight: bold;
@@ -491,7 +524,7 @@ td{
 
 .sign-in{
   height: 100vh;
-  background-color: darkblue;
+  background-color: #01579b;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -507,7 +540,7 @@ td{
 
 .glyphs{
   font-size: 2em;
-  color: darkblue;
+  color: #01579b;
   padding: 5px;
 }
 
@@ -636,13 +669,13 @@ td{
 }
 
 .sub-category-icons{
-  color: darkblue;
+  color: #01579b;
   padding: 20px;
   margin: 10px;
 }
 
 .sub-category-icons a{
-  color: darkblue;
+  color: #01579b;
 }
 
 .sponsored-gallery {
@@ -898,7 +931,7 @@ img{
   background-color: white;
   font-size: 1.5em;
   font-weight: bold;
-  color: darkblue;
+  color: #01579b;
   text-align: left;
   font-family: "Righteous";
 }
@@ -985,7 +1018,7 @@ img{
 
 .campus-list{
   font-size: 1.4em;
-  color: blue;
+  color: #01579b;
   word-spacing: 4em;
   text-align: center;
   padding: 10px;
@@ -996,7 +1029,7 @@ img{
 
 .campus-list a{
   word-spacing: 5em;
-  color: blue;
+  color: #01579b;
   padding-right: 30px;
   font-weight: 'bold';
   word-wrap: break-word;
@@ -1045,7 +1078,7 @@ img{
 }
 
 .logo {
-  color: darkblue;
+  color: #01579b;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -1054,7 +1087,7 @@ img{
 
 
 .logo-sm {
-  color: darkblue;
+  color: #01579b;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -1103,7 +1136,7 @@ img{
 }
 
 .landing-view{
-  background: darkblue;
+  background: #01579b;
   min-height: 100vh;
   padding-bottom: 20px;
 }

@@ -11,6 +11,13 @@ export default class UpperNavigationRoutes extends React.Component {
             <Col lg={12} md={12} smHidden xsHidden>
                 <section className="upper-routes" id="upper-routes">
               <Row>
+                    <Col lg={2} md={2} className="post-object">
+                        <Link to='channel'>
+                        <Glyphicon glyph="facetime-video" style={{ color: 'darkblue'}}/>
+                           <p>Channel</p> 
+                        </Link>
+                    </Col>
+
                   <Col lg={2} md={2} className="post-object">
                         <Link to={`/eshop_list/${ this.props.campus_id }/`}>
                         <Glyphicon glyph="th-list" style={{ color: 'darkblue'}}/>
@@ -76,13 +83,6 @@ export default class UpperNavigationRoutes extends React.Component {
                 </Link>
             </Col>
 
-             <Col lg={2} md={2} className="post-objectb">
-                    <Link to="/contact_us">
-                    <Glyphicon glyph="comment" style={{ color: 'darkblue'}}/>
-                        <p>Contact Us</p> 
-                    </Link>
-                </Col>
-
                </Row>
 
                </section>
@@ -98,6 +98,13 @@ export default class UpperNavigationRoutes extends React.Component {
               <Col lgHidden mdHidden sm={12} xs={12}>
               <section className="upper-routes" id="upper-routes">
                <Row>
+                <Col sm={4} xs={4} className="post-object-sm">
+                         <Link to='/channel'>
+                         <Glyphicon glyph="facetime-video" style={{ color: 'darkblue'}}/>
+                           <p>Channel</p> 
+                         </Link>
+                     </Col>
+
                    <Col sm={4} xs={4} className="post-object-sm">
                          <Link to={`/eshop_list/${ this.props.campus_id }/`}>
                          <Glyphicon glyph="th-list" style={{ color: 'darkblue'}}/>
@@ -162,15 +169,9 @@ export default class UpperNavigationRoutes extends React.Component {
                         <p>About</p> 
                  </Link>
              </Col>
+
  
-              <Col sm={4} xs={4} className="post-object-sm">
-                     <Link to="/contact_us">
-                     <Glyphicon glyph="comment" style={{ color: 'darkblue'}}/>
-                           <p>Contact Us</p> 
-                     </Link>
-                 </Col>
- 
-                </Row>
+            </Row>
  
                 </section>
                </Col>

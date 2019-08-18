@@ -16,6 +16,11 @@ export default class MenuList extends React.Component {
               </thead>
               <tbody>
             <tr>
+            <td><Link to="/channel">Channel
+                </Link></td>
+            </tr>
+            
+            <tr>
             <td><Link to="/eshop_list">e-shops
                 </Link></td>
             </tr>

@@ -62,6 +62,9 @@ import About from './components/village/About'
 import Listings from './components/village/Listings'
 import NewListings from './components/village/New Listings'
 import ManageListings from './components/village/Manage Listing'
+import Channel from './components/village/Channel'
+import Thread from './components/village/Thread'
+import NewThread from './components/village/New Thread'
 
 
 
@@ -130,6 +133,9 @@ import ManageListings from './components/village/Manage Listing'
                 <Route exact path="/view_more" component={ViewMore}/>
                 <Route exact path="/media_upload/:product_id" component={MediaUpload}/>
                 <Route exact path="/search_page" component={SearchPage}/>
+                <Route exact path="/channel" component={Channel}/>
+                <Route exact path="/thread/:thread_id" component={Thread}/>
+                <Route exact path="/new_thread" component={NewThread}/>
                 <Route exact path="/privacy_policy" component={PrivacyPolicy}/>
                 <Route exact path="/disclaimer" component={Disclaimer}/>
                 <Route exact path="/about" component={About}/>

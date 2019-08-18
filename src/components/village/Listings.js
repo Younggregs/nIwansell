@@ -108,9 +108,6 @@ async sortByCategory(id){
 
     }
 
-  
-  
-
     this.setState({ isLoading: false })
 
 }
