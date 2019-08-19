@@ -7,7 +7,7 @@ export default class About extends React.Component {
          return (
            <section className="about" id="about">
             <Row>
-            <Col lg={6} lgOffset={1} md={6} mdOffset={1} sm={6} smOffset={1} xs={6} xsOffset={1}>
+            <Col lg={6} md={6} sm={6} smOffset={1} xs={6} xsOffset={1}>
               <Row>
           
             <p><Link to="/channel">Channel
@@ -29,9 +29,6 @@ export default class About extends React.Component {
            </Link></p>
 
            <p><Link to="/about_us">About Us
-           </Link></p>
-
-            <p><Link to="/contact_us">Contact Us
            </Link></p>
 
                </Row>
@@ -68,6 +65,7 @@ export default class About extends React.Component {
                Logout
              </Link></p>
 
+
              </Col>
 
            ) : (
@@ -83,6 +81,9 @@ export default class About extends React.Component {
              </Col>
 
            )}
+
+            <p><Link to="/contact_us">Contact Us
+           </Link></p>
              </Row>
             </Col>
            </Row>

@@ -5,7 +5,7 @@ export default class Copyright extends React.Component {
        render() {
          return (
            <section className="copyright">
-             <p>Copyright @ 2018 Merlins Beard Labs</p>
+             <p>Copyright @ 2019 Iwansell LLC.</p>
            </section>
          )
        }

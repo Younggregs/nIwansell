@@ -208,9 +208,15 @@ async getMarket(id){
                       <Glyphicon glyph="log-out"/>
                       <p><b>Sell</b> anything you want</p>
                     </Col>
+
                     <Col lg={3} md={3} sm={6} xs={6}>
                     <Glyphicon glyph="log-in"/>
                       <p><b>Buy</b> anything you can find</p>
+                    </Col>
+
+                    <Col lg={3} md={3} sm={6} xs={6}>
+                    <Glyphicon glyph="tasks"/>
+                      <p>Upload what you need<b>(Listings)</b></p>
                     </Col>
 
                     <Col lg={3} md={3} sm={6} xs={6}>
@@ -218,10 +224,6 @@ async getMarket(id){
                       <p>Rent online stores<b>(eShops)</b></p>
                     </Col>
 
-                    <Col lg={3} md={3} sm={6} xs={6}>
-                    <Glyphicon glyph="tasks"/>
-                      <p>For market valuation using <b>Business Mode</b></p>
-                    </Col>
                   </Row>             
                   </div>
 

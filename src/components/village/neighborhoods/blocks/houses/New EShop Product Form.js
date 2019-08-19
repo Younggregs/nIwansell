@@ -313,6 +313,7 @@ const formInstance = (
     )}
       </ControlLabel>
       <FormControl placeholder="e.g 70k" id="starting_price" name="starting_price"/>
+      <HelpBlock>Set a reasonable price, as low as you can get. Its proven to work!</HelpBlock>
     </FormGroup>
 
 <Row>

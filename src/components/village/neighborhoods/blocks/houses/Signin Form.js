@@ -9,20 +9,30 @@ export default class SigninForm extends React.Component {
 
   state= {
     auth_code: null,
-    statement: []
+    statement: [],
+    username_err: false,
+    password_err: false
   }
 
 
  async submitForm(){
 
+  this.setState({ 
+    username_err: false,
+    password_err: false,
+  })
+
     var username = document.getElementById("username").value
     var password = document.getElementById("password").value
 
+    if(username){
 
+      if(password){
 
-    var formData = new FormData()
+        var formData = new FormData()
     formData.append('username', username)
     formData.append('password', password)
+
 
 
     try {
@@ -45,6 +55,16 @@ export default class SigninForm extends React.Component {
 
 
     login(username, password)
+
+
+
+      }else{
+        this.setState({password_err: true})
+      }
+
+    }else{
+      this.setState({username_err: true})
+    }
 
 
   }
@@ -91,22 +111,44 @@ const formInstance = (
   <form>
   <Row>
   <Col lg={6} md={6} sm={12} xs={12}>
-  <FieldGroup
-    id="username"
-    type="text"
-    label="Phone or email"
-    name="username"
-    placeholder="08103800938 or example@gmail.com"
-  />
+  <FormGroup>
+      <ControlLabel>Phone
+      {this.state.username_err ? (
+      <span className="err-msg">
+       * Phone required 
+      </span>
+    ) : (
+      <div/>
+    )}
+      </ControlLabel>
+      <FormControl 
+        placeholder="08109599597" 
+        id="username" 
+        name="username"
+        type="number"
+        />
+    </FormGroup>
    </Col>
 
    <Col lg={6} md={6} sm={12} xs={12}>
-    <FieldGroup
-     id="password"
-     label="Password"
-     type="password"
-     name="password"
-     />
+
+   <FormGroup>
+      <ControlLabel>Password
+      {this.state.password_err ? (
+      <span className="err-msg">
+       * Password required 
+      </span>
+    ) : (
+      <div/>
+    )}
+      </ControlLabel>
+      <FormControl 
+        placeholder="*******" 
+        id="password" 
+        name="password"
+        type="password"
+        />
+    </FormGroup>
    </Col>
    </Row>
 
