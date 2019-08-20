@@ -26,6 +26,7 @@ export default class Thread extends React.Component {
     market: "Your",
     media: null,
     logo: null,
+    dp: null,
     isLoading2: false,
     following: false,
     votes: false,
@@ -129,6 +130,10 @@ export default class Thread extends React.Component {
     this.state.logo = 'https://www.iwansell.com/api/media/' + logo
     this.state.following = following
     this.state.votes = votes
+  }
+
+  setDp(dp){
+    this.state.dp = 'https://www.iwansell.com/api/media/' + dp
   }
 
 
