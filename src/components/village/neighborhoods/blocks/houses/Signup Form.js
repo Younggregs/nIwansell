@@ -59,7 +59,8 @@ export default class SignupForm extends React.Component {
       lastname_err: false,
       campus_err: false,
       phone_err: false,
-      password_err: false
+      password_err: false,
+      isLoading: true
     })
 
     var firstname = document.getElementById("firstname").value
@@ -133,6 +134,8 @@ export default class SignupForm extends React.Component {
     }else{
       this.setState({firstname_err: true})
     }
+
+    this.setState({isLoading: false})
 
   }
 
@@ -315,7 +318,16 @@ const formInstance = (
   </form>
 
   <Row>
-   {this.state.statement.error_message ? (
+  {this.state.isLoading ? (
+              
+              <Row>
+              <Col lg={3} lgOffset={5} md={3} mdOffset={5} sm={3} smOffset={5} xs={3} xsOffset={5}>
+                  <Spinner color="#01579b" size={20}/>
+                </Col>
+              </Row>
+          ) : (
+            <div>
+              {this.state.statement.error_message ? (
       <p className="err-msg">{this.state.statement.error_message}</p>
     ) : (
       <span></span>
@@ -326,6 +338,10 @@ const formInstance = (
     ) : (
       <span></span>
     )}
+
+            </div>
+          )}
+   
    </Row>
   </section>
 );

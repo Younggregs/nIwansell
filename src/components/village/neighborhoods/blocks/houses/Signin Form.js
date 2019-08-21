@@ -3,6 +3,8 @@ import { Link, Redirect } from 'react-router-dom';
 import { Row, Col, Button,FormGroup, FormControl, ControlLabel, HelpBlock } from 'react-bootstrap';
 import { login } from './auth/Auth'
 import AppName from './App Name'
+import Spinner from 'react-activity/lib/Spinner';
+import 'react-activity/lib/Spinner/Spinner.css'
 
 
 export default class SigninForm extends React.Component {
@@ -11,7 +13,8 @@ export default class SigninForm extends React.Component {
     auth_code: null,
     statement: [],
     username_err: false,
-    password_err: false
+    password_err: false,
+    isLoading: false
   }
 
 
@@ -20,6 +23,7 @@ export default class SigninForm extends React.Component {
   this.setState({ 
     username_err: false,
     password_err: false,
+    isLoading: true
   })
 
     var username = document.getElementById("username").value
@@ -66,6 +70,7 @@ export default class SigninForm extends React.Component {
       this.setState({username_err: true})
     }
 
+    this.setState({ isLoading: false })
 
   }
 
@@ -122,7 +127,7 @@ const formInstance = (
     )}
       </ControlLabel>
       <FormControl 
-        placeholder="08109599597" 
+        placeholder="08103800938" 
         id="username" 
         name="username"
         type="number"
@@ -153,7 +158,16 @@ const formInstance = (
    </Row>
 
    <Row>
-   {this.state.statement.error_message ? (
+   {this.state.isLoading ? (
+              
+              <Row>
+              <Col lg={3} lgOffset={5} md={3} mdOffset={5} sm={3} smOffset={5} xs={3} xsOffset={5}>
+                  <Spinner color="#01579b" size={20}/>
+                </Col>
+              </Row>
+          ) : (
+            <div>
+              {this.state.statement.error_message ? (
       <p className="err-msg">{this.state.statement.error_message}</p>
     ) : (
       <span></span>
@@ -164,6 +178,9 @@ const formInstance = (
     ) : (
       <span></span>
     )}
+            </div>
+          )}
+   
    </Row>
 
    <Row>
