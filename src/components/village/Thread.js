@@ -20,6 +20,9 @@ export default class Thread extends React.Component {
     account_id: null,
     isLoggedIn: true,
     isLoading: false,
+    isLoading2: false,
+    isLoading3: false,
+    isLoading4: false,
     campus_id: 1,
     thread: [],
     commentlist: [],
@@ -31,6 +34,8 @@ export default class Thread extends React.Component {
     following: false,
     votes: false,
     votesent: false,
+    comment_votes: false,
+    comment_votesent: false,
     toggle: null,
   }
 
@@ -40,7 +45,7 @@ export default class Thread extends React.Component {
     this.setState({ isLoading: true })
 
     try {
-        const res = await fetch('https://www.iwansell.com/api/thread/'  + this.props.match.params.thread_id);
+        const res = await fetch('http://127.0.0.1:8000/api/thread/'  + this.props.match.params.thread_id);
         const thread = await res.json();
         this.setState({
           thread
@@ -51,7 +56,7 @@ export default class Thread extends React.Component {
 
     
       try {
-        const res = await fetch('https://www.iwansell.com/api/comment/' + this.state.thread.thread_id);
+        const res = await fetch('http://127.0.0.1:8000/api/comment/' + this.state.thread.thread_id);
         const commentlist = await res.json();
         this.setState({
           commentlist
@@ -62,7 +67,7 @@ export default class Thread extends React.Component {
 
 
     try {
-      const res = await fetch('https://www.iwansell.com/api/isloggedin/', {
+      const res = await fetch('http://127.0.0.1:8000/api/isloggedin/', {
 
        credentials: 'same-origin',
        mode: 'cors',
@@ -84,7 +89,7 @@ export default class Thread extends React.Component {
 
 
     try {
-      const res = await fetch('https://www.iwansell.com/api/get_account/',{
+      const res = await fetch('http://127.0.0.1:8000/api/get_account/',{
 
        credentials: 'same-origin',
        mode: 'cors',
@@ -103,7 +108,7 @@ export default class Thread extends React.Component {
 
 
     try {
-      const res = await fetch('https://www.iwansell.com/api/get_campus/',{
+      const res = await fetch('http://127.0.0.1:8000/api/get_campus/',{
 
        credentials: 'same-origin',
        mode: 'cors',
@@ -126,14 +131,16 @@ export default class Thread extends React.Component {
   }
 
   setMedia(media_name, logo, following, votes){
-    this.state.media = 'https://www.iwansell.com/api/media/' + media_name
-    this.state.logo = 'https://www.iwansell.com/api/media/' + logo
+    this.state.media = 'http://127.0.0.1:8000/media/' + media_name
+    this.state.logo = 'http://127.0.0.1:8000/media/' + logo
     this.state.following = following
     this.state.votes = votes
   }
 
-  setDp(dp){
-    this.state.dp = 'https://www.iwansell.com/api/media/' + dp
+
+  setMedia2(dp, comment_votes){
+    this.state.dp = 'http://127.0.0.1:8000/media/' + dp
+    this.state.comment_votes = comment_votes
   }
 
 
@@ -154,7 +161,7 @@ export default class Thread extends React.Component {
     const auth = localStorage.getItem('auth_code')
 
     try {
-      const res = await fetch('https://www.iwansell.com/api/follow/' + channel_id, {
+      const res = await fetch('http://127.0.0.1:8000/api/follow/' + channel_id, {
        credentials: 'same-origin',
        mode: 'cors',
        headers : {
@@ -179,7 +186,7 @@ export default class Thread extends React.Component {
     const auth = localStorage.getItem('auth_code')
 
     try {
-      const res = await fetch('https://www.iwansell.com/api/vote/' + toggle + '/' + thread_id, {
+      const res = await fetch('http://127.0.0.1:8000/api/vote/' + toggle + '/' + thread_id, {
        credentials: 'same-origin',
        mode: 'cors',
        headers : {
@@ -208,6 +215,68 @@ export default class Thread extends React.Component {
   }
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  async voteComment(toggle, comment_id){
+
+    this.setState({ isLoading4: true, votesent: true, toggle })
+    const auth = localStorage.getItem('auth_code')
+
+    try {
+      const res = await fetch('http://127.0.0.1:8000/api/vote_comment/' + toggle + '/' + comment_id, {
+       credentials: 'same-origin',
+       mode: 'cors',
+       headers : {
+         'Authorization' : 'Token ' + auth
+       }
+      })
+      const comment_votes = await res.json();
+      await this.setState({
+        comment_votes
+      });
+    } catch (e) {
+      console.log(e);
+    }
+    this.setState({ isLoading4: false })
+  }
+
+  voteStateComment(){
+      if(this.state.toggle == 1){
+        var votes = this.state.comment_votes + 1
+      }else{
+        var votes = this.state.comment_votes - 1
+      }
+
+      return votes
+      
+  }
+
+
+
+
+
+
+
+
+  shareUrl(id){
+    return 'https://www.iwansell.com/thread/' + id
+   }
+
+
+
+
       render() {
 
         return (
@@ -215,7 +284,7 @@ export default class Thread extends React.Component {
             <NavigationHeader/>
             <Post logged_in={this.state.isLoggedIn} account_id={this.state.account_id} campus_id={this.state.campus_id}/>
              <Grid>
-                 <Col lg={8} md={8} sm={12} xs={12}>
+                 <Col lg={8} md={8} smHidden xsHidden>
 
                  {this.state.isLoading ? (
                     <div className="isloading">
@@ -279,11 +348,11 @@ export default class Thread extends React.Component {
                                 </Col>
 
                                 <Col lg={2} md={2} sm={2} xs={2}>
-                                    <SendComment thread={this.state.thread.thread} thread_id={this.state.thread.thread_id}/>
+                                    <SendComment count={this.state.thread.comment_count} thread={this.state.thread.thread} thread_id={this.state.thread.thread_id}/>
                                 </Col>
 
                                 <Col lg={3} md={3} sm={3} xs={3}>
-                                    <Share/>
+                                    <Share url={this.shareUrl(this.props.match.params.thread_id)}/>
                                 </Col>
                                 
                             </Row><hr />
@@ -294,9 +363,10 @@ export default class Thread extends React.Component {
                             <div className="comment-box">
                             {this.state.commentlist.map(item => (
                                 <div style={{ marginTop: 10}}>
+                                  {this.setMedia2(item.dp, item.votes )}
                                 <Row>
                                 <Col lg={2} md={2} sm={4} xs={4}>
-                                    <Image src= { `${this.state.logo}` } height="40" width="40" alt="iwansell-logo" responsive rounded/> 
+                                    <Image src= { `${this.state.dp}` } height="40" width="40" alt="iwansell-logo" responsive rounded/> 
                                 </Col>
                                 <Col lg={6} md={6} sm={5} xs={5}>
                                     <p style={{ fontWeight: 'bold', fontSize: 13 }}>
@@ -308,21 +378,27 @@ export default class Thread extends React.Component {
                                 
                                 <Row>
                                 <Col lg={1} md={1} sm={1} xs={1}>
-                                    <Glyphicon glyph="arrow-up"/>
+                                    <Glyphicon glyph="arrow-up" onClick={() => this.voteComment(1, item.comment_id)}/>
                                 </Col>
                                 <Col lg={1} md={1} sm={1} xs={1}>
-                                    {item.votes}
+                                    {this.state.comment_votesent ? (
+                                        <span>{this.voteStateComment()}</span>
+                                    ) : (
+                                        <span>{this.state.comment_votes}</span>
+                                    )}
+                                    
                                 </Col>
                                 <Col lg={1} md={1} sm={1} xs={1}>
-                                    <Glyphicon glyph="arrow-down"/>
+                                    <Glyphicon glyph="arrow-down" onClick={() => this.voteComment(0, item.comment_id)}/>
                                 </Col>
 
+
                                 <Col lg={2} md={2} sm={2} xs={2}>
-                                    <SendReply comment={item.comment} comment_id={item.comment_id} thread_id={this.props.match.params.thread_id}/>
+                                    <SendReply count={item.comment_count} comment={item.comment} comment_id={item.comment_id} thread_id={this.props.match.params.thread_id}/>
                                 </Col>
 
                                 <Col lg={3} md={3} sm={3} xs={3}>
-                                    <Share/>
+                                    <Share url={this.shareUrl(this.props.match.params.thread_id)}/>
                                 </Col>
                                 </Row>
                                 <Reply comment={item.comment} comment_id={item.comment_id} thread_id={this.props.match.params.thread_id}/>
@@ -347,7 +423,147 @@ export default class Thread extends React.Component {
                             <Image src={ require ('./neighborhoods/blocks/houses/images/n.jpg') } alt="iwansell-logo" responsive rounded/>
                         </div>
                  </Col>
-             </Grid><br /><br />
+             </Grid>
+
+
+
+
+
+
+             <Row>
+                  <Col lgHidden mdHidden sm={12} xs={12}>
+
+                 {this.state.isLoading ? (
+                    <div className="isloading">
+                        <p><b><i>loading...</i></b></p>
+                        <p><Spinner color="#ff0000" size={32}/></p>
+                    </div>
+                    ) : (
+                    <section>
+                    
+                
+                        {this.emptyResult() ? (
+                            <p className="err-msg">Sorry wrong turn</p>
+                        ) : (
+                            
+                        <div className="thread">
+                        {this.setMedia(this.state.thread.media, this.state.thread.logo, this.state.thread.following, this.state.thread.votes)}
+
+                        <Row>
+                        <Col lg={3} md={3} sm={4} xs={4}>
+                            <div className="a-row"><Image src= { `${this.state.logo}` } height="40" width="40" alt="iwansell-logo" responsive rounded/>
+                                <p style={{ fontWeight: 'bold', fontSize: 20 }}>{this.state.thread.channel}</p></div>
+                        </Col>
+                        <Col lg={6} md={6} sm={5} xs={5}>
+                            <p>Posted By {this.state.thread.firstname}#{this.state.thread.lastname} <FormatDate date={this.state.thread.date}/></p>
+                        </Col>
+                        <Col lg={2} md={2} sm={2} xs={2}>
+                        {this.state.isLoading2 ? (
+                            <p>following...</p>
+                            ) : (
+                        <div>
+                            {this.state.following ? (
+                            <Button disabled><Glyphicon glyph="check"/>Following</Button>
+                            ) : (
+                            <Button bsStyle="info" onClick={() => this.follow(this.state.thread.channel_id)}><Glyphicon glyph="check"/>Follow</Button>
+                            )}
+                        </div>
+                            )}
+                        </Col>
+                        </Row>
+
+                    <div style={{ margin: 10 }}>
+                        <p style={{ fontWeight: 'bold', fontSize: 20}}>{this.state.thread.title}</p>
+                        <p>{this.state.thread.thread}</p>
+                        <Image  src= { `${this.state.media}` } alt="iwansell-logo" responsive rounded/>
+                    </div>
+
+                            <Row>
+                                <Col lg={1} md={1} sm={1} xs={1}>
+                                    <Glyphicon glyph="arrow-up" onClick={() => this.vote(1, this.state.thread.thread_id)}/>
+                                </Col>
+                                <Col lg={1} md={1} sm={1} xs={1}>
+                                    {this.state.votesent ? (
+                                        <span>{this.voteState()}</span>
+                                    ) : (
+                                        <span>{this.state.votes}</span>
+                                    )}
+                                    
+                                </Col>
+                                <Col lg={1} md={1} sm={1} xs={1}>
+                                    <Glyphicon glyph="arrow-down" onClick={() => this.vote(0, this.state.thread.thread_id)}/>
+                                </Col>
+
+                                <Col lg={2} md={2} sm={2} xs={2}>
+                                    <SendComment count={this.state.thread.comment_count} thread={this.state.thread.thread} thread_id={this.state.thread.thread_id}/>
+                                </Col>
+
+                                <Col lg={3} md={3} sm={3} xs={3}>
+                                    <Share url={this.shareUrl(this.props.match.params.thread_id)}/>
+                                </Col>
+                                
+                            </Row><hr />
+
+                       
+                     
+                        <Row>
+                        <div className="comment-box">
+                            {this.state.commentlist.map(item => (
+                                <div style={{ marginTop: 10}}>
+                                  {this.setMedia2(item.dp, item.votes )}
+                                <Row>
+                                <Col lg={2} md={2} sm={4} xs={4}>
+                                    <Image src= { `${this.state.dp}` } height="40" width="40" alt="iwansell-logo" responsive rounded/> 
+                                </Col>
+                                <Col lg={6} md={6} sm={5} xs={5}>
+                                    <p style={{ fontWeight: 'bold', fontSize: 13 }}>
+                                        {item.firstname}#{item.lastname} <FormatDate date={item.date}/>
+                                    </p>
+                                </Col>
+                            </Row>
+                                <p>{item.comment} </p>
+                                
+                                <Row>
+                                <Col lg={1} md={1} sm={1} xs={1}>
+                                    <Glyphicon glyph="arrow-up" onClick={() => this.voteComment(1, item.comment_id)}/>
+                                </Col>
+                                <Col lg={1} md={1} sm={1} xs={1}>
+                                    {this.state.comment_votesent ? (
+                                        <span>{this.voteStateComment()}</span>
+                                    ) : (
+                                        <span>{this.state.comment_votes}</span>
+                                    )}
+                                    
+                                </Col>
+                                <Col lg={1} md={1} sm={1} xs={1}>
+                                    <Glyphicon glyph="arrow-down" onClick={() => this.voteComment(0, item.comment_id)}/>
+                                </Col>
+
+
+                                <Col lg={2} md={2} sm={2} xs={2}>
+                                    <SendReply count={item.comment_count} comment={item.comment} comment_id={item.comment_id} thread_id={this.props.match.params.thread_id}/>
+                                </Col>
+
+                                <Col lg={3} md={3} sm={3} xs={3}>
+                                    <Share url={this.shareUrl(this.props.match.params.thread_id)}/>
+                                </Col>
+                                </Row>
+                                <Reply comment={item.comment} comment_id={item.comment_id} thread_id={this.props.match.params.thread_id}/>
+                                </div>
+                                
+                                
+                            ))}           
+                            </div>
+                            </Row>
+                        </div>
+                        
+                    )}
+                    </section>
+                    )}
+                    
+                 </Col>
+             </Row>
+             <br /><br />
              <Footer logged_in={this.state.isLoggedIn}/>
              <Copyright/>
            </div>

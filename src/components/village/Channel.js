@@ -32,9 +32,9 @@ export default class Channel extends React.Component {
         return (
           <section>
             <NavigationHeader/>
-            <Post logged_in={this.state.isLoggedIn} account_id={this.state.account_id} campus_id={this.state.campus_id}/>
             <Grid>
-                <Col lg={8} md={8} sm={12} xs={12}>
+              <Row>
+                <Col lg={8} md={8} smHidden xsHidden>
                     
                       {this.state.home ? (
                         <Row>
@@ -58,9 +58,9 @@ export default class Channel extends React.Component {
                       
                    
                     {this.state.home ? (
-                      <ChannelHome/>
+                      <ChannelHome campus_id={this.props.match.params.campus_id}/>
                         ) : (
-                      <ChannelTrending/>
+                      <ChannelTrending campus_id={this.props.match.params.campus_id}/>
                     )}
                 </Col>
                 <Col lg={4} md={4} smHidden xsHidden>
@@ -70,7 +70,41 @@ export default class Channel extends React.Component {
                             <Image src={ require ('./neighborhoods/blocks/houses/images/n.jpg') } alt="iwansell-logo" responsive rounded/>
                         </div>
                 </Col>
-             </Grid><br /><br />
+                </Row>
+             </Grid>
+
+             <Row>
+               <Col lgHidden mdHidden sm={12} xs={12}>
+
+               {this.state.home ? (
+                        <Row>
+                          <Col sm={4} smOffset={2} xs={4} xsOffset={2}>
+                            <Button bsStyle="info" onClick={() => this.switchView(1)}>Home</Button>
+                          </Col>
+                          <Col sm={6} xs={6}>
+                            <Button onClick={() => this.switchView(0)}>Trending</Button>
+                          </Col>
+                          </Row>
+                        ) : (
+                            <Row>
+                              <Col sm={4} smOffset={2} xs={4} xsOffset={2}>
+                                <Button onClick={() => this.switchView(1)}>Home</Button>
+                              </Col>
+                              <Col sm={6} xs={6}>
+                                <Button bsStyle="info" onClick={() => this.switchView(0)}>Trending</Button>
+                              </Col>
+                            </Row>
+                      )}
+
+                      {this.state.home ? (
+                      <ChannelHome campus_id={this.props.match.params.campus_id}/>
+                        ) : (
+                      <ChannelTrending campus_id={this.props.match.params.campus_id}/>
+                    )}
+               </Col>
+             </Row>
+             
+             <br /><br />
              <Footer logged_in={this.state.isLoggedIn}/>
              <Copyright/>
           </section>

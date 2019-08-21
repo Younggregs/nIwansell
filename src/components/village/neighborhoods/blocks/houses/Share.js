@@ -17,7 +17,9 @@ import {
     RedditIcon,
     LinkedinIcon,
     EmailIcon,
-} from 'react-share'
+  } from 'react-share'
+
+
 import { Button, Glyphicon, Col, Row } from 'react-bootstrap'
 import { confirmAlert } from 'react-confirm-alert'
 import 'react-confirm-alert/src/react-confirm-alert.css'
@@ -44,30 +46,30 @@ export default class Share extends React.Component {
                 <br /><br />
                 <Row>
                     <Col lg={3} md={3} sm={3} xs={3}>
-                        <WhatsappShareButton url="https://www.iwansell.com/"><WhatsappIcon size={32} round={true} /></WhatsappShareButton>
+                        <WhatsappShareButton url={this.props.url}><WhatsappIcon size={32} round={true} /></WhatsappShareButton>
                     </Col>
                     <Col lg={3} md={3} sm={3} xs={3}>
-                        <TwitterShareButton url="https://www.iwansell.com/"><TwitterIcon size={32} round={true} /></TwitterShareButton>
+                        <TwitterShareButton url={this.props.url}><TwitterIcon size={32} round={true} /></TwitterShareButton>
                     </Col>
                     <Col lg={3} md={3} sm={3} xs={3}>
-                        <FacebookShareButton url="https://www.iwansell.com/"><FacebookIcon size={32} round={true} /></FacebookShareButton>
+                        <FacebookShareButton url={this.props.url}><FacebookIcon size={32} round={true} /></FacebookShareButton>
                     </Col>
                     <Col lg={3} md={3} sm={3} xs={3}>
-                        <TelegramShareButton url="https://www.iwansell.com/"><TelegramIcon size={32} round={true} /></TelegramShareButton>
+                        <TelegramShareButton url={this.props.url}><TelegramIcon size={32} round={true} /></TelegramShareButton>
                     </Col>
                 </Row><br /><br />
                 <Row>
                     <Col lg={3} md={3} sm={3} xs={3}>
-                        <PinterestShareButton url="https://www.iwansell.com/"><PinterestIcon size={32} round={true} /></PinterestShareButton>
+                        <PinterestShareButton url={this.props.url}><PinterestIcon size={32} round={true} /></PinterestShareButton>
                     </Col>
                     <Col lg={3} md={3} sm={3} xs={3}>
-                        <RedditShareButton url="https://www.iwansell.com/"><RedditIcon size={32} round={true} /></RedditShareButton>
+                        <RedditShareButton url={this.props.url}><RedditIcon size={32} round={true} /></RedditShareButton>
                     </Col>
                     <Col lg={3} md={3} sm={3} xs={3}>
-                        <EmailShareButton url="https://www.iwansell.com/"><EmailIcon size={32} round={true} /></EmailShareButton>
+                        <EmailShareButton url={this.props.url}><EmailIcon size={32} round={true} /></EmailShareButton>
                     </Col>
                     <Col lg={3} md={3} sm={3} xs={3}>
-                        <LinkedinShareButton url="https://www.iwansell.com/"><LinkedinIcon size={32} round={true} /></LinkedinShareButton>
+                        <LinkedinShareButton url={this.props.url}><LinkedinIcon size={32} round={true} /></LinkedinShareButton>
                     </Col>
                 </Row>
                

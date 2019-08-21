@@ -1,10 +1,12 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { Grid, Row, Col, Image, Button, Glyphicon } from 'react-bootstrap'
-import NavigationHeader from './blocks/Navigation Header'
-import Post from './blocks/houses/Post'
 import FormatDate from './blocks/houses/Format Date'
 import Share from './blocks/houses/Share'
+import FloatingActionButton2 from './blocks/houses/Floating Action2'
+import SendComment from './blocks/houses/Send Comment'
+import Spinner from 'react-activity/lib/Spinner';
+import 'react-activity/lib/Spinner/Spinner.css';
 
 export default class ChannelHome extends React.Component {
 
@@ -30,7 +32,7 @@ export default class ChannelHome extends React.Component {
     this.setState({ isLoading: true })
 
     try {
-        const res = await fetch('https://www.iwansell.com/api/channel/1');
+        const res = await fetch('http://127.0.0.1:8000/api/channel/' + this.props.campus_id);
         const threadlist = await res.json();
         this.setState({
           threadlist
@@ -40,7 +42,7 @@ export default class ChannelHome extends React.Component {
       }
 
     try {
-      const res = await fetch('https://www.iwansell.com/api/isloggedin/', {
+      const res = await fetch('http://127.0.0.1:8000/api/isloggedin/', {
 
        credentials: 'same-origin',
        mode: 'cors',
@@ -62,7 +64,7 @@ export default class ChannelHome extends React.Component {
 
 
     try {
-      const res = await fetch('https://www.iwansell.com/api/get_account/',{
+      const res = await fetch('http://127.0.0.1:8000/api/get_account/',{
 
        credentials: 'same-origin',
        mode: 'cors',
@@ -81,7 +83,7 @@ export default class ChannelHome extends React.Component {
 
 
     try {
-      const res = await fetch('https://www.iwansell.com/api/get_campus/',{
+      const res = await fetch('http://127.0.0.1:8000/api/get_campus/',{
 
        credentials: 'same-origin',
        mode: 'cors',
@@ -104,8 +106,8 @@ export default class ChannelHome extends React.Component {
   }
 
   setMedia(media_name, logo, following, votes){
-    this.state.media = 'https://www.iwansell.com/api/media/' + media_name
-    this.state.logo = 'https://www.iwansell.com/api/media/' + logo
+    this.state.media = 'http://127.0.0.1:8000/media/' + media_name
+    this.state.logo = 'http://127.0.0.1:8000/media/' + logo
     this.state.following = following
     this.state.votes = votes
   }
@@ -127,7 +129,7 @@ export default class ChannelHome extends React.Component {
     const auth = localStorage.getItem('auth_code')
 
     try {
-      const res = await fetch('https://www.iwansell.com/api/follow/' + channel_id, {
+      const res = await fetch('http://127.0.0.1:8000/api/follow/' + channel_id, {
        credentials: 'same-origin',
        mode: 'cors',
        headers : {
@@ -152,7 +154,7 @@ export default class ChannelHome extends React.Component {
     const auth = localStorage.getItem('auth_code')
 
     try {
-      const res = await fetch('https://www.iwansell.com/api/vote/' + toggle + '/' + thread_id, {
+      const res = await fetch('http://127.0.0.1:8000/api/vote/' + toggle + '/' + thread_id, {
        credentials: 'same-origin',
        mode: 'cors',
        headers : {
@@ -181,10 +183,23 @@ export default class ChannelHome extends React.Component {
   }
 
 
+  shareUrl(id){
+   return 'https://www.iwansell.com/thread/' + id
+  }
+
+
       render() {
 
         return (
            <div className="home">
+             {this.state.isLoading ? (
+                    <div className="isloading">
+                        <p><b><i>loading...</i></b></p>
+                        <p><Spinner color="#ff0000" size={32}/></p>
+                    </div>
+                    ) : (
+                    <section>
+             <FloatingActionButton2/>
               <section>
                  {this.emptyResult() ? (
                     <p className="err-msg">Its empty here, what you waiting for? start uploading!</p>
@@ -193,7 +208,7 @@ export default class ChannelHome extends React.Component {
                         {this.state.threadlist.map( item => 
                             
                             <div className="thread">
-                              <Link to={`/thread/${ item.thread_id }`}>
+                             
                                 {this.setMedia(item.media, item.logo, item.following, item.votes)}
 
                             <Row>
@@ -218,11 +233,13 @@ export default class ChannelHome extends React.Component {
                                     )}
                                 </Col>
                             </Row>
+                            <Link to={`/thread/${ item.thread_id }`}>
                             <div style={{ margin: 10 }}>
                                 <p style={{ fontWeight: 'bold', fontSize: 20}}>{item.title}</p>
                                 <p>{item.thread}</p>
                                       <Image  src= { `${this.state.media}` } alt="iwansell-logo" responsive rounded/>
                             </div>
+                            </Link>
 
                             <Row>
                                 <Col lg={1} md={1} sm={1} xs={1}>
@@ -241,17 +258,17 @@ export default class ChannelHome extends React.Component {
                                 </Col>
 
                                 <Col lg={2} md={2} sm={2} xs={2}>
-                                    <Glyphicon glyph="comment">25</Glyphicon>
+                                    <SendComment count={item.comment_count} thread={item.thread} thread_id={item.thread_id}/>
                                 </Col>
 
                                 <Col lg={3} md={3} sm={3} xs={3}>
-                                    <Share/>
+                                    <Share url={this.shareUrl(item.thread_id)}/>
                                 </Col>
                                 <Col lg={2} md={2} sm={3} xs={3}>
                                     
                                 </Col>
                             </Row>
-                            </Link>
+                            
                             </div>
                         
                         )}
@@ -259,6 +276,9 @@ export default class ChannelHome extends React.Component {
                         </div>
                     )}
             </section>
+
+            </section>
+            )}
            </div>
          )
      }

@@ -133,7 +133,7 @@ import NewThread from './components/village/New Thread'
                 <Route exact path="/view_more" component={ViewMore}/>
                 <Route exact path="/media_upload/:product_id" component={MediaUpload}/>
                 <Route exact path="/search_page" component={SearchPage}/>
-                <Route exact path="/channel" component={Channel}/>
+                <Route exact path="/channel/:campus_id" component={Channel}/>
                 <Route exact path="/thread/:thread_id" component={Thread}/>
                 <Route exact path="/new_thread" component={NewThread}/>
                 <Route exact path="/privacy_policy" component={PrivacyPolicy}/>

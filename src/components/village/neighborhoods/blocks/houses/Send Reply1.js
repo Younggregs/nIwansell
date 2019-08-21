@@ -85,7 +85,7 @@ export default class SendReply1 extends React.Component {
                 formData.append('reply', reply)
         
                 try {
-                  const res = await fetch('https://www.iwansell.com/api/reply_tree/' + this.props.reply_id + '/', {
+                  const res = await fetch('http://127.0.0.1:8000/api/reply_1/' + this.props.reply_id + '/', {
         
                    body : formData,
                    method: 'POST',
@@ -102,7 +102,7 @@ export default class SendReply1 extends React.Component {
                     });
                     alert('sent')
                     console.log('control' + message)
-                    window.location.replace("https://www.iwansell.com/thread/" + this.props.thread_id);
+                    window.location.replace("http://127.0.0.1:3000/thread/" + this.props.thread_id);
         
                 } catch (e) {
                   console.log(e);
@@ -127,7 +127,7 @@ export default class SendReply1 extends React.Component {
        render() {
          return (
            <section>
-               <Glyphicon onClick={() => this.customAlert()} glyph="comment">17</Glyphicon>
+               <Glyphicon onClick={() => this.customAlert()} glyph="comment">{this.props.count}</Glyphicon>
            </section>
          )
        }
