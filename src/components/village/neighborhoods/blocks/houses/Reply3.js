@@ -19,7 +19,7 @@ export default class Reply3 extends React.Component {
 
     this.setState({ isLoading: true })
     try {
-        const res = await fetch('https://www.iwansell.com/api/reply_2/' + this.props.reply_id);
+        const res = await fetch('https://www.iwansell.com/api/reply_3/' + this.props.reply_id);
         const replylist = await res.json();
         this.setState({
           replylist
