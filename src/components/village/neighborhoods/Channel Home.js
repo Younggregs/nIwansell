@@ -32,7 +32,7 @@ export default class ChannelHome extends React.Component {
     this.setState({ isLoading: true })
 
     try {
-        const res = await fetch('http://127.0.0.1:8000/api/channel/' + this.props.campus_id);
+        const res = await fetch('https://www.iwansell.com/api/channel/' + this.props.campus_id);
         const threadlist = await res.json();
         this.setState({
           threadlist
@@ -42,7 +42,7 @@ export default class ChannelHome extends React.Component {
       }
 
     try {
-      const res = await fetch('http://127.0.0.1:8000/api/isloggedin/', {
+      const res = await fetch('https://www.iwansell.com/api/isloggedin/', {
 
        credentials: 'same-origin',
        mode: 'cors',
@@ -64,7 +64,7 @@ export default class ChannelHome extends React.Component {
 
 
     try {
-      const res = await fetch('http://127.0.0.1:8000/api/get_account/',{
+      const res = await fetch('https://www.iwansell.com/api/get_account/',{
 
        credentials: 'same-origin',
        mode: 'cors',
@@ -83,7 +83,7 @@ export default class ChannelHome extends React.Component {
 
 
     try {
-      const res = await fetch('http://127.0.0.1:8000/api/get_campus/',{
+      const res = await fetch('https://www.iwansell.com/api/get_campus/',{
 
        credentials: 'same-origin',
        mode: 'cors',
@@ -106,8 +106,8 @@ export default class ChannelHome extends React.Component {
   }
 
   setMedia(media_name, logo, following, votes){
-    this.state.media = 'http://127.0.0.1:8000/media/' + media_name
-    this.state.logo = 'http://127.0.0.1:8000/media/' + logo
+    this.state.media = 'https://www.iwansell.com/media/' + media_name
+    this.state.logo = 'https://www.iwansell.com/media/' + logo
     this.state.following = following
     this.state.votes = votes
   }
@@ -129,7 +129,7 @@ export default class ChannelHome extends React.Component {
     const auth = localStorage.getItem('auth_code')
 
     try {
-      const res = await fetch('http://127.0.0.1:8000/api/follow/' + channel_id, {
+      const res = await fetch('https://www.iwansell.com/api/follow/' + channel_id, {
        credentials: 'same-origin',
        mode: 'cors',
        headers : {
@@ -154,7 +154,7 @@ export default class ChannelHome extends React.Component {
     const auth = localStorage.getItem('auth_code')
 
     try {
-      const res = await fetch('http://127.0.0.1:8000/api/vote/' + toggle + '/' + thread_id, {
+      const res = await fetch('https://www.iwansell.com/api/vote/' + toggle + '/' + thread_id, {
        credentials: 'same-origin',
        mode: 'cors',
        headers : {
