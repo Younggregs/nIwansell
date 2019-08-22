@@ -88,7 +88,7 @@ export default class SendReply4 extends React.Component {
                 formData.append('reply', reply)
         
                 try {
-                  const res = await fetch('http://127.0.0.1:8000/api/reply_4/' + this.props.reply_id + '/', {
+                  const res = await fetch('https://www.iwansell.com/api/reply_4/' + this.props.reply_id + '/', {
         
                    body : formData,
                    method: 'POST',
@@ -105,7 +105,7 @@ export default class SendReply4 extends React.Component {
                     });
                     alert('sent')
                     console.log('control' + message)
-                    window.location.replace("http://127.0.0.1:3000/thread/" + this.props.thread_id);
+                    window.location.replace("https://www.iwansell.com/thread/" + this.props.thread_id);
         
                 } catch (e) {
                   console.log(e);

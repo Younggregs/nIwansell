@@ -19,7 +19,7 @@ export default class Reply3 extends React.Component {
 
     this.setState({ isLoading: true })
     try {
-        const res = await fetch('http://127.0.0.1:8000/api/reply_2/' + this.props.reply_id);
+        const res = await fetch('https://www.iwansell.com/api/reply_2/' + this.props.reply_id);
         const replylist = await res.json();
         this.setState({
           replylist
@@ -33,8 +33,8 @@ export default class Reply3 extends React.Component {
   }
 
   setMedia(dp, media, votes){
-    this.state.dp = 'http://127.0.0.1:8000/media/' + dp
-    this.state.media = 'http://127.0.0.1:8000/media/' + media
+    this.state.dp = 'https://www.iwansell.com/api/media/' + dp
+    this.state.media = 'https://www.iwansell.com/api/media/' + media
     this.state.votes = votes
   }
 
@@ -56,7 +56,7 @@ export default class Reply3 extends React.Component {
     const auth = localStorage.getItem('auth_code')
 
     try {
-      const res = await fetch('http://127.0.0.1:8000/api/vote_reply_3/' + toggle + '/' + reply_id, {
+      const res = await fetch('https://www.iwansell.com/api/vote_reply_3/' + toggle + '/' + reply_id, {
        credentials: 'same-origin',
        mode: 'cors',
        headers : {
