@@ -36,7 +36,7 @@ export default class Logo extends React.Component {
                    <div className="logo-sm">
                    <p>iwansell</p>
                  
-                      <Image className="logo-image-wrapper" width="100px" height="100px" src={ require ('./images/icon.png') } alt="iwansell" responsive rounded/>
+                      <Image className="logo-image-wrapper" width="100px" height="100px" src={ require ('./images//nicon1.png') } alt="iwansell" responsive rounded/>
                    
                 </div>
                </Link>
@@ -45,7 +45,7 @@ export default class Logo extends React.Component {
                    <div className="logo-sm">
                    <p>iwansell</p>
                    
-                      <Image className="logo-image-wrapper" width="100px" height="100px" src={ require ('./images/icon.png') } alt="iwansell" responsive rounded/>
+                      <Image className="logo-image-wrapper" width="100px" height="100px" src={ require ('./images//nicon1.png') } alt="iwansell" responsive rounded/>
                    
                 </div>
               </Link>
