@@ -10,6 +10,10 @@ export default class SendReply extends React.Component {
         message: [],
     }
 
+    fetchComment(){
+      return this.props.comment.substr(0, 150) +  '...'
+    }
+
     options = {
         title: 'Title',
         message: 'Message',
@@ -29,7 +33,7 @@ export default class SendReply extends React.Component {
                 <Row>
                     <Col lg={8} lgOffset={2} md={8} mdOffset={2} sm={12} xs={12}>
                         <div style={{ padding: 10, marginBottom: 20}}>
-                            <p>{this.props.comment}</p>
+                            <p>{this.fetchComment()}</p>
                         </div>
                         
                     </Col>
