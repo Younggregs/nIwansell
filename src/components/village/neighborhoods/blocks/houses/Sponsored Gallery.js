@@ -94,10 +94,12 @@ export default class SponsoredGallery extends React.Component {
 
                <Slider {...settings_sm}>
              { this.state.sponsoredList.map(item => (
-                 <div class="card">
+                <div class="card">
+                   <div class="card-image">
                  {this.setMedia(item.product_image)}
                  <img src= { `${this.state.media}` } alt="thumbnail"/>
                  </div>
+                </div>
               )
              )}
                </Slider>
