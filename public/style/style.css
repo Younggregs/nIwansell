@@ -1287,11 +1287,13 @@ img{
 .card {
   flex: 0 0 auto;
   margin-right: 3px;
+  display: inline-block;
   border: 1px solid grey;
+  min-width: 150px;
   height: 150px;
   background: white;
   vertical-align: middle;
-  line-height: 150px;
+  text-align: center;
 }
 
 .card-image{
