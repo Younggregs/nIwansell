@@ -89,11 +89,7 @@ export default class SendReply2 extends React.Component {
         
                    body : formData,
                    method: 'POST',
-                   credentials: 'same-origin',
-                   mode: 'cors',
-                   headers : {
-                     'Authorization' : 'Token ' + auth
-                   }
+  
         
                   })
                   const message = await res.json();

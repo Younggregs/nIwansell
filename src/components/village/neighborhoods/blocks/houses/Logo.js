@@ -12,16 +12,18 @@ export default class Logo extends React.Component {
                <Link to="/home">
                  <div className="logo">
                  <p>iwansell</p>
-                   <Image width="100px" height="100px" src={ require ('./images/icon.png') } alt="iwansell" responsive/>
-                   
+                
+                    <Image className="logo-image-wrapper" width="100px" height="100px" src={ require ('./images/nicon1.png') } alt="iwansell" responsive rounded/>
+
                   </div>
                </Link>
              ) : (
               <Link to="/">
                 <div className="logo">
                 <p>iwansell</p>
-                   <Image width="100px" height="100px" src={ require ('./images/icon.png') } alt="iwansell" responsive/>
-                   
+                
+                   <Image className="logo-image-wrapper" width="100px" height="100px" src={ require ('./images/nicon1.png') } alt="iwansell" responsive rounded/>
+               
                 </div>
               </Link>
              )}
@@ -33,7 +35,8 @@ export default class Logo extends React.Component {
                <Link to="/home">
                    <div className="logo-sm">
                    <p>iwansell</p>
-                      <Image width="100px" height="100px" src={ require ('./images/icon.png') } alt="iwansell" responsive/>
+                 
+                      <Image className="logo-image-wrapper" width="100px" height="100px" src={ require ('./images/icon.png') } alt="iwansell" responsive rounded/>
                    
                 </div>
                </Link>
@@ -41,7 +44,8 @@ export default class Logo extends React.Component {
               <Link to="/">
                    <div className="logo-sm">
                    <p>iwansell</p>
-                      <Image width="100px" height="100px" src={ require ('./images/icon.png') } alt="iwansell" responsive/>
+                   
+                      <Image className="logo-image-wrapper" width="100px" height="100px" src={ require ('./images/icon.png') } alt="iwansell" responsive rounded/>
                    
                 </div>
               </Link>

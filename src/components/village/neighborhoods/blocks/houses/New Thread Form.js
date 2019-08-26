@@ -20,6 +20,7 @@ export default class NewThreadForm extends Component {
       title_err: false,
       post_err: false,
       channel: null,
+      channel_: 'Iwansell Tv'
     };
   }
 
@@ -151,7 +152,7 @@ export default class NewThreadForm extends Component {
     </div>
     </Row><br />
 
-  <Heading title={this.state.channel} />
+  <Heading title={this.state.channel_} />
 
 <Form>
   <FormGroup>

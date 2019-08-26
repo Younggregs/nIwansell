@@ -6,7 +6,6 @@ import {
     WhatsappShareButton,
     PinterestShareButton,
     RedditShareButton,
-    InstapaperShareButton,
     EmailShareButton,
     LinkedinShareButton,
     FacebookIcon,

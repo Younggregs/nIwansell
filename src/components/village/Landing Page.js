@@ -185,12 +185,13 @@ async getMarket(id){
                 
                    {this.state.isLoading2 ? (
                        <div>
-                       <p><b><i>Fetching Campus</i></b></p>
+                       <p style={{ color: 'black'}}><b><i>Fetching Campus</i></b></p>
                        <p><Spinner color="#ff0000" size={32}/></p>
                        </div>
                     ) : (
                     
                       <div className="campus-list">
+                        <p style={{ color: 'black', wordWrap: 'normal', wordSpacing: 1}}>Click on campus to continue</p>
                          {this.state.campuslist.map(item => (
                          <span><a href={`/iwansell/${ item.id } `}>{item.campus_code}</a></span>
                         ))}

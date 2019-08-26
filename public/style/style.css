@@ -692,7 +692,7 @@ td{
 .slide-image {
   height: 250px;
   width: '100%';
-  background-image: url('tshirt-md.jpg');
+  background-image: url('m-g.jpg');
   background-position: center;
   background-color: whitesmoke;
   background-repeat: repeat;
@@ -1075,6 +1075,12 @@ img{
   vertical-align: middle;
   height: 250px;
 
+}
+
+.logo-image-wrapper{
+  background-color: #01579b;
+  height: 50;
+  width: 50;
 }
 
 .logo {

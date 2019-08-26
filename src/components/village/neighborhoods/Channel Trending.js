@@ -8,7 +8,7 @@ import SendComment from './blocks/houses/Send Comment'
 import Spinner from 'react-activity/lib/Spinner';
 import 'react-activity/lib/Spinner/Spinner.css';
 
-export default class ChannelTrending extends React.Component {
+export default class ChannelHome extends React.Component {
 
   state={
     account_id: null,
@@ -187,6 +187,10 @@ export default class ChannelTrending extends React.Component {
    return 'https://www.iwansell.com/thread/' + id
   }
 
+  getThread(thread){
+    return thread.substring(0, 300) + ' ...'
+  }
+
 
       render() {
 
@@ -239,7 +243,7 @@ export default class ChannelTrending extends React.Component {
                                 <p>{item.thread}</p>
                                       <Image  src= { `${this.state.media}` } alt="iwansell-logo" responsive rounded/>
                             </div>
-                            </Link>
+                            
 
                             <Row>
                                 <Col lg={1} md={1} sm={1} xs={1}>
@@ -268,7 +272,7 @@ export default class ChannelTrending extends React.Component {
                                     
                                 </Col>
                             </Row>
-                            
+                            </Link>
                             </div>
                         
                         )}

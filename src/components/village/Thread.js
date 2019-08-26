@@ -1,6 +1,7 @@
 import React from 'react'
 import { Grid, Row, Col, Image, Button, Glyphicon } from 'react-bootstrap'
 import NavigationHeader from './neighborhoods/blocks/Navigation Header'
+import Post from './neighborhoods/blocks/houses/Post'
 import Footer from './neighborhoods/Footer'
 import GotoTop from './neighborhoods/blocks/houses/Goto Top'
 import Copyright from './neighborhoods/blocks/houses/Copyright'
@@ -9,6 +10,7 @@ import Share from './neighborhoods/blocks/houses/Share'
 import Reply from './neighborhoods/blocks/houses/Reply'
 import SendComment from './neighborhoods/blocks/houses/Send Comment'
 import SendReply from './neighborhoods/blocks/houses/Send Reply'
+import FloatingActionButton2 from './neighborhoods/blocks/houses/Floating Action2'
 import Spinner from 'react-activity/lib/Spinner';
 import 'react-activity/lib/Spinner/Spinner.css';
 
@@ -280,6 +282,7 @@ export default class Thread extends React.Component {
 
         return (
            <div className="home">
+             
             <NavigationHeader/>
              <Grid>
                  <Col lg={8} md={8} smHidden xsHidden>
@@ -291,7 +294,7 @@ export default class Thread extends React.Component {
                     </div>
                     ) : (
                     <section>
-                    
+                    <FloatingActionButton2/>
                 
                         {this.emptyResult() ? (
                             <p className="err-msg">Sorry wrong turn</p>
