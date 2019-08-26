@@ -90,6 +90,9 @@ export default class SendComment extends React.Component {
         
                    body : formData,
                    method: 'POST',
+                   headers : {
+                    'Authorization' : 'Token ' + auth
+                  },
         
                   })
                   const message = await res.json();

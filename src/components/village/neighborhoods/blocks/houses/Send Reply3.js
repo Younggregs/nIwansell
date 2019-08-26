@@ -89,6 +89,9 @@ export default class SendReply3 extends React.Component {
         
                    body : formData,
                    method: 'POST',
+                   headers : {
+                    'Authorization' : 'Token ' + auth
+                  },
        
                   })
                   const message = await res.json();

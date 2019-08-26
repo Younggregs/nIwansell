@@ -55,10 +55,7 @@ check(){
              <Col lg={12} md={12} smHidden xsHidden>
              
            <Form inline>
-            <Link to="/listings/1">
-              <div className="contact-button2">See what people need here!</div>
-             </Link>
-
+           
            <FormGroup>
                <FormControl componentClass="select" placeholder="select" id="category_id" name="category_id">
                <option value="99">All categories</option>
@@ -90,9 +87,7 @@ check(){
 
 
            <Col xs={12} sm={12} lgHidden mdHidden>
-             <Link to="/listings/1">
-              <div className="contact-button">See what people need here!</div>
-             </Link>
+           
            <Form inline>
 
       <FormGroup>
@@ -101,7 +96,7 @@ check(){
        id="search_phrase_sm"
        type="text"
        name="search_phrase_sm"
-       placeholder="Search for anything...  try 'flash drive'"
+       placeholder="Search for anything  "
        onFocus={this.check.bind(this)}
        onKeyPress={event => {
         if (event.key === 'Enter') {

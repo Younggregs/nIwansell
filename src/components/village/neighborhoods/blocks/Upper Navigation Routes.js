@@ -14,7 +14,7 @@ export default class UpperNavigationRoutes extends React.Component {
                     <Col lg={2} md={2} className="post-object">
                         <Link to={`/channel/${ this.props.campus_id }/`}>
                         <Glyphicon glyph="facetime-video" style={{ color: '#01579b'}}/>
-                           <p>Channel</p> 
+                           <p>TV</p> 
                         </Link>
                     </Col>
 
@@ -101,7 +101,7 @@ export default class UpperNavigationRoutes extends React.Component {
                 <Col sm={4} xs={4} className="post-object-sm">
                          <Link to={`/channel/${ this.props.campus_id }/`}>
                          <Glyphicon glyph="facetime-video" style={{ color: '#01579b'}}/>
-                           <p>Channel</p> 
+                           <p>TV</p> 
                          </Link>
                      </Col>
 
