@@ -187,6 +187,8 @@ export default class ChannelHome extends React.Component {
    return 'https://www.iwansell.com/thread/' + id
   }
 
+
+
   getThread(thread){
     return thread.substring(0, 300) + ' ...'
   }
@@ -240,7 +242,7 @@ export default class ChannelHome extends React.Component {
                             <Link to={`/thread/${ item.thread_id }`}>
                             <div style={{ margin: 10 }}>
                                 <p style={{ fontWeight: 'bold', fontSize: 20}}>{item.title}</p>
-                                <p>{item.thread}</p>
+                                <p>{this.getThread(item.thread)}<Button bsStyle="info"><Glyphicon glyph="tasks"/>Continue To Conversation</Button></p>
                                       <Image  src= { `${this.state.media}` } alt="iwansell-logo" responsive rounded/>
                             </div>
                             

@@ -9,6 +9,7 @@ export default class SendComment extends React.Component {
     state = {
         comment_err: false,
         message: [],
+        status: false
     }
 
     fetchThread(){
@@ -94,17 +95,20 @@ export default class SendComment extends React.Component {
         
                    body : formData,
                    method: 'POST',
+                   credentials: 'same-origin',
+                   mode: 'cors',
                    headers : {
                     'Authorization' : 'Token ' + auth
                   },
         
                   })
                   const message = await res.json();
+                  
                     this.setState({
-                      message, rd: true 
+                      message, status: true 
                     });
                     alert('sent!')
-                    window.location.replace("https://www.iwansell.com/thread/" + this.props.thread_id);
+                    window.location.reload();
         
                 } catch (e) {
                   console.log(e);
@@ -129,8 +133,13 @@ export default class SendComment extends React.Component {
          return (
            <section>
           
-            <Glyphicon onClick={() => this.customAlert()} glyph="comment">{this.props.count}</Glyphicon>
-           
+            
+            {this.state.status ? (
+
+              <Redirect to={`/thread/${ this.props.thread_id }`}/>
+            ) : (
+              <Glyphicon onClick={() => this.customAlert()} glyph="comment">{this.props.count}</Glyphicon>
+            )}
            </section>
          )
        }

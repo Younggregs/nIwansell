@@ -93,6 +93,8 @@ export default class SendReply3 extends React.Component {
         
                    body : formData,
                    method: 'POST',
+                   credentials: 'same-origin',
+                   mode: 'cors',
                    headers : {
                     'Authorization' : 'Token ' + auth
                   },
@@ -104,7 +106,7 @@ export default class SendReply3 extends React.Component {
                     });
                     alert('sent')
                     console.log('control' + message)
-                    window.location.replace("https://www.iwansell.com/thread/" + this.props.thread_id);
+                    window.location.reload();
         
                 } catch (e) {
                   console.log(e);

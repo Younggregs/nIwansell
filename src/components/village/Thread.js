@@ -41,9 +41,10 @@ export default class Thread extends React.Component {
   }
 
   async componentWillMount() {
-    const auth = localStorage.getItem('auth_code')
-
+    
     this.setState({ isLoading: true })
+
+    const auth = localStorage.getItem('auth_code')
 
     try {
         const res = await fetch('https://www.iwansell.com/api/thread/'  + this.props.match.params.thread_id);
@@ -65,28 +66,6 @@ export default class Thread extends React.Component {
       } catch (e) {
         console.log(e);
       }
-
-
-    try {
-      const res = await fetch('https://www.iwansell.com/api/isloggedin/', {
-
-       credentials: 'same-origin',
-       mode: 'cors',
-       headers : {
-         'Authorization' : 'Token ' + auth
-       }
-
-      })
-      .then(response => {
-        if (response.status === 200) {
-
-        } else {
-          this.setState({ isLoggedIn: false})
-        }
-      })
-    } catch (e) {
-      console.log(e);
-    }
 
 
     try {
@@ -565,7 +544,7 @@ export default class Thread extends React.Component {
                  </Col>
              </Row>
              <br /><br />
-             <Footer logged_in={this.state.isLoggedIn}/>
+             <Footer/>
              <Copyright/>
            </div>
          )
