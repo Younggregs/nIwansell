@@ -1143,6 +1143,8 @@ img{
 
 .landing-view{
   background: #01579b;
+  background-image: url('m-g.jpg');
+  background-size: contain;
   min-height: 100vh;
   padding-bottom: 20px;
 }
