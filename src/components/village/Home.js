@@ -91,6 +91,7 @@ export default class Home extends React.Component {
         return (
            <div className="landing-page">
              <Navigation logged_in={true} account_id={this.state.account_id} campus_id={this.state.campus_id}/>
+             <Grid>
              <Row>
                <Col lg={12} md={12}>
                  <Row>
@@ -106,7 +107,7 @@ export default class Home extends React.Component {
                   <EShopAds/>
                </Col>
               </Row>
-
+              </Grid>
              <CategorySlide/>
              <GotoTop/>
              <Footer logged_in={true}/>

@@ -238,6 +238,7 @@ async getMarket(id){
              ) : (
               <div>
              <Navigation campus_id={this.state.campus_id} logged_in={false} market={this.state.market}/>
+             <Grid>
              <Row>
                 <Col lg={12} md={12}>
                   <Row>
@@ -253,7 +254,7 @@ async getMarket(id){
                    <EShopAds/>
                 </Col>
                </Row>
-
+               </Grid>
              <CategorySlide/>
              <GotoTop/>
              <Footer logged_in={false}/>
