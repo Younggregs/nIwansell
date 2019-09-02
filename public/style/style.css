@@ -135,6 +135,22 @@ a{
   padding: 10px;
 }
 
+.trending-wrapper{
+  background-color:#01579b;
+}
+
+.trending-title{
+  font-size: 25px;
+  font-weight: bold;
+  font-family: "Pacifico";
+}
+
+.trending-header{
+  background-color: grey;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
 .receipt-header{
   text-align: center;
   text-transform: uppercase;
@@ -424,9 +440,12 @@ a{
 
 .category-list{
   background-color: white;
-  box-shadow: 0 0 2px #666;
+  border-color: black;
+  border-width: 1px;
+  border-style: solid;
   margin-top: 10px;
   padding: 10px;
+  text-align: right;
 }
 
 .category-list-sm{
@@ -682,11 +701,24 @@ td{
   padding: 20px;
   margin: 10px;
   background-color: white;
-  box-shadow: 0 0 2px #666;
+  border-color: black;
+  border-width: 1px;
+  border-style: solid;
 }
 
 .sponsored {
   margin: 15;
+}
+
+.about-iwansell{
+  color: black;
+  text-align: left;
+  margin-top: 20px;
+  background-color: white;
+  padding: 10px;
+  border-color: black;
+  border-width: 1px;
+  border-style: solid;
 }
 
 .slide-image {
@@ -782,7 +814,6 @@ td{
 .product-container{
   border: 1px solid #ccc;
   border-radius: 5px;
-  box-shadow: 0 0 5px #666;
   width: auto;
   margin-bottom: 20px;
   height: 300px;

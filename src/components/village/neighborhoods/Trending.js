@@ -129,7 +129,7 @@ export default class Trending extends React.Component {
                 <section>
                 <Col lg={12} md={12} smHidden xsHidden>
 
-                <Row>
+                <Row className="trending-wrapper">
                 <Heading title = {this.trending_1} trending={true}/>
 
                 {this.emptyResult(this.state.trendList_1) ? (
@@ -173,8 +173,11 @@ export default class Trending extends React.Component {
 
 
 
-                <Row>
-                <Heading title = {this.trending_2} trending={true}/>
+                <Row className="trending-wrapper">
+                
+                <div className="trending-header">
+                  <p className="trending-title">{this.trending_2}</p> 
+                </div>
 
                 {this.emptyResult(this.state.trendList_2) ? (
                   <section className="product-image">
@@ -217,9 +220,11 @@ export default class Trending extends React.Component {
 
 
 
-                <Row>
-                <Heading title = {this.trending_3} trending={true}/>
-
+                <Row className="trending-wrapper">
+                
+                <div className="trending-header">
+                  <p className="trending-title">{this.trending_3}</p> 
+                </div>
 
                 {this.emptyResult(this.state.trendList_3) ? (
                   <section className="product-image">
@@ -258,8 +263,11 @@ export default class Trending extends React.Component {
 
 
 
-                <Row>
-                <Heading title = {this.trending_4} trending={true}/>
+                <Row className="trending-wrapper">
+                
+                <div className="trending-header">
+                  <p className="trending-title">{this.trending_4}</p> 
+                </div>
 
                 {this.emptyResult(this.state.trendList_4) ? (
                   <section className="product-image">
@@ -298,8 +306,11 @@ export default class Trending extends React.Component {
 
 
 
-                <Row>
-                <Heading title = {this.trending_5} trending={true}/>
+                <Row className="trending-wrapper">
+
+                <div className="trending-header">
+                  <p className="trending-title">{this.trending_5}</p> 
+                </div>
 
                 {this.emptyResult(this.state.trendList_5) ? (
                   <section className="product-image">

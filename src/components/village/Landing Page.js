@@ -239,7 +239,7 @@ async getMarket(id){
               <div>
              <Navigation campus_id={this.state.campus_id} logged_in={false} market={this.state.market}/>
              <Row>
-                <Col lg={9} md={9}>
+                <Col lg={12} md={12}>
                   <Row>
                      <Sponsored title="Sponsored" campus_id={this.state.campus_id}/>
                   </Row>
@@ -249,7 +249,7 @@ async getMarket(id){
                   </Row>
                  </Col>
 
-                <Col lg={3} md={3} smHidden xsHidden>
+                <Col lgHidden mdHidden smHidden xsHidden>
                    <EShopAds/>
                 </Col>
                </Row>

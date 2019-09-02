@@ -35,10 +35,10 @@ export default class CategoryList extends React.Component {
 
        render() {
          return (
-           <section className="category-list">
+          <section className="category-list">
              <Row>
               <Col lg={12} md={12} sm={12} xs={12}>
-              <Table responsive>
+             
       
                 {this.state.isLoading ? (
                   <div className="isloading">
@@ -46,23 +46,19 @@ export default class CategoryList extends React.Component {
                   <p><Spinner color="#ff0000" size={32}/></p>
                   </div>
                 ) : (
-                  <tbody>
-                <tr>
-                </tr>
+                  <div>
                        {this.state.categoryList.map(item => (
-                         <tr>
-                          <td>
+                        
                            <Link to={`/category_view/${ item.id }/`}>
-                               <Button>{item.name}</Button>
+                               <p>{item.name}</p>
                             </Link>
-                          </td>
-                          </tr>
+                         
                        ))}
-                </tbody>
+               </div>
 
                 )}
                 
-              </Table>
+             
                 </Col>
              </Row>
            </section>

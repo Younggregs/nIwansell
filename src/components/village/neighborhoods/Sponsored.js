@@ -1,9 +1,8 @@
 import React from 'react'
-import Slider from 'react-slick'
 import { Row, Col } from 'react-bootstrap'
-import Heading from './blocks/houses/Heading.js'
 import SponsoredGallery from './blocks/houses/Sponsored Gallery'
 import CategoryList from './blocks/houses/Category List'
+import SubcategoryIcons from './blocks/houses/Subcategory Icons'
 
 export default class Sponsored extends React.Component {
 
@@ -22,6 +21,10 @@ export default class Sponsored extends React.Component {
                 </Col>
 
               </Row>
+              <Row>
+               <SubcategoryIcons/>
+             </Row>
+
 
            </section>
          )

@@ -92,7 +92,7 @@ export default class Home extends React.Component {
            <div className="landing-page">
              <Navigation logged_in={true} account_id={this.state.account_id} campus_id={this.state.campus_id}/>
              <Row>
-               <Col lg={9} md={9}>
+               <Col lg={12} md={12}>
                  <Row>
                     <Sponsored title="Sponsored" campus_id={this.state.campus_id}/>
                  </Row>
@@ -102,7 +102,7 @@ export default class Home extends React.Component {
                  </Row>
                 </Col>
 
-               <Col lg={3} md={3} smHidden xsHidden>
+               <Col lgHidden mdHidden smHidden xsHidden>
                   <EShopAds/>
                </Col>
               </Row>
