@@ -1,5 +1,5 @@
 import React from 'react'
-import {Row, Col } from 'react-bootstrap'
+import { Grid, Row, Col } from 'react-bootstrap'
 import Navigation from './neighborhoods/Navigation'
 import Sponsored from './neighborhoods/Sponsored'
 import Trending from './neighborhoods/Trending'
