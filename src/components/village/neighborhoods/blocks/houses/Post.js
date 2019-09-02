@@ -44,14 +44,14 @@ export default class Post extends React.Component {
                     <Col lg={2} md={2} className="post-objectb">
                         <Link to ="buyer_transaction_window">
                         <Glyphicon glyph="log-out"/>
-                            <p>Buy It</p>
+                            <p>Buy</p>
                         </Link>
                     </Col>
 
                   <Col lg={2} md={2} className="post-objectb">
                     <Link to = "/newproduct">
                     <Button bsStyle="primary">
-                        Sell It
+                        Sell
                     </Button>
                     </Link>
                     </Col>

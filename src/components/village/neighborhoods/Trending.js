@@ -130,7 +130,9 @@ export default class Trending extends React.Component {
                 <Col lg={12} md={12} smHidden xsHidden>
 
                 <Row className="trending-wrapper">
-                <Heading title = {this.trending_1} trending={true}/>
+                <div className="trending-header">
+                  <p className="trending-title">{this.trending_1}</p> 
+                </div>
 
                 {this.emptyResult(this.state.trendList_1) ? (
                   <section className="product-image">
