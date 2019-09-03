@@ -19,9 +19,9 @@ export default class ProductManager extends React.Component {
              <Grid>
               <br /><Row>
               
-              <div className="sign-in">
+             
                <ProductList/>
-              </div>
+              
               
               </Row><br /><br />
              </Grid>
