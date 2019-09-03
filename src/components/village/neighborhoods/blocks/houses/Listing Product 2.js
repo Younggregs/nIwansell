@@ -112,7 +112,7 @@ export default class ListingProduct2 extends React.Component {
        render() {
          return (
            <section className="product-list ">
-            <Col lg={3} md={3} sm={12} xs={12}>
+            <Col lg={4} md={4} sm={12} xs={12}>
                
                <div className="product-options">
                     <h4><b>I NEED:</b> {this.props.product_name}</h4>

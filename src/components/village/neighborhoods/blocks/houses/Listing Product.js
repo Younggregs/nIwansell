@@ -55,7 +55,7 @@ export default class ProductList extends React.Component {
               <p className="err-msg">Its empty here, what you waiting for? start uploading!</p>
             ) : (
             
-              <Col lg={4} md={4} xs={12} sm={12}>
+              <Col lg={12} md={12} xs={12} sm={12}>
                 {this.state.productList.map(item => (
 
                   <ListingProduct2
