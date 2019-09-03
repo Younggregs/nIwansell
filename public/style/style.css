@@ -331,9 +331,6 @@ a{
 .post{
   height: 50px;
   background-color: white;
-  position: -webkit-sticky;
-  position: sticky;
-  top: 0;
 }
 
 .upper-navigation{
@@ -421,22 +418,19 @@ a{
   padding: 5px;
   color: white;
   margin-left: 10px;
-  position: -webkit-sticky;
-  position: sticky;
-  top: 0;
+
 }
 
 .navigation-icon{
   background-color:gray;
   border-radius: 25px;
-  font-size: 0.9em;
+  font-size: 15px;
+  word-spacing: 4em;
   height: 50px;
   padding: 5px;
   color: white;
   margin-left: 10px;
-  position: -webkit-sticky;
-  position: sticky;
-  top: 0;
+
 }
 
 

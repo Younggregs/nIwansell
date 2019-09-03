@@ -9,8 +9,12 @@ export default class Post extends React.Component {
 
        render() {
          return (
+           <Row>
+             <Col lg={12} md={12} smHidden xsHidden>
+
+             <Row>
           <section className="post" id="post">
-            <Row>
+            
             <Col lg={4} md={4} smHidden xsHidden>
                 <Logo/>
             </Col>
@@ -88,10 +92,16 @@ export default class Post extends React.Component {
 
                </Row>
               </Col>
-            
+            </section>
           </Row>
+             
+          </Col>
 
-            <Row>
+
+          <Col lgHidden mdHidden sm={12} xs={12}>
+
+          <Row>
+          <section className="post" id="post">
               <Col lgHidden mdHidden sm={2} xs={2} className="post-objectb">
                 <Link to = "/menu">
                 <Button bsStyle="primary">
@@ -130,11 +140,15 @@ export default class Post extends React.Component {
                 )}
                 
               </Col>
+              </section>
               </Row>
-              
+
+          </Col>
+          </Row>
           
-  
-         </section>
+
+          
+         
          )
        }
   }
