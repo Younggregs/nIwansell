@@ -12,6 +12,7 @@ export default class Post extends React.Component {
            <section>
             <Row>
             <section className="post" id="post">
+
             <Col lg={4} md={4} smHidden xsHidden>
                 <Logo/>
             </Col>
@@ -92,13 +93,8 @@ export default class Post extends React.Component {
                 
               </Col>
 
-              <Col lgHidden mdHidden sm={2} xs={2} className="post-objectb">
-                <Link to = "/menu">
-                <Button bsStyle="primary">
-                    <Glyphicon glyph="th-list" style={{color:'white'}}/>
-                </Button>
-                </Link>
-              </Col>
+              <Row>
+              
 
               <Col lgHidden mdHidden sm={4} xs={4}>
                 <Logo/>
@@ -130,7 +126,11 @@ export default class Post extends React.Component {
                 )}
                 
               </Col>
+              </Row>
+
               </section>
+
+              
          </Row>
          </section>
          )
