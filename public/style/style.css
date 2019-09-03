@@ -415,7 +415,7 @@ a{
 
 
 .navigation-header{
-  background-color:#01579b;
+  background-color:gray;
   height: 40px;
   font-size: 0.9em;
   padding: 5px;
@@ -425,6 +425,21 @@ a{
   position: sticky;
   top: 0;
 }
+
+.navigation-icon{
+  background-color:gray;
+  border-radius: 25px;
+  font-size: 0.9em;
+  height: 50px;
+  padding: 5px;
+  color: white;
+  margin-left: 10px;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+}
+
+
 
 .date{
   font-size: 0.7em;
@@ -559,7 +574,7 @@ td{
 
 .glyphs{
   font-size: 2em;
-  color: #01579b;
+  color: white;
   padding: 5px;
 }
 

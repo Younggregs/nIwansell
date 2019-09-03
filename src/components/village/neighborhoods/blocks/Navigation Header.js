@@ -35,7 +35,7 @@ export default class NavigationHeader extends React.Component {
 
                   <Col lgHidden mdHidden sm={3} xs={3}>
                   <Link to="/buyer_transaction_window">
-                  <Button bsStyle="danger">
+                  <Button bsStyle="info">
                     <span> BUY </span>
                   </Button>
                   </Link>&nbsp;&nbsp;

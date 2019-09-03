@@ -103,7 +103,7 @@ export default class NavigationIcons extends React.Component {
         );
 
          return (
-           <section className="ehaggler-icon">
+           <section className="navigation-icon">
 
             <Col lg={2} md={2} smHidden xsHidden>
              <Link to={`/profile/${ this.props.account_id }`}>

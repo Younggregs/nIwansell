@@ -9,7 +9,7 @@ export default class Post extends React.Component {
 
        render() {
          return (
-           <section className="sticky-header">
+           <section>
             <Row>
             <section className="post" id="post">
             <Col lg={4} md={4} smHidden xsHidden>
@@ -37,16 +37,10 @@ export default class Post extends React.Component {
                     <Col lg={2} md={2} className="post-object">
                         <Link to = "/newproduct">
                         <Glyphicon glyph="upload"/>
-                            <p>Post</p>
+                            <p>Upload</p>
                         </Link>
                     </Col>
 
-                    <Col lg={2} md={2} className="post-objectb">
-                        <Link to ="buyer_transaction_window">
-                        <Glyphicon glyph="log-out"/>
-                            <p>Buy</p>
-                        </Link>
-                    </Col>
 
                   <Col lg={2} md={2} className="post-objectb">
                     <Link to = "/newproduct">
@@ -54,8 +48,16 @@ export default class Post extends React.Component {
                         Sell
                     </Button>
                     </Link>
-                    </Col>
-                    </section>
+                  </Col>
+                  
+                  <Col lg={2} md={2} className="post-objectb">
+                    <Link to = "/buyer_transaction_window">
+                    <Button bsStyle="primary">
+                        Buy
+                    </Button>
+                    </Link>
+                  </Col>
+                  </section>
 
                 ) : (
                 <section>
