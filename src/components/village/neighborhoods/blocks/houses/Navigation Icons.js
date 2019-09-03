@@ -1,5 +1,5 @@
 import React from 'react'
-import { Col, Glyphicon, Badge, Tooltip, OverlayTrigger, Button} from 'react-bootstrap'
+import { Col, Glyphicon, Badge, Tooltip, OverlayTrigger } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 
 export default class NavigationIcons extends React.Component {

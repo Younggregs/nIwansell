@@ -1,6 +1,5 @@
 import React from 'react';
-import { Grid , Row, Col } from 'react-bootstrap';
-import Navigation from './neighborhoods/Navigation.js';
+import { Grid , Row } from 'react-bootstrap';
 import ProductList from './neighborhoods/blocks/houses/Product List.js';
 import Footer from './neighborhoods/Footer.js';
 import GotoTop from './neighborhoods/blocks/houses/Goto Top.js';
