@@ -114,7 +114,7 @@ export default class Post extends React.Component {
                 <Logo/>
               </Col>
 
-              <Col lgHidden mdHidden sm={6} xs={6} className="post-objectb">
+              <Col lgHidden mdHidden sm={6} xs={6}>
               {this.props.logged_in ? (
                 <Col lg={4} md={4} className="post-object">
                       <NavigationIcons account_id={this.props.account_id}/>

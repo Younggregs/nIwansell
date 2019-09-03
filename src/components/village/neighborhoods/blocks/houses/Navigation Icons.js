@@ -143,10 +143,10 @@ export default class NavigationIcons extends React.Component {
              </Col>
 
 
-            <div className="sm-nav-glyphs">
+            <div>
              <Col sm={3} xs={3} lgHidden mdHidden>
              <Link to={`/profile/${ this.props.account_id }`}>
-                <span className="glyphs"><Glyphicon glyph="user" style={{ fontSize: 20}}/></span>
+                <span className="glyphs"><Glyphicon glyph="user" style={{ fontSize: 15}}/></span>
              </Link>
              </Col>
 
@@ -158,7 +158,7 @@ export default class NavigationIcons extends React.Component {
                 ) : (
                   <span/>
                 )}
-                <Glyphicon glyph="envelope" style={{ fontSize: 20}}/>
+                <Glyphicon glyph="envelope" style={{ fontSize: 15}}/>
                 </span>
                 
              </Link>
@@ -167,7 +167,7 @@ export default class NavigationIcons extends React.Component {
              {this.state.have_eshop ? (
                 <Col sm={2} xs={2} lgHidden mdHidden>
                 <Link to={`/eshop/${ this.state.eshop_id }`}>
-                   <span className="glyphs"><Glyphicon glyph="home" style={{ fontSize: 20}}/></span>
+                   <span className="glyphs"><Glyphicon glyph="home" style={{ fontSize: 15}}/></span>
                 </Link>
                 </Col>
              ) : (

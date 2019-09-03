@@ -331,6 +331,7 @@ a{
 .post{
   height: 50px;
   background-color: white;
+  margin-left: 5px;
 }
 
 .upper-navigation{
@@ -721,6 +722,7 @@ td{
   color: black;
   text-align: left;
   margin-top: 20px;
+  margin-left: 10px;
   background-color: white;
   padding: 10px;
   border-color: black;
