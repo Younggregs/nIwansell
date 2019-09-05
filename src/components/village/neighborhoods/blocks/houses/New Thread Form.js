@@ -193,7 +193,7 @@ export default class NewThreadForm extends Component {
 
 
         <ReactDropzone
-          accept="image/*"
+          
           onDrop={this.onPreviewDrop}
         >
           Attach media to post

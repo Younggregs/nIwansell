@@ -7,6 +7,9 @@ import FloatingActionButton2 from './blocks/houses/Floating Action2'
 import SendComment from './blocks/houses/Send Comment'
 import Spinner from 'react-activity/lib/Spinner';
 import 'react-activity/lib/Spinner/Spinner.css';
+import ReactPlayer from 'react-player'
+import fileType from './blocks/houses/FileType'
+
 
 export default class ChannelHome extends React.Component {
 
@@ -24,6 +27,11 @@ export default class ChannelHome extends React.Component {
     votes: false,
     votesent: false,
     toggle: null,
+    is_video: false
+  }
+
+  isFile(filename){
+    this.state.is_video = fileType(filename)
   }
 
   async componentWillMount() {
@@ -106,8 +114,8 @@ export default class ChannelHome extends React.Component {
   }
 
   setMedia(media_name, logo, following, votes){
-    this.state.media = 'https://www.iwansell.com/api/media/' + media_name
-    this.state.logo = 'https://www.iwansell.com/api/media/' + logo
+    this.state.media = 'https://www.iwansell.com/media/' + media_name
+    this.state.logo = 'https://www.iwansell.com/media/' + logo
     this.state.following = following
     this.state.votes = votes
   }
@@ -241,9 +249,16 @@ export default class ChannelHome extends React.Component {
                             </Row>
                             <Link to={`/thread/${ item.thread_id }`}>
                             <div style={{ margin: 10 }}>
+                                
                                 <p style={{ fontWeight: 'bold', fontSize: 20}}>{item.title}</p>
                                 <p>{this.getThread(item.thread)}<Button bsStyle="info"><Glyphicon glyph="tasks"/>Continue To Conversation</Button></p>
-                                      <Image  src= { `${this.state.media}` } alt="iwansell-logo" responsive rounded/>
+                                      {this.isFile(item.media)}
+                                      {this.state.is_video ? (
+                                        <ReactPlayer controls={true} url={ `${this.state.media}` } width='100' height='100%' playing />
+                                      ) : (
+                                        <Image  src= { `${this.state.media}` } alt="image" responsive rounded/>
+                                      )}
+                                      
                             </div>
                             
 
