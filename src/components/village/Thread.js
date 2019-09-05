@@ -121,15 +121,15 @@ export default class Thread extends React.Component {
   }
 
   setMedia(media_name, logo, following, votes){
-    this.state.media = 'https://www.iwansell.com/media/' + media_name
-    this.state.logo = 'https://www.iwansell.com/media/' + logo
+    this.state.media = 'https://www.iwansell.com/api/media/' + media_name
+    this.state.logo = 'https://www.iwansell.com/api/media/' + logo
     this.state.following = following
     this.state.votes = votes
   }
 
 
   setMedia2(dp, comment_votes){
-    this.state.dp = 'https://www.iwansell.com/media/' + dp
+    this.state.dp = 'https://www.iwansell.com/api/media/' + dp
     this.state.comment_votes = comment_votes
   }
 

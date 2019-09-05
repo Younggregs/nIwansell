@@ -114,8 +114,8 @@ export default class ChannelHome extends React.Component {
   }
 
   setMedia(media_name, logo, following, votes){
-    this.state.media = 'https://www.iwansell.com/media/' + media_name
-    this.state.logo = 'https://www.iwansell.com/media/' + logo
+    this.state.media = 'https://www.iwansell.com/api/media/' + media_name
+    this.state.logo = 'https://www.iwansell.com/api/media/' + logo
     this.state.following = following
     this.state.votes = votes
   }
