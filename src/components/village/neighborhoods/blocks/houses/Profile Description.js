@@ -81,17 +81,19 @@ export default class ProfileDescription extends React.Component {
               </p>
 
               <p>
+               <Link to="/productmanager">
+                  Manage Product
+               </Link>
+              </p>
+
+              <p>
                <Link to="/manage_listing">
                 Manage Listing
                </Link>
               </p>
 
 
-              <p>
-               <Link to="/productmanager">
-                  Sell your product
-               </Link>
-              </p>
+              
 
               </div>
 
