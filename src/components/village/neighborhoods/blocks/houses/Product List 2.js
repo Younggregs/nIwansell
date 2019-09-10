@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Thumbnail, Col, Row, Button } from 'react-bootstrap'
-
+import { Col, Button } from 'react-bootstrap'
+import { confirmAlert } from 'react-confirm-alert'
 
 
 export default class ProductList2 extends React.Component {
@@ -14,51 +14,75 @@ export default class ProductList2 extends React.Component {
 
 
 
-  async soldProduct(product_id){
-    const auth = localStorage.getItem('auth_code')
+
+  options = {
+    title: 'Title',
+    message: 'Message',
+    buttons: [
+      {
+        label: 'Yes',
+        onClick: () => alert('Click Yes')
+      },
+      {
+        label: 'No',
+        onClick: () => alert('Click No')
+      }
+    ],
+    childrenElement: () => <div />,
+    customUI: ({ onClose }) => 
+        <div className='custom-ui'>
+            <h2>Iwansell Product Feedback</h2>
+            <br /><br />
+            <h4>Hey dear, was this product sold?</h4>
+                <Button 
+                    bsStyle="success" 
+                    onClick={() => {
+                    this.handleClickDelete(1);
+                    onClose(); 
+                    }}><h4>Yes it was</h4></Button>
+                <Button
+                    bsStyle="danger"
+                    onClick={() => {
+                    this.handleClickDelete(0);
+                    onClose();
+                }}><h4>No it wasn't</h4></Button>
+        </div>,
+    closeOnEscape: true,
+    closeOnClickOutside: true,
+    willUnmount: () => {},
+    onClickOutside: () => {},
+    onKeypressEscape: () => {}
+};
 
 
-    try {
-      const res = await fetch('https://www.iwansell.com/api/sold_product/' + product_id + '/', {
 
-        headers : {
-          'Authorization' : 'Token ' + auth,
 
-        },
+customAlert(){
+    confirmAlert(this.options)
+}
 
-      });
-      const sold = await res.json();
-      this.setState({
-        sold
-      });
-    } catch (e) {
-      console.log(e);
-    }
+
+
+
+
+async handleClickDelete(status){
+
+  const auth = localStorage.getItem('auth_code')
+  try {
+    const res = await fetch('https://www.iwansell.com/api/remove_product/' + this.props.product_id + '/' + status + '/', {
+      headers : {
+        'Authorization' : 'Token ' + auth,
+      },
+    });
+    const removed = await res.json();
+    this.setState({
+      removed
+    });
+  } catch (e) {
+    console.log(e);
+  }
 
 }
-  async removeProduct(product_id){
-
-    const auth = localStorage.getItem('auth_code')
-
-
-    try {
-      const res = await fetch('https://www.iwansell.com/api/remove_product/' + product_id + '/', {
-
-        headers : {
-          'Authorization' : 'Token ' + auth,
-
-        },
-
-      });
-      const remove = await res.json();
-      this.setState({
-        remove
-      });
-    } catch (e) {
-      console.log(e);
-    }
-
-  }
 
 
 
@@ -71,80 +95,33 @@ export default class ProductList2 extends React.Component {
 
        render() {
          return (
-           <section className="product-list ">
-               <Col lg={3} md={3} smHidden xsHidden>
-               <div className="product-image">
+            <section>
+
+             <Col lg={4} md={4} sm={12} xs={12}> 
+              <div className="manage-product">
+              <div className="product-image">
                 <div class="image">
                {this.setMedia(this.props.product_image)}
-               <Thumbnail href={"product/" + this.props.product_id }  alt="product-image" src= { `${this.state.media}` }/>
-               </div></div>
+               <Link to={`/product/${ this.props.product_id }` }>
+                  <img  height="200" width="auto" src= { `${this.state.media}` } alt="thumbnail"/>
+                </Link>
+               </div>
+              </div>
 
-               <div className="product-options">
+               <div>
                <Link to={`/product/${ this.props.product_id }`}>
-               <h3>{this.props.product_name}</h3>
-               </Link>
+                    <h4><b>Product: </b> {this.props.product_name}</h4>
+                    <p><b>Price: {this.props.starting_price}</b></p>
+              </Link>
+                
+               </div><br />
+               <Button onClick={() => this.customAlert()} bsStyle="danger"><b>REMOVE:</b> {this.props.product_name}</Button>
+               <br />
 
-                <p className="lg-fonts">Starting price : {this.props.starting_price}</p>
+               </div>
+            </Col>
 
-                <Row>
-                  {this.state.sold ? (
-
-                    <Col lg={6} md={6}><Button bsStyle="success" disabled>sold</Button></Col>
-                  ) : (
-                    <Col lg={6} md={6}>
-                    <Link to={`/seller_transaction_window/${ this.props.product_id }`}>
-                      <Button>sell</Button>
-                    </Link>
-                    </Col>
-                  )}
-
-                  {this.state.removed ? (
-                    <Col lg={6} md={6}><Button bsStyle="success">removed</Button></Col>
-                  ) : (
-                    <Col lg={6} md={6}><Button onClick={this.removeProduct.bind(this, this.propsproduct_id)}>remove</Button ></Col>
-                  )}
-
-                </Row>
-
-               </div><br /><br />
-
-               </Col>
-
-
-
-            <Col sm={10} smOffset={1} xs={10} xsOffset={1} lgHidden mdHidden>
-             {this.setMedia(this.props.product_image)}
-             <Thumbnail href={"product/" + this.props.product_id } alt="product-image" src= { `${this.state.media}` }/>
-
-             <div className="product-options">
-             <Link to={`/product/${ this.props.product_id } `}>
-             <h3>{this.props.product_name}</h3>
-             </Link>
-              <p className="sm-fonts">Starting price : {this.props.starting_price}</p>
-
-              <Row>
-              {this.state.sold ? (
-
-                   <Col sm={6} xs={6}><Button bsStyle="success" disabled>sold</Button></Col>
-                 ) : (
-                   <Col sm={6} xs={6}>
-                    <Link to={`/seller_transaction_window/${ this.props.product_id }`}>
-                      <Button>sell</Button>
-                    </Link>
-                   </Col>
-                 )}
-
-                 {this.state.removed ? (
-                   <Col sm={6} xs={6}><Button bsStyle="success">removed</Button></Col>
-                 ) : (
-                   <Col sm={6} xs={6}><Button onClick={this.removeProduct.bind(this, this.props.product_id)}>remove</Button ></Col>
-                )}
-
-              </Row>
-            </div>
-             </Col>
-
-           </section>
+            </section>
          )
        }
   }
