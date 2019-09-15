@@ -60,9 +60,6 @@ setMedia(media_name){
            <section>
              <Row>
               <Col lg={12} md={12} smHidden xsHidden>
-              <Link to="/listings/1">
-                <div className="contact-button">See what people need here!</div>
-              </Link>
                     <Heading title="SHOP BY CATEGORY"/>
 
                     <section className="category-slide">
@@ -76,7 +73,9 @@ setMedia(media_name){
                         {this.setMedia(item.image)}
                         <div className="product-image">
                            <div class="image">
-                           <Image src= { `${this.state.media}` } alt="iwansell" responsive/>
+                            <Link to={`/category_view/${ this.state.id }`}>
+                              <Image src= { `${this.state.media}` } alt="iwansell" responsive/>
+                            </Link>
                          </div></div>
                          </div>
                          <p>{item.name}</p>

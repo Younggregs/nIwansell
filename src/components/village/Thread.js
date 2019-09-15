@@ -320,7 +320,7 @@ export default class Thread extends React.Component {
                         <p>{this.state.thread.thread}</p>
                          {this.isFile(this.state.thread.media)}
                          {this.state.is_video ? (
-                              <ReactPlayer controls={true} url={ `${this.state.media}` } width='100' height='100%' playing />
+                              <ReactPlayer controls={true} url={ `${this.state.media}` } width='100' height='100%' playing={false} />
                             ) : (
                               <Image  src= { `${this.state.media}` } alt="image" responsive rounded/>
                          )}
@@ -472,7 +472,7 @@ export default class Thread extends React.Component {
                         <p>{this.state.thread.thread}</p>
                         {this.isFile(this.state.thread.media)}
                          {this.state.is_video ? (
-                              <ReactPlayer controls={true} url={ `${this.state.media}` } width='100' height='100%' playing />
+                              <ReactPlayer controls={true} url={ `${this.state.media}` } width='100' height='100%' playing={false} />
                             ) : (
                               <Image  src= { `${this.state.media}` } alt="image" responsive rounded/>
                          )}

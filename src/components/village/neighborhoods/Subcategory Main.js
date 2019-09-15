@@ -95,7 +95,7 @@ export default class SubcategoryMain extends React.Component {
                             <Row>
                               <Col lg={8} md={8}>
                                <Button onClick={this.newCategory.bind(this, item.id, item.name)}>{item.name}</Button>
-                               {this.setMediaIcon(item.icon)}
+                               {this.setMediaIcon(item.image)}
                               </Col>
                               <Col lg={4} md={4}>
                                 <Image width="50px" height="50px" src= { `${this.state.media}` } alt="iwansell" responsive/>

@@ -254,7 +254,7 @@ export default class ChannelHome extends React.Component {
                                 <p>{this.getThread(item.thread)}<Button bsStyle="info"><Glyphicon glyph="tasks"/>Continue To Conversation</Button></p>
                                       {this.isFile(item.media)}
                                       {this.state.is_video ? (
-                                        <ReactPlayer controls={true} url={ `${this.state.media}` } width='100' height='100%' playing />
+                                        <ReactPlayer controls={true} url={ `${this.state.media}` } width='100' height='100%' playing={false} />
                                       ) : (
                                         <Image  src= { `${this.state.media}` } alt="image" responsive rounded/>
                                       )}
