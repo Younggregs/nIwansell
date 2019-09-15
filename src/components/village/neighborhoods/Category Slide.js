@@ -73,7 +73,7 @@ setMedia(media_name){
                         {this.setMedia(item.image)}
                         <div className="product-image">
                            <div class="image">
-                            <Link to={`/category_view/${ this.state.id }`}>
+                            <Link to={`/category_view/${ item.id }`}>
                               <Image src= { `${this.state.media}` } alt="iwansell" responsive/>
                             </Link>
                          </div></div>
