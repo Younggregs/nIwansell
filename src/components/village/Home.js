@@ -9,6 +9,8 @@ import Copyright from './neighborhoods/blocks/houses/Copyright'
 import EShopAds from './neighborhoods/blocks/EShop Ads'
 import CategorySlide from './neighborhoods/Category Slide'
 import {setMarket, setCampusId, setAccountId} from './neighborhoods/blocks/houses/auth/Auth'
+import MobileApp from './neighborhoods/blocks/houses/Mobile App'
+
 
 export default class Home extends React.Component {
 
@@ -94,6 +96,7 @@ export default class Home extends React.Component {
              <Grid>
              <Row>
                <Col lg={12} md={12}>
+               <MobileApp/>
                  <Row>
                     <Sponsored title="Sponsored" campus_id={this.state.campus_id}/>
                  </Row>
@@ -109,6 +112,7 @@ export default class Home extends React.Component {
               </Row>
               </Grid>
              <CategorySlide/>
+             <MobileApp/>
              <GotoTop/>
              <Footer logged_in={true}/>
              <Copyright/>
