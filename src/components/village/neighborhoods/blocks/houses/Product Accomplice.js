@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Thumbnail, Col, Row, Button } from 'react-bootstrap'
+import { Thumbnail, Grid, Row, Button } from 'react-bootstrap'
 import Heading from './Heading'
 import ProductAccomplice2 from './Product Accomplice 2'
 
@@ -57,6 +57,7 @@ export default class ProductAccomplice extends React.Component {
            render() {
              return (
                <section className="product-list">
+               <Grid>
                <Heading title="Other items customers are buying after viewing this item?"/>
     
                <Row>
@@ -84,7 +85,7 @@ export default class ProductAccomplice extends React.Component {
                 </Row>
     
     
-    
+                </Grid>
                </section>
              )
            }

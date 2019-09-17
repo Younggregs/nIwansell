@@ -7,6 +7,7 @@ import ProductDescription from './neighborhoods/Product Description'
 import NavigationHeader from './neighborhoods/blocks/Navigation Header'
 import Post from './neighborhoods/blocks/houses/Post'
 import ProductAccomplice from './neighborhoods/blocks/houses/Product Accomplice'
+import MobileApp from './neighborhoods/blocks/houses/Mobile App'
 
 
 export default class ProductDetails extends React.Component {
@@ -54,6 +55,7 @@ export default class ProductDetails extends React.Component {
                 <NavigationHeader/>
                 <Post logged_in = {this.state.response}/>
                 <ProductDescription product_id={this.props.match.params.product_id} logged_in = {this.state.response}/>
+                <MobileApp/>
                 <ProductAccomplice product_id={this.props.match.params.product_id} campus_id={1}/>
              </div> 
              <GotoTop/>

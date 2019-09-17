@@ -5,7 +5,9 @@ import { Thumbnail, Col, Row, Button } from 'react-bootstrap'
 
 export default class ProductAccomplice2 extends React.Component {
 
-
+    state ={
+        media: ''
+    }
   setMedia(media_name){
     this.state.media = 'https://www.iwansell.com/api/media/' + media_name
   }
