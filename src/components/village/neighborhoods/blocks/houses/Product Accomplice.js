@@ -58,7 +58,7 @@ export default class ProductAccomplice extends React.Component {
              return (
                <section className="product-list">
                <Grid>
-               <Heading title="Other items customers are buying after viewing this item?"/>
+               <Heading title="Other items customers are buying after viewing this item."/>
     
                <Row>
                 {this.emptyResult() ? (
