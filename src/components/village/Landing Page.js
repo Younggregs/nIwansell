@@ -262,6 +262,7 @@ async getMarket(id){
                 </Col>
                </Row>
                </Grid>
+             <Adsense/>
              <CategorySlide/>
              <MobileApp/>
              <GotoTop/>

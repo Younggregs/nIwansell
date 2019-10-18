@@ -7,6 +7,7 @@ import ProductImage from './blocks/houses/Product Image'
 import Spinner from 'react-activity/lib/Spinner';
 import 'react-activity/lib/Spinner/Spinner.css';
 import MobileApp from './blocks/houses/Mobile App'
+import Adsense from './blocks/houses/Adsense'
 
 
 export default class Trending extends React.Component {
@@ -219,6 +220,7 @@ export default class Trending extends React.Component {
 
                 <Row>
                   <MobileApp/>
+                  <Adsense/>
                   <CategoryProduct campus_id={this.props.campus_id} show_more={true}/>
                 </Row>
 
@@ -419,6 +421,7 @@ export default class Trending extends React.Component {
               </Row>
 
               <MobileApp/>
+              <Adsense/>
               <CategoryProduct campus_id={this.props.campus_id} show_more={true}/>
 
 

@@ -101,6 +101,7 @@ export default class Home extends React.Component {
                  <Row>
                     <Sponsored title="Sponsored" campus_id={this.state.campus_id}/>
                  </Row>
+
                  <Row>
                    <Adsense/>
                  </Row>
@@ -116,6 +117,7 @@ export default class Home extends React.Component {
                </Col>
               </Row>
               </Grid>
+             <Adsense/>
              <CategorySlide/>
              <MobileApp/>
              <GotoTop/>

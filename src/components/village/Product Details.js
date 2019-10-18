@@ -8,6 +8,7 @@ import NavigationHeader from './neighborhoods/blocks/Navigation Header'
 import Post from './neighborhoods/blocks/houses/Post'
 import ProductAccomplice from './neighborhoods/blocks/houses/Product Accomplice'
 import MobileApp from './neighborhoods/blocks/houses/Mobile App'
+import Adsense from './neighborhoods/blocks/houses/Adsense'
 
 
 export default class ProductDetails extends React.Component {
@@ -56,6 +57,7 @@ export default class ProductDetails extends React.Component {
                 <Post logged_in = {this.state.response}/>
                 <ProductDescription product_id={this.props.match.params.product_id} logged_in = {this.state.response}/>
                 <MobileApp/>
+                <Adsense/>
                 <ProductAccomplice product_id={this.props.match.params.product_id} campus_id={1}/>
              </div> 
              <GotoTop/>
