@@ -220,7 +220,7 @@ export default class Trending extends React.Component {
 
                 <Row>
                   <MobileApp/>
-                  <Adsense/>
+                  
                   <CategoryProduct campus_id={this.props.campus_id} show_more={true}/>
                 </Row>
 
@@ -421,7 +421,7 @@ export default class Trending extends React.Component {
               </Row>
 
               <MobileApp/>
-              <Adsense/>
+              
               <CategoryProduct campus_id={this.props.campus_id} show_more={true}/>
 
 

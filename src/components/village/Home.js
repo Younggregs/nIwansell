@@ -110,6 +110,10 @@ export default class Home extends React.Component {
                  <Row>
                     <Trending campus_id={this.state.campus_id}/>
                  </Row>
+
+                <Row>
+                  <Adsense/>
+                </Row>
                 </Col>
 
                <Col lgHidden mdHidden smHidden xsHidden>
@@ -117,7 +121,7 @@ export default class Home extends React.Component {
                </Col>
               </Row>
               </Grid>
-             <Adsense/>
+             
              <CategorySlide/>
              <MobileApp/>
              <GotoTop/>

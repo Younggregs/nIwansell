@@ -255,6 +255,11 @@ async getMarket(id){
                   <Row>
                      <Trending campus_id={this.state.campus_id}/>
                   </Row>
+
+                  <Row>
+                    <Adsense/>
+                  </Row>
+
                  </Col>
 
                 <Col lgHidden mdHidden smHidden xsHidden>
@@ -262,7 +267,7 @@ async getMarket(id){
                 </Col>
                </Row>
                </Grid>
-             <Adsense/>
+          
              <CategorySlide/>
              <MobileApp/>
              <GotoTop/>
