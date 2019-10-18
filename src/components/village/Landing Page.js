@@ -14,6 +14,7 @@ import GotoTop from './neighborhoods/blocks/houses/Goto Top'
 import Copyright from './neighborhoods/blocks/houses/Copyright'
 import {setMarket, setCampusId} from './neighborhoods/blocks/houses/auth/Auth'
 import MobileApp from './neighborhoods/blocks/houses/Mobile App'
+import Adsense from './neighborhoods/blocks/houses/Adsense'
 
 
 export default class LandingPage extends React.Component {
@@ -245,6 +246,10 @@ async getMarket(id){
                 <MobileApp/>
                   <Row>
                      <Sponsored title="Sponsored" campus_id={this.state.campus_id}/>
+                  </Row>
+
+                  <Row>
+                    <Adsense/>
                   </Row>
 
                   <Row>

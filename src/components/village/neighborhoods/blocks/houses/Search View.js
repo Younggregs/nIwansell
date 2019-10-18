@@ -166,7 +166,7 @@ emptyResult(){
 	             <div class="pic">
              {this.setMedia(item.product_image)}
              <Thumbnail href={"product/" + item.product_id }  alt="product-image" src= { `${this.state.media}` }>
-             <h3>{item.product_image}</h3>
+             <h3>{item.product_name}</h3>
               <p className="price">Starting price : {item.starting_price}</p>
              </Thumbnail>
              </div></div>

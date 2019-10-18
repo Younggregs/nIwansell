@@ -10,6 +10,7 @@ import EShopAds from './neighborhoods/blocks/EShop Ads'
 import CategorySlide from './neighborhoods/Category Slide'
 import {setMarket, setCampusId, setAccountId} from './neighborhoods/blocks/houses/auth/Auth'
 import MobileApp from './neighborhoods/blocks/houses/Mobile App'
+import Adsense from './neighborhoods/blocks/houses/Adsense'
 
 
 export default class Home extends React.Component {
@@ -100,6 +101,10 @@ export default class Home extends React.Component {
                  <Row>
                     <Sponsored title="Sponsored" campus_id={this.state.campus_id}/>
                  </Row>
+                 <Row>
+                   <Adsense/>
+                 </Row>
+
 
                  <Row>
                     <Trending campus_id={this.state.campus_id}/>
