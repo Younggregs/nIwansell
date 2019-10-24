@@ -10,10 +10,10 @@ export default class About extends React.Component {
             <Col lg={6} md={6} sm={6} smOffset={1} xs={6} xsOffset={1}>
               <Row>
           
-            <p><Link to="/channel">Channel
+            <p><Link to={`/channel/${ this.props.campus_id }/`}>Channel
            </Link></p>
 
-          <p><Link to="/eshop_list/1">e-shops
+          <p><Link to={`/eshop_list/${ this.props.campus_id }/`}>EShops
            </Link></p>
 
            <p><Link to="/why_us">Why Us
@@ -93,19 +93,19 @@ export default class About extends React.Component {
              <Row>
               <Col lg={2} md={2} sm={3} smOffset={2} xs={3} xsOffset={2}>
 
-                <a href="https://web.facebook.com/Iwansell-group-270682653560747/?ref=br_rs">
+              <a href="https://www.facebook.com/iwansellcampus/">
                   <Image width="50px" height="50px" src={ require ('./images/facebook.png') } alt="facebook" responsive/>
                 </a>
               </Col>
 
               <Col lg={2} md={2} sm={3} xs={3}>
-                <a href="https://twitter.com/IwansellG">
+              <a href="https://twitter.com/iwansellcampus">
                   <Image width="50px" height="50px" src={ require ('./images/twitter.png') } alt="twitter" responsive/>
                 </a>
               </Col>
 
               <Col lg={2} md={2} sm={3} xs={3}>
-                <a href="https://instagram.com/iwansell_group">
+              <a href="https://instagram.com/iwansellcampus">
                   <Image width="60px" height="60px" src={ require ('./images/instagram.png') } alt="instagram" responsive/>
                 </a>
               </Col>

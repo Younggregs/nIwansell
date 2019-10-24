@@ -125,7 +125,7 @@ export default class Home extends React.Component {
              <CategorySlide/>
              <MobileApp/>
              <GotoTop/>
-             <Footer logged_in={true}/>
+             <Footer logged_in={true} campus_id={this.state.campus_id}/>
              <Copyright/>
            </div>
          )

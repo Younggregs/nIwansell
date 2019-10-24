@@ -47,8 +47,8 @@ export default class Menu extends React.Component {
         return (
            <div className="profile">
              <NavigationHeader market={this.state.market}/>
-             <Post logged_in={this.state.islogged_in} campus_id = {this.state.campus_id}/> 
-             <MenuList logged_in = {this.state.islogged_in}/>
+             <Post logged_in={this.state.islogged_in} campus_id = {this.props.match.params.campus_id}/> 
+             <MenuList logged_in = {this.state.islogged_in} campus_id = {this.props.match.params.campus_id}/>
            </div>
          )
      }

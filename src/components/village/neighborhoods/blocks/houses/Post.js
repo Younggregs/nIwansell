@@ -103,7 +103,7 @@ export default class Post extends React.Component {
           <Row>
           <section className="post" id="post">
               <Col lgHidden mdHidden sm={2} xs={2} className="post-objectb">
-                <Link to = "/menu">
+                <Link to={`/menu/${ this.props.campus_id }/`}>
                 <Button bsStyle="primary">
                     <Glyphicon glyph="th-list" style={{color:'white'}}/>
                 </Button>

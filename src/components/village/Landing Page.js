@@ -271,7 +271,7 @@ async getMarket(id){
              <CategorySlide/>
              <MobileApp/>
              <GotoTop/>
-             <Footer logged_in={false}/>
+             <Footer logged_in={false} campus_id={this.state.campus_id}/>
              <Copyright/>
               </div>
              )}

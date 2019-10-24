@@ -75,9 +75,9 @@ async handleClickDelete(status){
       },
     });
     const removed = await res.json();
-    this.setState({
-      removed
-    });
+    if(removed){
+      alert('Removed succcessfully! Refresh to see updated list.')
+    }
   } catch (e) {
     console.log(e);
   }

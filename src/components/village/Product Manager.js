@@ -13,7 +13,7 @@ export default class ProductManager extends React.Component {
            <div className="product-manager">
              <div className="search-page">
                 <NavigationHeader/>
-                <Post logged_in = {this.state.response}/>
+                <Post/>
             
              <Grid>
               <br /><Row>

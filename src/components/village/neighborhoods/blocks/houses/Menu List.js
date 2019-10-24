@@ -15,21 +15,38 @@ export default class MenuList extends React.Component {
                   </tr>
               </thead>
               <tbody>
-            <tr>
-            <td><Link to="/channel">Channel
-                </Link></td>
-            </tr>
+
+            {this.props.logged_in ? (
+             <tr>
+             <td><Link to = "/newproduct">Start selling
+                 </Link>
+             </td>
+             </tr>
+            ) : (
+              <tr>
+              <td><Link to='/signup'>Create Account, start selling
+                </Link>
+              </td>
+              </tr>
+            )}
+
+            
             
             <tr>
-            <td><Link to="/eshop_list">e-shops
+            <td><Link to={`/eshop_list/${ this.props.campus_id }/`}>eShops
                 </Link></td>
             </tr>
 
-             <tr>
-             <td><Link to = "/product_valuation">
-               Business Mode
-             </Link></td>
-             </tr>
+            <tr>
+            <td><Link to={`/listings/${ this.props.campus_id }/`}>Listings
+                </Link></td>
+            </tr>
+
+            <tr>
+            <td><Link to={`/channel/${ this.props.campus_id }/`}>TV
+                </Link></td>
+            </tr>
+
 
           <tr>
             <td><Link to="/why_us">Why Us
@@ -63,17 +80,26 @@ export default class MenuList extends React.Component {
            </Link></td>
            </tr>
 
-           <tr>
-            <td><Link to = "/logout">
-              Logout
+           {this.props.logged_in ? (
+             <tr>
+             <td><Link to = "/logout">
+               Logout
+             </Link></td>
+            </tr>
+           ): (
+            <tr>
+            <td><Link to = "/signin">
+              Login
             </Link></td>
            </tr>
+           )}
+           
 
 
 
 
            <tr>
-             <td><a href="https://web.facebook.com/Iwansell-group-270682653560747/?ref=br_rs">
+             <td><a href="https://www.facebook.com/iwansellcampus/">
                   <Image width="50px" height="50px" src={ require ('./images/facebook.png') } alt="facebook" responsive/>
                 </a>
              </td>
@@ -81,14 +107,14 @@ export default class MenuList extends React.Component {
 
 
              <tr>
-             <td><a href="https://twitter.com/IwansellG">
+             <td><a href="https://twitter.com/iwansellcampus">
                   <Image width="50px" height="50px" src={ require ('./images/twitter.png') } alt="twitter" responsive/>
                 </a>
              </td>
              </tr>
 
               <tr>
-             <td><a href="https://instagram.com/iwansell_group">
+             <td><a href="https://instagram.com/iwansellcampus">
                   <Image width="60px" height="60px" src={ require ('./images/instagram.png') } alt="instagram" responsive/>
                 </a>
               </td>

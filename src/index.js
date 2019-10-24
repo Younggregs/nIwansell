@@ -90,7 +90,7 @@ import NewThread from './components/village/New Thread'
                 <Route exact path="/top_for_sell" component={TopForSell}/>
                 <Route exact path="/least_for_sell" component={LeastForSell}/>
                 <Route exact path="/least_sold" component={LeastSold}/>
-                <Route exact path="/menu" component={Menu}/>
+                <Route exact path="/menu/:campus_id" component={Menu}/>
                 <Route exact path="/feedback" component={FeedBack}/>
                 <Route exact path="/about_us" component={AboutUs}/>
                 <Route exact path="/contact_us" component={ContactUs}/>

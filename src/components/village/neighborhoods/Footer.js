@@ -61,7 +61,7 @@ export default class Footer extends React.Component {
            <section className="footer">
              <Grid>
                <Row>
-                 <About logged_in={this.state.isloggedin} eshop_exist={this.state.eshop_exist.eshop_exist}/>
+                 <About logged_in={this.state.isloggedin} eshop_exist={this.state.eshop_exist.eshop_exist} campus_id={this.props.campus_id}/>
                </Row>
              </Grid>
            </section>
