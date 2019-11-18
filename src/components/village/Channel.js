@@ -35,14 +35,18 @@ export default class Channel extends React.Component {
             <Grid>
               <Row>
                 <Col lg={8} md={8} smHidden xsHidden>
+                <div className="iwansell-tv-title">
+                  <p className="trending-title">Iwansell TV</p>
+                  <p>... a collection of channels from the best bloggers on campus. Be entertained and enlightened, gist and discuss, enjoy!</p>
+                </div>
                     
                       {this.state.home ? (
                         <Row>
                           <Col lg={3} lgOffset={3} md={3} mdOffset={3} sm={4} smOffset={2} xs={4} xsOffset={2}>
-                            <Button bsStyle="info" onClick={() => this.switchView(1)}>Home</Button>
+                            <Button bsSize="large" bsStyle="info" onClick={() => this.switchView(1)}>Home</Button>
                           </Col>
                           <Col lg={6} md={6} sm={6} xs={6}>
-                            <Button onClick={() => this.switchView(0)}>Trending</Button>
+                            <Button bsSize="large" onClick={() => this.switchView(0)}>Trending</Button>
                           </Col>
                           </Row>
                         ) : (
@@ -76,13 +80,18 @@ export default class Channel extends React.Component {
              <Row>
                <Col lgHidden mdHidden sm={12} xs={12}>
 
+               <div className="iwansell-tv-title">
+                  <p className="trending-title">Iwansell TV</p>
+                  <p>... a collection of channels from the best bloggers on campus. Be entertained and enlightened, gist and discuss, enjoy!</p>
+                </div>
+
                {this.state.home ? (
                         <Row>
                           <Col sm={4} smOffset={2} xs={4} xsOffset={2}>
-                            <Button bsStyle="info" onClick={() => this.switchView(1)}>Home</Button>
+                            <Button bsStyle="info" bsSize="large" onClick={() => this.switchView(1)}>Home</Button>
                           </Col>
                           <Col sm={6} xs={6}>
-                            <Button onClick={() => this.switchView(0)}>Trending</Button>
+                            <Button bsSize="large" onClick={() => this.switchView(0)}>Trending</Button>
                           </Col>
                           </Row>
                         ) : (

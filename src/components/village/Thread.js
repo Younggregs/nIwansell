@@ -1,5 +1,6 @@
 import React from 'react'
 import { Grid, Row, Col, Image, Button, Glyphicon } from 'react-bootstrap'
+import { Link } from 'react-router-dom'
 import NavigationHeader from './neighborhoods/blocks/Navigation Header'
 import Post from './neighborhoods/blocks/houses/Post'
 import Footer from './neighborhoods/Footer'
@@ -273,6 +274,22 @@ export default class Thread extends React.Component {
            <div className="home">
              
             <NavigationHeader/>
+            <Row>
+                <Col lg={3} lgOffset={3} md={3} mdOffset={3} sm={4} smOffset={2} xs={4} xsOffset={2}>
+                
+                <Link to='/channel/1'>
+                  <Button bsStyle="info" bsSize="large">Home</Button>
+                </Link>
+
+                </Col>
+
+
+                <Col lg={6} md={6} sm={6} xs={6}>
+                <Link to='channel/1'>
+                  <Button bsSize="large">Trending</Button>
+                </Link>
+                </Col>
+            </Row>
              <Grid>
                  <Col lg={8} md={8} smHidden xsHidden>
 
