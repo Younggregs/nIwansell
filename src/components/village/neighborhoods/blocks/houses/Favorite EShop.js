@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Button,Row,Col, Thumbnail} from 'react-bootstrap';
+import { Button,Row,Col } from 'react-bootstrap';
 import Heading from './Heading'
 import AppName from './App Name'
 
@@ -82,9 +82,9 @@ render(){
               <div className="favorite_list">
                <Col lg={4} md={4} sm={12} xs={12}>
              {this.setMedia(item.catch_board)}
-             <Thumbnail href={"eshop/" + item.eshop_id }  alt="product-image" src= { `${this.state.media}` }>
+             <img href={"eshop/" + item.eshop_id }  alt="product-image" src= { `${this.state.media}` } />
              <h3>{item.eshop_name}</h3>
-             </Thumbnail>
+
              </Col>
 
               </div>

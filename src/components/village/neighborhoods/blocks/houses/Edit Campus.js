@@ -1,6 +1,6 @@
 import React from 'react';
 import { Redirect } from 'react-router-dom'
-import { Button,FormGroup, FormControl, HelpBlock, ControlLabel } from 'react-bootstrap';
+import { Button,FormGroup, FormControl } from 'react-bootstrap';
 import Heading from './Heading'
 import Spinner from 'react-activity/lib/Spinner';
 import 'react-activity/lib/Spinner/Spinner.css';
@@ -101,13 +101,13 @@ const formInstance = (
   <p>Current campus: <b>{this.state.campus_code} campus marketplace</b></p>
   <form>
   <FormGroup>
-    <ControlLabel>Select Campus</ControlLabel>
+    <div>Select Campus</div>
     <FormControl componentClass="select" placeholder="select" name="campus" id="campus">
                    {this.state.campuslist.map(item => (
                     <option value={item.id}>{item.campus_code}</option>
                     ))}
       </FormControl>
-      <HelpBlock>NOTE: Your eShop, products would not be updated</HelpBlock>
+      <div>NOTE: Your eShop, products would not be updated</div>
       </FormGroup>
 
     {this.state.message.error_message ? (

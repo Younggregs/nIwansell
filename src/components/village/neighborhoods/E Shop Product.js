@@ -1,5 +1,5 @@
 import React from 'react'
-import { Grid, Row } from 'react-bootstrap'
+import { Container, Row } from 'react-bootstrap'
 import Heading from './blocks/houses/Heading.js'
 import EShopStore from './EShop Store'
 import Copyright from './blocks/houses/Copyright'
@@ -9,7 +9,7 @@ export default class EShopProduct extends React.Component {
        render() {
          return (
            <section className="sponsored">
-             <Grid>
+             <Container>
                <Row>
                 <Heading title={this.title}/>
                </Row>
@@ -19,7 +19,7 @@ export default class EShopProduct extends React.Component {
               <Row>
                 <Copyright/>
               </Row>
-             </Grid>
+             </Container>
            </section>
          )
        }

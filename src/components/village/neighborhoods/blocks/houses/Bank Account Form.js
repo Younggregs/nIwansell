@@ -1,6 +1,6 @@
 import React from 'react';
 import { Redirect } from 'react-router-dom'
-import { Button,FormGroup, FormControl, HelpBlock } from 'react-bootstrap';
+import { Button,FormGroup, FormControl  } from 'react-bootstrap';
 import Heading from './Heading'
 import Spinner from 'react-activity/lib/Spinner';
 import 'react-activity/lib/Spinner/Spinner.css';
@@ -140,7 +140,7 @@ const formInstance = (
             placeholder="eg 0838320302"
 
         />
-        <HelpBlock>Add Account Number here for faster electronic transaction</HelpBlock>
+        <div>Add Account Number here for faster electronic transaction</div>
 </FormGroup>
 
     {this.state.message.error_message ? (

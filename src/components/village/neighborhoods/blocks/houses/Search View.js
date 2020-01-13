@@ -1,5 +1,5 @@
 import React from 'react'
-import { Col, Row, Form, Thumbnail, FormGroup,FormControl,InputGroup,Glyphicon, Button,ControlLabel,HelpBlock} from 'react-bootstrap'
+import { Col, Row, Form, FormGroup,FormControl,InputGroup, Button } from 'react-bootstrap'
 import Spinner from 'react-activity/lib/Spinner';
 import 'react-activity/lib/Spinner/Spinner.css';
 
@@ -140,7 +140,7 @@ emptyResult(){
                   }}
               />
 
-            <Button onClick={this.getSearchPhrase.bind(this)}><Glyphicon glyph="search"/></Button>
+            <Button onClick={this.getSearchPhrase.bind(this)}><div glyph="search"/></Button>
             </FormGroup>
            </Form>
 
@@ -165,10 +165,10 @@ emptyResult(){
               <div class="box">
 	             <div class="pic">
              {this.setMedia(item.product_image)}
-             <Thumbnail href={"product/" + item.product_id }  alt="product-image" src= { `${this.state.media}` }>
+             <img href={"product/" + item.product_id }  alt="product-image" src= { `${this.state.media}` } />
              <h3>{item.product_name}</h3>
               <p className="price">Starting price : {item.starting_price}</p>
-             </Thumbnail>
+ 
              </div></div>
              </Col>
 
@@ -207,7 +207,7 @@ emptyResult(){
 
 
       <InputGroup.Button>
-        <Button onClick={this.getSearchPhrase2.bind(this)}><Glyphicon glyph="search"/></Button>
+        <Button onClick={this.getSearchPhrase2.bind(this)}><div glyph="search"/></Button>
       </InputGroup.Button>
     </InputGroup>
   </FormGroup>
@@ -238,10 +238,10 @@ emptyResult(){
                <div class="box">
                 <div class="pic">
               {this.setMedia(item.product_image)}
-              <Thumbnail href={"product/" + item.product_id } alt="product-image" src= { `${this.state.media}` }>
+              <img href={"product/" + item.product_id } alt="product-image" src= { `${this.state.media}` } />
               <h3>{item.product_name}</h3>
                <p className="price">Starting price : {item.starting_price}</p>
-              </Thumbnail>
+
               </div></div>
            ))}
             </div>

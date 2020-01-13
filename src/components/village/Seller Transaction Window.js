@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import Digital from 'react-activity/lib/Digital';
 import 'react-activity/lib/Digital/Digital.css';
-import { Row, Col, Button, FormGroup, FormControl, HelpBlock, ControlLabel, Checkbox } from 'react-bootstrap'
+import { Row, Col, Button, FormGroup, FormControl } from 'react-bootstrap'
 import TokenWindow from './neighborhoods/Token Window'
 import BusinessHeader from './neighborhoods/blocks/Business Header'
 
@@ -129,9 +129,9 @@ export default class SellerTransactionWindow extends React.Component {
   function FieldGroup({ id, label, help, ...props }) {
     return (
       <FormGroup controlId={id}>
-        <ControlLabel>{label}</ControlLabel>
+        <div>{label}</div>
         <FormControl {...props} />
-        {help && <HelpBlock>{help}</HelpBlock>}
+        {help && <div>{help}</div>}
       </FormGroup>
   );
 }
@@ -199,7 +199,7 @@ return (
 
             <Col lg={6} md={6} sm={6} xs={6}>
                 <FormGroup>
-                <ControlLabel>Select Payment Method</ControlLabel>
+                <div>Select Payment Method</div>
                 <FormControl componentClass="select" placeholder="select" name="payment_method" id="payment_method">
                             {this.state.payment_methods.map(item => (
                                 <option value={item.id}>{item.payment_method}</option>
@@ -211,14 +211,14 @@ return (
 
               <Row>
               <Col lg={12} md={12} sm={12} xs={12}>
-                  <Checkbox
+                  <div
                   id = "term_sheet"
                   name = "term_sheet"
                   checked = {this.state.checked_value}
                   onChange = {this.handleChange.bind(this)}
                   readOnly>
                     I agree to the iwansell terms and conditions of trade
-                  </Checkbox>
+                  </div>
 
                 {this.state.terms_error ? (
                     <p className="err-msg">Sorry you need to agree to the terms and conditions</p>

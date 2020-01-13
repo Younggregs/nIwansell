@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import {Col, Row, Form , FormControl, Button, FormGroup, Glyphicon, InputGroup} from 'react-bootstrap'
+import {Col, Row, Form , FormControl, Button, FormGroup, InputGroup} from 'react-bootstrap'
 import EShopCategory from './neighborhoods/blocks/houses/EShop Category'
 import Spinner from 'react-activity/lib/Spinner';
 import 'react-activity/lib/Spinner/Spinner.css';
@@ -141,7 +141,7 @@ emptyResult(){
 
 
       <InputGroup.Button>
-        <Button onClick={this.submitForm.bind(this)}><Glyphicon glyph="search"/></Button>
+        <Button onClick={this.submitForm.bind(this)}><div glyph="search"/></Button>
       </InputGroup.Button>
     </InputGroup>
   </FormGroup>

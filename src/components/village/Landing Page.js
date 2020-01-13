@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link, Redirect } from 'react-router-dom';
-import { Grid, Row, Col, Glyphicon, Button } from 'react-bootstrap'
+import { Container, Row, Col, Form, Image, FormGroup, Button } from 'react-bootstrap'
 import Spinner from 'react-activity/lib/Spinner';
 import 'react-activity/lib/Spinner/Spinner.css';
 import Navigation from './neighborhoods/Navigation'
@@ -12,9 +12,10 @@ import Logo from './neighborhoods/blocks/houses/Logo'
 import Footer from './neighborhoods/Footer'
 import GotoTop from './neighborhoods/blocks/houses/Goto Top'
 import Copyright from './neighborhoods/blocks/houses/Copyright'
+import Introduction from './neighborhoods/blocks/houses/Introduction'
 import {setMarket, setCampusId} from './neighborhoods/blocks/houses/auth/Auth'
 import MobileApp from './neighborhoods/blocks/houses/Mobile App'
-import Adsense from './neighborhoods/blocks/houses/Adsense'
+
 
 
 export default class LandingPage extends React.Component {
@@ -25,8 +26,11 @@ export default class LandingPage extends React.Component {
    campuslist: [],
    show_school: true,
    campus_id: 1,
-   market: false
-
+   c_id: null,
+   market: false,
+   is_selected: false,
+   show_button: false,
+   campus_name: null
  }
 
 
@@ -64,7 +68,7 @@ export default class LandingPage extends React.Component {
 
      this.setState({ type: true, isLoading: true})
 
-     var key_word = document.getElementById("key_word").value
+     var key_word = document.getElementBaaaayId("key_word").value
      var formData = new FormData()
      formData.append('key_word', key_word)
 
@@ -139,6 +143,19 @@ async getMarket(id){
  }
 
 
+ setButton(id){
+   if(this.state.is_selected){
+     this.setState({ show_button: true, campus_id: id})
+   }
+ }
+
+
+ toLanding(){
+  var campus = document.getElementById("campus_id").value
+  window.location.href = 'https://www.iwansell.com/iwansell/' + campus + '/'
+ }
+
+
 
       render() {
 
@@ -147,131 +164,119 @@ async getMarket(id){
 
              { this.state.show_school ? (
                <div className="landing-view">
-                 <Grid>
+
                  <Row>
+                 <Col lg={12} md={12} sm={12} xs={12}>
+                   <div className="intro-header">
+                      <p><Image width="50px" height="50px" src={ require ('./neighborhoods/blocks/houses/images/nicon-white.png') } alt="iwansell" responsive/></p>
+                      <p>Iwansell</p>
+                    </div>
+                  </Col>
+                 </Row>
 
-                     <Row>
-                        <Col lg={6} md={6} sm={6} xs={6}>
-                        <div className="login-appname">
-                          <Logo/>
-                          </div>
-                        </Col>
+                 <Row>
+                  <Col lg={7} md={7} className="d-none d-sm-block d-xs-block">
+                    <Introduction />
+                  </Col>
 
-                        <Col lg={3} lgOffset={3}  md={3} mdOffset={3} sm={6} xs={6}>
-                        <Link to = "/signin" style={{ padding: 10 }}>
-                              <span style={{ color: 'white'}}>Sign In</span>     
-                        </Link>
+                  <Col lg={5} md={5} sm={12} xs={12}>
+                  <div className="side-box">
+                  <div className="landing-view2">
 
-                        <Link to = "/signup" style={{ padding: 10 }}>
-                        <Button bsStyle="primary">
-                            Sign Up
-                        </Button>
-                        </Link>
-
-
-                        </Col>
-                    </Row>
-                </Row>
-
-            
-
-            <Row>
-              <Col lg={8} lgOffset={2} md={8} mdOffset={2} sm={10} smOffset={1} xs={10} xsOffset={1}>
-              <div className="welcome-message">
-               <br /><p>Welcome to Iwansell!</p><br />
-               <p>Iwansell is a place to buy and sell on a campus.</p>
-                <p>We have opened up Iwansell for popular consumption in these campuses:</p>
-              </div>
-
-              <div className="new-campus-list">
-                
+                  <Row>
+                    <Col lg={6} md={6} sm={6} xs={6}>
+                      <Link to='/signin'>
+                        <Button variant="warning">Signin</Button>
+                      </Link>
+                    </Col>
+                    <Col lg={6} md={6} sm={6} xs={6}>
+                      <Link to='/signin'>
+                      <Button variant="info">Signup</Button>
+                      </Link>
+                    </Col>
+                  </Row><br /><br />
+                    <p>We have opened up Iwansell for popular consumption in these campuses:</p>
                    {this.state.isLoading2 ? (
                        <div>
                        <p style={{ color: 'black'}}><b><i>Fetching Campus</i></b></p>
                        <p><Spinner color="#ff0000" size={32}/></p>
                        </div>
                     ) : (
-                    
-                      <div className="campus-list">
-                        <p style={{ color: 'black', wordWrap: 'normal', wordSpacing: 1}}>Click on campus to continue</p>
+                        <FormGroup>
+                          <Form.Label>Select Campus</Form.Label>
+                          <Form.Control as="select" id="campus_id" name="campus_id">
                          {this.state.campuslist.map(item => (
-                         <span><a href={`/iwansell/${ item.id } `}>{item.campus_code}</a></span>
+                         <option value={item.id}>{item.campus_code}</option>
                         ))}
-                     
-                      </div>
-
+                      </Form.Control>
+                      <br />
+                      <Button variant="success" onClick={() => this.toLanding()}>
+                          Continue to Market
+                      </Button>{' '}
+                      {this.state.show_button ? (
+                        <Button variant="primary">Visit {this.state.market} Market</Button>
+                      ) : (
+                        <div></div>
+                      )}
+                      </FormGroup>
                   )}
-              </div>
-
-
-                  <div className="welcome-messageb">
-                  <br /><p>You can use Iwansell to :</p>
+                  <br /><br />
                   <Row>
-                    <Col lg={3} md={3} sm={6} xs={6}>
-                      <Glyphicon glyph="log-out"/>
-                      <p><b>Sell</b> anything you want</p>
+                    <Col lg={4} md={4} sm={4} xs={4}>
+                    <p>
+                    <a href="https://web.facebook.com/Iwansell-group-270682653560747/?ref=br_rs">
+                      <Image width="40px" height="40px" src={ require ('./neighborhoods/blocks/houses/images/facebook.svg') } alt="iwansell" responsive/>
+                    </a>
+                    </p>
                     </Col>
-
-                    <Col lg={3} md={3} sm={6} xs={6}>
-                    <Glyphicon glyph="log-in"/>
-                      <p><b>Buy</b> anything you can find</p>
+                    <Col lg={4} md={4} sm={4} xs={4}>
+                    <p>
+                    <a href="https://twitter.com/IwansellG">
+                      <Image width="40px" height="40px" src={ require ('./neighborhoods/blocks/houses/images/twitter.svg') } alt="iwansell" responsive/>
+                    </a>
+                    </p>
                     </Col>
-
-                    <Col lg={3} md={3} sm={6} xs={6}>
-                    <Glyphicon glyph="tasks"/>
-                      <p>Upload what you need<b>(Listings)</b></p>
+                    <Col lg={4} md={4} sm={4} xs={4}>
+                    <p>
+                    <a href="https://instagram.com/iwansellcampus">
+                      <Image width="40px" height="40px" src={ require ('./neighborhoods/blocks/houses/images/instagram.svg') } alt="iwansell" responsive/>
+                    </a>
+                    </p>
                     </Col>
+                  </Row>
 
-                    <Col lg={3} md={3} sm={6} xs={6}>
-                    <Glyphicon glyph="home"/>
-                      <p>Rent online stores<b>(eShops)</b></p>
-                    </Col>
-
-                  </Row>             
                   </div>
+                  </div>
+                  </Col>
+                </Row>
 
-              </Col>
-            </Row>
-            
+                {/* }
+                <Row>
+                <Col sm={12} xs={12} className="d-lg-block d-md-block">
+                    <Introduction />
+                  </Col>
+                </Row><br /><br />
+                */}
+
+                <Row>
+                 <Col lg={12} md={12} sm={12} xs={12}>
+                   <div className="intro-footer">
+                    <p>Brought to you by Iwansell LLC, Copyright &copy;2020</p>
+                    <p>A Gregs Production</p>
+                    </div>
+                  </Col>
+                 </Row>
 
 
-               </Grid>
                </div>
              ) : (
               <div>
              <Navigation campus_id={this.state.campus_id} logged_in={false} market={this.state.market}/>
-             <Grid>
-             <Row>
-                <Col lg={12} md={12}>
-                <MobileApp/>
-                  <Row>
-                     <Sponsored title="Sponsored" campus_id={this.state.campus_id}/>
-                  </Row>
-
-                  <Row>
-                    <Adsense/>
-                  </Row>
-
-                  <Row>
-                     <Trending campus_id={this.state.campus_id}/>
-                  </Row>
-
-                  <Row>
-                    <Adsense/>
-                  </Row>
-
-                 </Col>
-
-                <Col lgHidden mdHidden smHidden xsHidden>
-                   <EShopAds/>
-                </Col>
-               </Row>
-               </Grid>
-          
+             <Trending campus_id={this.state.campus_id}/>
+             
              <CategorySlide/>
-             <MobileApp/>
              <GotoTop/>
-             <Footer logged_in={false} campus_id={this.state.campus_id}/>
+             <Footer logged_in={false}/>
              <Copyright/>
               </div>
              )}

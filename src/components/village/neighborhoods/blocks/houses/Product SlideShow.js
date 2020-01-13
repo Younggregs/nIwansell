@@ -1,6 +1,6 @@
 import React from 'react'
 import Slider from 'react-slick'
-import { Row, Col } from 'react-bootstrap'
+import { Row, Col, Image } from 'react-bootstrap'
 import Heading from './Heading.js'
 
 export default class ProductSlideShow extends React.Component {
@@ -38,45 +38,33 @@ export default class ProductSlideShow extends React.Component {
         };
 
 
-         return (
-           <section className="sponsored">
-               <Row>
-                <Heading title="More Images"/>
+        return (
+          <section className="sponsored">
+              <Row>
+               <div className="trending-header">
+                 <p className="trending-title-t">More Media</p>
+               </div>
                </Row>
-               <Row>
-               <Col lg={10} lgOffset={1} md={10} mdOffset={1} smHidden xsHidden>
-          <Slider {...settings}>
+         
+         <Row className="justify-content-md-center">
+         <Slider {...settings}>
+             
+               {this.state.imagesList.map(item => (
+                 <div className="slide-items">
+                   <div className="sponsored-images">
+                     <div className="sponsored-image">
+                       {this.setMedia(item.image)}
+                       <Image src= { `${this.state.media}` } alt="product images"/>
+                   </div>
+                   </div>
+                 </div>
+                )
+               )}
 
-            { this.state.imagesList.map(item => (
-                    <div className="sponsored-images">
-                      <div className="sponsored-image">
-                    {this.setMedia(item.image)}
-                    <img src= { `${this.state.media}` } alt="thumbnail"/>
-                    </div>
-                    </div>
-                 )
-                )}
          </Slider>
+         </Row>
 
-             </Col>
-
-			<Col sm={12} xs={12} lgHidden mdHidden>
-
-				<div class="scrolling-wrapper">
-                { this.state.imagesList.map(item => (
-                    <div class="card">
-                    {this.setMedia(item.image)}
-                    <img src= { `${this.state.media}` } alt="thumbnail"/>
-                    </div>
-                 )
-                )}
-
-                </div>
-
-             </Col>
-              </Row>
-
-           </section>
-         )
-       }
-  }
+          </section>
+        )
+      }
+ }

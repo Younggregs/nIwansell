@@ -1,6 +1,6 @@
 import React from 'react';
 import { Redirect } from 'react-router-dom'
-import { Button,FormGroup, FormControl, HelpBlock } from 'react-bootstrap';
+import { Button,FormGroup, FormControl } from 'react-bootstrap';
 import Heading from './Heading'
 import Spinner from 'react-activity/lib/Spinner';
 import 'react-activity/lib/Spinner/Spinner.css';
@@ -97,7 +97,7 @@ const formInstance = (
             placeholder={this.state.email}
 
         />
-        <HelpBlock>Email is needed for password recovery</HelpBlock>
+        <div>Email is needed for password recovery</div>
 </FormGroup>
 
     {this.state.message.error_message ? (

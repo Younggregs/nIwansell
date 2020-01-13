@@ -1,5 +1,5 @@
 import React from 'react';
-import { Grid , Row } from 'react-bootstrap';
+import { Container , Row } from 'react-bootstrap';
 import ProductList from './neighborhoods/blocks/houses/Product List.js';
 import Footer from './neighborhoods/Footer.js';
 import GotoTop from './neighborhoods/blocks/houses/Goto Top.js';
@@ -15,7 +15,7 @@ export default class ProductManager extends React.Component {
                 <NavigationHeader/>
                 <Post/>
             
-             <Grid>
+             <Container>
               <br /><Row>
               
              
@@ -23,7 +23,7 @@ export default class ProductManager extends React.Component {
               
               
               </Row><br /><br />
-             </Grid>
+             </Container>
              </div> 
              <GotoTop/>
              <Footer/>

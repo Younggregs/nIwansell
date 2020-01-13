@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { Grid, Row, Col } from 'react-bootstrap'
+import { Container, Row, Col } from 'react-bootstrap'
 import EShopShore2 from './blocks/EShop Store 2'
 
 export default class EShopStore extends React.Component {

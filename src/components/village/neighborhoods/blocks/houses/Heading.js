@@ -26,6 +26,7 @@ export default class Heading extends React.Component {
              </section>
             </Col>
 
+            {/*}
             <Col lgHidden mdHidden>
            <section className="heading-sm">
              { this.props.trending ? (
@@ -45,6 +46,7 @@ export default class Heading extends React.Component {
              )}
              </section>
             </Col>
+            */}
 
 
           </section>

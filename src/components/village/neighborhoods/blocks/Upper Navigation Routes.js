@@ -1,186 +1,144 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { Col, Row, Glyphicon} from 'react-bootstrap'
+import { Container, Col, Row, Image } from 'react-bootstrap'
 
 
 export default class UpperNavigationRoutes extends React.Component {
 
        render() {
          return (
-            <section>
-            <Col lg={12} md={12} smHidden xsHidden>
-                <section className="upper-routes" id="upper-routes">
-              <Row>
-                    <Col lg={2} md={2} className="post-object">
+            <Container>
+            
+              <Row className="justify-content-md-center">
+
+                    <Col lg={3} md={3} sm={6} xs={6} className="post-object" id="post-object">
                         <Link to={`/channel/${ this.props.campus_id }/`}>
-                        <Glyphicon glyph="facetime-video" style={{ color: '#01579b'}}/>
                            <p>TV</p> 
+                           <p><Image width="50px" height="50px" src={ require ('./houses/images/tv.svg') } alt="iwansell" responsive/></p>
+                           <p className="school-2">...latest news, gist</p>
                         </Link>
                     </Col>
 
-                    <Col lg={2} md={2} className="post-object">
-                <Link to={`/listings/${ this.props.campus_id }/`}>
-                <Glyphicon glyph="tasks" style={{ color: '#01579b'}}/>
-                    <p>Listing</p> 
-                </Link>
+                    <Col lg={3} md={3} sm={6} xs={6} className="post-object2" id="post-object2">
+                      <Link to={`/listings/${ this.props.campus_id }/`}>
+                          <p>Listing</p> 
+                          <p><Image width="50px" height="50px" src={ require ('./houses/images/list.svg') } alt="iwansell" responsive/></p>
+                          <p className="school">...check what users need</p>
+                      </Link>
 
-                </Col>
+                    </Col>
 
-                  <Col lg={2} md={2} className="post-object">
+                  <Col lg={3} md={3} sm={6} xs={6} className="post-object" id="post-object">
                         <Link to={`/eshop_list/${ this.props.campus_id }/`}>
-                        <Glyphicon glyph="shopping-cart" style={{ color: '#01579b'}}/>
                            <p>eShops</p> 
+                           <p><Image width="50px" height="50px" src={ require ('./houses/images/shop.svg') } alt="iwansell" responsive/></p>
+                           <p className="school-2">...online stores</p>
                         </Link>
                     </Col>
 
-                {this.props.logged_in ? (
+                    <Col lg={3} md={3} sm={6} xs={6} className="post-object2" id="post-object2">
+                      <Link to="/blog">
+                          <p>Blog</p> 
+                          <p><Image width="50px" height="50px" src={ require ('./houses/images/blogging.svg') } alt="iwansell" responsive/></p>
+                          <p className="school">...latest features, updates</p>
+                      </Link>
+                    </Col>
 
-                  <section>
-                  <Col lg={2} md={2} className="post-object">
+              </Row>
+              
+              <Row className="justify-content-md-center">
+
+
+              {this.props.logged_in ? (
+                  <Col lg={3} md={3} sm={6} xs={6} className="post-object2" id="post-object2">
                     {true ? (
-                        <Link to = "/new_eshop">
-                           <Glyphicon glyph="home" style={{ color: '#01579b'}}/>
-                           <p>Rent an eShop</p> 
+                        <Link to = "/profile">
+                           <p>Profile</p> 
+                           <p><Image width="50px" height="50px" src={ require ('./houses/images/signup.svg') } alt="iwansell" responsive/></p>
+                           <p className="school">...to your profile</p>
                         </Link>
                     ) : (
                         <span></span>
                     )}
-                    </Col>
-
-                  <Col lg={2} md={2} className="post-object">
-                        <Link to = "/product_valuation">
-                        <Glyphicon glyph="stats" style={{ color: '#01579b'}}/>
-                           <p>Business Mode</p> 
-                        </Link>
-                    </Col>
-                    </section>
+                  </Col>
 
                 ) : (
-                <section>
-                 <Col lg={2} md={2} className="post-object">
-                        <Link to = "/signin">
-                        <Glyphicon glyph="user" style={{ color: '#01579b'}}/>
-                           <p>Sign In</p> 
+                 <Col lg={3} md={3} sm={6} xs={6} className="post-object2" id="post-object2">
+                        <Link to = "/about_us">
+                           <p>About Us</p> 
+                           <p><Image width="50px" height="50px" src={ require ('./houses/images/about.svg') } alt="iwansell" responsive/></p>
+                           <p className="school">...get to know us</p>
                         </Link>
                     </Col>
 
-                  <Col lg={2} md={2} className="post-object">
-                    <Link to = "/signup">
-                    <Glyphicon glyph="user" style={{ color: 'darkblue'}}/>
-                           <p>Sign Up</p> 
-                    </Link>
+                )}
+
+
+
+                {this.props.logged_in ? (
+                  <Col lg={3} md={3} sm={6} xs={6} className="post-object" id="post-object">
+                    {true ? (
+                        <Link to = "/new_eshop">
+                           <p>Rent an eShop</p> 
+                           <p><Image width="50px" height="50px" src={ require ('./houses/images/shop.svg') } alt="iwansell" responsive/></p>
+                           <p className="school-2">...get an online store now!</p>
+                        </Link>
+                    ) : (
+                        <span></span>
+                    )}
+                  </Col>
+
+                ) : (
+                 <Col lg={3} md={3} sm={6} xs={6} className="post-object" id="post-object">
+                        <Link to = "/signin">
+                           <p>Log In</p> 
+                           <p><Image width="50px" height="50px" src={ require ('./houses/images/login.svg') } alt="iwansell" responsive/></p>
+                           <p className="school-2">...login to your account</p>
+                        </Link>
                     </Col>
 
-             </section>
+                )}
 
-           )}
 
-           <Col lg={2} md={2} className="post-object">
-                <Link to="/blog">
-                <Glyphicon glyph="bullhorn" style={{ color: '#01579b'}}/>
-                    <p>Blog</p> 
-                </Link>
 
-            </Col>
+
+                {this.props.logged_in ? (
+                  <Col lg={3} md={3} sm={6} xs={6} className="post-object2" id="post-object2">
+                  <Link to = "/product_valuation">
+                     <p>Business Mode</p> 
+                     <p><Image width="50px" height="50px" src={ require ('./houses/images/business.svg') } alt="iwansell" responsive/></p>
+                     <p className="school">...make market research</p>
+                  </Link>
+              </Col>
+
+                ) : (
+                  <Col lg={3} md={3} sm={6} xs={6} className="post-object2" id="post-object2">
+                  <Link to = "/signup">
+                 
+                         <p>Sign Up</p> 
+                         <p><Image width="50px" height="50px" src={ require ('./houses/images/signup.svg') } alt="iwansell" responsive/></p>
+                        <p className="school">...signup to enjoy more features</p>
+                  </Link>
+                  </Col>
+
+                )}
+
+
+                  <Col lg={3} md={3} sm={6} xs={6} className="post-object" id="post-object">
+                        <Link to={`/channel/${ this.props.campus_id }/`}>
+                           <p>TV</p> 
+                           <p><Image width="50px" height="50px" src={ require ('./houses/images/tv.svg') } alt="iwansell" responsive/></p>
+                           <p className="school">...latest news, gist</p>
+                        </Link>
+                    </Col>
+
+
 
                </Row>
 
-               </section>
-              </Col>
 
-
-
-
-
-
-
-
-              <Col lgHidden mdHidden sm={12} xs={12}>
-              <section className="upper-routes" id="upper-routes">
-               <Row>
-                <Col sm={4} xs={4} className="post-object-sm">
-                         <Link to={`/channel/${ this.props.campus_id }/`}>
-                         <Glyphicon glyph="facetime-video" style={{ color: '#01579b'}}/>
-                           <p>TV</p> 
-                         </Link>
-                     </Col>
-
-                     <Col sm={4} xs={4} className="post-object-sm">
-                 <Link to={`/listings/${ this.props.campus_id }/`}>
-                 <Glyphicon glyph="tasks" style={{ color: '#01579b'}}/>
-                        <p>Listings</p> 
-                 </Link>
-                </Col>
-
-
-                   <Col sm={4} xs={4} className="post-object-sm">
-                         <Link to={`/eshop_list/${ this.props.campus_id }/`}>
-                         <Glyphicon glyph="shopping-cart" style={{ color: '#01579b'}}/>
-                           <p>e-SHOPS</p> 
-                         </Link>
-                     </Col>
- 
-                 {this.props.logged_in ? (
- 
-                   <section>
-                   <Col sm={4} xs={4} className="post-object-sm">
-                     {true ? (
-                         <Link to = "/new_eshop">
-                            <Glyphicon glyph="home" style={{ color: '#01579b'}}/>
-                                <p>Rent eShop</p>
-                         </Link>
-                     ) : (
-                         <span></span>
-                     )}
-                     </Col>
- 
-                   <Col sm={4} xs={4} className="post-object-sm">
-                         <Link to = "/product_valuation">
-                         <Glyphicon glyph="stats" style={{ color: '#01579b'}}/>
-                             <p>Business Mode</p>
-                         </Link>
-                     </Col>
-                     </section>
- 
-                 ) : (
-                 <section>
-                  <Col sm={4} xs={4} className="post-object-sm">
-                         <Link to = "/signin">
-                         <Glyphicon glyph="user" style={{ color: '#01579b'}}/>
-                           <p>Sign In</p> 
-                         </Link>
-                     </Col>
- 
-                   <Col sm={4} xs={4} className="post-object-sm">
-                     <Link to = "/signup">
-                     <Glyphicon glyph="user" style={{ color: '#01579b'}}/>
-                           <p>Sign Up</p> 
-                     </Link>
-                     </Col>
- 
-              </section>
- 
-            )}
- 
-            <Col sm={4} xs={4} className="post-object-sm">
-                 <Link to="/blog">
-                 <Glyphicon glyph="bullhorn" style={{ color: '#01579b'}}/>
-                    <p>Blog</p> 
-                 </Link>
- 
-             </Col>
- 
-            </Row>
- 
-                </section>
-               </Col>
-
-
-
-
-
-
-              </section>
+              
+              </Container>
          )
        }
   }

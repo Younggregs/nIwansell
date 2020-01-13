@@ -1,6 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
+import 'bootstrap/dist/css/bootstrap.min.css';
 import Welcome from './components/village/Welcome'
 import LandingPage from './components/village/Landing Page'
 import Signin from './components/village/Sign in'

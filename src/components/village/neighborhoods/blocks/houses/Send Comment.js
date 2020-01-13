@@ -1,6 +1,6 @@
 import React from 'react'
 import { Redirect } from 'react-router-dom'
-import { Button, Glyphicon, Col, Row, FormControl, FormGroup, Form, InputGroup } from 'react-bootstrap'
+import { Button, Col, Row, FormControl, FormGroup, Form, InputGroup } from 'react-bootstrap'
 import { confirmAlert } from 'react-confirm-alert'
 import 'react-confirm-alert/src/react-confirm-alert.css'
 
@@ -56,7 +56,7 @@ export default class SendComment extends React.Component {
                                 }
                             }}/>
                             <InputGroup.Button>
-                                <Button><Glyphicon style={{ fontSize: 20}} onClick={() => this.sendComment()} glyph='send'>Send</Glyphicon></Button>
+                                <Button><div style={{ fontSize: 20}} onClick={() => this.sendComment()} glyph='send'>Send</div></Button>
                             </InputGroup.Button>
                         </InputGroup>
                         </Form>
@@ -138,7 +138,7 @@ export default class SendComment extends React.Component {
 
               <Redirect to={`/thread/${ this.props.thread_id }`}/>
             ) : (
-              <Glyphicon onClick={() => this.customAlert()} glyph="comment">{this.props.count}</Glyphicon>
+              <div onClick={() => this.customAlert()} glyph="comment">{this.props.count}</div>
             )}
            </section>
          )

@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { Grid, Row, Col } from 'react-bootstrap'
+import { Container, Row, Col } from 'react-bootstrap'
 import Heading from './houses/Heading'
 import ProductImage from './houses/Product Image'
 
@@ -35,7 +35,7 @@ export default class EShopStore2 extends React.Component {
        render() {
          return (
            <section className="trending">
-             <Grid>
+             <Container>
              <Row>
               <Col lg={12} md={12} smHidden xsHidden>
                 <Row>
@@ -98,7 +98,7 @@ export default class EShopStore2 extends React.Component {
 
 
              </Row>
-             </Grid>
+             </Container>
            </section>
          )
        }

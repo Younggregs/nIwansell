@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Glyphicon, Button } from 'react-bootstrap'
+import { Button } from 'react-bootstrap'
 
 export default class ProfileDescription extends React.Component {
 
@@ -54,8 +54,8 @@ export default class ProfileDescription extends React.Component {
 
               <span className="heart-glyphs">
                <Rating
-                emptySymbol="glyphicon glyphicon-heart-empty"
-                fullSymbol="glyphicon glyphicon-heart"
+                emptySymbol="div div-heart-empty"
+                fullSymbol="div div-heart"
                 {...this.props} initialRating={this.state.value} readonly quiet/>
                </span>
 
@@ -102,9 +102,9 @@ export default class ProfileDescription extends React.Component {
               <div>
                 <p>Favorite Me
                  {this.state.isfavorited ? (
-                   <Button onClick={this.favorite.bind(this)}><span className="fav-glyphs"><Glyphicon glyph="star"/></span></Button>
+                   <Button onClick={this.favorite.bind(this)}><span className="fav-glyphs"><div glyph="star"/></span></Button>
                  ) : (
-                   <Button onClick={this.favorite.bind(this)}><span className="fav-glyphs"><Glyphicon glyph="star-empty"/></span></Button>
+                   <Button onClick={this.favorite.bind(this)}><span className="fav-glyphs"><div glyph="star-empty"/></span></Button>
                  )}
 
                 </p>
@@ -114,8 +114,8 @@ export default class ProfileDescription extends React.Component {
                Rating[Reviews]
                <span className="heart-glyphs">
                <Rating
-                emptySymbol="glyphicon glyphicon-heart-empty"
-                fullSymbol="glyphicon glyphicon-heart"
+                emptySymbol="div div-heart-empty"
+                fullSymbol="div div-heart"
                 {...this.props} initialRating={this.state.value} readonly quiet/>
                </span>
 

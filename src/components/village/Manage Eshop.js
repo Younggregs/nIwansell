@@ -1,5 +1,5 @@
 import React from 'react'
-import { Grid,Row, Col } from 'react-bootstrap'
+import { Container,Row, Col } from 'react-bootstrap'
 import ManageProduct from './neighborhoods/Manage Product'
 import EditEShopForm from './neighborhoods/blocks/houses/Edit EShop Form'
 
@@ -10,7 +10,7 @@ export default class ManageEshop extends React.Component {
        
         return (
            <div className="manage-eshop">
-           <Grid>
+           <Container>
            <Row>
 
                     <EditEShopForm/>
@@ -22,7 +22,7 @@ export default class ManageEshop extends React.Component {
                     <ManageProduct/>
 
             </Row>
-            </Grid>
+            </Container>
            </div>
          )
      }

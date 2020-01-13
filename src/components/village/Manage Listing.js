@@ -1,5 +1,5 @@
 import React from 'react';
-import { Grid , Row } from 'react-bootstrap';
+import { Container , Row } from 'react-bootstrap';
 import ListingProduct from './neighborhoods/blocks/houses/Listing Product.js';
 import Footer from './neighborhoods/Footer.js';
 import GotoTop from './neighborhoods/blocks/houses/Goto Top.js';
@@ -14,7 +14,7 @@ export default class ProductManager extends React.Component {
              <div className="search-page">
                 <NavigationHeader/>
                
-             <Grid>
+             <Container>
               <br /><Row>
               
               <div>
@@ -22,7 +22,7 @@ export default class ProductManager extends React.Component {
               </div>
               
               </Row><br /><br />
-             </Grid>
+             </Container>
              </div> 
              <GotoTop/>
              <Footer/>

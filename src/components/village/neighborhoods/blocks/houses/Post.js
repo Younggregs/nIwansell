@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { Col, Row, Button, Glyphicon } from 'react-bootstrap'
+import { Col, Row, Button } from 'react-bootstrap'
 import Logo from './Logo'
 import NavigationIcons from './Navigation Icons'
 
@@ -29,7 +29,7 @@ export default class Post extends React.Component {
               
                   <Col lg={2} md={2} className="post-object">
                         <Link to={`/eshop_list/${ this.props.campus_id }/`}>
-                        <Glyphicon glyph="th-list"/>
+                        <div glyph="th-list"/>
                         <p>eShops</p>
                         </Link>
                     </Col>
@@ -39,7 +39,7 @@ export default class Post extends React.Component {
                   <section>
                     <Col lg={2} md={2} className="post-object">
                         <Link to = "/newproduct">
-                        <Glyphicon glyph="upload"/>
+                        <div glyph="upload"/>
                             <p>Upload</p>
                         </Link>
                     </Col>
@@ -66,14 +66,14 @@ export default class Post extends React.Component {
                 <section>
                 <Col lg={2} md={2} className="post-object">
                         <Link to = "/signup">
-                        <Glyphicon glyph="upload"/>
+                        <div glyph="upload"/>
                            <p>Post</p> 
                         </Link>
                     </Col>
 
                  <Col lg={3} md={3} className="post-objectb">
                         <Link to ="/signin">
-                        <Glyphicon glyph="user"/>
+                        <div glyph="user"/>
                             <p>Sign In</p>
                         </Link>
                  </Col>
@@ -105,7 +105,7 @@ export default class Post extends React.Component {
               <Col lgHidden mdHidden sm={2} xs={2} className="post-objectb">
                 <Link to={`/menu/${ this.props.campus_id }/`}>
                 <Button bsStyle="primary">
-                    <Glyphicon glyph="th-list" style={{color:'white'}}/>
+                    <div glyph="th-list" style={{color:'white'}}/>
                 </Button>
                 </Link>
               </Col>

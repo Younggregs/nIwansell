@@ -1,6 +1,6 @@
 import React from 'react';
 import { Redirect } from 'react-router-dom'
-import { Row, Col, Button,FormGroup, FormControl, ControlLabel} from 'react-bootstrap';
+import { Row, Col, Button,FormGroup, FormControl } from 'react-bootstrap';
 import Spinner from 'react-activity/lib/Spinner';
 import 'react-activity/lib/Spinner/Spinner.css';
 
@@ -83,7 +83,7 @@ const formInstance = (
   <Row>
 
    <Col lg={6} md={6} sm={6} xs={6}>
-   <ControlLabel>Rate</ControlLabel>
+   <div>Rate</div>
       <div>
       <span className="heart-glyphs">
         <Rating
@@ -100,7 +100,7 @@ const formInstance = (
 
   <Col lg={6} md={6} sm={12} xs={12}>
     <FormGroup>
-      <ControlLabel>Review</ControlLabel>
+      <div>Review</div>
       <FormControl componentClass="textarea" placeholder="e.g Awesome fellas doing awesome stuff" id="review" name="review"/>
     </FormGroup>
    </Col>

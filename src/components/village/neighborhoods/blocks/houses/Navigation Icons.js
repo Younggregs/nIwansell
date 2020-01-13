@@ -1,5 +1,5 @@
 import React from 'react'
-import { Col, Glyphicon, Badge, Tooltip, OverlayTrigger } from 'react-bootstrap'
+import { Col, Badge, Tooltip, OverlayTrigger } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 
 export default class NavigationIcons extends React.Component {
@@ -108,7 +108,7 @@ export default class NavigationIcons extends React.Component {
             <Col lg={2} md={2} smHidden xsHidden>
              <Link to={`/profile/${ this.props.account_id }`}>
              <OverlayTrigger placement="left" overlay={profile}>
-                <span className="glyphs"><Glyphicon glyph="user" style={{ fontSize: 20}} /></span>
+                <span className="glyphs"><div glyph="user" style={{ fontSize: 20}} /></span>
              </OverlayTrigger>
              </Link>&nbsp;&nbsp;
              </Col>
@@ -123,7 +123,7 @@ export default class NavigationIcons extends React.Component {
                 ) : (
                   <span/>
                 )}
-                <Glyphicon glyph="envelope" style={{ fontSize: 20}}/>
+                <div glyph="envelope" style={{ fontSize: 20}}/>
                   </span>
                </OverlayTrigger>
              </Link>&nbsp;&nbsp;
@@ -134,7 +134,7 @@ export default class NavigationIcons extends React.Component {
               {this.state.have_eshop ? (
                 <Link to={`/eshop/${ this.state.eshop_id }`}>
                   <OverlayTrigger placement="right" overlay={eshop}>
-                 <span className="glyphs"><Glyphicon glyph="home" style={{ fontSize: 20}}/></span>
+                 <span className="glyphs"><div glyph="home" style={{ fontSize: 20}}/></span>
                   </OverlayTrigger>
                </Link>
               ): (
@@ -146,7 +146,7 @@ export default class NavigationIcons extends React.Component {
             <div>
              <Col sm={3} xs={3} lgHidden mdHidden>
              <Link to={`/profile/${ this.props.account_id }`}>
-                <span className="glyphs"><Glyphicon glyph="user" style={{ fontSize: 15}}/></span>
+                <span className="glyphs"><div glyph="user" style={{ fontSize: 15}}/></span>
              </Link>
              </Col>
 
@@ -158,7 +158,7 @@ export default class NavigationIcons extends React.Component {
                 ) : (
                   <span/>
                 )}
-                <Glyphicon glyph="envelope" style={{ fontSize: 15}}/>
+                <div glyph="envelope" style={{ fontSize: 15}}/>
                 </span>
                 
              </Link>
@@ -167,7 +167,7 @@ export default class NavigationIcons extends React.Component {
              {this.state.have_eshop ? (
                 <Col sm={2} xs={2} lgHidden mdHidden>
                 <Link to={`/eshop/${ this.state.eshop_id }`}>
-                   <span className="glyphs"><Glyphicon glyph="home" style={{ fontSize: 15}}/></span>
+                   <span className="glyphs"><div glyph="home" style={{ fontSize: 15}}/></span>
                 </Link>
                 </Col>
              ) : (

@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link, Redirect } from 'react-router-dom'
-import { Col, Row, Form, Thumbnail, FormGroup,FormControl,InputGroup,Glyphicon, Button,ControlLabel,HelpBlock} from 'react-bootstrap'
+import { Col, Row, Form, InputGroup,  Button } from 'react-bootstrap'
 import Spinner from 'react-activity/lib/Spinner';
 import 'react-activity/lib/Spinner/Spinner.css';
 
@@ -15,7 +15,6 @@ export default class SearchField extends React.Component {
     media: null,
     is_search: false,
     control: false
-
   };
 
   _handleKeyDown = (e) => {
@@ -52,17 +51,46 @@ check(){
              {this.state.control && (
                <Redirect to='/search_page'/>
              )}
-             <Col lg={12} md={12} smHidden xsHidden>
-             
-           <Form inline>
-           
+
+          <Col lg={12} md={12}> 
+           <Form>
+
+           <InputGroup>
+            <Form.Control
+              size="lg"
+              id="search_phrase_sm"
+              type="text"
+              cols="50"
+              name="search_phrase_sm"
+              placeholder="Search for anything..."
+              aria-describedby="basic-addon1"
+              onFocus={this.check.bind(this)}
+              onKeyPress={event => {
+               if (event.key === 'Enter') {
+                 this.check.bind(this)
+               }
+             }}
+              inputRef={(ref) => { this.inputSearchPhrase = ref; }}
+              aria-describedby="inputGroupPrepend"
+              required
+            />
+            <InputGroup.Append>
+                <Button variant="warning" onClick={this.check.bind(this)}>Search</Button>
+            </InputGroup.Append>
+          </InputGroup>
+
+          </Form>
+           </Col>
+
+
+          {/*
            <FormGroup>
-               <FormControl componentClass="select" placeholder="select" id="category_id" name="category_id">
+            <Form.Control as="select" id="campus_id" name="campus_id" id="category_id" name="category_id">
                <option value="99">All categories</option>
                {this.state.categorylist.map(item => (
                <option value={item.id}>{item.name}</option>
                ))}
-              </FormControl>
+              </Form.Control>
 
               <FormControl
                   type="text"
@@ -78,46 +106,55 @@ check(){
                   
                   }}
               />
-
-            <Button onClick={this.check.bind(this)}><Glyphicon glyph="search"/></Button>
+            <Button onClick={this.check.bind(this)}>search</Button>
             </FormGroup>
-           </Form>
-           </Col>
+                */}
 
-
-
-           <Col xs={12} sm={12} lgHidden mdHidden>
            
+
+
+
+           { 
+            /*
+           <Col xs={12} sm={12} lgHidden mdHidden>
            <Form inline>
 
+             
+
       <FormGroup>
-    <InputGroup>
-    <FormControl
-       id="search_phrase_sm"
-       type="text"
-       name="search_phrase_sm"
-       placeholder="Search for anything  "
-       onFocus={this.check.bind(this)}
-       onKeyPress={event => {
-        if (event.key === 'Enter') {
-          this.check.bind(this)
-        }
-      }}
-       inputRef={(ref) => { this.inputSearchPhrase = ref; }}
-       />
 
+      <InputGroup>
+            <InputGroup.Prepend>
+              <InputGroup.Text id="inputGroupPrepend"><Button onClick={this.check.bind(this)}>search</Button></InputGroup.Text>
+            </InputGroup.Prepend>
+            <Form.Control
+              id="search_phrase_sm"
+              type="text"
+              name="search_phrase_sm"
+              placeholder="Search for anything..."
+              onFocus={this.check.bind(this)}
+              onKeyPress={event => {
+               if (event.key === 'Enter') {
+                 this.check.bind(this)
+               }
+             }}
+              inputRef={(ref) => { this.inputSearchPhrase = ref; }}
+              aria-describedby="inputGroupPrepend"
+              required
+            />
+            <Form.Control.Feedback type="invalid">
+              <Button onClick={this.check.bind(this)}><div glyph="search"/></Button>
+            </Form.Control.Feedback>
+          </InputGroup>
 
-      
-      <InputGroup.Button>
-        <Button onClick={this.check.bind(this)}><Glyphicon glyph="search"/></Button>
-      </InputGroup.Button>
-    </InputGroup>
   </FormGroup>
 
 
 
            </Form>
            </Col>
+            */}
+
            </section>
          )
        }

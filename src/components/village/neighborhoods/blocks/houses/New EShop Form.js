@@ -1,6 +1,6 @@
 import React from 'react';
 import  { Redirect } from 'react-router-dom'
-import { Row, Col, Button,FormGroup, FormControl, ControlLabel, HelpBlock } from 'react-bootstrap';
+import { Row, Col, Button,FormGroup, FormControl } from 'react-bootstrap';
 import Spinner from 'react-activity/lib/Spinner';
 import 'react-activity/lib/Spinner/Spinner.css';
 
@@ -100,9 +100,9 @@ render(){
   function FieldGroup({ id, label, help, ...props }) {
     return (
       <FormGroup controlId={id}>
-        <ControlLabel>{label}</ControlLabel>
+        <div>{label}</div>
         <FormControl {...props} />
-        {help && <HelpBlock>{help}</HelpBlock>}
+        {help && <div>{help}</div>}
       </FormGroup>
   );
 }
@@ -114,12 +114,12 @@ const formInstance = (
   <section className="signin-form">
 
   <form>
-  <HelpBlock><b>Note: eShop is now in free trial mode</b></HelpBlock>
+  <div><b>Note: eShop is now in free trial mode</b></div>
   <Row>
   <Col lg={6} lgOffset={3} md={6} mdOffset={3} sm={12} xs={12}>
 
   <FormGroup>
-      <ControlLabel>Select eshop category</ControlLabel>
+      <div>Select eshop category</div>
       {this.state.isLoading ? (
         <div className="isloading">
         <p><b><i>loading...</i></b></p>
@@ -138,7 +138,7 @@ const formInstance = (
           </FormControl>
       )}
 
-      <HelpBlock>You can select multiple categories for your eshop</HelpBlock>
+      <p>You can select multiple categories for your eshop</p>
     </FormGroup>
 
 
@@ -152,7 +152,7 @@ const formInstance = (
       placeholder="e.g Iceprince' Wardrope "
     />
 
-  <ControlLabel>About eshop</ControlLabel><br />
+  <p>About eshop</p><br />
 
     <textarea
     name="about"
@@ -171,7 +171,7 @@ const formInstance = (
     ) : (
       <span></span>
     )}
-    <HelpBlock><b>Note: eShop is now in free trial mode</b></HelpBlock>
+    <p><b>Note: eShop is now in free trial mode</b></p>
 
 
         {this.state.isLoading ? (

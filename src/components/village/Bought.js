@@ -1,5 +1,5 @@
 import React from 'react';
-import { Grid , Row, Col } from 'react-bootstrap';
+import { Container , Row, Col } from 'react-bootstrap';
 import Navigation from './neighborhoods/Navigation.js';
 import BoughtProductList from './neighborhoods/blocks/houses/Bought Product List.js';
 import Footer from './neighborhoods/Footer.js';
@@ -12,7 +12,7 @@ export default class Bought extends React.Component {
         return (
            <div className="product-manager">
              <Navigation logged_in={true}/>
-             <Grid>
+             <Container>
               <br /><Row>
 
               <div className="sign-in">
@@ -20,7 +20,7 @@ export default class Bought extends React.Component {
               </div>
 
               </Row><br /><br />
-             </Grid>
+             </Container>
              <GotoTop/>
              <Footer/>
              <Copyright/>

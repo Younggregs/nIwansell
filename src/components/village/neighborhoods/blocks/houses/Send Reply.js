@@ -1,5 +1,5 @@
 import React from 'react'
-import { Button, Glyphicon, Col, Row, FormControl, FormGroup, Form, InputGroup } from 'react-bootstrap'
+import { Button, Col, Row, FormControl, FormGroup, Form, InputGroup } from 'react-bootstrap'
 import { confirmAlert } from 'react-confirm-alert'
 import 'react-confirm-alert/src/react-confirm-alert.css'
 
@@ -54,7 +54,7 @@ export default class SendReply extends React.Component {
                                 }
                             }}/>
                             <InputGroup.Button>
-                                <Button><Glyphicon style={{ fontSize: 20}} onClick={() => this.sendReply()} glyph='send'>Send</Glyphicon></Button>
+                                <Button><div style={{ fontSize: 20}} onClick={() => this.sendReply()} glyph='send'>Send</div></Button>
                             </InputGroup.Button>
                         </InputGroup>
                         </Form>
@@ -130,7 +130,7 @@ export default class SendReply extends React.Component {
        render() {
          return (
            <section>
-               <Glyphicon onClick={() => this.customAlert()} glyph="comment">{this.props.count}</Glyphicon>
+               <div onClick={() => this.customAlert()} glyph="comment">{this.props.count}</div>
            </section>
          )
        }

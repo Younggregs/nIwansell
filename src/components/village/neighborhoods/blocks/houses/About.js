@@ -1,118 +1,155 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { Col, Row, Image} from 'react-bootstrap'
+import { Col, Row, Image, Button } from 'react-bootstrap'
 
 export default class About extends React.Component {
        render() {
          return (
            <section className="about" id="about">
             <Row>
-            <Col lg={6} md={6} sm={6} smOffset={1} xs={6} xsOffset={1}>
+
+            <Col lg={3} md={3} sm={6} xs={6}>  
               <Row>
-          
-            <p><Link to={`/channel/${ this.props.campus_id }/`}>Channel
-           </Link></p>
+                <p>Get to know us</p>
+              </Row>
 
-          <p><Link to={`/eshop_list/${ this.props.campus_id }/`}>EShops
-           </Link></p>
-
-           <p><Link to="/why_us">Why Us
-           </Link></p>
-
-           <p><Link to="/howto">How To
-           </Link></p>
-
-           <p><Link to="/faq">FAQ
-           </Link></p>
-
-            <p><Link to="/feedback">Feedback
-           </Link></p>
-
-           <p><Link to="/about_us">About Us
-           </Link></p>
-
-               </Row>
-              </Col>
-
-
-
-
-            <Col lg={5} md={5} sm={5} xs={5}>
               <Row>
-           {this.props.logged_in ? (
+                <p><Link to="/about_us">About Us
+                </Link></p>
+              </Row>
 
-             <Col lg={6} md={6} sm={12} xs={12}>
-             {this.props.eshop_exist ? (
-                <span/>
-              ) : (
-              <p><Link to = "/new_eshop">
-                  Rent an e-shop
-             </Link></p>
+              <Row>
+                <p><Link to="/why_us">Why Us
+                </Link></p>
+              </Row>
+
+            </Col>
+
+
+            <Col lg={3} md={3} sm={6} xs={6}>  
+              <Row>
+                <p>Business on our platform</p>
+              </Row>
+
+              {this.props.logged_in ? (
+
+             <section>
+               <Row>
+              {this.props.eshop_exist ? (
+                  <span/>
+                ) : (
+                  <p><Link to = "/new_eshop">
+                    Rent an e-shop
+                  </Link></p>
               )}
-             <p><Link to = "/product_valuation">
-               Business Mode
-             </Link></p>
-             <p><Link to = "/newproduct">
-              Upload item for sell
-            </Link></p>
-            <p><Link to = "/productmanager">
-              Sell your item
-            </Link></p>
-            <p><Link to = "/buyer_transaction_window">
-              Buy an item
-            </Link></p>
-             <p><Link to = "/logout">
-               Logout
-             </Link></p>
+              </Row>
 
+              <Row>
+                <p><Link to = "/product_valuation">
+                  Business Mode
+                </Link></p>
+              </Row>
 
-             </Col>
+              <Row>
+                <p><Link to = "/newproduct">
+                  Upload item for sell
+                  </Link></p>
+              </Row>
+
+             
+             <Row>
+              <p><Link to = "/productmanager">
+                Sell your item
+              </Link></p>
+             </Row>
+            
+            <Row>
+              <p><Link to = "/buyer_transaction_window">
+                Buy an item
+              </Link></p>
+            </Row>
+            
+            <Row>
+              <p><Link to = "/logout">
+                Logout
+              </Link></p>
+            </Row>
+             
+
+             </section>
 
            ) : (
-
-            <Col lg={6} md={6} sm={12} xs={12}>
+            <section>
+            <Row>
              <p><Link to = "/signin">
                Signin
              </Link></p>
+             </Row>
+
+             <Row>
              <p><Link to = "/signup">
                Signup
              </Link></p>
+             </Row>
 
-             </Col>
+             </section>
 
            )}
+          </Col>
+           
 
-            <p><Link to="/contact_us">Contact Us
-           </Link></p>
-             </Row>
-            </Col>
-           </Row>
+  
+          <Col lg={3} md={3} sm={6} xs={6}>
+            <Row>
+              <Button variant='outline-warning'>Download the Mobile App.</Button>
+            </Row><br />
 
-          <Row>
-           <Col lg={8} lgOffset={3} md={8} mdOffset={3} sm={12} xs={12}>
+            <Row>
+            <Button variant='outline-info'>
+              <a href="https://apps.apple.com/vc/app/iwansell/id1478416524">
+                  <Image width="50px" height="50px" src={ require ('./images/app-store.svg') } alt="iwansell" responsive/>
+                </a>
+              </Button>
+            </Row><br />
+
+            <Row>
+            <Button variant='outline-success'>
+              <a href="https://play.google.com/store/apps/details?id=com.merlinsbeardlab.iwansell">
+                <Image width="50px" height="50px" src={ require ('./images/play-store.svg') } alt="iwansell" responsive/>
+              </a>
+            </Button>
+            </Row>
+
+          </Col>
+
+
+           <Col lg={3} md={3} sm={4} xs={4}>
              <Row>
-              <Col lg={2} md={2} sm={3} smOffset={2} xs={3} xsOffset={2}>
-
-              <a href="https://www.facebook.com/iwansellcampus/">
-                  <Image width="50px" height="50px" src={ require ('./images/facebook.png') } alt="facebook" responsive/>
-                </a>
-              </Col>
-
-              <Col lg={2} md={2} sm={3} xs={3}>
-              <a href="https://twitter.com/iwansellcampus">
-                  <Image width="50px" height="50px" src={ require ('./images/twitter.png') } alt="twitter" responsive/>
-                </a>
-              </Col>
-
-              <Col lg={2} md={2} sm={3} xs={3}>
-              <a href="https://instagram.com/iwansellcampus">
-                  <Image width="60px" height="60px" src={ require ('./images/instagram.png') } alt="instagram" responsive/>
-                </a>
-              </Col>
-
+               <p>Follow us.</p>
              </Row>
+             <Row>
+                <a href="https://web.facebook.com/Iwansell-group-270682653560747/?ref=br_rs">
+                  <Image width="50px" height="50px" src={ require ('./images/facebook.svg') } alt="facebook" responsive/>
+                </a>
+              </Row><br />
+
+              <Row>
+                <a href="https://twitter.com/IwansellG">
+                  <Image width="50px" height="50px" src={ require ('./images/twitter.svg') } alt="twitter" responsive/>
+                </a>
+              </Row><br />
+
+              <Row>
+                <a href="https://instagram.com/iwansellcampus">
+                  <Image width="50px" height="50px" src={ require ('./images/instagram.svg') } alt="instagram" responsive/>
+                </a>
+              </Row><br />
+
             </Col>
+
           </Row>
+
+
 
 
            </section>

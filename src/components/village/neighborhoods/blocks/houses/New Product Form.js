@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, Redirect } from 'react-router-dom';
-import { Row, Col, Form, Button,FormGroup, FormControl, ControlLabel,Label, HelpBlock } from 'react-bootstrap';
+import { Row, Col, Form, Button,FormGroup, FormControl, Label } from 'react-bootstrap';
 import Heading from './Heading'
 import AppName from './App Name'
 import NewProductMedia from './New Product Media'
@@ -197,7 +197,7 @@ const formInstance = (
   <form>
   
   <FormGroup>
-      <ControlLabel>Categories</ControlLabel>
+      <div>Categories</div>
       <p>
       {this.state.isLoading ? (
         <div>
@@ -218,7 +218,7 @@ const formInstance = (
   
 
     <FormGroup>
-      <ControlLabel>Product Name
+      <div>Product Name
       {this.state.product_name_err ? (
       <span className="err-msg">
        * product name required 
@@ -226,14 +226,14 @@ const formInstance = (
     ) : (
       <div/>
     )}
-      </ControlLabel>
+      </div>
       <FormControl placeholder="e.g Samsung s6 edge" id="product_name" name="product_name"/>
     </FormGroup>
 
 
   
     <FormGroup controlId="formControlsTextarea">
-      <ControlLabel>Describe Product
+      <div>Describe Product
       {this.state.description_err ? (
       <span className="err-msg">
        * description required 
@@ -241,13 +241,13 @@ const formInstance = (
     ) : (
       <div/>
     )}
-      </ControlLabel>
+      </div>
       <FormControl componentClass="textarea" placeholder="e.g Gold plated, 64gb ROM, 3gb ROM, used ..." id="description" name="description"/>
     </FormGroup>
 
       
     <FormGroup>
-      <ControlLabel>Starting Price
+      <div>Starting Price
       {this.state.starting_price_err ? (
       <span className="err-msg">
        * starting price required 
@@ -255,9 +255,9 @@ const formInstance = (
     ) : (
       <div/>
     )}
-      </ControlLabel>
+      </div>
       <FormControl placeholder="e.g 70k" id="starting_price" name="starting_price"/>
-      <HelpBlock>Set a reasonable price, as low as you can get. Its proven to work!</HelpBlock>
+      <div>Set a reasonable price, as low as you can get. Its proven to work!</div>
     </FormGroup>
 
 

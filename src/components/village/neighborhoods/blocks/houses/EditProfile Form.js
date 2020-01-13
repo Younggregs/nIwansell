@@ -1,5 +1,5 @@
 import React from 'react';
-import { Label, Button,FormGroup, FormControl, ControlLabel, HelpBlock } from 'react-bootstrap';
+import { Label, Button,FormGroup, FormControl  } from 'react-bootstrap';
 import EditEmail from './Edit Email'
 import EditCampus from './Edit Campus'
 import EditPassword from './Edit Password'

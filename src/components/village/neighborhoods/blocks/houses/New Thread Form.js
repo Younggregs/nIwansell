@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from "react";
 import { Redirect, Link } from 'react-router-dom'
-import { Row, Col, Form, Button,FormGroup, FormControl, ControlLabel } from 'react-bootstrap';
+import { Row, Col, Form, Button,FormGroup, FormControl } from 'react-bootstrap';
 import Spinner from 'react-activity/lib/Spinner';
 import 'react-activity/lib/Spinner/Spinner.css';
 import ReactDropzone from "react-dropzone";
@@ -156,7 +156,7 @@ export default class NewThreadForm extends Component {
 
 <Form>
   <FormGroup>
-      <ControlLabel>Title
+      <div>Title
       {this.state.product_name_err ? (
       <span className="err-msg">
        * title required 
@@ -164,7 +164,7 @@ export default class NewThreadForm extends Component {
     ) : (
       <div/>
     )}
-      </ControlLabel>
+      </div>
       <FormControl 
         placeholder="Title of Post." 
         id="title" 
@@ -174,7 +174,7 @@ export default class NewThreadForm extends Component {
 
   
     <FormGroup controlId="formControlsTextarea">
-      <ControlLabel>Post
+      <div>Post
       {this.state.description_err ? (
       <span className="err-msg">
        * post required 
@@ -182,7 +182,7 @@ export default class NewThreadForm extends Component {
     ) : (
       <div/>
     )}
-      </ControlLabel>
+      </div>
       <FormControl 
         componentClass="textarea" 
         placeholder="Post Body." 

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { FormGroup, FormControl, ControlLabel, HelpBlock, Button ,Row,Col} from 'react-bootstrap';
+import { FormGroup, FormControl, Button ,Row,Col} from 'react-bootstrap';
 import AppName from './App Name'
 
 export default class ForgotPasswordForm extends React.Component {
@@ -45,9 +45,9 @@ render(){
   function FieldGroup({ id, label, help, ...props }) {
     return (
       <FormGroup controlId={id}>
-        <ControlLabel>{label}</ControlLabel>
+        <div>{label}</div>
         <FormControl {...props} />
-        {help && <HelpBlock>{help}</HelpBlock>}
+        {help && <div>{help}</div>}
       </FormGroup>
   );
 }
@@ -101,7 +101,7 @@ const formInstance = (
 
    <Col lg={6} lgOffset={3} md={6} mdOffset={3} sm={12} xs={12}>
     <Button bsStyle="success"onClick={this.submitForm.bind(this)}>Recover password</Button>
-    <HelpBlock>Just click once and wait</HelpBlock>
+    <div>Just click once and wait</div>
     </Col>
 
    </Row>

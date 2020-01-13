@@ -6,27 +6,14 @@ export default class AppName extends React.Component {
        render() {
          return (
            <div className="app-name" id="app-name">
-             <Col lg={2} md={2} smHidden xsHidden>
+             <Col lg={2} md={2} sm={4} xs={4}>
              { this.props.logged_in ? (
                <Link to="/home">
-                  <span>iwansell</span>
+                  <span>Iwansell</span>
                </Link>
              ) : (
               <Link to="/">
-                  <span>iwansell</span>
-              </Link>
-             )}
-             
-             </Col>
-
-             <Col sm={4} xs={4} lgHidden mdHidden>
-             { this.props.logged_in ? (
-               <Link to="/home">
-                  <span>iwansell</span>
-               </Link>
-             ) : (
-              <Link to="/">
-                  <span>iwansell</span>
+                  <span>Iwansell</span>
               </Link>
              )}
              

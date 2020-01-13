@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { Col, Media, Glyphicon } from 'react-bootstrap'
+import { Col, Media } from 'react-bootstrap'
 import BuzzMe from './houses/Buzz Me'
 import Description from './houses/Description'
 import ProductImage from './houses/Product Image'
@@ -21,7 +21,7 @@ export default class Product extends React.Component {
                 <Link to="/product">
                 <Description/>
                 </Link>
-                <span className="glyphs"><Glyphicon glyph="star-empty"/></span>
+                <span className="glyphs"><div glyph="star-empty"/></span>
                 <BuzzMe/>
                 </Media.Body>
                 </Media>
@@ -39,7 +39,7 @@ export default class Product extends React.Component {
                 <Link to="/product">
                 <Description/>
                 </Link>
-                <span className="glyphs"><Glyphicon glyph="star-empty"/></span>
+                <span className="glyphs"><div glyph="star-empty"/></span>
                 <BuzzMe/>
                 </Media.Body>
                 </Media>

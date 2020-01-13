@@ -55,7 +55,7 @@ export default class Navigation extends React.Component {
 
            <Row>
             <NavigationHeader market={this.state.market}/>
-            <Post logged_in={this.props.logged_in} campus_id = {this.state.campus_id} account_id={this.state.profile_id}/>
+           
             <SlideImage logged_in={this.props.logged_in} campus_id = {this.state.campus_id} account_id={this.state.profile_id}/>
             <UpperNavigation logged_in={this.props.logged_in} campus_id = {this.state.campus_id} account_id={this.state.profile_id}/>
            </Row>

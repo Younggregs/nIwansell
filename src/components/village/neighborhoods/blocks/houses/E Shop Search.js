@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { Form, Row, Col, FormGroup,FormControl,InputGroup, Button,Thumbnail,Glyphicon} from 'react-bootstrap'
+import { Form, Row, Col, FormGroup,FormControl,InputGroup, Button } from 'react-bootstrap'
 import EShopName from './EShop Name'
 
 export default class EShopSearch extends React.Component {
@@ -72,7 +72,7 @@ setMedia(media_name){
                   <InputGroup>
                         <InputGroup.Addon>
                         <Link to={`/eshop/${ this.props.eshop_id } `}>
-                          <Glyphicon glyph="home"/>
+                          <div glyph="home"/>
                         </Link>
                         </InputGroup.Addon>
 
@@ -100,10 +100,9 @@ setMedia(media_name){
             {this.state.search_result.map(item => (
              <Col lg={3} md={3} smHidden xsHidden>
              {this.setMedia(item.product_image)}
-             <Thumbnail href={"product/" + item.product_id }  alt="product-image" src= { `${this.state.media}` }>
+             <img href={"product/" + item.product_id }  alt="product-image" src= { `${this.state.media}` }/>
              <h3>{item.product_name}</h3>
               <p className="lg-fonts">Starting price : {item.starting_price}</p>
-             </Thumbnail>
              </Col>
 
       ))}
@@ -124,10 +123,10 @@ setMedia(media_name){
             {this.state.search_result.map(item => (
              <Col sm={10} smOffset={1} xs={10} xsOffset={1}>
              {this.setMedia(item.product_image)}
-             <Thumbnail href={"product/" + item.product_id } alt="product-image" src= { `${this.state.media}` }>
+             <img href={"product/" + item.product_id } alt="product-image" src= { `${this.state.media}` } />
              <h3>{item.product_name}</h3>
               <p className="sm-fonts">Starting price : {item.starting_price}</p>
-             </Thumbnail>
+
              </Col>
 
 

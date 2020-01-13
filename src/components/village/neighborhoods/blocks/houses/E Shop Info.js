@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
-import { Row, Col,Button, Glyphicon } from 'react-bootstrap';
+import { Row, Col,Button } from 'react-bootstrap';
 
 export default class EShopInfo extends React.Component {
 
@@ -81,9 +81,9 @@ async componentWillMount(){
 
                 <p className="profile-name">Favorite eshop
                  {this.state.isfavorited ? (
-                   <Button bsSize="small" onClick={this.favorite.bind(this)}><span className="fav-glyphs"><Glyphicon glyph="star"/></span></Button>
+                   <Button bsSize="small" onClick={this.favorite.bind(this)}><span className="fav-glyphs"><div glyph="star"/></span></Button>
                  ) : (
-                   <Button bsSize="small" onClick={this.favorite.bind(this)}><span className="fav-glyphs"><Glyphicon glyph="star-empty"/></span></Button>
+                   <Button bsSize="small" onClick={this.favorite.bind(this)}><span className="fav-glyphs"><div glyph="star-empty"/></span></Button>
                  )}
 
                 </p>
@@ -94,8 +94,8 @@ async componentWillMount(){
                 <p className="profile-name">Ratings-Reviews
                 <span className="heart-glyphs">
                <Rating
-                emptySymbol="glyphicon glyphicon-heart-empty"
-                fullSymbol="glyphicon glyphicon-heart"
+                emptySymbol="div div-heart-empty"
+                fullSymbol="div div-heart"
                 {...this.props} initialRating={this.state.value} readonly quiet/>
                </span>
                </p>

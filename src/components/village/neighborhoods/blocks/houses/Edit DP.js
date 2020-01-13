@@ -1,6 +1,6 @@
 import React from 'react';
 import { Redirect } from 'react-router-dom'
-import { Button,FormGroup, FormControl, HelpBlock } from 'react-bootstrap';
+import { Button,FormGroup, FormControl } from 'react-bootstrap';
 import Heading from './Heading'
 import Spinner from 'react-activity/lib/Spinner';
 import 'react-activity/lib/Spinner/Spinner.css';
@@ -69,7 +69,7 @@ const formInstance = (
             value={null}
 
         />
-        <HelpBlock>An image of yourself would be great</HelpBlock>
+        <div>An image of yourself would be great</div>
 </FormGroup>
 
 {this.state.message.error_message ? (

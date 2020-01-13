@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { Grid, Row, Col, Image } from 'react-bootstrap'
+import { Container, Row, Col, Image, Button } from 'react-bootstrap'
 import CategoryProduct from './blocks/Category Product'
 import Heading from './blocks/houses/Heading'
 import ProductImage from './blocks/houses/Product Image'
@@ -119,419 +119,456 @@ export default class Trending extends React.Component {
   }
 
 
-       render() {
-         return (
-           <section className="trending">
-            {this.state.isLoading ? (
-                <div className="isloading">
-                <p><b><i>loading...</i></b></p>
-                <p><Spinner color="#ff0000" size={32}/></p>
-                </div>
-              ) : (
-                <section>
-                <Col lg={12} md={12} smHidden xsHidden>
-
-                <Row className="trending-wrapper">
-                <div className="trending-header">
-                  <p className="trending-title">{this.trending_1}</p> 
-                </div>
-
-                {this.emptyResult(this.state.trendList_1) ? (
-                  <section className="product-image">
-                  <div class="image">
-
-                  <Link to="/signup"><Image src={ require ('./blocks/houses/images/empty.png') } alt="product_image"/></Link>
-                    )}
-                   </div>
-                </section>
-                ): (
-                  <div>
-                  {this.state.trendList_1.map(item =>
-
-                    <Col lg={3} md={3} smHidden xsHidden>
-
-
-
-                      {this.setMedia(item.product_image)}
-                      <Link to={`/product/${ item.id } `}>
-                      <section className="product-container">
-                        <ProductImage media={this.state.media}/>
-                        <div className="product-tip">
-                          <p>{item.product_name}</p>
-                        </div>
-                      </section>
-                      </Link>
-
-
-                    </Col>
-
-                    )}
-                     </div>
-
-
-                )}
-
-
-
-                </Row>
-
-
-
-                <Row className="trending-wrapper">
-                
-                <div className="trending-header">
-                  <p className="trending-title">{this.trending_2}</p> 
-                </div>
-
-                {this.emptyResult(this.state.trendList_2) ? (
-                  <section className="product-image">
-                  <div class="image">
-
-                  <Link to="/signup"><Image src={ require ('./blocks/houses/images/empty1.png') } alt="product_image"/></Link>
-                    )}
-                   </div>
-                </section>
-                ): (
-                  <div>
-
-                {this.state.trendList_2.map(item =>
-
-                <Col lg={3} md={3} smHidden xsHidden>
-                 <div className="image-size">
-
-                  {this.setMedia(item.product_image)}
-
-                  <Link to={`/product/${ item.id } `}>
-                  <section className="product-container">
-                        <ProductImage media={this.state.media}/>
-                        <div className="product-tip">
-                          <p>{item.product_name}</p>
-                        </div>
-                      </section>
-                  </Link>
-
-                 </div>
-                </Col>
-
-                )}
-                </div>
-                )}
-                </Row>
-
-                <Row>
-                  <MobileApp/>
-                  
-                  <CategoryProduct campus_id={this.props.campus_id} show_more={true}/>
-                </Row>
-
-
-
-                <Row className="trending-wrapper">
-                
-                <div className="trending-header">
-                  <p className="trending-title">{this.trending_3}</p> 
-                </div>
-
-                {this.emptyResult(this.state.trendList_3) ? (
-                  <section className="product-image">
-                  <div class="image">
-
-                  <Link to="/signup"><Image src={ require ('./blocks/houses/images/empty2.png') } alt="product_image"/></Link>
-                    )}
-                   </div>
-                </section>
-                ): (
-                  <div>
-                {this.state.trendList_3.map(item =>
-
-                <Col lg={3} md={3} smHidden xsHidden>
-                 <div className="image-size">
-
-                  {this.setMedia(item.product_image)}
-
-                  <Link to={`/product/${ item.id } `}>
-                  <section className="product-container">
-                        <ProductImage media={this.state.media}/>
-                        <div className="product-tip">
-                          <p>{item.product_name}</p>
-                        </div>
-                      </section>
-                  </Link>
-
-                 </div>
-                </Col>
-
-                )}
-                </div>
-                )}
-                </Row>
-
-
-
-
-                <Row className="trending-wrapper">
-                
-                <div className="trending-header">
-                  <p className="trending-title">{this.trending_4}</p> 
-                </div>
-
-                {this.emptyResult(this.state.trendList_4) ? (
-                  <section className="product-image">
-                  <div class="image">
-
-                  <Link to="/signup"><Image src={ require ('./blocks/houses/images/empty3.png') } alt="product_image"/></Link>
-                    )}
-                   </div>
-                </section>
-                ): (
-                  <div>
-
-                {this.state.trendList_4.map(item =>
-
-                <Col lg={3} md={3} smHidden xsHidden>
-                 <div className="image-size">
-
-                  {this.setMedia(item.product_image)}
-
-                  <Link to={`/product/${ item.id } `}>
-                  <section className="product-container">
-                        <ProductImage media={this.state.media}/>
-                        <div className="product-tip">
-                          <p>{item.product_name}</p>
-                        </div>
-                      </section>
-                  </Link>
-
-                 </div>
-                </Col>
-
-                )}
-                </div>
-                )}
-                </Row>
-
-
-
-                <Row className="trending-wrapper">
-
-                <div className="trending-header">
-                  <p className="trending-title">{this.trending_5}</p> 
-                </div>
-
-                {this.emptyResult(this.state.trendList_5) ? (
-                  <section className="product-image">
-                    <div class="image">
-
-                    <Link to="/signup"><Image src={ require ('./blocks/houses/images/empty4.png') } alt="product_image"/></Link>
-                      )}
-                     </div>
-                  </section>
-                ): (
-                  <div>
-
-                {this.state.trendList_5.map(item =>
-
-                <Col lg={3} md={3} smHidden xsHidden>
-                 <div className="image-size">
-
-
-                  {this.setMedia(item.product_image)}
-
-                  <Link to={`/product/${ item.id } `}>
-                  <section className="product-container">
-                        <ProductImage media={this.state.media}/>
-                        <div className="product-tip">
-                          <p>{item.product_name}</p>
-                        </div>
-                      </section>
-                  </Link>
-
-                 </div>
-                </Col>
-
-                )}
-                </div>
-                )}
-                </Row>
-
-
-
-
-
-             </Col>
-
-             <Col sm={12} xs={12} lgHidden mdHidden>
-
-             <Row>
-              <Heading title = {this.trending_1} trending={true}/>
-
-              {this.emptyResult(this.state.trendList_1) ? (
-                 <Link to="/signup"><img  height="100" width="auto" src={ require ('./blocks/houses/images/empty.png') } alt="thumbnail"/></Link>
-                ): (
-
-              <div class="scrolling-wrapper">
-
-                {this.state.trendList_1.map(item =>
-
-                <div class="card">
-                  {this.setMedia(item.product_image)}
-
-                <Link to={`/product/${ item.id } `}>
-                  <img  height="100" width="auto" src= { `${this.state.media}` } alt="thumbnail"/>
-                  <p>{item.product_name}</p>
-                </Link>
-
-                </div>
-                )}
-
+  render() {
+    return (
+      <Container fluid='true'>
+       {this.state.isLoading ? (
+           <div className="isloading">
+           <p><b><i>loading...</i></b></p>
+           <p><Spinner color="#ff0000" size={32}/></p>
+           </div>
+         ) : (
+           <section>
+
+
+           <Col lg={12} md={12} sm={12} xs={12}>
+           
+           <section className='trending-box'>
+           <Row className="justify-content-md-center">
+           <div className="trending-header">
+             <p className="trending-title">{this.trending_1}</p> 
+           </div>
+           </Row>
+
+           {this.emptyResult(this.state.trendList_1) ? (
+             <section className="product-image">
+             <div class="image">
+
+             <Link to="/signup"><Image src={ require ('./blocks/houses/images/empty.png') } alt="product_image"/></Link>
+               )}
               </div>
-              )}
-
-              </Row>
-
-
-
-
-              <Row>
-              <Heading title = {this.trending_2} trending={true}/>
-
-              {this.emptyResult(this.state.trendList_2) ? (
-                   <Link to="/signup"><img  height="100" width="auto" src={ require ('./blocks/houses/images/empty1.png') } alt="thumbnail"/></Link>
-                ): (
-
-
-              <div class="scrolling-wrapper">
-
-                {this.state.trendList_2.map(item =>
-
-                <div class="card">
-                {this.setMedia(item.product_image)}
-
-              <Link to={`/product/${ item.id } `}>
-                <img  height="100" width="auto" src= { `${this.state.media}` } alt="thumbnail"/>
-                <p>{item.product_name}</p>
-              </Link>
-
-              </div>
-                )}
-
-              </div>
-              )}
-
-              </Row>
-
-              <MobileApp/>
               
-              <CategoryProduct campus_id={this.props.campus_id} show_more={true}/>
+           </section>
+           
+           ): (
+             <Row>
+             {this.state.trendList_1.map(item =>
+
+               <Col lg={3} md={3} sm={6} xs={6}>
 
 
 
+                 {this.setMedia(item.product_image)}
+                 <Link to={`/product/${ item.id } `}>
+                 <section className="product-container">
+                   <ProductImage media={this.state.media}/>
+                   <div className="product-tip">
+                     <Button variant='outline-dark'>{item.product_name}</Button><br />
+                     <Button variant='dark'>{item.starting_price}</Button>
+                   </div>
+                 </section>
+                 </Link>
 
-              <Row>
-              <Heading title = {this.trending_3} trending={true}/>
 
-              {this.emptyResult(this.state.trendList_3) ? (
-                   <Link to="/signup"><img  height="100" width="auto" src={ require ('./blocks/houses/images/empty2.png') } alt="thumbnail"/></Link>
-                ): (
+               </Col>
 
-              <div class="scrolling-wrapper">
+               )}
+                </Row>
 
-                {this.state.trendList_3.map(item =>
 
-                <div class="card">
-                {this.setMedia(item.product_image)}
+           )}
+           
 
-              <Link to={`/product/${ item.id } `}>
-                <img  height="100" width="auto" src= { `${this.state.media}` } alt="thumbnail"/>
-                <p>{item.product_name}</p>
-              </Link>
+           
 
+
+
+           
+           <Row className="justify-content-md-center">
+           <div className="trending-header">
+             <p className="trending-title">{this.trending_2}</p> 
+           </div>
+           </Row>
+
+           {this.emptyResult(this.state.trendList_2) ? (
+             <section className="product-image">
+             <div class="image">
+
+             <Link to="/signup"><Image src={ require ('./blocks/houses/images/empty1.png') } alt="product_image"/></Link>
+               )}
               </div>
-                )}
+           </section>
+           ): (
+             <Row>
 
+           {this.state.trendList_2.map(item =>
+
+           <Col lg={3} md={3} sm={6} xs={6}>
+            <div className="image-size">
+
+             {this.setMedia(item.product_image)}
+
+             <Link to={`/product/${ item.id } `}>
+             <section className="product-container">
+                   <ProductImage media={this.state.media}/>
+                   <div className="product-tip">
+                     <Button variant='outline-dark'>{item.product_name}</Button><br />
+                     <Button variant='dark'>{item.starting_price}</Button>
+                   </div>
+                 </section>
+             </Link>
+
+            </div>
+           </Col>
+
+           )}
+           </Row>
+
+           )}
+           
+
+           </section>
+
+
+
+
+           <Row>
+           <Col lg={12} md={12} className="d-none d-sm-block d-xs-block">
+
+             <CategoryProduct campus_id={this.props.campus_id} show_more={true}/>
+           </Col>
+           </Row>
+
+
+
+           <section className='trending-box'>
+          
+           <Row className="justify-content-md-center">
+           <div className="trending-header">
+             <p className="trending-title">{this.trending_3}</p> 
+           </div>
+           </Row>
+
+
+           {this.emptyResult(this.state.trendList_3) ? (
+             <section className="product-image">
+             <div class="image">
+
+             <Link to="/signup"><Image src={ require ('./blocks/houses/images/empty2.png') } alt="product_image"/></Link>
+               )}
               </div>
-                )}
+           </section>
+           ): (
+             <Row>
+           {this.state.trendList_3.map(item =>
 
-              </Row>
+           <Col lg={3} md={3} sm={6} xs={6}>
+            <div className="image-size">
+
+             {this.setMedia(item.product_image)}
+
+             <Link to={`/product/${ item.id } `}>
+             <section className="product-container">
+                   <ProductImage media={this.state.media}/>
+                   <div className="product-tip">
+                     <Button variant='outline-dark'>{item.product_name}</Button><br />
+                     <Button variant='dark'>{item.starting_price}</Button>
+                   </div>
+                 </section>
+             </Link>
+
+            </div>
+           </Col>
+
+           )}
+           </Row>
+           )}
 
 
 
 
+           
+           <Row className="justify-content-md-center">
+           <div className="trending-header">
+             <p className="trending-title">{this.trending_4}</p> 
+           </div>
+           </Row>
 
-              <Row>
-              <Heading title = {this.trending_4} trending={true}/>
+           {this.emptyResult(this.state.trendList_4) ? (
+             <section className="product-image">
+             <div class="image">
 
-              {this.emptyResult(this.state.trendList_4) ? (
-                   <Link to="/signup"><img  height="100" width="auto" src={ require ('./blocks/houses/images/empty3.png') } alt="thumbnail"/></Link>
-                ): (
-
-              <div class="scrolling-wrapper">
-
-                {this.state.trendList_4.map(item =>
-                <div class="card">
-                {this.setMedia(item.product_image)}
-
-              <Link to={`/product/${ item.id } `}>
-                <img  height="100" width="auto" src= { `${this.state.media}` } alt="thumbnail"/>
-                <p>{item.product_name}</p>
-              </Link>
-
+             <Link to="/signup"><Image src={ require ('./blocks/houses/images/empty3.png') } alt="product_image"/></Link>
+               )}
               </div>
-                )}
+           </section>
+           ): (
+             <Row>
 
-              </div>
-                )}
+           {this.state.trendList_4.map(item =>
 
-              </Row>
+           <Col lg={3} md={3} sm={6} xs={6}>
+            <div className="image-size">
+
+             {this.setMedia(item.product_image)}
+
+             <Link to={`/product/${ item.id } `}>
+             <section className="product-container">
+                   <ProductImage media={this.state.media}/>
+                   <div className="product-tip">
+                     <Button variant='outline-dark'>{item.product_name}</Button><br />
+                     <Button variant='dark'>{item.starting_price}</Button>
+                   </div>
+                 </section>
+             </Link>
+
+            </div>
+           </Col>
+
+           )}
+           </Row>
+           )}
 
 
 
+           
+           <Row className="justify-content-md-center">
+           <div className="trending-header">
+             <p className="trending-title">{this.trending_5}</p> 
+           </div>
+           </Row>
 
+           {this.emptyResult(this.state.trendList_5) ? (
+             <section className="product-image">
+               <div class="image">
 
-
-
-
-
-
-              <Row>
-              <Heading title = {this.trending_5} trending={true}/>
-
-              {this.emptyResult(this.state.trendList_5) ? (
-                   <Link to="/signup"><img  height="100" width="auto" src={ require ('./blocks/houses/images/empty4.png') } alt="thumbnail"/></Link>
-                ): (
-
-              <div class="scrolling-wrapper">
-
-                {this.state.trendList_5.map(item =>
-
-                <div class="card">
-                  {this.setMedia(item.product_image)}
-
-                <Link to={`/product/${ item.id } `}>
-                  <Image  height="100" width="auto" src= { `${this.state.media}` } alt="thumbnail" responsive/>
-                  <p>{item.product_name}</p>
-                </Link>
-
+               <Link to="/signup"><Image src={ require ('./blocks/houses/images/empty4.png') } alt="product_image"/></Link>
+                 )}
                 </div>
-                )}
+             </section>
+           ): (
+             <Row>
 
-              </div>
-                )}
+           {this.state.trendList_5.map(item =>
 
-              </Row>
-
-
-
-
+           <Col lg={3} md={3} sm={6} xs={6}>
+            <div className="image-size">
 
 
+             {this.setMedia(item.product_image)}
+
+             <Link to={`/product/${ item.id } `}>
+             <section className="product-container">
+                   <ProductImage media={this.state.media}/>
+                   <div className="product-tip">
+                     <Button variant='outline-dark'>{item.product_name}</Button><br />
+                     <Button variant='dark'>{item.starting_price}</Button>
+                   </div>
+                 </section>
+             </Link>
+
+            </div>
+           </Col>
+
+           )}
+           </Row>
+           )}
+           </section>
 
 
-             </Col>
-            </section>
-              )}
 
-            </section>
-         )
-       }
+
+
+        </Col>
+
+{/* 
+        <Col sm={12} xs={12} className="d-lg-block d-md-block">
+
+        <Row>
+        <Row className="justify-content-md-center">
+           <div className="trending-header">
+             <p className="trending-title">{this.trending_1}</p> 
+           </div>
+           </Row>
+
+         {this.emptyResult(this.state.trendList_1) ? (
+            <Link to="/signup"><img  height="100" width="auto" src={ require ('./blocks/houses/images/empty.png') } alt="img"/></Link>
+           ): (
+
+         <div class="scrolling-wrapper">
+
+           {this.state.trendList_1.map(item =>
+
+           <div class="card">
+             {this.setMedia(item.product_image)}
+
+           <Link to={`/product/${ item.id } `}>
+             <img  height="100" width="auto" src= { `${this.state.media}` } alt="img"/>
+             <p>{item.product_name}</p>
+           </Link>
+
+           </div>
+           )}
+
+         </div>
+         )}
+
+         </Row>
+
+
+
+
+         <Row>
+         <Row className="justify-content-md-center">
+           <div className="trending-header">
+             <p className="trending-title">{this.trending_2}</p> 
+           </div>
+           </Row>
+
+         {this.emptyResult(this.state.trendList_2) ? (
+              <Link to="/signup"><img  height="100" width="auto" src={ require ('./blocks/houses/images/empty1.png') } alt="img"/></Link>
+           ): (
+
+
+         <div class="scrolling-wrapper">
+
+           {this.state.trendList_2.map(item =>
+
+           <div class="card">
+           {this.setMedia(item.product_image)}
+
+         <Link to={`/product/${ item.id } `}>
+           <img  height="100" width="auto" src= { `${this.state.media}` } alt="img"/>
+           <p>{item.product_name}</p>
+         </Link>
+
+         </div>
+           )}
+
+         </div>
+         )}
+
+         </Row>
+
+
+         <Row>
+         <Row className="justify-content-md-center">
+           <div className="trending-header">
+             <p className="trending-title">{this.trending_3}</p> 
+           </div>
+           </Row>
+
+         {this.emptyResult(this.state.trendList_3) ? (
+              <Link to="/signup"><img  height="100" width="auto" src={ require ('./blocks/houses/images/empty2.png') } alt="img"/></Link>
+           ): (
+
+         <div class="scrolling-wrapper">
+
+           {this.state.trendList_3.map(item =>
+
+           <div class="card">
+           {this.setMedia(item.product_image)}
+
+         <Link to={`/product/${ item.id } `}>
+           <img  height="100" width="auto" src= { `${this.state.media}` } alt="img"/>
+           <p>{item.product_name}</p>
+         </Link>
+
+         </div>
+           )}
+
+         </div>
+           )}
+
+         </Row>
+
+
+
+
+
+         <Row>
+         <Row className="justify-content-md-center">
+           <div className="trending-header">
+             <p className="trending-title">{this.trending_4}</p> 
+           </div>
+           </Row>
+
+         {this.emptyResult(this.state.trendList_4) ? (
+              <Link to="/signup"><img  height="100" width="auto" src={ require ('./blocks/houses/images/empty3.png') } alt="img"/></Link>
+           ): (
+
+         <div class="scrolling-wrapper">
+
+           {this.state.trendList_4.map(item =>
+           <div class="card">
+           {this.setMedia(item.product_image)}
+
+         <Link to={`/product/${ item.id } `}>
+           <img  height="100" width="auto" src= { `${this.state.media}` } alt="img"/>
+           <p>{item.product_name}</p>
+         </Link>
+
+         </div>
+           )}
+
+         </div>
+           )}
+
+         </Row>
+
+
+
+
+
+
+
+
+
+
+         <Row>
+         <Row className="justify-content-md-center">
+           <div className="trending-header">
+             <p className="trending-title">{this.trending_5}</p> 
+           </div>
+           </Row>
+
+         {this.emptyResult(this.state.trendList_5) ? (
+              <Link to="/signup"><img  height="100" width="auto" src={ require ('./blocks/houses/images/empty4.png') } alt="img"/></Link>
+           ): (
+
+         <div class="scrolling-wrapper">
+
+           {this.state.trendList_5.map(item =>
+
+           <div class="card">
+             {this.setMedia(item.product_image)}
+
+           <Link to={`/product/${ item.id } `}>
+             <Image  height="100" width="auto" src= { `${this.state.media}` } alt="img" responsive/>
+             <p>{item.product_name}</p>
+           </Link>
+
+           </div>
+           )}
+
+         </div>
+           )}
+
+         </Row>
+
+
+
+
+
+
+
+
+        </Col>
+           */}
+       </section>
+         )}
+
+       </Container>
+    )
+  }
   }

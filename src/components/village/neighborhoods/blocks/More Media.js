@@ -1,5 +1,5 @@
 import React from 'react'
-import { Col, Button, Row } from 'react-bootstrap'
+import { Col, Button, Row, Container } from 'react-bootstrap'
 import ProductSlideShow from './houses/Product SlideShow'
 import ProductVideoPlayer from './houses/Product Video Player'
 
@@ -26,21 +26,21 @@ export default class MoreMedia extends React.Component {
 
        render() {
          return (
-           <section className="more-media">
-               <Col lg={12} md={12} smHidden xsHidden>
-                <Row>
-                <Col lg={6} md={6}>
+           <Container>
+                <Row className="justify-content-md-center">
                   <ProductSlideShow product_id = {this.props.product_id}/>
-               </Col>
+  
 
+                {/*
                <Col lg={6} md={6}>
                 <ProductVideoPlayer product_id = {this.props.product_id}/>
                </Col>
+                */}
+
                </Row>
-              </Col>
 
 
-
+              {/*}
               <Col sm={12} xs={12} lgHidden mdHidden>
               {this.state.switch_media ? ( 
                 <div>
@@ -79,7 +79,9 @@ export default class MoreMedia extends React.Component {
 
               )}
               </Col>
-           </section>
+
+              */}
+           </Container>
          )
        }
   }

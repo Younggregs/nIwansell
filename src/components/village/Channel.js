@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { Grid, Row, Col, Image, Button, Glyphicon } from 'react-bootstrap'
+import { Container, Row, Col, Image, Button  } from 'react-bootstrap'
 import NavigationHeader from './neighborhoods/blocks/Navigation Header'
 import Post from './neighborhoods/blocks/houses/Post'
 import Footer from './neighborhoods/Footer'
@@ -32,7 +32,7 @@ export default class Channel extends React.Component {
         return (
           <section>
             <NavigationHeader/>
-            <Grid>
+            <Container>
               <Row>
                 <Col lg={8} md={8} smHidden xsHidden>
                 <div className="iwansell-tv-title">
@@ -75,7 +75,7 @@ export default class Channel extends React.Component {
                         </div>
                 </Col>
                 </Row>
-             </Grid>
+             </Container>
 
              <Row>
                <Col lgHidden mdHidden sm={12} xs={12}>

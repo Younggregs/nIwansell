@@ -1,5 +1,5 @@
 import React from 'react';
-import { Grid , Row, Col } from 'react-bootstrap';
+import { Container , Row, Col } from 'react-bootstrap';
 import NewListingForm from './neighborhoods/blocks/houses/New Listing Form';
 import Footer from './neighborhoods/Footer.js';
 import GotoTop from './neighborhoods/blocks/houses/Goto Top.js';
@@ -17,7 +17,7 @@ export default class NewListings extends React.Component {
         return (
            <div className="product-manager">
              
-             <Grid>
+             <Container>
               <Row>
               <Col lg={6} lgOffset={3} md={6} mdOffset={3} sm={12} xs={12}>
               <div>
@@ -27,7 +27,7 @@ export default class NewListings extends React.Component {
               </div>
               </Col>
               </Row><br /><br />
-             </Grid>
+             </Container>
              <GotoTop/>
              <Footer/>
              <Copyright/>

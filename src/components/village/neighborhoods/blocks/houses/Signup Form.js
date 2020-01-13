@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, Redirect } from 'react-router-dom';
-import { Button,FormGroup, FormControl, ControlLabel, HelpBlock ,Row, Col, InputGroup} from 'react-bootstrap';
+import { Button, Form, FormGroup, FormControl, Row, Col, InputGroup} from 'react-bootstrap';
 import { login } from './auth/Auth'
 import AppName from './App Name'
 import Spinner from 'react-activity/lib/Spinner';
@@ -19,7 +19,9 @@ export default class SignupForm extends React.Component {
     phone_err: false,
     password_err: false,
     campus_err: false,
-    phone_invalid_err: false
+    phone_invalid_err: false,
+    verify: false,
+    phone: '08109599597'
   }
 
   async componentWillMount() {
@@ -69,6 +71,8 @@ export default class SignupForm extends React.Component {
     var phone = document.getElementById("phone").value
     var password = document.getElementById("password").value
 
+    this.setState({ phone })
+
     var valid = this.isValidPhone(phone)
 
     if(firstname){
@@ -84,11 +88,11 @@ export default class SignupForm extends React.Component {
               if(valid){
 
                 var formData = new FormData()
-            formData.append('firstname', firstname)
-            formData.append('lastname', lastname)
-            formData.append('campus', campus)
-            formData.append('phone', phone)
-            formData.append('password', password)
+                formData.append('firstname', firstname)
+                formData.append('lastname', lastname)
+                formData.append('campus', campus)
+                formData.append('phone', phone)
+                formData.append('password', password)
 
 
             try {
@@ -104,13 +108,13 @@ export default class SignupForm extends React.Component {
             this.setState({
               statement
             });
+            
+            login(phone, password)
+            this.setState({ verify: true })
 
           } catch (e) {
             console.log(e);
           }
-
-          login(phone, password)
-
 
               }else{
                 this.setState({phone_invalid_err: true})
@@ -142,26 +146,24 @@ export default class SignupForm extends React.Component {
 
 
 
-
-
 render(){
 
   function FieldGroup({ id, label, help, ...props }) {
     return (
       <FormGroup controlId={id}>
-        <ControlLabel>{label}</ControlLabel>
+        <div>{label}</div>
         <FormControl {...props} />
-        {help && <HelpBlock>{help}</HelpBlock>}
+        {help && <div>{help}</div>}
       </FormGroup>
   );
 }
 
 const formInstance = (
-  <section className="signup-form">
+  <section className="signin-form">
 
-  <Row>
+  <Row className="justify-content-md-center">
   <div className="login-appname">
-   <Col lg={6} lgOffset={4} md={6} mdOffset={4} sm={12} xs={12}>
+   <Col lg={6} md={6} sm={12} xs={12}>
   <Link to="/">
     <AppName/>
   </Link>
@@ -170,25 +172,25 @@ const formInstance = (
 </Row><br />
 
 
-  <Row>
-   <Col lg={4} lgOffset={2} md={4} mdOffset={2} sm={4} smOffset={2} xs={4} xsOffset={2}>
+  <Row className="justify-content-md-center">
+   <Col lg={4} md={4} sm={4} xs={4}>
   <Link to="/Signin">
-    <Button>Signin</Button>
+    <Button variant="outline-warning">Signin</Button>
   </Link>
   </Col>
 
-  <Col lg={4} lgOffset={2} md={4} mdOffset={2} sm={6} xs={6}>
+  <Col lg={4} md={4} sm={6} xs={6}>
   <Link to="/Signup">
-    <Button bsStyle="primary">Signup</Button>
+    <Button variant="info">Signup</Button>
   </Link>
   </Col>
   </Row><br />
 
   <form>
-  <Row>
+  <Row className="justify-content-md-center">
    <Col lg={6} md={6} sm={12} xs={12}>
    <FormGroup>
-      <ControlLabel>Firstname
+      <div>Firstname
       {this.state.firstname_err ? (
       <span className="err-msg">
        * firstname required 
@@ -196,9 +198,8 @@ const formInstance = (
     ) : (
       <div/>
     )}
-      </ControlLabel>
+      </div>
       <FormControl 
-        placeholder="firstname" 
         id="firstname" 
         name="firstname"
         type="text"
@@ -209,7 +210,7 @@ const formInstance = (
 
     <Col lg={6} md={6} sm={12} xs={12}>
       <FormGroup>
-      <ControlLabel>Lastname
+      <div>Lastname
       {this.state.lastname_err ? (
       <span className="err-msg">
        * lastname required 
@@ -217,9 +218,8 @@ const formInstance = (
     ) : (
       <div/>
     )}
-      </ControlLabel>
+      </div>
       <FormControl 
-        placeholder="lastname" 
         id="lastname" 
         name="lastname"
         type="text"
@@ -228,9 +228,9 @@ const formInstance = (
     </Col>
   </Row>
 
-<Row>
+<Row className="justify-content-md-center">
    <Col lg={6} md={6} sm={12} xs={12}>
-   <ControlLabel>Phone
+   <Form.Label>Phone
    {this.state.phone_err ? (
       <span className="err-msg">
        * phone required 
@@ -245,23 +245,28 @@ const formInstance = (
     ) : (
       <div/>
     )}
-   </ControlLabel>
-   <InputGroup>
-  <InputGroup.Button>
-    <Button>+234</Button>
-    </InputGroup.Button>
-      <FormControl
-       id="phone"
-       type="number"
-       name="phone"
-       placeholder="08109599597"/>
-    </InputGroup>
+   </Form.Label>
+          <InputGroup>
+            <InputGroup.Prepend>
+              <InputGroup.Text id="inputGroupPrepend">+234</InputGroup.Text>
+            </InputGroup.Prepend>
+            <Form.Control
+              type="text"
+              id="phone"
+              name="phone"
+              aria-describedby="inputGroupPrepend"
+              required
+            />
+            <Form.Control.Feedback type="invalid">
+              Please enter a phone number.
+            </Form.Control.Feedback>
+          </InputGroup>
   </Col>
 
   <Col lg={6} md={6} sm={12} xs={12}>
 
     <FormGroup>
-      <ControlLabel>Select Campus
+      <div>Select Campus
       {this.state.campus_err ? (
       <span className="err-msg">
        * campus required 
@@ -269,7 +274,7 @@ const formInstance = (
     ) : (
       <div/>
     )}
-      </ControlLabel>
+      </div>
     <p>
       {this.state.isLoading2 ? (
         <div>
@@ -280,19 +285,19 @@ const formInstance = (
           <div/>
         )}
         </p>
-    <FormControl componentClass="select" placeholder="select" name="campus" id="campus">
+        <Form.Control as="select" id="campus" name="campus">
                    {this.state.campuslist.map(item => (
                     <option value={item.id}>{item.campus_code}</option>
                     ))}
-      </FormControl>
+        </Form.Control>
       </FormGroup>
   </Col>
   </Row>
 
-  <Row>
+  <Row className="justify-content-md-center">
    <Col lg={6} md={6} sm={12} xs={12}>
    <FormGroup>
-      <ControlLabel>Password
+      <div>Password
       {this.state.password_err ? (
       <span className="err-msg">
        * password required 
@@ -300,9 +305,8 @@ const formInstance = (
     ) : (
       <div/>
     )}
-      </ControlLabel>
+      </div>
       <FormControl 
-        placeholder="Password" 
         id="password" 
         name="password"
         type="password"
@@ -311,13 +315,13 @@ const formInstance = (
     </Col>
 
     <Col lg={6} md={6} sm={3} smOffset={4} xs={3} xsOffset={4}>
-        <br /><Button bsStyle="primary" onClick={this.submitForm.bind(this)}>Submit</Button>
+        <br /><Button variant="success" onClick={this.submitForm.bind(this)}>Submit</Button>
     </Col>
 
   </Row>
   </form>
 
-  <Row>
+  <Row className="justify-content-md-center">
   {this.state.isLoading ? (
               
               <Row>
@@ -346,6 +350,6 @@ const formInstance = (
   </section>
 );
 
-    return (formInstance);
+    return ( formInstance );
   }
 }

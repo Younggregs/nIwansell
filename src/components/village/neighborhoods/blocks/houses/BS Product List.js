@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Thumbnail, Col, Row, Button } from 'react-bootstrap'
+import { Col, Row, Button } from 'react-bootstrap'
 
 
 export default class BoughtSoldProductList extends React.Component {
@@ -24,7 +24,7 @@ export default class BoughtSoldProductList extends React.Component {
                <div className="product-image">
                 <div class="image">
                {this.setMedia(this.props.product_image)}
-               <Thumbnail alt="product-image" src= { `${this.state.media}` }/>
+               <img alt="product-image" src= { `${this.state.media}` }/>
                </div></div>
 
                <div className="product-options">
@@ -54,7 +54,7 @@ export default class BoughtSoldProductList extends React.Component {
 
             <Col sm={10} smOffset={1} xs={10} xsOffset={1} lgHidden mdHidden>
              {this.setMedia(this.props.product_image)}
-             <Thumbnail alt="product-image" src= { `${this.state.media}` }/>
+             <img alt="product-image" src= { `${this.state.media}` }/>
 
             <div className="product-options">
 

@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { Grid, Row, Col, Button, Table, FormControl } from 'react-bootstrap'
+import { Container, Row, Col, Button, Table, FormControl } from 'react-bootstrap'
 import Heading from './Heading'
 
 export default class BlogCategory extends React.Component {

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Grid , Row, Col } from 'react-bootstrap';
+import { Container , Row, Col } from 'react-bootstrap';
 import NewProductForm from './neighborhoods/blocks/houses/New Product Form.js';
 import NewEShopProductForm from './neighborhoods/blocks/houses/New EShop Product Form'
 import Footer from './neighborhoods/Footer.js';
@@ -46,7 +46,7 @@ export default class NewProduct extends React.Component {
         return (
            <div className="product-manager">
              
-             <Grid>
+             <Container>
               <Row>
               <Col lg={6} lgOffset={3} md={6} mdOffset={3} sm={12} xs={12}>
               <div>
@@ -59,7 +59,7 @@ export default class NewProduct extends React.Component {
               </div>
               </Col>
               </Row><br /><br />
-             </Grid>
+             </Container>
              <GotoTop/>
              <Footer/>
              <Copyright/>

@@ -1,5 +1,5 @@
 import React from 'react'
-import { Grid, Row, Col, Image, Button, Glyphicon } from 'react-bootstrap'
+import { Container, Row, Col, Image, Button } from 'react-bootstrap'
 import FormatDate from './Format Date'
 import Share from './Share'
 import Reply2 from './Reply2'
@@ -120,7 +120,7 @@ export default class Reply1 extends React.Component {
         
                 <Row>
                 <Col lg={1} md={1} sm={1} xs={1}>
-                        <Glyphicon glyph="arrow-up" onClick={() => this.vote(1, item.reply_id)}/>
+                        <div glyph="arrow-up" onClick={() => this.vote(1, item.reply_id)}/>
                     </Col>
                     <Col lg={1} md={1} sm={1} xs={1}>
                         {this.state.votesent ? (
@@ -130,7 +130,7 @@ export default class Reply1 extends React.Component {
                         )}
                     </Col>
                     <Col lg={1} md={1} sm={1} xs={1}>
-                        <Glyphicon glyph="arrow-down" onClick={() => this.vote(0, item.reply_id)}/>
+                        <div glyph="arrow-down" onClick={() => this.vote(0, item.reply_id)}/>
                     </Col>
                     <Col lg={2} md={2} sm={2} xs={2}>
                       <SendReply2 count={item.reply_count} reply={item.reply} reply_id={item.reply_id} thread_id={this.props.thread_id}/>

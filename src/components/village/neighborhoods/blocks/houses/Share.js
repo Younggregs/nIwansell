@@ -19,7 +19,7 @@ import {
   } from 'react-share'
 
 
-import { Button, Glyphicon, Col, Row } from 'react-bootstrap'
+import { Button, Col, Row } from 'react-bootstrap'
 import { confirmAlert } from 'react-confirm-alert'
 import 'react-confirm-alert/src/react-confirm-alert.css'
 
@@ -88,7 +88,7 @@ export default class Share extends React.Component {
        render() {
          return (
            <section>
-               <Glyphicon onClick={() => this.customAlert()} glyph="share-alt">share</Glyphicon>
+               <div onClick={() => this.customAlert()} glyph="share-alt">share</div>
            </section>
          )
        }

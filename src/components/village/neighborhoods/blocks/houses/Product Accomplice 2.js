@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Thumbnail, Col, Row, Button } from 'react-bootstrap'
+import { Thumbnail, Col, Row, Button, Image} from 'react-bootstrap'
 
 
 export default class ProductAccomplice2 extends React.Component {
@@ -15,32 +15,35 @@ export default class ProductAccomplice2 extends React.Component {
 
 
 
-       render() {
-         return (
-            <section>
+  render() {
+    return (
+       <section>
 
-             <Col lg={4} md={4} sm={12} xs={12}> 
-              <div className="manage-product">
-              <div className="product-image">
-                <div class="image">
-               {this.setMedia(this.props.product_image)}
-               <span><a href={`/product/${ this.props.product_id }` }>
-                  <img  height="200" width="auto" src= { `${this.state.media}` } alt="thumbnail"/>
-                </a></span>
-               </div>
-              </div>
+        <Col lg={4} md={4} sm={12} xs={12}> 
+         <div className="manage-product">
+         <div className="product-image">
+           <div class="image">
+          {this.setMedia(this.props.product_image)}
+        
+           <a href={`/product/${ this.props.product_id }` }>
+             <Image src= { `${this.state.media}` } alt="product image"/>
+           </a>
 
-               <div>
-               <span><a href={`/product/${ this.props.product_id }` }>
-                    <h4><b>Product: </b> {this.props.product_name}</h4>
-                    <p><b>Price: {this.props.starting_price}</b></p>
-              </a></span>
-                
-               </div><br />
-               </div>
-            </Col>
+          </div>
+         </div>
 
-            </section>
-         )
-       }
+          <div>
+          <span><a href={`/product/${ this.props.product_id }` }>
+               <Button variant='outline-warning'>{this.props.product_name}</Button><br />
+               <Button variant='warning'>{this.props.starting_price}</Button>
+           </a>
+           </span>
+           
+          </div><br />
+          </div>
+       </Col>
+
+       </section>
+    )
   }
+}

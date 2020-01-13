@@ -4,11 +4,14 @@
 @import url('https://fonts.googleapis.com/css?family=Audiowide');
 @import url('https://fonts.googleapis.com/css?family=Righteous');
 @import url('https://fonts.googleapis.com/css?family=Pacifico');
+@import url('https://fonts.googleapis.com/css?family=Lexend+Exa');
+@import url('https://fonts.googleapis.com/css?family=Baloo+Bhai');
+@import url('https://fonts.googleapis.com/css?family=Segoe+alt');
 @import "~slick-carousel/slick/slick.css";
 @import "~slick-carousel/slick/slick-theme.css";
 
 body{
-  background-color:whitesmoke;
+  background:#E1E8ED;
   font-family: "Ubuntu";
 }
 
@@ -19,13 +22,41 @@ a{
   font-family: "Ubuntu";
 }
 
+#go-to-top a{
+  color: white;
+  font-size: 15px;
+}
+
 #app-name a{
-  color:black;
-  font-family: "Audiowide";
+  color:#01579b;
+  font-family: 'Lexend Exa';
+  text-align: center;
+}
+
+#post-object a{
+  color: black;
+  font-size: 20px;
+}
+
+#intro-header-2 a{
+  color: white;
+  font-size: 30px; 
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Baloo Bhai';
+}
+
+#post-object2 a{
+  color: white;
+  font-size: 20px;
 }
 
 #about a{
-  color:white;
+  color:whitesmoke;
+  font-size: 15px;
+  font-family: "Lexend Exa";
 }
 
 #logo a{
@@ -137,18 +168,40 @@ a{
 
 .trending-wrapper{
   background-color:#01579b;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .trending-title{
   font-size: 25px;
   font-weight: bold;
-  font-family: "Pacifico";
+  font-family: "Lexend Exa";
+}
+
+.trending-title-t{
+  font-size: 25px;
+  font-weight: bold;
+  font-family: "Lexend Exa";
+  color: white
 }
 
 .trending-header{
-  background-color: grey;
   padding: 10px;
+  width: 100%;
+  color: black;
   margin-bottom: 10px;
+}
+
+.trending-box{
+  padding: 10px;
+  width: 100%;
+  color: black;
+  border: 2px solid orange;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  margin: 5px;
 }
 
 .receipt-header{
@@ -308,10 +361,17 @@ a{
 }
 
 .post-object{
-  border-right-color: whitesmoke;
-  border-right-style: solid;
-  border-right-width: 2px;
-  padding-top: 5px;
+  border:2px solid whitesmoke;
+  background-color: orange;
+  color: white;
+  padding: 5px;
+}
+
+.post-object2{
+  border:2px solid whitesmoke;
+  background-color: #01579b;
+  color: white;
+  padding: 5px;
 }
 
 .post-objectb{
@@ -336,12 +396,12 @@ a{
 
 .upper-navigation{
   background-color:white;
-  height: 60px;
+  width: 100%;
   font-size: 0.9em;
-  padding-top: 10px;
-  padding-left: 50px;
-  padding-right: 10px;
-  padding-bottom: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
 
 }
 
@@ -379,16 +439,9 @@ a{
 
 
 .upper-routes{
-  vertical-align: middle;
-  padding-top: 30px;
-  margin-bottom: 30px;
-  padding-bottom: 10px;
-  border-color: #01579b;
-  border-style: solid;
-  border-width: 2px;
-  border-radius: 5px;
-  box-shadow: 0 0 2px #666;
-  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 
@@ -413,12 +466,16 @@ a{
 
 
 .navigation-header{
-  background-color:gray;
-  height: 40px;
+  background-color:#01579b;
+  box-shadow: 0 0 10px #01579b;
+  height: 60px;
   font-size: 0.9em;
-  padding: 5px;
+  padding: 10px;
   color: white;
-  margin-left: 10px;
+  width: 100%;
+  margin: 5px;
+  margin-bottom: 0px;
+  font-family: 'Lexend Exa';
 
 }
 
@@ -448,9 +505,6 @@ a{
 
 .category-list{
   background-color: white;
-  border-color: black;
-  border-width: 1px;
-  border-style: solid;
   margin-top: 10px;
   padding: 10px;
   text-align: right;
@@ -499,6 +553,13 @@ a{
   line-height: 40px;
 }
 
+.manage-product{
+  background: white;
+  margin: 10px;
+  padding: 10px;
+  width: 200px;
+}
+
 
 .business-list{
   line-height: 40px;
@@ -522,7 +583,7 @@ td{
 
 
 .business-navigation{
-  background-color: rgb(7, 3, 31);
+  background-color: #01579b;
   height: 60px;
   text-align: center;
   color: white;
@@ -532,12 +593,15 @@ td{
 
 
 .menu-navigation{
-  background-color: rgb(7, 3, 31);
-  height: 60px;
+  background-color: #01579b;
+  min-height: 70px;
   color: white;
   text-align: center;
   font-size: 1.68em;
   padding-top: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 
@@ -547,15 +611,19 @@ td{
   padding-bottom: 10px;
   padding-left: 5px;
   padding-right: 5px;
+  border-radius: 5px;
 }
 
 .sign-in{
   height: 100vh;
   background-color: #01579b;
+  background-image: url('c-d.svg');
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 .signup-form{
@@ -573,6 +641,7 @@ td{
 
 .search-page{
   min-height: 100vh;
+  background:#E1E8ED;
 }
 
 .ratings-reviews{
@@ -636,7 +705,7 @@ td{
 .eshop-category-menu{
   padding : 10px;
   line-height: 50px;
-  background-color:rgb(7, 3, 31);
+  background-color:#01579b;
   min-height: 500px;
   color: white;
 }
@@ -656,11 +725,13 @@ td{
 
 
 .eshop-navigation {
-  background-color: rgb(7, 3, 31);
-  height: 70px;
+  background-color: #01579b;
+  min-height: 70px;
   font-size: 1.98em;
-  padding-top: 20px;
-  margin-bottom: 30px;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .sm-eshop-navigation{
@@ -684,7 +755,6 @@ td{
   text-align: center ;
   width: 100%;
   height: 300px;
-  background-color: white;
   line-height: 300px;
 }
 
@@ -716,8 +786,16 @@ td{
 
 .sponsored {
   margin: 15;
+  background: #01579b;
+  width: 100%;
+  height: 350px;
+  text-align: center;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
-
 
 .iwansell-tv-title{
   color: white;
@@ -732,22 +810,20 @@ td{
 }
 
 
-
 .about-iwansell{
   color: black;
+  box-shadow: 0 0 5px #01579b;
   text-align: left;
   margin-top: 20px;
   margin: 10px;
   background-color: white;
   padding: 10px;
-  border-color: black;
-  border-width: 1px;
-  border-style: solid;
+  border-radius: 5px;
 }
 
 .slide-image {
   height: 250px;
-  width: '100%';
+  width: 100%;
   background-image: url('m-g.jpg');
   background-position: center;
   background-color: whitesmoke;
@@ -763,7 +839,7 @@ td{
   padding: 20px;
   margin: 10px;
   color: white;
-  background-color: rgb(7, 3, 31);
+  background-color: #E1E8ED;
 }
 
 .slide-items{
@@ -807,10 +883,11 @@ td{
   flex-direction: row;
   align-items: center;
   justify-content: center;
+  width: 100%;
 }
 
 .result-view{
-  margin-top: 80px;
+  margin-top: 10px;
 }
 
 .image{
@@ -836,12 +913,12 @@ td{
 }
 
 .product-container{
-  border: 1px solid #ccc;
+  border: 2px solid #E1E8ED;
+  background-color: #E1E8ED;
   border-radius: 5px;
   width: auto;
   margin-bottom: 20px;
   height: 300px;
-  background-color: white;
 }
 
 .product-tip{
@@ -856,10 +933,31 @@ td{
 
 }
 
+
+#product-info a{
+  color: black;
+  font-size: 20px;
+}
+
+
 .product-info{
   background-color: white;
   color: black;
-  padding: 5px;
+  text-align: center;
+  padding-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.safety-tips{
+  background-color: white;
+  color: black;
+  text-align: center;
+  padding: 10px;
+  width: 100%;
+  margin: 10px;
 }
 
 .product-options{
@@ -924,8 +1022,9 @@ img{
 }
 
 .app-name{
-  font-family: "Audiowide";
+  font-family: 'Lexend Exa';
   font-size: 1.5em;
+  text-align: center;
 }
 
 .logo-app-name{
@@ -964,6 +1063,18 @@ img{
   font-weight: bold;
 }
 
+.price-tag{
+  background-color: #01579b;
+  padding: 5px;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  font-family: 'Lexend Exa';
+  width: 100%;
+}
+
 .merlin{
 
 }
@@ -988,7 +1099,7 @@ img{
   font-weight: bold;
   color: #01579b;
   text-align: left;
-  font-family: "Righteous";
+  font-family: "Lexend Exa";
 }
 
 
@@ -1041,7 +1152,7 @@ img{
 
 .profile-description{
 
-  background-color:  rgb(7, 3, 31);
+  background-color: #01579b;
   padding-bottom: 5px;
 
 }
@@ -1058,11 +1169,16 @@ img{
   text-align: center;
 }
 
-.footer{
-  background-color:  rgb(7, 3, 31);
-  height: 300px;
+#footer{
   color: gray;
-  font-size: .89em;
+  font-size: 15px;
+}
+
+.footer{
+  background-color:  #052f50;
+  height: auto;
+  color: gray;
+  font-size: 15px;
 }
 
 .welcome-message{
@@ -1194,15 +1310,108 @@ img{
 .landing-page{
   text-align: center;
   color: white;
+  background: #E1E8ED;
 }
 
 .landing-view{
-  background: #01579b;
-  background-image: url('m-g.jpg');
-  background-size: contain;
-  min-height: 100vh;
-  padding-bottom: 20px;
+  background: whitesmoke;
+  background-image: url('bg11.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100vh;
+  font-family: 'Baloo Bhai';
+  font-size: 15px;
 }
+
+.side-box{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 80vh;
+}
+
+
+.intro-text{
+  text-align: left;
+  font-family: 'Baloo Bhai';
+}
+
+.intro-header{
+  color: white;
+  background-color: #01579b;
+  background-image: url('e-d2.svg');
+  padding: 5px;
+  font-size: 30px; 
+  box-shadow: 0 0 5px grey;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Lexend Exa';
+}
+
+.intro-header-2{
+  color: white;
+  font-size: 30px; 
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Baloo Bhai';
+}
+
+.school{
+  color: white;
+  font-size: 12px; 
+  font-family: 'Baloo Bhai';
+  margin-left: 10px;
+}
+
+.school-2{
+  color: black;
+  font-size: 12px; 
+  font-family: 'Baloo Bhai';
+  margin-left: 10px;
+}
+
+.slogan{
+  color: white;
+  display: flex;
+  flex-direction: row;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: right;
+  font-size: 10px; 
+}
+
+
+.intro-footer{
+  color: black;
+  padding: 10px;
+  font-size: 10px; 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+
+.landing-view1{
+  background-color: rgba(255, 255, 255, 0.5);
+  box-shadow: 0 0 10px #E1E8ED;
+  min-height: 300px;
+  min-width: 300px;
+  color: black;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.landing-view2{
+  color: black;
+  padding: 10px;
+}
+
 
 .campus-text{
   line-height: 90px;
@@ -1299,33 +1508,42 @@ img{
 .about{
   padding-top: 15px;
   font-size: 1.3em;
+  display: flex;
+  color: white;
+  align-items: center;
+  justify-content: center;
+  font-family: "Lexend Exa";
 }
 
 .login-appname{
   padding: 10px;
   height: 50px;
+  width: 100%;
   background-color: white;
+  display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
-  box-shadow: 0 0 5px #666;
+  box-shadow: 0 0 5px #01579b;
   border-radius: 5px;
   padding: 5px;
 }
 
 .go-to-top{
-  background-color: darkgrey;
+  background-color:  #073b63;
   text-align: center;
   padding: 5px;
-  font-family: "Ubuntu";
+  font-family: "Lexend Exa";
+  color: white;
 }
 
 .copyright{
-  background-color: darkgrey;
+  background-color: #032036;
   text-align: center;
-  font-size: .8em;
-  padding: 15px;
-  font-family: "Ubuntu";
+  font-size: 10px;
+  padding: 5px;
+  color: whitesmoke;
+  font-family: "Lexend Exa";
 }
 
 

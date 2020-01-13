@@ -1,5 +1,5 @@
 import React from 'react'
-import { Grid, Row, Col, Media, Glyphicon } from 'react-bootstrap'
+import { Container, Row, Col, Media } from 'react-bootstrap'
 import ProductImage from './neighborhoods/blocks/houses/Product Image'
 import Description from './neighborhoods/blocks/houses/Description'
 import BuzzMe from './neighborhoods/blocks/houses/Buzz Me'
@@ -25,7 +25,7 @@ export default class SoldProduct extends React.Component {
        render() {
          return (
            <section className="sold-product">
-             <Grid>
+             <Container>
                  <p>control reached here</p>
                  { this.state.productDetail.map(item => 
 
@@ -38,7 +38,7 @@ export default class SoldProduct extends React.Component {
                   <Media.Body>
                   <Media.Heading>{this.state.productDetail.product_name}</Media.Heading>
                   <Description description={this.state.productDetail.description}/>
-                  <span className="glyphs"><Glyphicon glyph="star-empty"/></span>
+                  <span className="glyphs"><div glyph="star-empty"/></span>
                   <BuzzMe/>
                   </Media.Body>
                   </Media>
@@ -47,7 +47,7 @@ export default class SoldProduct extends React.Component {
                 </Row>
                 
                 )}
-             </Grid>     
+             </Container>     
            </section>
          )
        }

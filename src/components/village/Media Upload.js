@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, Redirect } from 'react-router-dom';
-import { Row, Col, Form, Button,FormGroup, FormControl, ControlLabel,Label, HelpBlock } from 'react-bootstrap';
+import { Row, Col, Form, Button,FormGroup, FormControl, Label } from 'react-bootstrap';
 import Heading from './neighborhoods/blocks/houses/Heading'
 import AppName from './neighborhoods/blocks/houses/App Name'
 import MyUploader from './neighborhoods/Upload Media'
@@ -79,9 +79,9 @@ render(){
   function FieldGroup({ id, label, help, ...props }) {
     return (
       <FormGroup controlId={id}>
-        <ControlLabel>{label}</ControlLabel>
+        <div>{label}</div>
         <FormControl {...props} />
-        {help && <HelpBlock>{help}</HelpBlock>}
+        {help && <div>{help}</div>}
       </FormGroup>
   );
 }

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Collapse, Well } from 'react-bootstrap';
+import { Button, Collapse } from 'react-bootstrap';
 import Spinner from 'react-activity/lib/Spinner';
 import 'react-activity/lib/Spinner/Spinner.css';
 
@@ -61,12 +61,12 @@ export default class BuzzMe extends React.Component {
         </Button>
         <Collapse in={this.state.open}>
           <div>
-            <Well>
+            <div>
               <p><b>{this.props.phone}</b></p>
               <p><i>alternate phones:</i></p>
               <p><b><i>{this.state.phone.phone1}</i></b></p>
               <p><b><i>{this.state.phone.phone2}</i></b></p>
-            </Well>
+            </div>
           </div>
         </Collapse>
       </div>

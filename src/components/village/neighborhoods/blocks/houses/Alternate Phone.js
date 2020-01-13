@@ -1,6 +1,6 @@
 import React from 'react';
 import { Redirect } from 'react-router-dom'
-import { Table, Button,FormGroup, FormControl, HelpBlock, ControlLabel } from 'react-bootstrap';
+import { Table, Button,FormGroup, FormControl } from 'react-bootstrap';
 import Heading from './Heading'
 import Spinner from 'react-activity/lib/Spinner';
 import 'react-activity/lib/Spinner/Spinner.css';
@@ -108,9 +108,9 @@ render(){
     function FieldGroup({ id, label, help, ...props }) {
         return (
           <FormGroup controlId={id}>
-            <ControlLabel>{label}</ControlLabel>
+            <div>{label}</div>
             <FormControl {...props} />
-            {help && <HelpBlock>{help}</HelpBlock>}
+            {help && <div>{help}</div>}
           </FormGroup>
       );
     }
@@ -142,7 +142,7 @@ const formInstance = (
   
   <form>
   <FormGroup>
-  <HelpBlock>Add or update alternate phone number</HelpBlock>
+  <div>Add or update alternate phone number</div>
         <FieldGroup
             id="phone1"
             type="text"

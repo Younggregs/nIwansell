@@ -1,5 +1,5 @@
 import React from 'react'
-import { Grid,Row,Col, Image } from 'react-bootstrap'
+import { Container,Row,Col, Image } from 'react-bootstrap'
 import { Progress } from 'react-sweet-progress';
 import "react-sweet-progress/lib/style.css";
 
@@ -50,7 +50,7 @@ export default class LandingShow extends React.Component {
 
         return (
            <div className="welcome">
-           <Grid>
+           <Container>
                <Row>
                    <Col lg={12} md={12} sm={12} smHidden xs={12} xsHidden>
                     <Row>
@@ -135,7 +135,7 @@ export default class LandingShow extends React.Component {
                     </Row>
                    </Col>
                </Row>
-           </Grid>
+           </Container>
            </div>
          )
      }

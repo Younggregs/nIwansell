@@ -1,5 +1,5 @@
 import React from 'react';
-import { Grid, Row, Col } from 'react-bootstrap';
+import { Container, Row, Col } from 'react-bootstrap';
 import ProfileImage from './blocks/houses/Profile Image.js';
 import ProfileDescription from './blocks/houses/Profile Description.js';
 
@@ -33,7 +33,7 @@ export default class ProfileDetails extends React.Component {
        render() {
          return (
            <section  className="profile-details">
-            <Grid>
+            <Container>
              <br /><br /><Row>
               <Col lg={6} lgOffset={3} md={6} mdOffset={3} sm={12} xs={12}>
 
@@ -54,7 +54,7 @@ export default class ProfileDetails extends React.Component {
               />
               </Col>
             </Row><br /><br />
-           </Grid>
+           </Container>
            </section>
          )
        }

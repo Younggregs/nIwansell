@@ -1,5 +1,5 @@
 import React from 'react'
-import { Row, Col,Navbar, FormGroup, FormControl, Button, Glyphicon, InputGroup } from 'react-bootstrap'
+import { Row, Col,Navbar, FormGroup, FormControl, Button, InputGroup } from 'react-bootstrap'
 
 export default class HaggleBox extends React.Component {
 
@@ -113,7 +113,7 @@ export default class HaggleBox extends React.Component {
                         />
 
                     <InputGroup.Button>
-                      <Button onClick = { this.sendMessage2.bind(this) }><Glyphicon glyph="send"/></Button>
+                      <Button onClick = { this.sendMessage2.bind(this) }><div glyph="send"/></Button>
                   </InputGroup.Button>
                 </InputGroup>
                 </FormGroup>

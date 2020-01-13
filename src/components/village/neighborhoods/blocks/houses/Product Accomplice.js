@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Thumbnail, Grid, Row, Button } from 'react-bootstrap'
+import { Thumbnail, Container, Row, Button } from 'react-bootstrap'
 import Heading from './Heading'
 import ProductAccomplice2 from './Product Accomplice 2'
 
@@ -54,40 +54,38 @@ export default class ProductAccomplice extends React.Component {
     
     
     
-           render() {
-             return (
-               <section className="product-list">
-               <Grid>
-               <Heading title="Other items customers are buying after viewing this item."/>
-    
-               <Row>
-                {this.emptyResult() ? (
-                  <div></div>
-                ) : (
-    
-                  <Row>
-                    {this.state.productList.map(item => (
-    
-                      <ProductAccomplice2
-    
-                      product_id = {item.product_id}
-                      product_name = {item.product_name}
-                      product_image = {item.product_image}
-                      starting_price = {item.starting_price}
-    
-    
-                      />
-    
-                    ))}
-                  </Row>
-    
-                )}
-                </Row>
-    
-    
-                </Grid>
-               </section>
-             )
-           }
+      render() {
+        return (
+          <Container fluid='true'>
+          <Heading title="Other items customers are buying after viewing this item?"/>
+
+          <Row>
+           {this.emptyResult() ? (
+             <div></div>
+           ) : (
+
+             <Row className="justify-content-md-center">
+               {this.state.productList.map(item => (
+
+                 <ProductAccomplice2
+
+                 product_id = {item.product_id}
+                 product_name = {item.product_name}
+                 product_image = {item.product_image}
+                 starting_price = {item.starting_price}
+
+
+                 />
+
+               ))}
+             </Row>
+
+           )}
+           </Row>
+
+
+
+          </Container>
+        )
       }
-    
+ }

@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import {Navbar,Grid, Row, Col, Button, Glyphicon } from 'react-bootstrap'
+import {Navbar,Container, Row, Col, Button } from 'react-bootstrap'
 import EHaggler from './EHaggler'
 
 export default class HaggleMates extends React.Component {
@@ -94,14 +94,14 @@ export default class HaggleMates extends React.Component {
               <div className="haggle-mates">
 
                 <Col lg={12} md={12} smHidden xsHidden>
-                <Grid>
+                <Container>
                 <Row>
                 <Navbar fixedTop>
                 <Row className="haggle-header">
                  <Col sm={2} xs={2}>
                  <span className="glyphs">
                  <Link to='/home'>
-                      <Glyphicon glyph="circle-arrow-left"/>
+                      <div glyph="circle-arrow-left"/>
                   </Link>
                  </span>
                  </Col>
@@ -150,7 +150,7 @@ export default class HaggleMates extends React.Component {
 
                   </Col>
                  </Row>
-                 </Grid>
+                 </Container>
                  </Col>
 
 
@@ -163,7 +163,7 @@ export default class HaggleMates extends React.Component {
                  <Col sm={2} xs={2}>
                  <span className="glyphs">
                  <Link to='/home'>
-                      <Glyphicon glyph="circle-arrow-left"/>
+                      <div glyph="circle-arrow-left"/>
                   </Link>
                  </span>
                  </Col>

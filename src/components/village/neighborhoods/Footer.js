@@ -1,5 +1,5 @@
 import React from 'react';
-import { Grid, Row } from 'react-bootstrap';
+import { Container, Row } from 'react-bootstrap';
 import About from './blocks/houses/About.js';
 
 export default class Footer extends React.Component {
@@ -59,11 +59,11 @@ export default class Footer extends React.Component {
        render() {
          return (
            <section className="footer">
-             <Grid>
+             <Container>
                <Row>
                  <About logged_in={this.state.isloggedin} eshop_exist={this.state.eshop_exist.eshop_exist} campus_id={this.props.campus_id}/>
                </Row>
-             </Grid>
+             </Container>
            </section>
          )
        }

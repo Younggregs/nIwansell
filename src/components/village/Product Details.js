@@ -54,9 +54,7 @@ export default class ProductDetails extends React.Component {
            <section>
              <div className="search-page">
                 <NavigationHeader/>
-                <Post logged_in = {this.state.response}/>
                 <ProductDescription product_id={this.props.match.params.product_id} logged_in = {this.state.response}/>
-                <MobileApp/>
                 <Adsense/>
                 <ProductAccomplice product_id={this.props.match.params.product_id} campus_id={1}/>
              </div> 

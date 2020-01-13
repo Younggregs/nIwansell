@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, Redirect } from 'react-router-dom';
-import { Row, Col, Button,FormGroup, FormControl, ControlLabel, HelpBlock } from 'react-bootstrap';
+import { Row, Col, Button,FormGroup, FormControl } from 'react-bootstrap';
 import { login } from './auth/Auth'
 import AppName from './App Name'
 import Spinner from 'react-activity/lib/Spinner';
@@ -79,9 +79,9 @@ render(){
   function FieldGroup({ id, label, help, ...props }) {
     return (
       <FormGroup controlId={id}>
-        <ControlLabel>{label}</ControlLabel>
+        <div>{label}</div>
         <FormControl {...props} />
-        {help && <HelpBlock>{help}</HelpBlock>}
+        {help && <div>{help}</div>}
       </FormGroup>
   );
 }
@@ -89,35 +89,35 @@ render(){
 const formInstance = (
   <section className="signin-form">
 
-  <Row>
+  <Row className="justify-content-md-center">
   <div className="login-appname">
-   <Col lg={6} lgOffset={4} md={6} mdOffset={4} sm={12} xs={12}>
-  <Link to="/">
-    <AppName/>
-  </Link>
+   <Col lg={6} md={6} sm={12} xs={12}>
+    <Link to="/">
+      <AppName/>
+    </Link>
   </Col>
   </div>
 </Row><br />
 
-  <Row>
-   <Col lg={4} lgOffset={2} md={4} mdOffset={2} sm={4} smOffset={2} xs={4} xsOffset={2}>
+  <Row className="justify-content-md-center">
+   <Col lg={4} md={4} sm={4} xs={4} xsOffset={2}>
   <Link to="/Signin">
-    <Button bsStyle="primary">Signin</Button>
+    <Button variant="warning">Signin</Button>
   </Link>
   </Col>
 
-  <Col lg={4} lgOffset={2} md={4} mdOffset={2} sm={6} xs={6}>
+  <Col lg={4} md={4} sm={6} xs={6}>
   <Link to="/Signup">
-    <Button>Signup</Button>
+    <Button variant="outline-info">Signup</Button>
   </Link>
   </Col>
   </Row><br />
 
   <form>
-  <Row>
+  <Row className="justify-content-md-center">
   <Col lg={6} md={6} sm={12} xs={12}>
   <FormGroup>
-      <ControlLabel>Phone
+      <div>Phone
       {this.state.username_err ? (
       <span className="err-msg">
        * Phone required 
@@ -125,9 +125,8 @@ const formInstance = (
     ) : (
       <div/>
     )}
-      </ControlLabel>
+      </div>
       <FormControl 
-        placeholder="08103800938" 
         id="username" 
         name="username"
         type="number"
@@ -138,7 +137,7 @@ const formInstance = (
    <Col lg={6} md={6} sm={12} xs={12}>
 
    <FormGroup>
-      <ControlLabel>Password
+      <div>Password
       {this.state.password_err ? (
       <span className="err-msg">
        * Password required 
@@ -146,9 +145,8 @@ const formInstance = (
     ) : (
       <div/>
     )}
-      </ControlLabel>
+      </div>
       <FormControl 
-        placeholder="*******" 
         id="password" 
         name="password"
         type="password"
@@ -157,7 +155,7 @@ const formInstance = (
    </Col>
    </Row>
 
-   <Row>
+   <Row className="justify-content-md-center">
    {this.state.isLoading ? (
               
               <Row>
@@ -183,14 +181,16 @@ const formInstance = (
    
    </Row>
 
-   <Row>
-    <Col lg={2} lgOffset={4} md={2} mdOffset={4} sm={3} smOffset={3} xs={3} xsOffset={3}>
-    <Button bsStyle="primary" onClick={this.submitForm.bind(this)}>Submit</Button>
-    </Col>
-    <Col lg={4} md={4} sm={3} smOffset={1} xs={3} xs={1}>
+   <Row className="justify-content-md-center">
+  
+    <Col lg={6} md={6} sm={3} xs={12} xs={12}>
     <Link to ="forgot_password">
-     <p>Forgot password?</p>
+     <p style={{ color: 'black' }}>Forgot password?</p>
     </Link>
+    </Col>
+
+    <Col lg={6} md={6} sm={12} xs={12}>
+      <Button variant="success" onClick={this.submitForm.bind(this)}>Submit</Button>
     </Col>
 
 

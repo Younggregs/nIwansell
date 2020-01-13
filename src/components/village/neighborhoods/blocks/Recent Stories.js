@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { Grid, Row, Col, Button, Image,Table } from 'react-bootstrap'
+import { Container, Row, Col, Button, Image,Table } from 'react-bootstrap'
 
 export default class CategoryList extends React.Component {
 

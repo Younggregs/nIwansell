@@ -1,5 +1,5 @@
 import React from 'react'
-import { Grid, Row, Col, Image, Button, Glyphicon } from 'react-bootstrap'
+import { Container, Row, Col, Image, Button } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 import NavigationHeader from './neighborhoods/blocks/Navigation Header'
 import Post from './neighborhoods/blocks/houses/Post'
@@ -290,7 +290,7 @@ export default class Thread extends React.Component {
                 </Link>
                 </Col>
             </Row>
-             <Grid>
+             <Container>
                  <Col lg={8} md={8} smHidden xsHidden>
 
                  {this.state.isLoading ? (
@@ -323,9 +323,9 @@ export default class Thread extends React.Component {
                             ) : (
                         <div>
                             {this.state.following ? (
-                            <Button disabled><Glyphicon glyph="check"/>Following</Button>
+                            <Button disabled><div glyph="check"/>Following</Button>
                             ) : (
-                            <Button bsStyle="info" onClick={() => this.follow(this.state.thread.channel_id)}><Glyphicon glyph="check"/>Follow</Button>
+                            <Button bsStyle="info" onClick={() => this.follow(this.state.thread.channel_id)}><div glyph="check"/>Follow</Button>
                             )}
                         </div>
                             )}
@@ -345,7 +345,7 @@ export default class Thread extends React.Component {
 
                             <Row>
                                 <Col lg={1} md={1} sm={1} xs={1}>
-                                    <Glyphicon glyph="arrow-up" onClick={() => this.vote(1, this.state.thread.thread_id)}/>
+                                    <div glyph="arrow-up" onClick={() => this.vote(1, this.state.thread.thread_id)}/>
                                 </Col>
                                 <Col lg={1} md={1} sm={1} xs={1}>
                                     {this.state.votesent ? (
@@ -356,7 +356,7 @@ export default class Thread extends React.Component {
                                     
                                 </Col>
                                 <Col lg={1} md={1} sm={1} xs={1}>
-                                    <Glyphicon glyph="arrow-down" onClick={() => this.vote(0, this.state.thread.thread_id)}/>
+                                    <div glyph="arrow-down" onClick={() => this.vote(0, this.state.thread.thread_id)}/>
                                 </Col>
 
                                 <Col lg={2} md={2} sm={2} xs={2}>
@@ -390,7 +390,7 @@ export default class Thread extends React.Component {
                                 
                                 <Row>
                                 <Col lg={1} md={1} sm={1} xs={1}>
-                                    <Glyphicon glyph="arrow-up" onClick={() => this.voteComment(1, item.comment_id)}/>
+                                    <div glyph="arrow-up" onClick={() => this.voteComment(1, item.comment_id)}/>
                                 </Col>
                                 <Col lg={1} md={1} sm={1} xs={1}>
                                     {this.state.comment_votesent ? (
@@ -401,7 +401,7 @@ export default class Thread extends React.Component {
                                     
                                 </Col>
                                 <Col lg={1} md={1} sm={1} xs={1}>
-                                    <Glyphicon glyph="arrow-down" onClick={() => this.voteComment(0, item.comment_id)}/>
+                                    <div glyph="arrow-down" onClick={() => this.voteComment(0, item.comment_id)}/>
                                 </Col>
 
 
@@ -435,7 +435,7 @@ export default class Thread extends React.Component {
                             <Image src={ require ('./neighborhoods/blocks/houses/images/n.jpg') } alt="iwansell-logo" responsive rounded/>
                         </div>
                  </Col>
-             </Grid>
+             </Container>
 
 
 
@@ -475,9 +475,9 @@ export default class Thread extends React.Component {
                             ) : (
                         <div>
                             {this.state.following ? (
-                            <Button disabled><Glyphicon glyph="check"/>Following</Button>
+                            <Button disabled><div glyph="check"/>Following</Button>
                             ) : (
-                            <Button bsStyle="info" onClick={() => this.follow(this.state.thread.channel_id)}><Glyphicon glyph="check"/>Follow</Button>
+                            <Button bsStyle="info" onClick={() => this.follow(this.state.thread.channel_id)}><div glyph="check"/>Follow</Button>
                             )}
                         </div>
                             )}
@@ -497,7 +497,7 @@ export default class Thread extends React.Component {
 
                             <Row>
                                 <Col lg={1} md={1} sm={1} xs={1}>
-                                    <Glyphicon glyph="arrow-up" onClick={() => this.vote(1, this.state.thread.thread_id)}/>
+                                    <div glyph="arrow-up" onClick={() => this.vote(1, this.state.thread.thread_id)}/>
                                 </Col>
                                 <Col lg={1} md={1} sm={1} xs={1}>
                                     {this.state.votesent ? (
@@ -508,7 +508,7 @@ export default class Thread extends React.Component {
                                     
                                 </Col>
                                 <Col lg={1} md={1} sm={1} xs={1}>
-                                    <Glyphicon glyph="arrow-down" onClick={() => this.vote(0, this.state.thread.thread_id)}/>
+                                    <div glyph="arrow-down" onClick={() => this.vote(0, this.state.thread.thread_id)}/>
                                 </Col>
 
                                 <Col lg={2} md={2} sm={2} xs={2}>
@@ -542,7 +542,7 @@ export default class Thread extends React.Component {
                                 
                                 <Row>
                                 <Col lg={1} md={1} sm={1} xs={1}>
-                                    <Glyphicon glyph="arrow-up" onClick={() => this.voteComment(1, item.comment_id)}/>
+                                    <div glyph="arrow-up" onClick={() => this.voteComment(1, item.comment_id)}/>
                                 </Col>
                                 <Col lg={1} md={1} sm={1} xs={1}>
                                     {this.state.comment_votesent ? (
@@ -553,7 +553,7 @@ export default class Thread extends React.Component {
                                     
                                 </Col>
                                 <Col lg={1} md={1} sm={1} xs={1}>
-                                    <Glyphicon glyph="arrow-down" onClick={() => this.voteComment(0, item.comment_id)}/>
+                                    <div glyph="arrow-down" onClick={() => this.voteComment(0, item.comment_id)}/>
                                 </Col>
 
 

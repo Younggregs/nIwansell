@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import Digital from 'react-activity/lib/Digital';
 import 'react-activity/lib/Digital/Digital.css';
-import { Row, Col, Button, FormGroup, FormControl, HelpBlock, ControlLabel, Checkbox } from 'react-bootstrap'
+import { Row, Col, Button, FormGroup, FormControl, Checkbox } from 'react-bootstrap'
 import TransactionTokenProduct from './neighborhoods/Transaction Token Product'
 import BusinessHeader from './neighborhoods/blocks/Business Header'
 
@@ -79,9 +79,9 @@ export default class BuyerTransactionWindow extends React.Component {
     function FieldGroup({ id, label, help, ...props }) {
         return (
           <FormGroup controlId={id}>
-            <ControlLabel>{label}</ControlLabel>
+            <div>{label}</div>
             <FormControl {...props} />
-            {help && <HelpBlock>{help}</HelpBlock>}
+            {help && <div>{help}</div>}
           </FormGroup>
       );
     }

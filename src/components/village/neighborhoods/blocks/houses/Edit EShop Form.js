@@ -1,6 +1,6 @@
 import React from 'react';
 import { Redirect } from 'react-router-dom'
-import { Button,FormGroup, FormControl, ControlLabel, HelpBlock ,Row,Col,Label} from 'react-bootstrap';
+import { Button,FormGroup, FormControl, Row,Col,Label} from 'react-bootstrap';
 import AppName from './App Name'
 import Spinner from 'react-activity/lib/Spinner';
 import 'react-activity/lib/Spinner/Spinner.css';
@@ -75,7 +75,7 @@ const formInstance = (
 
 
   <FormGroup>
-    <ControlLabel>Edit Catch-board</ControlLabel>
+    <div>Edit Catch-board</div>
         <FormControl
             id="catch_board"
             type="file"
@@ -84,7 +84,7 @@ const formInstance = (
             {...this.state.catch_board}
 
         />
-        <HelpBlock>This is the image that would be displayed as your eshop catch board</HelpBlock>
+        <div>This is the image that would be displayed as your eshop catch board</div>
 </FormGroup>
 
 

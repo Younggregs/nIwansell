@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { Grid, Row, Col, Image, Button, Glyphicon } from 'react-bootstrap'
+import { Container, Row, Col, Image, Button } from 'react-bootstrap'
 import FormatDate from './blocks/houses/Format Date'
 import Share from './blocks/houses/Share'
 import FloatingActionButton2 from './blocks/houses/Floating Action2'
@@ -231,9 +231,9 @@ export default class ChannelHome extends React.Component {
                                     ) : (
                                         <div>
                                             {this.state.following ? (
-                                                <Button disabled><Glyphicon glyph="check"/>Following</Button>
+                                                <Button disabled><div glyph="check"/>Following</Button>
                                             ) : (
-                                                <Button bsStyle="info" onClick={() => this.follow(item.channel_id)}><Glyphicon glyph="check"/>Follow</Button>
+                                                <Button bsStyle="info" onClick={() => this.follow(item.channel_id)}><div glyph="check"/>Follow</Button>
                                             )}
                                         </div>
                                     )}
@@ -242,14 +242,14 @@ export default class ChannelHome extends React.Component {
                             <Link to={`/thread/${ item.thread_id }`}>
                             <div style={{ margin: 10 }}>
                                 <p style={{ fontWeight: 'bold', fontSize: 20}}>{item.title}</p>
-                                <p>{this.getThread(item.thread)}<Button bsStyle="info"><Glyphicon glyph="tasks"/>Continue To Conversation</Button></p>
+                                <p>{this.getThread(item.thread)}<Button bsStyle="info"><div glyph="tasks"/>Continue To Conversation</Button></p>
                                       <Image  src= { `${this.state.media}` } alt="iwansell-logo" responsive rounded/>
                             </div>
                             
 
                             <Row>
                                 <Col lg={1} md={1} sm={1} xs={1}>
-                                    <Glyphicon glyph="arrow-up" onClick={() => this.vote(1, item.thread_id)}/>
+                                    <div glyph="arrow-up" onClick={() => this.vote(1, item.thread_id)}/>
                                 </Col>
                                 <Col lg={1} md={1} sm={1} xs={1}>
                                     {this.state.votesent ? (
@@ -260,7 +260,7 @@ export default class ChannelHome extends React.Component {
                                     
                                 </Col>
                                 <Col lg={1} md={1} sm={1} xs={1}>
-                                    <Glyphicon glyph="arrow-down" onClick={() => this.vote(0, item.thread_id)}/>
+                                    <div glyph="arrow-down" onClick={() => this.vote(0, item.thread_id)}/>
                                 </Col>
 
                                 <Col lg={2} md={2} sm={2} xs={2}>

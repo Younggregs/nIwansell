@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import {Col, Row, Form, ControlLabel, FormControl, Button, Image, FormGroup, Glyphicon, InputGroup} from 'react-bootstrap'
+import {Col, Row, Form, FormControl, Button, Image, FormGroup, InputGroup} from 'react-bootstrap'
 import Spinner from 'react-activity/lib/Spinner';
 import 'react-activity/lib/Spinner/Spinner.css';
 import BuzzMe from './neighborhoods/blocks/houses/Buzz Me'
@@ -165,7 +165,7 @@ emptyResult(){
 
 
       <InputGroup.Button>
-        <Button onClick={this.submitForm.bind(this)}><Glyphicon glyph="search"/></Button>
+        <Button onClick={this.submitForm.bind(this)}><div glyph="search"/></Button>
       </InputGroup.Button>
     </InputGroup>
   </FormGroup>
@@ -200,7 +200,7 @@ emptyResult(){
           <Col lgHidden mdHidden sm={12} xs={12}>
               <Form>
               <FormGroup>
-                    <ControlLabel>Sort Listings by Category</ControlLabel>
+                    <div>Sort Listings by Category</div>
                 <p>
                     {this.state.isLoading ? (
                     <div>
@@ -262,12 +262,12 @@ emptyResult(){
                        <Row>
                        <Col lg={6} md={6} sm={6} xs={6}>
                            <a href={ 'https://api.whatsapp.com/send?phone=' + item.phone}>
-                                <div className="contact-button">Whatsapp<Glyphicon glyph="envelope"/></div>
+                                <div className="contact-button">Whatsapp<div glyph="envelope"/></div>
                            </a>
                        </Col>
                        <Col lg={6} md={6} sm={6} xs={6}>
                         <a href={ `tel:${item.phone}`}>
-                            <div className="contact-button">Phone<Glyphicon glyph="phone"/></div>
+                            <div className="contact-button">Phone<div glyph="phone"/></div>
                         </a>
                            
                        </Col>

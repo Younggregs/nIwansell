@@ -1,5 +1,5 @@
 import React from 'react';
-import { Row, Col, Image, Glyphicon } from 'react-bootstrap';
+import { Row, Col, Image } from 'react-bootstrap';
 
 export default class CatchBoard extends React.Component {
        render() {
@@ -13,7 +13,7 @@ export default class CatchBoard extends React.Component {
                {this.props.media ? (
                  <Image src= { `${this.props.media}` } alt="product_image" responsive/>
                ) : (
-                <Glyphicon glyph="user"/>
+                <div glyph="user"/>
                )}
               </div>
            </section>
