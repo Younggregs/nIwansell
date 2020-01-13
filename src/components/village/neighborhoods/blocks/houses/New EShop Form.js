@@ -1,8 +1,10 @@
 import React from 'react';
 import  { Redirect } from 'react-router-dom'
-import { Row, Col, Button,FormGroup, FormControl } from 'react-bootstrap';
+import { Row, Col, Button,FormGroup, FormControl, Form } from 'react-bootstrap';
 import Spinner from 'react-activity/lib/Spinner';
 import 'react-activity/lib/Spinner/Spinner.css';
+import Heading from './Heading'
+
 
 export default class NewEShopForm extends React.Component {
 
@@ -114,9 +116,12 @@ const formInstance = (
   <section className="signin-form">
 
   <form>
+  
+  <Row className="justify-content-md-center">
+  <Col lg={6} md={6} sm={12} xs={12}>
+  <br />
+  <Heading title="Create New eShop"/>
   <div><b>Note: eShop is now in free trial mode</b></div>
-  <Row>
-  <Col lg={6} lgOffset={3} md={6} mdOffset={3} sm={12} xs={12}>
 
   <FormGroup>
       <div>Select eshop category</div>
@@ -126,8 +131,8 @@ const formInstance = (
         <p><Spinner color="#ff0000" size={32}/></p>
         </div>
       ) : (
-        <FormControl
-          componentClass="select"
+        <Form.Control
+          as="select"
           placeholder="select"
           id="category"
           name="category"
@@ -135,10 +140,10 @@ const formInstance = (
           {this.state.categorylist.map(item => (
             <option value={item.id}>{item.name}</option>
           ))}
-          </FormControl>
+          </Form.Control>
       )}
 
-      <p>You can select multiple categories for your eshop</p>
+      <div>You can select multiple categories for your eshop</div>
     </FormGroup>
 
 
@@ -149,16 +154,28 @@ const formInstance = (
       type="text"
       label="Name of e-shop"
       name="eshop_name"
-      placeholder="e.g Iceprince' Wardrope "
+      placeholder="e.g Simi's Closet"
     />
 
-  <p>About eshop</p><br />
+  <div>About eshop</div><br />
 
-    <textarea
-    name="about"
+  <FormGroup controlId="formControlsTextarea">
+    <Form.Label>Describe Product
+      {this.state.description_err ? (
+      <span className="err-msg">
+       * description required 
+      </span>
+    ) : (
+      <div/>
+    )}
+      </Form.Label>
+  <FormControl 
+    as="textarea" 
     id="about"
-    placeholder="What are you selling">
-    </textarea><br />
+    name="about"
+    rows="3"
+    />
+  </FormGroup><br />
 
     {this.state.statement.error_message ? (
       <p className="err-msg">{this.state.statement.error_message}</p>
@@ -171,7 +188,7 @@ const formInstance = (
     ) : (
       <span></span>
     )}
-    <p><b>Note: eShop is now in free trial mode</b></p>
+    <div><b>Note: eShop is now in free trial mode</b></div>
 
 
         {this.state.isLoading ? (
@@ -184,7 +201,7 @@ const formInstance = (
         )}
 
 
-    <Button bsStyle="success" onClick={this.newEShop.bind(this)}>create eShop[trial mode]</Button>
+    <Button variant="success" onClick={this.newEShop.bind(this)}>create eShop[trial mode]</Button>
     </Col>
    </Row>
   </form>

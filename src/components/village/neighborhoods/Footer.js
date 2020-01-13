@@ -60,7 +60,7 @@ export default class Footer extends React.Component {
          return (
            <section className="footer">
              <Container>
-               <Row>
+               <Row className="justify-content-md-center">
                  <About logged_in={this.state.isloggedin} eshop_exist={this.state.eshop_exist.eshop_exist} campus_id={this.props.campus_id}/>
                </Row>
              </Container>

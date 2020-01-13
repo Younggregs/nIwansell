@@ -1169,16 +1169,12 @@ img{
   text-align: center;
 }
 
-#footer{
-  color: gray;
-  font-size: 15px;
-}
-
 .footer{
   background-color:  #052f50;
   height: auto;
   color: gray;
   font-size: 15px;
+  padding: 5px;
 }
 
 .welcome-message{
@@ -1513,6 +1509,7 @@ img{
   align-items: center;
   justify-content: center;
   font-family: "Lexend Exa";
+  padding: 5px;
 }
 
 .login-appname{

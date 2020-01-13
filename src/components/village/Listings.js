@@ -139,159 +139,165 @@ emptyResult(){
 
 
 
-       render() {
-         return (
-           <section>
-               <FloatingActionButton/>
-           <div className="menu-navigation">
-            
+  render() {
+    return (
+      <section>
+     <FloatingActionButton/>
+      <div className="menu-navigation">
+       
 
-           <Col lg={3} md={3} sm={12} xs={12}>
-            <p>Iwansell Listings</p>
-           </Col>
+     <Row className="justify-content-md-center">
+      <Col lg={6} md={6} sm={12} xs={12}>
+       <p>Iwansell Listings</p>
+      </Col>
 
-            <Form inline>
+      <Col lg={6} md={6} sm={12} xs={12}>
+       <Form>
 
-           <FormGroup>
-    <InputGroup>
-    <FormControl
-       id="listing"
-       type="text"
-       name="listing"
-       placeholder="Search Listing"
-       size="50"
-       inputRef={(ref) => { this.inputSearchPhrase = ref; }}
-       />
+      <FormGroup>
+<InputGroup>
+<Form.Control
+  id="listing"
+  type="text"
+  name="listing"
+  placeholder="Search Listing"
+  size="50"
+  inputRef={(ref) => { this.inputSearchPhrase = ref; }}
+  />
 
 
-      <InputGroup.Button>
-        <Button onClick={this.submitForm.bind(this)}><div glyph="search"/></Button>
-      </InputGroup.Button>
-    </InputGroup>
-  </FormGroup>
-           </Form>
+ <InputGroup.Append>
+   <Button onClick={this.submitForm.bind(this)}>Search</Button>
+ </InputGroup.Append>
+</InputGroup>
+</FormGroup>
+      </Form>
+      </Col>
+      </Row>
+        </div>
+
+        <br /><br /><br />
+
+   <Row className="justify-content-md-center">
+     <Col lg={3} md={3} className="d-none d-sm-block d-xs-block">
+     <div className="eshop-category-menu">
+     <p className="eshop-category-header">Sort Listings By Category</p>
+     <p>
+         <Button onClick={this.sortByCategory.bind(this, 99)}>
+           All Categories
+         </Button>
+       </p>
+     {this.state.categorylist.map(item => (
+
+       <p>
+         <Button onClick={this.sortByCategory.bind(this, item.id)}>
+           {item.name}
+         </Button>
+       </p>
+
+     ))}
+
+     </div>
+     </Col>
+
+   
+   {/* }
+     <Col lgHidden mdHidden sm={12} xs={12}>
+         <Form>
+         <FormGroup>
+               <div>Sort Listings by Category</div>
+           <p>
+               {this.state.isLoading ? (
+               <div>
+                   <p><b><i>Fetching Categories</i></b></p>
+                       <p><Spinner color="#ff0000" size={32}/></p>
+                   </div>
+               ) : (
+               <div/>
+               )}
+           </p>
+       <Form.Control 
+           as="select"
+           placeholder="select" 
+           id="category" 
+           name="category"
+           onChange={this.sortByCategory.bind(this, false)}>
+           <option value="99">All Categories</option>
+       {this.state.categorylist.map(item => (
+           <option value={item.id}>{item.name}</option>
+       ))}
+       </Form.Control>
+       </FormGroup>
+       </Form>
+     </Col>
+       */}
+
+
+     <Col lg={8} md={8} sm={12} xs={12}>
+     {this.state.isLoading ? (
+       <div className="isloading">
+       <p><b><i>loading...</i></b></p>
+       <p><Spinner color="#ff0000" size={32}/></p>
+       </div>
+     ) : (
+       <div className="eshop-list">
+
+        <div className="menu-header">
+         <p>Listings - What People Need</p>
+        </div>
+
+        {this.emptyResult() ? (
+
+            <p className="err-msg">No result found</p>
+
+        ) : (
+
+          <Row className="justify-content-md-center">
+
+          {this.state.listings.map(item => (
+             <Col lg={6} md={6} sm={12} xs={12}>
+                 {this.setMedia(item.product_image)}
+             <hr />
+             <div>
+             <p style={{ fontWeight: 'bold', fontSize: 20, textAlign: 'center'}}>I NEED: {item.product_name}</p>
+             <p><b>LIKE SO:</b> {item.product_description}</p>
+             <p><b>MY BUDGET:</b> {item.budget}</p>
+             <p style={{ textAlign: 'center'}}><b>LOOKS LIKE THIS:</b> <Image width="auto" height="400px" src={ `${this.state.media}` } alt="product image" responsive/></p>
+             <hr />
+             
+                  <Row>
+                  <Col lg={6} md={6} sm={6} xs={6}>
+                      <a href={ 'https://api.whatsapp.com/send?phone=' + item.phone}>
+                           <div className="contact-button">Whatsapp<div glyph="envelope"/></div>
+                      </a>
+                  </Col>
+                  <Col lg={6} md={6} sm={6} xs={6}>
+                   <a href={ `tel:${item.phone}`}>
+                       <div className="contact-button">Phone<div glyph="phone"/></div>
+                   </a>
+                      
+                  </Col>
+                  </Row>
+
              </div>
-
-             <br /><br /><br />
-
-        <Row>
-          <Col lg={3} lgOffset={1} md={3} mdOffset={1} smHidden xsHidden>
-          <div className="eshop-category-menu">
-          <p className="eshop-category-header">Sort Listings By Category</p>
-          <p>
-              <Button onClick={this.sortByCategory.bind(this, 99)}>
-                All Categories
-              </Button>
-            </p>
-          {this.state.categorylist.map(item => (
-
-            <p>
-              <Button onClick={this.sortByCategory.bind(this, item.id)}>
-                {item.name}
-              </Button>
-            </p>
-
+             <hr />
+             </Col>
           ))}
 
-          </div>
-          </Col>
+          </Row>
 
-        
-          <Col lgHidden mdHidden sm={12} xs={12}>
-              <Form>
-              <FormGroup>
-                    <div>Sort Listings by Category</div>
-                <p>
-                    {this.state.isLoading ? (
-                    <div>
-                        <p><b><i>Fetching Categories</i></b></p>
-                            <p><Spinner color="#ff0000" size={32}/></p>
-                        </div>
-                    ) : (
-                    <div/>
-                    )}
-                </p>
-            <FormControl 
-                componentClass="select"
-                placeholder="select" 
-                id="category" 
-                name="category"
-                onChange={this.sortByCategory.bind(this, false)}>
-                <option value="99">All Categories</option>
-            {this.state.categorylist.map(item => (
-                <option value={item.id}>{item.name}</option>
-            ))}
-            </FormControl>
-            </FormGroup>
-            </Form>
-          </Col>
-
-
-          <Col lg={4} lgOffset={1} md={4} mdOffset={1} sm={12} xs={12}>
-          {this.state.isLoading ? (
-            <div className="isloading">
-            <p><b><i>loading...</i></b></p>
-            <p><Spinner color="#ff0000" size={32}/></p>
-            </div>
-          ) : (
-            <div className="eshop-list">
-
-             <div className="menu-header">
-              <p>Listings - What People Need</p>
-             </div>
-
-             {this.emptyResult() ? (
-
-                 <p className="err-msg">No result found</p>
-
-             ) : (
-
-               <span>
-
-               {this.state.listings.map(item => (
-                  <span>
-                      {this.setMedia(item.product_image)}
-                  <hr />
-                  <div>
-                  <p style={{ fontWeight: 'bold', fontSize: 20, textAlign: 'center'}}>I NEED: {item.product_name}</p>
-                  <p><b>LIKE SO:</b> {item.product_description}</p>
-                  <p><b>MY BUDGET:</b> {item.budget}</p>
-                  <p style={{ textAlign: 'center'}}><b>LOOKS LIKE THIS:</b> <Image width="auto" height="400px" src={ `${this.state.media}` } alt="product image" responsive/></p>
-                  <hr />
-                  
-                       <Row>
-                       <Col lg={6} md={6} sm={6} xs={6}>
-                           <a href={ 'https://api.whatsapp.com/send?phone=' + item.phone}>
-                                <div className="contact-button">Whatsapp<div glyph="envelope"/></div>
-                           </a>
-                       </Col>
-                       <Col lg={6} md={6} sm={6} xs={6}>
-                        <a href={ `tel:${item.phone}`}>
-                            <div className="contact-button">Phone<div glyph="phone"/></div>
-                        </a>
-                           
-                       </Col>
-                       </Row>
-
-                  </div>
-                  <hr />
-                  </span>
-               ))}
-
-               </span>
-
-             )}
+        )}
 
 
 
-             </div>
-          )}
+        </div>
+     )}
 
-          </Col>
-        </Row>
+     </Col>
+   </Row>
 
 
-           </section>
-         )
-       }
+      </section>
+    )
   }
+}

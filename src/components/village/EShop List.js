@@ -117,111 +117,116 @@ emptyResult(){
 
 
 
-       render() {
-         return (
-           <section>
-           <div className="menu-navigation">
+  render() {
+    return (
+      <section>
 
-           <Col lg={3} md={3} sm={12} xs={12}>
-            <p>Iwansell</p>
-           </Col>
+      <div className="menu-navigation">
+     
+     <Row className="justify-content-md-center">
+      <Col lg={6} md={6} sm={12} xs={12}>
+       <p>Iwansell eShops</p>
+      </Col>
 
-            <Form inline>
+      <Col lg={6} md={6} sm={12} xs={12}>
 
-           <FormGroup>
-    <InputGroup>
-    <FormControl
-       id="eshop_name"
-       type="text"
-       name="eshop_name"
-       placeholder="Find e-shop"
-       size="50"
-       inputRef={(ref) => { this.inputSearchPhrase = ref; }}
-       />
+       <Form inline>
+
+      <FormGroup>
+<InputGroup>
+<Form.Control
+  id="eshop_name"
+  type="text"
+  name="eshop_name"
+  placeholder="Find e-shop"
+  inputRef={(ref) => { this.inputSearchPhrase = ref; }}
+/>
 
 
-      <InputGroup.Button>
-        <Button onClick={this.submitForm.bind(this)}><div glyph="search"/></Button>
-      </InputGroup.Button>
-    </InputGroup>
-  </FormGroup>
-           </Form>
-             </div>
+ <InputGroup.Append>
+   <Button onClick={this.submitForm.bind(this)}>Search</Button>
+ </InputGroup.Append>
+</InputGroup>
+</FormGroup>
+      </Form>
 
-             <br /><br /><br />
+   </Col>
+   </Row>
+        </div>
 
-        <Row>
-          <Col lg={3} lgOffset={1} md={3} mdOffset={1} smHidden xsHidden>
-          <div className="eshop-category-menu">
-          <p className="eshop-category-header">Sort eshops by category</p>
-          <p>
-              <Button onClick={this.sortByCategory.bind(this, 99)}>
-                All Categories
-              </Button>
-            </p>
-          {this.state.categorylist.map(item => (
+        <br /><br /><br />
 
-            <p>
-              <Button onClick={this.sortByCategory.bind(this, item.id)}>
-                {item.name}
-              </Button>
-            </p>
+   <Row>
+     <Col lg={3} lgOffset={1} md={3} mdOffset={1} smHidden xsHidden>
+     <div className="eshop-category-menu">
+     <p className="eshop-category-header">Sort eshops by category</p>
+     <p>
+         <Button variant='outline-warning' onClick={this.sortByCategory.bind(this, 99)}>
+           All Categories
+         </Button>
+       </p>
+     {this.state.categorylist.map(item => (
 
+       <p>
+         <Button variant='outline-warning' onClick={this.sortByCategory.bind(this, item.id)}>
+           {item.name}
+         </Button>
+       </p>
+
+     ))}
+
+     </div>
+     </Col>
+
+     <Col lg={4} lgOffset={1} md={4} mdOffset={1} sm={12} xs={12}>
+     {this.state.isLoading ? (
+       <div className="isloading">
+       <p><b><i>loading...</i></b></p>
+       <p><Spinner color="#ff0000" size={32}/></p>
+       </div>
+     ) : (
+       <div className="eshop-list">
+
+        <div className="menu-header">
+         <p>EShop List</p>
+        </div>
+
+        {this.emptyResult() ? (
+
+            <p className="err-msg">No result found</p>
+
+        ) : (
+
+          <span>
+
+          {this.state.eshop_list.map(item => (
+              <span>
+              <hr />
+              <div>
+              <p className="eshop-name"><Link to={`/eshop/${ item.id }`}>
+              {item.name}
+              </Link>
+              </p>
+              <EShopCategory eshop_id = {item.id}/>
+              <p><i>{item.about}</i></p>
+              </div>
+              <hr />
+              </span>
           ))}
 
-          </div>
-          </Col>
+          </span>
 
-          <Col lg={4} lgOffset={1} md={4} mdOffset={1} sm={12} xs={12}>
-          {this.state.isLoading ? (
-            <div className="isloading">
-            <p><b><i>loading...</i></b></p>
-            <p><Spinner color="#ff0000" size={32}/></p>
-            </div>
-          ) : (
-            <div className="eshop-list">
-
-             <div className="menu-header">
-              <p>EShop List</p>
-             </div>
-
-             {this.emptyResult() ? (
-
-                 <p className="err-msg">No result found</p>
-
-             ) : (
-
-               <span>
-
-               {this.state.eshop_list.map(item => (
-                   <span>
-                   <hr />
-                   <div>
-                   <p className="eshop-name"><Link to={`/eshop/${ item.id }`}>
-                   {item.name}
-                   </Link>
-                   </p>
-                   <EShopCategory eshop_id = {item.id}/>
-                   <p><i>{item.about}</i></p>
-                   </div>
-                   <hr />
-                   </span>
-               ))}
-
-               </span>
-
-             )}
+        )}
 
 
 
-             </div>
-          )}
+        </div>
+     )}
 
-          </Col>
-        </Row>
+     </Col>
+   </Row>
 
-
-           </section>
-         )
-       }
+      </section>
+    )
   }
+}

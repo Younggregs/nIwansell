@@ -1,5 +1,6 @@
 import React from 'react';
 import { Container , Row, Col } from 'react-bootstrap';
+import NavigationHeader from './neighborhoods/blocks/Navigation Header'
 import NewProductForm from './neighborhoods/blocks/houses/New Product Form.js';
 import NewEShopProductForm from './neighborhoods/blocks/houses/New EShop Product Form'
 import Footer from './neighborhoods/Footer.js';
@@ -42,28 +43,30 @@ export default class NewProduct extends React.Component {
   }
 
 
-      render() {
-        return (
-           <div className="product-manager">
-             
-             <Container>
-              <Row>
-              <Col lg={6} lgOffset={3} md={6} mdOffset={3} sm={12} xs={12}>
-              <div>
-                {this.state.eshop_exist.eshop_exist ? (
-                  <NewEShopProductForm/>
-                ) : (
-                  <NewProductForm/>
-                )}
-               
-              </div>
-              </Col>
-              </Row><br /><br />
-             </Container>
-             <GotoTop/>
-             <Footer/>
-             <Copyright/>
-           </div>
-         )
-     }
+  render() {
+    return (
+       <div className="product-manager">
+         
+         <NavigationHeader/>
+         <Container>
+          <Row className="justify-content-md-center">
+          <Col lg={6} md={6} sm={12} xs={12}>
+          <div>
+            {this.state.eshop_exist.eshop_exist ? (
+              <NewEShopProductForm/>
+            ) : (
+              <NewProductForm/>
+            )}
+           
+          </div>
+          </Col>
+          </Row><br /><br />
+         </Container>
+         <GotoTop/>
+         <Footer/>
+         <Copyright/>
+       </div>
+     )
+ }
 }
+

@@ -1,11 +1,12 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { Col, Row, Image, Button } from 'react-bootstrap'
+import { Col, Row, Image, Button, Container } from 'react-bootstrap'
 
 export default class About extends React.Component {
        render() {
          return (
            <section className="about" id="about">
+            <Container>
             <Row>
 
             <Col lg={3} md={3} sm={6} xs={6}>  
@@ -151,7 +152,7 @@ export default class About extends React.Component {
 
 
 
-
+          </Container>
            </section>
          )
        }

@@ -19,7 +19,7 @@ export default class ProductAccomplice2 extends React.Component {
     return (
        <section>
 
-        <Col lg={4} md={4} sm={12} xs={12}> 
+        <Col lg={4} md={4} sm={6} xs={6}> 
          <div className="manage-product">
          <div className="product-image">
            <div class="image">

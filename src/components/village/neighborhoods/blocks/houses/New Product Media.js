@@ -154,17 +154,8 @@ export default class MyUploader extends Component {
 
     return (
       <div className="app">
-      <Row>
-      <div className="login-appname">
-        <Col lg={6} lgOffset={4} md={6} mdOffset={4} sm={12} xs={12}>
-        <Link to="/home">
-          <AppName logged_in = {true}/>
-        </Link>
-        </Col>
-    </div>
-    </Row><br />
-
-  <Heading title="Add images of product"/>
+        <br /><br />
+        <Heading title="Add images of product"/>
 
         <ReactDropzone
           accept="image/*"
@@ -208,7 +199,7 @@ export default class MyUploader extends Component {
       <div/>
     )}
 
-        <br /><br /><Button bsStyle="success" onClick={this.submitForm.bind(this)}>Finish</Button>
+        <br /><br /><Button variant="success" onClick={this.submitForm.bind(this)}>Finish</Button>
       </div>
     );
   }

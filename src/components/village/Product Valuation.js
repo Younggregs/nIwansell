@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link, Redirect } from 'react-router-dom'
-import { Table, Row, Col, Button,FormControl, FormGroup, Form, InputGroup } from 'react-bootstrap';
+import { Table, Row, Col, Button, FormGroup, Form, InputGroup } from 'react-bootstrap';
 import MenuNavigation from './neighborhoods/Menu Navigation'
 import Spinner from 'react-activity/lib/Spinner';
 import 'react-activity/lib/Spinner/Spinner.css';
@@ -99,7 +99,7 @@ displayResult(){
 
             <FormGroup>
                 <InputGroup>
-                <FormControl
+                <Form.Control
                     id="product"
                     type="text"
                     name="product"
@@ -109,9 +109,9 @@ displayResult(){
                 />
 
 
-                <InputGroup.Button>
+            <InputGroup.Append>
             <Button onClick={this.submitForm.bind(this)}><div glyph="search"/></Button>
-            </InputGroup.Button>
+            </InputGroup.Append>
             </InputGroup>
             </FormGroup>
         </Form>

@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link, Redirect } from 'react-router-dom';
-import { Row, Col,Button,FormGroup, FormControl } from 'react-bootstrap';
+import { Row, Col,Button,FormGroup, Form } from 'react-bootstrap';
 import Heading from './Heading';
 import AppName from './App Name'
 import Spinner from 'react-activity/lib/Spinner';
@@ -209,33 +209,14 @@ render(){
 const formInstance = (
   <section className="new-product-form">
 
- <Row>
-  <div className="login-appname">
-   <Col lg={6} lgOffset={4} md={6} mdOffset={4} sm={12} xs={12}>
-  <Link to="/home">
-    <AppName logged_in = {true}/>
-  </Link>
-  </Col>
-  </div>
-</Row><br />
-
+<br />
 <Heading title="Upload product to eshop"/>
-
-
-  <Row>
-  <Col lg={6} lgOffset={4} md={6} mdOffset={4} sm={12} xs={12}>
-  <Link to="new_eshop_product">
-    <Button bsStyle="success">Add product to eshop</Button>
-  </Link>
-  </Col>
-  </Row>
 
   <br />
 
   <form>
   <FormGroup>
-      <div>Categories</div>
-      <p>
+      <Form.Label>Categories
       {this.state.isLoading ? (
         <div>
         <p><b><i>Fetching Categories</i></b></p>
@@ -244,18 +225,17 @@ const formInstance = (
         ) : (
           <div/>
         )}
-        </p>
-      <FormControl componentClass="select" placeholder="select" id="category" name="category" onChange={this.getCategoryId.bind(this)}>
+      </Form.Label>
+      <Form.Control as="select" id="category" name="category" onChange={this.getCategoryId.bind(this)}>
       <option value="99">select category</option>
       {this.state.categorylist.map(item => (
         <option value={item.id}>{item.name}</option>
       ))}
-      </FormControl>
+      </Form.Control>
     </FormGroup>
 
   <FormGroup>
-    <div>Sub-Categories</div>
-    <p>
+    <Form.Label>Sub-Categories
       {this.state.isLoading2 ? (
         <div>
         <p><b><i>Fetching Subcategories</i></b></p>
@@ -264,17 +244,17 @@ const formInstance = (
         ) : (
           <div/>
         )}
-        </p>
-      <FormControl componentClass="select" placeholder="select" id="subcategory" name="subcategory">
+      </Form.Label>
+      <Form.Control as="select" id="subcategory" name="subcategory">
       {this.state.subcategorylist.map(item => (
         <option value={item.id}>{item.name}</option>
       ))}
-      </FormControl>
+      </Form.Control>
   </FormGroup>
 
 
     <FormGroup>
-      <div>Product Name
+    <Form.Label>Product Name
       {this.state.product_name_err ? (
       <span className="err-msg">
        * product name required 
@@ -282,14 +262,14 @@ const formInstance = (
     ) : (
       <div/>
     )}
-      </div>
-      <FormControl placeholder="e.g Samsung s6 edge" id="product_name" name="product_name"/>
+      </Form.Label>
+      <Form.Control placeholder="e.g Samsung s6 edge" id="product_name" name="product_name"/>
     </FormGroup>
 
 
   
     <FormGroup controlId="formControlsTextarea">
-      <div>Describe Product
+     <Form.Label>Describe Product
       {this.state.description_err ? (
       <span className="err-msg">
        * description required 
@@ -297,13 +277,13 @@ const formInstance = (
     ) : (
       <div/>
     )}
-      </div>
-      <FormControl componentClass="textarea" placeholder="e.g Gold plated, 64gb ROM, 3gb ROM, used ..." id="description" name="description"/>
+      </Form.Label>
+      <Form.Control componentClass="textarea" placeholder="e.g Gold plated, 64gb ROM, 3gb ROM, used ..." id="description" name="description"/>
     </FormGroup>
 
       
     <FormGroup>
-      <div>Starting Price
+     <Form.Label>Starting Price
       {this.state.starting_price_err ? (
       <span className="err-msg">
        * starting price required 
@@ -311,8 +291,8 @@ const formInstance = (
     ) : (
       <div/>
     )}
-      </div>
-      <FormControl placeholder="e.g 70k" id="starting_price" name="starting_price"/>
+      </Form.Label>
+      <Form.Control placeholder="e.g 70k" id="starting_price" name="starting_price"/>
       <div>Set a reasonable price, as low as you can get. Its proven to work!</div>
     </FormGroup>
 
@@ -333,7 +313,7 @@ const formInstance = (
 
 
  <FormGroup>
-   <Button bsStyle="success" onClick={this.nextView.bind(this)}>Continue</Button>
+   <Button variant="success" onClick={this.nextView.bind(this)}>Continue</Button>
  </FormGroup>
  </form>
   </section>

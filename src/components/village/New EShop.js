@@ -1,5 +1,5 @@
 import React from 'react'
-import Navigation from './neighborhoods/Navigation'
+import NavigationHeader from './neighborhoods/blocks/Navigation Header'
 import NewEShopForm from './neighborhoods/blocks/houses/New EShop Form'
 
 export default class NewEShop extends React.Component {
@@ -7,7 +7,7 @@ export default class NewEShop extends React.Component {
        render() {
          return (
            <section className="new-eshop">
-             <Navigation logged_in = {this.logged_in}/>
+             <NavigationHeader logged_in = {this.logged_in}/>
              <NewEShopForm/>
 
            </section>
