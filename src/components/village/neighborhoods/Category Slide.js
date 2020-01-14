@@ -47,26 +47,52 @@ setMedia(media_name){
 
 
           var settings_sm = {
-            slideToShow: 3,
-            slideToScroll: 2,
-            arrows: false,
+            dots: true,
             infinite: true,
-            autoplay: true,
-            autoplaySpeed: 1000,
-            speed: 2000,
+            speed: 500,
+            slidesToShow: 2,
+            slidesToScroll: 1
           };
 
          return (
            <section>
              <Row>
-              <Col lg={12} md={12} smHidden xsHidden>
+              <Col lg={12} md={12} className="d-none d-md-block">
                     <Heading title="SHOP BY CATEGORY"/>
 
                     <section className="category-slide">
 
                        <Slider {...settings_lg}>
                        {this.state.categoryList.map(item => (
-                         <Col lg={3} md={3} smHidden xsHidden>
+                         <Col lg={3} md={3}>
+
+                        <div className="slide-items">
+
+                        {this.setMedia(item.image)}
+                        <div className="product-image">
+                           <div class="image">
+                            <Link to={`/category_view/${ item.id }`}>
+                              <Image src= { `${this.state.media}` } alt="iwansell" responsive/>
+                            </Link>
+                         </div></div>
+                         </div>
+                         <p>{item.name}</p>
+
+                         </Col>
+                       ))}
+
+                       </Slider>
+                    </section>
+                </Col>
+
+                <Col sm={12} xs={12} className="d-md-none">
+                    <Heading title="SHOP BY CATEGORY"/>
+
+                    <section className="category-slide">
+
+                       <Slider {...settings_sm}>
+                       {this.state.categoryList.map(item => (
+                         <Col sm={12} xs={12}>
 
                         <div className="slide-items">
 

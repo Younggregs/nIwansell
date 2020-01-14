@@ -175,7 +175,7 @@ async getMarket(id){
                  </Row>
 
                  <Row>
-                  <Col lg={7} md={7} className="d-none d-sm-block d-xs-block">
+                  <Col lg={7} md={7} className="d-none d-md-block">
                     <Introduction />
                   </Col>
 

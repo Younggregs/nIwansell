@@ -45,23 +45,26 @@ export default class ProductSlideShow extends React.Component {
                  <p className="trending-title-t">More Media</p>
                </div>
                </Row>
+
          
          <Row className="justify-content-md-center">
+         <section className="more-media">
          <Slider {...settings}>
              
                {this.state.imagesList.map(item => (
-                 <div className="slide-items">
+
                    <div className="sponsored-images">
                      <div className="sponsored-image">
                        {this.setMedia(item.image)}
-                       <Image src= { `${this.state.media}` } alt="product images"/>
-                   </div>
+                       <Image src= { `${this.state.media}` } alt="product images" responsive/>
                    </div>
                  </div>
+
                 )
                )}
 
          </Slider>
+         </section>
          </Row>
 
           </section>

@@ -26,7 +26,7 @@ export default class MoreMedia extends React.Component {
 
        render() {
          return (
-           <Container>
+           <Container fluid="true">
                 <Row className="justify-content-md-center">
                   <ProductSlideShow product_id = {this.props.product_id}/>
   

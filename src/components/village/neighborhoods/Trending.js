@@ -233,7 +233,7 @@ export default class Trending extends React.Component {
 
 
            <Row>
-           <Col lg={12} md={12} className="d-none d-sm-block d-xs-block">
+           <Col lg={12} md={12} className="d-none d-md-block">
 
              <CategoryProduct campus_id={this.props.campus_id} show_more={true}/>
            </Col>

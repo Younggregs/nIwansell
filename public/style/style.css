@@ -736,7 +736,7 @@ td{
 
 .sm-eshop-navigation{
 
-  background-color: rgb(7, 3, 31);
+  background-color: #01579b;
   height: 70px;
   font-size: 1.5em;
 
@@ -748,14 +748,15 @@ td{
 
 .sponsored-images {
   font-size: 0;
-  margin: 0 20 20 0;
-  text-align: center;
-  box-shadow: 0 0 1px black;
-  font-size: 0;
   text-align: center ;
-  width: 100%;
+  width: 80%;
   height: 300px;
   line-height: 300px;
+  margin: 20px;
+}
+
+.more-media {
+  width: 100%;
 }
 
 
@@ -785,16 +786,12 @@ td{
 }
 
 .sponsored {
-  margin: 15;
   background: #01579b;
+  background-image: url('m-m.svg');
   width: 100%;
-  height: 350px;
+  min-height: 350px;
   text-align: center;
   color: white;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
 }
 
 .iwansell-tv-title{
@@ -1169,12 +1166,16 @@ img{
   text-align: center;
 }
 
+#footer{
+  color: gray;
+  font-size: 15px;
+}
+
 .footer{
   background-color:  #052f50;
   height: auto;
   color: gray;
   font-size: 15px;
-  padding: 5px;
 }
 
 .welcome-message{
@@ -1509,7 +1510,6 @@ img{
   align-items: center;
   justify-content: center;
   font-family: "Lexend Exa";
-  padding: 5px;
 }
 
 .login-appname{
