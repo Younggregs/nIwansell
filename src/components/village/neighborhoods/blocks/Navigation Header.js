@@ -23,34 +23,20 @@ export default class NavigationHeader extends React.Component {
                   <p className="school"> <Button variant="outline-warning">This is {this.props.market} Marketplace</Button> </p>
                 </Col>
 
-                <Col lg={2} md={2} >
-                  <Button variant="warning">Sell Now!</Button>
-                </Col>
-
-                
-
-                { 
-                /*  <Col sm={6} xs={6}>
-                   <p><b>{this.props.market}</b> Campus Marketplace</p>
+                {this.props.logged_in ? (
+                  <Col lg={2} md={2} >
+                  <Link to={`/newproduct/`}>
+                    <Button variant="warning">Sell Now!</Button>
+                  </Link>
                   </Col>
-
-                  <Col lgHidden mdHidden sm={3} xs={3}>
-                  <Link to="/newproduct">
-                  <Button bsStyle="primary">
-                    <span> SELL </span>
-                  </Button>
-                 </Link>&nbsp;&nbsp;
+                ) : (
+                  <Col lg={2} md={2} >
+                  <Link to={`/signup`}>
+                    <Button variant="warning">Sell Now!</Button>
+                  </Link>
                   </Col>
+                )}
 
-                  <Col lgHidden mdHidden sm={3} xs={3}>
-                  <Link to="/buyer_transaction_window">
-                  <Button bsStyle="info">
-                    <span> BUY </span>
-                  </Button>
-                  </Link>&nbsp;&nbsp;
-                  </Col>
-                */
-              }
             </Row>
 
            </section>

@@ -51,15 +51,11 @@ export default class UpperNavigationRoutes extends React.Component {
 
               {this.props.logged_in ? (
                   <Col lg={3} md={3} sm={6} xs={6} className="post-object2" id="post-object2">
-                    {true ? (
-                        <Link to = "/profile">
+                        <Link to={`/profile/${ this.props.account_id }`}>
                            <p>Profile</p> 
                            <p><Image width="50px" height="50px" src={ require ('./houses/images/signup.svg') } alt="iwansell" responsive/></p>
                            <p className="school">...to your profile</p>
                         </Link>
-                    ) : (
-                        <span></span>
-                    )}
                   </Col>
 
                 ) : (
@@ -124,14 +120,26 @@ export default class UpperNavigationRoutes extends React.Component {
                 )}
 
 
-                  <Col lg={3} md={3} sm={6} xs={6} className="post-object" id="post-object">
-                        <Link to={`/channel/${ this.props.campus_id }/`}>
-                           <p>TV</p> 
-                           <p><Image width="50px" height="50px" src={ require ('./houses/images/tv.svg') } alt="iwansell" responsive/></p>
-                           <p className="school">...latest news, gist</p>
-                        </Link>
-                    </Col>
+                  {this.props.logged_in ? (
+                  <Col lg={3} md={3} sm={6} xs={6} className="post-object" id="post-object2">
+                  <Link to = "/newproduct">
+                     <p>Sell Now</p> 
+                     <p><Image width="50px" height="50px" src={ require ('./houses/images/sell-n.svg') } alt="iwansell" responsive/></p>
+                     <p className="school-2">...upload your items now!</p>
+                  </Link>
+              </Col>
 
+                ) : (
+                  <Col lg={3} md={3} sm={6} xs={6} className="post-object" id="post-object2">
+                  <Link to = "/signin">
+                 
+                         <p>Sell Now</p> 
+                         <p><Image width="50px" height="50px" src={ require ('./houses/images/sell-n.svg') } alt="iwansell" responsive/></p>
+                         <p className="school-2">...upload your items now!</p>
+                  </Link>
+                  </Col>
+
+                )}
 
 
                </Row>
