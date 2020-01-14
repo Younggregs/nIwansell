@@ -62,18 +62,16 @@ export default class Profile extends React.Component {
   }
 
 
-      render() {
-        return (
-           <div className="profile">
-             <div className="search-page">
-                <NavigationHeader/>
-                <Post logged_in = {this.state.isloggedin}/>
-                <ProfileDetails logged_in = {this.state.isloggedin} is_myprofile={this.state.is_myprofile} profile_id= {this.props.match.params.profile_id}/>
-             </div> 
-             <GotoTop/>
-             <Footer logged_in = {this.state.isloggedin}/>
-             <Copyright/>
-           </div>
-         )
-     }
+  render() {
+    return (
+       <div className="profile">
+         <NavigationHeader/>
+         <ProfileDetails logged_in = {this.state.isloggedin} is_myprofile={this.state.is_myprofile} profile_id= {this.props.match.params.profile_id}/>
+          <br /><br />
+         <GotoTop/>
+         <Footer logged_in = {this.state.isloggedin}/>
+         <Copyright/>
+       </div>
+     )
+ }
 }
