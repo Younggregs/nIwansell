@@ -8,19 +8,17 @@ export default class EShopProduct extends React.Component {
       title = "Products & services"
        render() {
          return (
-           <section className="sponsored">
              <Container>
-               <Row>
+               <Row className="justify-content-center">
                 <Heading title={this.title}/>
                </Row>
-               <Row>
+               <Row className="justify-content-center">
                  <EShopStore eshop_id = {this.props.eshop_id}/>
               </Row>
-              <Row>
+              <Row className="justify-content-center">
                 <Copyright/>
               </Row>
              </Container>
-           </section>
          )
        }
   }

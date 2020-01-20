@@ -32,74 +32,42 @@ export default class EShopStore2 extends React.Component {
   }
 
 
-       render() {
-         return (
-           <section className="trending">
-             <Container>
-             <Row>
-              <Col lg={12} md={12} smHidden xsHidden>
-                <Row>
-                <Heading title={this.props.name} store={true}/>
+  render() {
+    return (
+      <section className="trending">
+        <Container>
+        <Row>
+         <Col lg={12} md={12} sm={12} xs={12}>
+           <Row>
+           <Heading title={this.props.name} store={true}/>
 
 
-                {this.state.eshop_store.map(item =>
+           {this.state.eshop_store.map(item =>
 
-                <Col lg={3} md={3} smHidden xsHidden>
+           <Col lg={3} md={3} smHidden xsHidden>
 
-               <Link to={`/product/${ item.id } `}>
+          <Link to={`/product/${ item.id } `}>
 
-                  {this.setMedia(item.product_image)}
+             {this.setMedia(item.product_image)}
 
-                  <ProductImage media={this.state.media}/>
-                  </Link>
+             <ProductImage media={this.state.media}/>
+             </Link>
 
-               <Link to={`/product/${ item.id } `}>
-                  <p className="lg-store">{item.product_name}</p>
-                  <p className="lg-store">Starting price : {item.starting_price}</p>
-               </Link>
+          <Link to={`/product/${ item.id } `}>
+             <Button variant='outline-dark'>{item.product_name}</Button><br />
+             <Button variant='dark'>{item.starting_price}</Button>
+          </Link>
 
-                </Col>
+           </Col>
 
-                )}
-                </Row>
-
-
-             </Col>
+           )}
+           </Row>
 
 
-
-
-             <Col sm={12} xs={12} lgHidden mdHidden>
-                <Row>
-                <Heading title={this.props.name} store={true}/>
-
-
-                <div class="scrolling-wrapper-eshop">
-
-                {this.state.eshop_store.map(item =>
-
-                <div class="card-eshop">
-                  <Link to={`/product/${ item.id } `}>
-
-                  {this.setMedia(item.product_image)}
-
-                  <img src= { `${this.state.media}` } alt="thumbnail"/>
-                  </Link>
-                  <p className="sm-store">{item.product_name}</p>
-                  <p className="sm-store">Starting price : {item.starting_price}</p>
-                </div>
-                )}
-
-              </div>
-
-              </Row>
-
-             </Col>
-
-
-             </Row>
-             </Container>
-           </section>
-         )
-       }
+        </Col>
+        </Row>
+        </Container>
+      </section>
+    )
   }
+}
