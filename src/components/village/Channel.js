@@ -32,7 +32,7 @@ export default class Channel extends React.Component {
         return (
           <section className="channel-bg" id="channel-bg">
             <NavigationHeader/>
-            <Container>
+            <Container fluid="true">
               <Row>
                 <Col lg={8} md={8} sm={12} xs={12}>
                 <div className="iwansell-tv-title">

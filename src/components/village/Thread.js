@@ -320,13 +320,14 @@ export default class Thread extends React.Component {
                         {this.setMedia(this.state.thread.media, this.state.thread.logo, this.state.thread.following, this.state.thread.votes)}
 
                         <Row>
-                        <Col lg={3} md={3} sm={4} xs={4}>
+                        <Col lg={6} md={6} sm={6} xs={6}>
                             <div className="a-row"><Image src= { `${this.state.logo}` } height="40" width="40" alt="iwansell-logo" responsive rounded/>
                                 <p style={{ fontWeight: 'bold', fontSize: 20, fontFamily: 'Baloo Bhai' }}>{this.state.thread.channel}</p></div>
                         </Col>
-                        <Col lg={6} md={6} sm={5} xs={5}>
+                        <Col lg={6} md={6} sm={6} xs={6}>
                           <p style={{ fontWeight: 'bold', fontSize: 15, fontFamily: 'Baloo Bhai' }}>Posted By {this.state.thread.firstname}#{this.state.thread.lastname} <FormatDate date={this.state.thread.date}/></p>
                         </Col>
+                        {/*}
                         <Col lg={2} md={2} sm={2} xs={2}>
                         {this.state.isLoading2 ? (
                             <p>following...</p>
@@ -355,6 +356,7 @@ export default class Thread extends React.Component {
                         </div>
                             )}
                         </Col>
+                        */}
                         </Row>
 
                     <div style={{ margin: 10 }}>

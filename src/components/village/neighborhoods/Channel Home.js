@@ -228,14 +228,15 @@ export default class ChannelHome extends React.Component {
                                 {this.setMedia(item.media, item.logo, item.following, item.votes)}
 
                             <Row>
-                                <Col lg={3} md={3} sm={4} xs={4}>
+                                <Col lg={6} md={6} sm={6} xs={6}>
                                     <div className="a-row"><Image src= { `${this.state.logo}` } height="40" width="40" alt="iwansell-logo" responsive rounded/>
                                         <p style={{ fontWeight: 'bold', fontSize: 20 }}>{item.channel}</p></div>
                                 </Col>
-                                <Col lg={6} md={6} sm={5} xs={5}>
+                                <Col lg={6} md={6} sm={6} xs={6}>
                                     <p>Posted By {item.firstname}#{item.lastname} <FormatDate date={item.date}/></p>
                                 </Col>
-                                <Col lg={2} md={2} sm={2} xs={2}>
+
+                               {/* } <Col lg={2} md={2} sm={2} xs={2}>
                                     {this.state.isLoading2 ? (
                                         <p>following...</p>
                                     ) : (
@@ -248,6 +249,7 @@ export default class ChannelHome extends React.Component {
                                         </div>
                                     )}
                                 </Col>
+                              */}
                             </Row>
                             <Link to={`/thread/${ item.thread_id }`}>
                             <div style={{ margin: 10 }}>
