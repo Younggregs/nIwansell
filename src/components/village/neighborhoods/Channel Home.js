@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { Container, Row, Col, Image, Button } from 'react-bootstrap'
+import { Grid, Row, Col, Image, Button } from 'react-bootstrap'
 import FormatDate from './blocks/houses/Format Date'
 import Share from './blocks/houses/Share'
 import FloatingActionButton2 from './blocks/houses/Floating Action2'
@@ -9,6 +9,8 @@ import Spinner from 'react-activity/lib/Spinner';
 import 'react-activity/lib/Spinner/Spinner.css';
 import ReactPlayer from 'react-player'
 import fileType from './blocks/houses/FileType'
+
+var FontAwesome = require('react-fontawesome')
 
 
 export default class ChannelHome extends React.Component {
@@ -239,9 +241,9 @@ export default class ChannelHome extends React.Component {
                                     ) : (
                                         <div>
                                             {this.state.following ? (
-                                                <Button disabled><div glyph="check"/>Following</Button>
+                                                <Button variant="outline-info" disabled><div glyph="check"/>Following</Button>
                                             ) : (
-                                                <Button bsStyle="info" onClick={() => this.follow(item.channel_id)}><div glyph="check"/>Follow</Button>
+                                                <Button variant="outline-info" onClick={() => this.follow(item.channel_id)}><div glyph="check"/>Follow</Button>
                                             )}
                                         </div>
                                     )}
@@ -251,10 +253,10 @@ export default class ChannelHome extends React.Component {
                             <div style={{ margin: 10 }}>
                                 
                                 <p style={{ fontWeight: 'bold', fontSize: 20}}>{item.title}</p>
-                                <p>{this.getThread(item.thread)}<Button bsStyle="info"><div glyph="tasks"/>Continue To Conversation</Button></p>
+                                <p>{this.getThread(item.thread)}<Button variant="outline-info"><div glyph="tasks"/>Continue To Conversation</Button></p>
                                       {this.isFile(item.media)}
                                       {this.state.is_video ? (
-                                        <ReactPlayer controls={true} url={ `${this.state.media}` } width='100' height='100%' playing={false} />
+                                        <ReactPlayer controls={true} url={ `${this.state.media}` } width='100' height='100%' />
                                       ) : (
                                         <Image  src= { `${this.state.media}` } alt="image" responsive rounded/>
                                       )}
@@ -264,7 +266,13 @@ export default class ChannelHome extends React.Component {
 
                             <Row>
                                 <Col lg={1} md={1} sm={1} xs={1}>
-                                    <div glyph="arrow-up" onClick={() => this.vote(1, item.thread_id)}/>
+                                <FontAwesome
+                                  className="super-crazy-colors"
+                                  name="arrow-up"
+                                  size="1x"
+                                  style={{ textShadow: '0 1px 0 rgba(0, 0, 0, 0.1)' }}
+                                  onClick={() => this.vote(1, item.thread_id)}
+                                />
                                 </Col>
                                 <Col lg={1} md={1} sm={1} xs={1}>
                                     {this.state.votesent ? (
@@ -275,7 +283,13 @@ export default class ChannelHome extends React.Component {
                                     
                                 </Col>
                                 <Col lg={1} md={1} sm={1} xs={1}>
-                                    <div glyph="arrow-down" onClick={() => this.vote(0, item.thread_id)}/>
+                                <FontAwesome
+                                  className="super-crazy-colors"
+                                  name="arrow-down"
+                                  size="1x"
+                                  style={{ textShadow: '0 1px 0 rgba(0, 0, 0, 0.1)' }}
+                                  onClick={() => this.vote(0, item.thread_id)}
+                                />
                                 </Col>
 
                                 <Col lg={2} md={2} sm={2} xs={2}>

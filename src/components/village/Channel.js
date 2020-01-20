@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { Container, Row, Col, Image, Button  } from 'react-bootstrap'
+import { Container, Row, Col, Image, Button } from 'react-bootstrap'
 import NavigationHeader from './neighborhoods/blocks/Navigation Header'
 import Post from './neighborhoods/blocks/houses/Post'
 import Footer from './neighborhoods/Footer'
@@ -30,32 +30,32 @@ export default class Channel extends React.Component {
       render() {
 
         return (
-          <section>
+          <section className="channel-bg" id="channel-bg">
             <NavigationHeader/>
             <Container>
               <Row>
-                <Col lg={8} md={8} smHidden xsHidden>
+                <Col lg={8} md={8} sm={12} xs={12}>
                 <div className="iwansell-tv-title">
                   <p className="trending-title">Iwansell TV</p>
                   <p>... a collection of channels from the best bloggers on campus. Be entertained and enlightened, gist and discuss, enjoy!</p>
                 </div>
                     
                       {this.state.home ? (
-                        <Row>
-                          <Col lg={3} lgOffset={3} md={3} mdOffset={3} sm={4} smOffset={2} xs={4} xsOffset={2}>
-                            <Button bsSize="large" bsStyle="info" onClick={() => this.switchView(1)}>Home</Button>
+                        <Row className="channel-title-bg">
+                          <Col lg={6} md={6} sm={6} xs={6}>
+                            <Button variant="info" block onClick={() => this.switchView(1)}>Home</Button>
                           </Col>
                           <Col lg={6} md={6} sm={6} xs={6}>
-                            <Button bsSize="large" onClick={() => this.switchView(0)}>Trending</Button>
+                             <Button variant="outline-warning" block onClick={() => this.switchView(0)}>Trending</Button>
                           </Col>
                           </Row>
                         ) : (
-                            <Row>
-                              <Col lg={3} lgOffset={3} md={3} mdOffset={3} sm={4} smOffset={2} xs={4} xsOffset={2}>
-                                <Button onClick={() => this.switchView(1)}>Home</Button>
+                            <Row className="channel-title-bg">
+                              <Col lg={6} lgOffset={3} md={6} sm={6} xs={6}>
+                                <Button variant="outline-info" block onClick={() => this.switchView(1)}>Home</Button>
                               </Col>
                               <Col lg={6} md={6} sm={6} xs={6}>
-                                <Button bsStyle="info" onClick={() => this.switchView(0)}>Trending</Button>
+                                <Button variant="warning" block onClick={() => this.switchView(0)}>Trending</Button>
                               </Col>
                             </Row>
                       )}
@@ -67,7 +67,7 @@ export default class Channel extends React.Component {
                       <ChannelTrending campus_id={this.props.match.params.campus_id}/>
                     )}
                 </Col>
-                <Col lg={4} md={4} smHidden xsHidden>
+                <Col lg={4} md={4} className="d-none d-sm-block d-xs-block">
                         <div className="thread">
                             <Image src={ require ('./neighborhoods/blocks/houses/images/n.jpg') } alt="iwansell-logo" responsive rounded/>
                             <Image src={ require ('./neighborhoods/blocks/houses/images/nn.jpg') } alt="iwansell-logo" responsive rounded/>
@@ -77,41 +77,6 @@ export default class Channel extends React.Component {
                 </Row>
              </Container>
 
-             <Row>
-               <Col lgHidden mdHidden sm={12} xs={12}>
-
-               <div className="iwansell-tv-title">
-                  <p className="trending-title">Iwansell TV</p>
-                  <p>... a collection of channels from the best bloggers on campus. Be entertained and enlightened, gist and discuss, enjoy!</p>
-                </div>
-
-               {this.state.home ? (
-                        <Row>
-                          <Col sm={4} smOffset={2} xs={4} xsOffset={2}>
-                            <Button bsStyle="info" bsSize="large" onClick={() => this.switchView(1)}>Home</Button>
-                          </Col>
-                          <Col sm={6} xs={6}>
-                            <Button bsSize="large" onClick={() => this.switchView(0)}>Trending</Button>
-                          </Col>
-                          </Row>
-                        ) : (
-                            <Row>
-                              <Col sm={4} smOffset={2} xs={4} xsOffset={2}>
-                                <Button onClick={() => this.switchView(1)}>Home</Button>
-                              </Col>
-                              <Col sm={6} xs={6}>
-                                <Button bsStyle="info" onClick={() => this.switchView(0)}>Trending</Button>
-                              </Col>
-                            </Row>
-                      )}
-
-                      {this.state.home ? (
-                      <ChannelHome campus_id={this.props.match.params.campus_id}/>
-                        ) : (
-                      <ChannelTrending campus_id={this.props.match.params.campus_id}/>
-                    )}
-               </Col>
-             </Row>
              
              <br /><br />
              <Footer logged_in={this.state.isLoggedIn}/>

@@ -168,8 +168,8 @@ async getMarket(id){
                  <Row>
                  <Col lg={12} md={12} sm={12} xs={12}>
                    <div className="intro-header">
-                      <p><Image width="50px" height="50px" src={ require ('./neighborhoods/blocks/houses/images/nicon-white.png') } alt="iwansell" responsive/></p>
                       <p>Iwansell</p>
+                      <p><Image width="50px" height="50px" src={ require ('./neighborhoods/blocks/houses/images/nicon-white.png') } alt="iwansell" responsive/></p>
                     </div>
                   </Col>
                  </Row>

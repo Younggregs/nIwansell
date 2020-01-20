@@ -22,6 +22,21 @@ a{
   font-family: "Ubuntu";
 }
 
+.channel-bg{
+  background:#E1E8ED;
+  font-size: 15px;
+}
+
+.channel-title-bg{
+  margin:10px;
+}
+
+#channel-bg a{
+  color: black;
+  font-size: 15px;
+  font-family: "Ubuntu";
+}
+
 #go-to-top a{
   color: white;
   font-size: 15px;
@@ -107,7 +122,9 @@ a{
   width: 100%;
   background: white;
   border-radius: 5px;
+  box-shadow: 0 0 2px #666;
   padding: 10px;
+  margin-bottom: 10px;
 }
 
 .a-row{
@@ -786,7 +803,7 @@ td{
 
 .sponsored {
   background: #01579b;
-  background-image: url('m-m.svg');
+  background-image: url('c-d.svg');
   width: 100%;
   min-height: 350px;
   text-align: center;
@@ -1149,7 +1166,6 @@ img{
 .profile-description{
 
   background-color: #01579b;
-  background-image: url('m-m.svg');
   padding-bottom: 5px;
 
 }
@@ -1344,7 +1360,7 @@ img{
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  font-family: 'Lexend Exa';
+  font-family: 'Baloo Bhai';
 }
 
 .intro-header-2{

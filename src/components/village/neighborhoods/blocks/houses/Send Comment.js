@@ -1,15 +1,16 @@
 import React from 'react'
 import { Redirect } from 'react-router-dom'
-import { Button, Col, Row, FormControl, FormGroup, Form, InputGroup } from 'react-bootstrap'
+import { Button,  Col, Row, FormControl, FormGroup, Form, InputGroup } from 'react-bootstrap'
 import { confirmAlert } from 'react-confirm-alert'
 import 'react-confirm-alert/src/react-confirm-alert.css'
+
+var FontAwesome = require('react-fontawesome')
 
 export default class SendComment extends React.Component {
 
     state = {
         comment_err: false,
         message: [],
-        status: false
     }
 
     fetchThread(){
@@ -89,26 +90,24 @@ export default class SendComment extends React.Component {
       
                 var formData = new FormData()
                 formData.append('comment', comment)
+                formData.append('account_id', this.props.account_id)
         
                 try {
                   const res = await fetch('https://www.iwansell.com/api/comment/' + this.props.thread_id + '/', {
         
                    body : formData,
                    method: 'POST',
-                   credentials: 'same-origin',
-                   mode: 'cors',
                    headers : {
                     'Authorization' : 'Token ' + auth
                   },
-        
+
                   })
                   const message = await res.json();
-                  
                     this.setState({
-                      message, status: true 
+                      message, rd: true 
                     });
                     alert('sent!')
-                    window.location.reload();
+                    window.location.replace("http://127.0.0.1:3000/thread/" + this.props.thread_id);
         
                 } catch (e) {
                   console.log(e);
@@ -132,14 +131,15 @@ export default class SendComment extends React.Component {
        render() {
          return (
            <section>
-          
-            
-            {this.state.status ? (
-
-              <Redirect to={`/thread/${ this.props.thread_id }`}/>
-            ) : (
-              <div onClick={() => this.customAlert()} glyph="comment">{this.props.count}</div>
-            )}
+          <FontAwesome
+              className="super-crazy-colors"
+              name="comments"
+              size="2x"
+              style={{ textShadow: '0 1px 0 rgba(0, 0, 0, 0.1)' }}
+              onClick={() => this.customAlert()}
+          >
+          {this.props.count}</FontAwesome>
+           
            </section>
          )
        }

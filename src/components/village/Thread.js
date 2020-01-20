@@ -17,6 +17,8 @@ import 'react-activity/lib/Spinner/Spinner.css';
 import ReactPlayer from 'react-player'
 import fileType from './neighborhoods/blocks/houses/FileType'
 
+var FontAwesome = require('react-fontawesome')
+
 
 export default class Thread extends React.Component {
 
@@ -271,27 +273,33 @@ export default class Thread extends React.Component {
       render() {
 
         return (
-           <div className="home">
+           <div className="channel-bg">
              
             <NavigationHeader/>
-            <Row>
-                <Col lg={3} lgOffset={3} md={3} mdOffset={3} sm={4} smOffset={2} xs={4} xsOffset={2}>
+            <Container fluid="true">
+              <Row>
+                <Col lg={8} md={8} sm={12} xs={12}>
+
+                
+            <Row className="channel-title-bg">
+                <Col lg={6} md={3} sm={6} xs={6}>
                 
                 <Link to='/channel/1'>
-                  <Button bsStyle="info" bsSize="large">Home</Button>
+                  <Button variant="info" block>Home</Button>
                 </Link>
 
                 </Col>
 
 
                 <Col lg={6} md={6} sm={6} xs={6}>
-                <Link to='channel/1'>
-                  <Button bsSize="large">Trending</Button>
+                <Link to='Channel/1'>
+                  <Button variant="warning" block>Trending</Button>
                 </Link>
                 </Col>
             </Row>
-             <Container>
-                 <Col lg={8} md={8} smHidden xsHidden>
+
+             <Container fluid="true">
+                 <Col lg={12} md={12} sm={12} xs={12}>
 
                  {this.state.isLoading ? (
                     <div className="isloading">
@@ -303,7 +311,9 @@ export default class Thread extends React.Component {
                     <FloatingActionButton2/>
                 
                         {this.emptyResult() ? (
+
                             <p className="err-msg">Sorry wrong turn</p>
+
                         ) : (
                             
                         <div className="thread">
@@ -312,10 +322,10 @@ export default class Thread extends React.Component {
                         <Row>
                         <Col lg={3} md={3} sm={4} xs={4}>
                             <div className="a-row"><Image src= { `${this.state.logo}` } height="40" width="40" alt="iwansell-logo" responsive rounded/>
-                                <p style={{ fontWeight: 'bold', fontSize: 20 }}>{this.state.thread.channel}</p></div>
+                                <p style={{ fontWeight: 'bold', fontSize: 20, fontFamily: 'Baloo Bhai' }}>{this.state.thread.channel}</p></div>
                         </Col>
                         <Col lg={6} md={6} sm={5} xs={5}>
-                            <p>Posted By {this.state.thread.firstname}#{this.state.thread.lastname} <FormatDate date={this.state.thread.date}/></p>
+                          <p style={{ fontWeight: 'bold', fontSize: 15, fontFamily: 'Baloo Bhai' }}>Posted By {this.state.thread.firstname}#{this.state.thread.lastname} <FormatDate date={this.state.thread.date}/></p>
                         </Col>
                         <Col lg={2} md={2} sm={2} xs={2}>
                         {this.state.isLoading2 ? (
@@ -323,9 +333,24 @@ export default class Thread extends React.Component {
                             ) : (
                         <div>
                             {this.state.following ? (
-                            <Button disabled><div glyph="check"/>Following</Button>
+                            <Button variant="outline-info" disabled>
+                              <FontAwesome
+                                className="super-crazy-colors"
+                                name="rocket"
+                                size="2x"
+                                spin
+                                style={{ textShadow: '0 1px 0 rgba(0, 0, 0, 0.1)' }}
+                          />Following</Button>
                             ) : (
-                            <Button bsStyle="info" onClick={() => this.follow(this.state.thread.channel_id)}><div glyph="check"/>Follow</Button>
+                            <Button variant="info" onClick={() => this.follow(this.state.thread.channel_id)}>
+                              <FontAwesome
+                                className="super-crazy-colors"
+                                name="rocket"
+                                size="2x"
+                                spin
+                              style={{ textShadow: '0 1px 0 rgba(0, 0, 0, 0.1)' }}
+                              />
+                            Follow</Button>
                             )}
                         </div>
                             )}
@@ -333,11 +358,11 @@ export default class Thread extends React.Component {
                         </Row>
 
                     <div style={{ margin: 10 }}>
-                        <p style={{ fontWeight: 'bold', fontSize: 20}}>{this.state.thread.title}</p>
+                        <p style={{ fontWeight: 'bold', fontSize: 20, fontFamily:'Lexend Exa'}}>{this.state.thread.title}</p>
                         <p>{this.state.thread.thread}</p>
                          {this.isFile(this.state.thread.media)}
                          {this.state.is_video ? (
-                              <ReactPlayer controls={true} url={ `${this.state.media}` } width='100' height='100%' playing={false} />
+                              <ReactPlayer controls={true} url={ `${this.state.media}` } width='100' height='100%' playing />
                             ) : (
                               <Image  src= { `${this.state.media}` } alt="image" responsive rounded/>
                          )}
@@ -345,7 +370,13 @@ export default class Thread extends React.Component {
 
                             <Row>
                                 <Col lg={1} md={1} sm={1} xs={1}>
-                                    <div glyph="arrow-up" onClick={() => this.vote(1, this.state.thread.thread_id)}/>
+                                <FontAwesome
+                                  className="super-crazy-colors"
+                                  name="arrow-up"
+                                  size="1x"
+                                  style={{ textShadow: '0 1px 0 rgba(0, 0, 0, 0.1)' }}
+                                  onClick={() => this.vote(1, this.state.thread.thread_id)}
+                                />
                                 </Col>
                                 <Col lg={1} md={1} sm={1} xs={1}>
                                     {this.state.votesent ? (
@@ -356,7 +387,13 @@ export default class Thread extends React.Component {
                                     
                                 </Col>
                                 <Col lg={1} md={1} sm={1} xs={1}>
-                                    <div glyph="arrow-down" onClick={() => this.vote(0, this.state.thread.thread_id)}/>
+                                <FontAwesome
+                                  className="super-crazy-colors"
+                                  name="arrow-down"
+                                  size="1x"
+                                  style={{ textShadow: '0 1px 0 rgba(0, 0, 0, 0.1)' }}
+                                  onClick={() => this.vote(0, this.state.thread.thread_id)}
+                                />
                                 </Col>
 
                                 <Col lg={2} md={2} sm={2} xs={2}>
@@ -428,158 +465,26 @@ export default class Thread extends React.Component {
                     
                  </Col>
 
-                 <Col lg={4} md={4} smHidden xsHidden>
+                 
+                
+                
+             </Container>
+
+
+
+            
+
+
+             </Col>
+             <Col lg={4} md={4} className="d-none d-sm-block d-xs-block">
                         <div className="thread">
                             <Image src={ require ('./neighborhoods/blocks/houses/images/n.jpg') } alt="iwansell-logo" responsive rounded/>
                             <Image src={ require ('./neighborhoods/blocks/houses/images/nn.jpg') } alt="iwansell-logo" responsive rounded/>
                             <Image src={ require ('./neighborhoods/blocks/houses/images/n.jpg') } alt="iwansell-logo" responsive rounded/>
                         </div>
                  </Col>
-             </Container>
-
-
-
-
-
-
-             <Row>
-                  <Col lgHidden mdHidden sm={12} xs={12}>
-
-                 {this.state.isLoading ? (
-                    <div className="isloading">
-                        <p><b><i>loading...</i></b></p>
-                        <p><Spinner color="#ff0000" size={32}/></p>
-                    </div>
-                    ) : (
-                    <section>
-                    
-                
-                        {this.emptyResult() ? (
-                            <p className="err-msg">Sorry wrong turn</p>
-                        ) : (
-                            
-                        <div className="thread">
-                        {this.setMedia(this.state.thread.media, this.state.thread.logo, this.state.thread.following, this.state.thread.votes)}
-
-                        <Row>
-                        <Col lg={3} md={3} sm={4} xs={4}>
-                            <div className="a-row"><Image src= { `${this.state.logo}` } height="40" width="40" alt="iwansell-logo" responsive rounded/>
-                                <p style={{ fontWeight: 'bold', fontSize: 20 }}>{this.state.thread.channel}</p></div>
-                        </Col>
-                        <Col lg={6} md={6} sm={5} xs={5}>
-                            <p>Posted By {this.state.thread.firstname}#{this.state.thread.lastname} <FormatDate date={this.state.thread.date}/></p>
-                        </Col>
-                        <Col lg={2} md={2} sm={2} xs={2}>
-                        {this.state.isLoading2 ? (
-                            <p>following...</p>
-                            ) : (
-                        <div>
-                            {this.state.following ? (
-                            <Button disabled><div glyph="check"/>Following</Button>
-                            ) : (
-                            <Button bsStyle="info" onClick={() => this.follow(this.state.thread.channel_id)}><div glyph="check"/>Follow</Button>
-                            )}
-                        </div>
-                            )}
-                        </Col>
-                        </Row>
-
-                    <div style={{ margin: 10 }}>
-                        <p style={{ fontWeight: 'bold', fontSize: 20}}>{this.state.thread.title}</p>
-                        <p>{this.state.thread.thread}</p>
-                        {this.isFile(this.state.thread.media)}
-                         {this.state.is_video ? (
-                              <ReactPlayer controls={true} url={ `${this.state.media}` } width='100' height='100%' playing={false} />
-                            ) : (
-                              <Image  src= { `${this.state.media}` } alt="image" responsive rounded/>
-                         )}
-                    </div>
-
-                            <Row>
-                                <Col lg={1} md={1} sm={1} xs={1}>
-                                    <div glyph="arrow-up" onClick={() => this.vote(1, this.state.thread.thread_id)}/>
-                                </Col>
-                                <Col lg={1} md={1} sm={1} xs={1}>
-                                    {this.state.votesent ? (
-                                        <span>{this.voteState()}</span>
-                                    ) : (
-                                        <span>{this.state.votes}</span>
-                                    )}
-                                    
-                                </Col>
-                                <Col lg={1} md={1} sm={1} xs={1}>
-                                    <div glyph="arrow-down" onClick={() => this.vote(0, this.state.thread.thread_id)}/>
-                                </Col>
-
-                                <Col lg={2} md={2} sm={2} xs={2}>
-                                    <SendComment count={this.state.thread.comment_count} thread={this.state.thread.thread} thread_id={this.state.thread.thread_id}/>
-                                </Col>
-
-                                <Col lg={3} md={3} sm={3} xs={3}>
-                                    <Share url={this.shareUrl(this.props.match.params.thread_id)}/>
-                                </Col>
-                                
-                            </Row><hr />
-
-                       
-                     
-                        <Row>
-                        <div className="comment-box">
-                            {this.state.commentlist.map(item => (
-                                <div style={{ marginTop: 10}}>
-                                  {this.setMedia2(item.dp, item.votes )}
-                                <Row>
-                                <Col lg={2} md={2} sm={4} xs={4}>
-                                    <Image src= { `${this.state.dp}` } height="40" width="40" alt="iwansell-logo" responsive rounded/> 
-                                </Col>
-                                <Col lg={6} md={6} sm={5} xs={5}>
-                                    <p style={{ fontWeight: 'bold', fontSize: 13 }}>
-                                        {item.firstname}#{item.lastname} <FormatDate date={item.date}/>
-                                    </p>
-                                </Col>
-                            </Row>
-                                <p>{item.comment} </p>
-                                
-                                <Row>
-                                <Col lg={1} md={1} sm={1} xs={1}>
-                                    <div glyph="arrow-up" onClick={() => this.voteComment(1, item.comment_id)}/>
-                                </Col>
-                                <Col lg={1} md={1} sm={1} xs={1}>
-                                    {this.state.comment_votesent ? (
-                                        <span>{this.voteStateComment()}</span>
-                                    ) : (
-                                        <span>{this.state.comment_votes}</span>
-                                    )}
-                                    
-                                </Col>
-                                <Col lg={1} md={1} sm={1} xs={1}>
-                                    <div glyph="arrow-down" onClick={() => this.voteComment(0, item.comment_id)}/>
-                                </Col>
-
-
-                                <Col lg={2} md={2} sm={2} xs={2}>
-                                    <SendReply count={item.comment_count} comment={item.comment} comment_id={item.comment_id} thread_id={this.props.match.params.thread_id}/>
-                                </Col>
-
-                                <Col lg={3} md={3} sm={3} xs={3}>
-                                    <Share url={this.shareUrl(this.props.match.params.thread_id)}/>
-                                </Col>
-                                </Row>
-                                <Reply comment={item.comment} comment_id={item.comment_id} thread_id={this.props.match.params.thread_id}/>
-                                </div>
-                                
-                                
-                            ))}           
-                            </div>
-                            </Row>
-                        </div>
-                        
-                    )}
-                    </section>
-                    )}
-                    
-                 </Col>
-             </Row>
+            </Row>
+            </Container>
              <br /><br />
              <Footer logged_in={this.state.isLoggedIn}/>
              <Copyright/>
