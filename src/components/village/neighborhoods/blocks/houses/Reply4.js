@@ -1,7 +1,9 @@
 import React from 'react'
-import { Container, Row, Col, Image, Button } from 'react-bootstrap'
+import { Row, Col, Image } from 'react-bootstrap'
 import FormatDate from './Format Date'
 import Share from './Share'
+
+var FontAwesome = require('react-fontawesome')
 
 export default class Reply4 extends React.Component {
 
@@ -31,8 +33,8 @@ export default class Reply4 extends React.Component {
   }
 
   setMedia(dp, media, votes){
-    this.state.dp = 'https://www.iwansell.com/api/media/' + dp
-    this.state.media = 'https://www.iwansell.com/api/media/' + media
+    this.state.dp = 'https://www.iwansell.com/media/' + dp
+    this.state.media = 'https://www.iwansell.com/media/' + media
     this.state.votes = votes
   }
 
@@ -107,7 +109,13 @@ export default class Reply4 extends React.Component {
         
                 <Row>
                 <Col lg={1} md={1} sm={1} xs={1}>
-                        <div glyph="arrow-up" onClick={() => this.vote(1, item.reply_id)}/>
+                <FontAwesome
+                                  className="super-crazy-colors"
+                                  name="arrow-up"
+                                  size="1x"
+                                  style={{ textShadow: '0 1px 0 rgba(0, 0, 0, 0.1)' }}
+                                  onClick={() => this.vote(1, item.reply_id)}
+                                />
                     </Col>
                     <Col lg={1} md={1} sm={1} xs={1}>
                         {this.state.votesent ? (
@@ -117,7 +125,13 @@ export default class Reply4 extends React.Component {
                         )}
                     </Col>
                     <Col lg={1} md={1} sm={1} xs={1}>
-                        <div glyph="arrow-down" onClick={() => this.vote(0, item.reply_id)}/>
+                    <FontAwesome
+                                  className="super-crazy-colors"
+                                  name="arrow-down"
+                                  size="1x"
+                                  style={{ textShadow: '0 1px 0 rgba(0, 0, 0, 0.1)' }}
+                                  onClick={() => this.vote(0, item.reply_id)}
+                                />
                     </Col>
                 </Row>
             </div> 

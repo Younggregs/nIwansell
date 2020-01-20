@@ -193,7 +193,7 @@ export default class ChannelTrending extends React.Component {
       render() {
 
         return (
-           <div className="home">
+           <div>
              {this.state.isLoading ? (
                     <div className="isloading">
                         <p><b><i>loading...</i></b></p>

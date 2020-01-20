@@ -3,15 +3,13 @@ import { Button, Col, Row, FormControl, FormGroup, Form, InputGroup } from 'reac
 import { confirmAlert } from 'react-confirm-alert'
 import 'react-confirm-alert/src/react-confirm-alert.css'
 
+var FontAwesome = require('react-fontawesome')
+
 export default class SendReply1 extends React.Component {
 
     state = {
         reply_err: false,
         message: [],
-    }
-
-    fetchReply(){
-      return this.props.reply.substr(0, 150) +  '...'
     }
 
     options = {
@@ -33,7 +31,7 @@ export default class SendReply1 extends React.Component {
                 <Row>
                     <Col lg={8} lgOffset={2} md={8} mdOffset={2} sm={12} xs={12}>
                         <div style={{ padding: 10, marginBottom: 20}}>
-                            <p>{this.fetchReply()}</p>
+                            <p>{this.props.reply}</p>
                         </div>
                         
                     </Col>
@@ -93,8 +91,6 @@ export default class SendReply1 extends React.Component {
         
                    body : formData,
                    method: 'POST',
-                   credentials: 'same-origin',
-                   mode: 'cors',
                    headers : {
                     'Authorization' : 'Token ' + auth
                   },
@@ -106,7 +102,7 @@ export default class SendReply1 extends React.Component {
                     });
                     alert('sent')
                     console.log('control' + message)
-                    window.location.reload();
+                    window.location.replace("http://127.0.0.1:3000/thread/" + this.props.thread_id);
         
                 } catch (e) {
                   console.log(e);
@@ -131,7 +127,14 @@ export default class SendReply1 extends React.Component {
        render() {
          return (
            <section>
-               <div onClick={() => this.customAlert()} glyph="comment">{this.props.count}</div>
+             <FontAwesome
+              className="super-crazy-colors"
+              name="comments"
+              size="2x"
+              style={{ textShadow: '0 1px 0 rgba(0, 0, 0, 0.1)' }}
+              onClick={() => this.customAlert()}>
+            {this.props.count}
+            </FontAwesome>
            </section>
          )
        }

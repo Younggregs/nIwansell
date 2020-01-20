@@ -1,13 +1,15 @@
 import React from 'react'
-import { Container, Row, Col, Image, Button } from 'react-bootstrap'
+import { Row, Col, Image } from 'react-bootstrap'
 import FormatDate from './Format Date'
 import Share from './Share'
 import Reply1 from './Reply1'
 import SendReply1 from './Send Reply1'
 
+var FontAwesome = require('react-fontawesome')
+
 export default class Reply extends React.Component {
 
-  state={
+  state = {
    replylist: [],
    isLoading: false,
    dp: null,
@@ -33,8 +35,8 @@ export default class Reply extends React.Component {
   }
 
   setMedia(dp, media, votes){
-    this.state.dp = 'https://www.iwansell.com/api/media/' + dp
-    this.state.media = 'https://www.iwansell.com/api/media/' + media
+    this.state.dp = 'https://www.iwansell.com/media/' + dp
+    this.state.media = 'https://www.iwansell.com/media/' + media
     this.state.votes = votes
   }
 
@@ -113,7 +115,13 @@ export default class Reply extends React.Component {
                     <p>{item.reply}</p>
                 <Row>
                     <Col lg={1} md={1} sm={1} xs={1}>
-                        <div glyph="arrow-up" onClick={() => this.vote(1, item.reply_id)}/>
+                    <FontAwesome
+                                  className="super-crazy-colors"
+                                  name="arrow-up"
+                                  size="1x"
+                                  style={{ textShadow: '0 1px 0 rgba(0, 0, 0, 0.1)' }}
+                                  onClick={() => this.vote(1, item.reply_id)}
+                                />
                     </Col>
                     <Col lg={1} md={1} sm={1} xs={1}>
                         {this.state.votesent ? (
@@ -123,7 +131,13 @@ export default class Reply extends React.Component {
                         )}
                     </Col>
                     <Col lg={1} md={1} sm={1} xs={1}>
-                        <div glyph="arrow-down" onClick={() => this.vote(0, item.reply_id)}/>
+                    <FontAwesome
+                                  className="super-crazy-colors"
+                                  name="arrow-down"
+                                  size="1x"
+                                  style={{ textShadow: '0 1px 0 rgba(0, 0, 0, 0.1)' }}
+                                  onClick={() => this.vote(0, item.reply_id)}
+                                />
                     </Col>
                     <Col lg={2} md={2} sm={2} xs={2}>
                         <SendReply1 count={item.reply_count} reply={item.reply} reply_id={item.reply_id} thread_id={this.props.thread_id}/>
