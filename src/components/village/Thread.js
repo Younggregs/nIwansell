@@ -276,7 +276,7 @@ export default class Thread extends React.Component {
            <div className="channel-bg">
              
             <NavigationHeader/>
-            <Container fluid="true">
+            <Container>
               <Row>
                 <Col lg={8} md={8} sm={12} xs={12}>
 
@@ -298,8 +298,7 @@ export default class Thread extends React.Component {
                 </Col>
             </Row>
 
-             <Container fluid="true">
-                 <Col lg={12} md={12} sm={12} xs={12}>
+             <Row>
 
                  {this.state.isLoading ? (
                     <div className="isloading">
@@ -465,12 +464,7 @@ export default class Thread extends React.Component {
                     </section>
                     )}
                     
-                 </Col>
-
-                 
-                
-                
-             </Container>
+                </Row>
 
 
 
