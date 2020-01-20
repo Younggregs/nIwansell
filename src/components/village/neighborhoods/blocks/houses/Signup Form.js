@@ -161,7 +161,7 @@ render(){
 const formInstance = (
   <section className="signin-form">
 
-  <Row className="justify-content-md-center">
+  <Row className="justify-content-center">
   <div className="login-appname">
    <Col lg={6} md={6} sm={12} xs={12}>
   <Link to="/">
@@ -172,14 +172,14 @@ const formInstance = (
 </Row><br />
 
 
-  <Row className="justify-content-md-center">
+  <Row className="justify-content-center">
    <Col lg={4} md={4} sm={4} xs={4}>
   <Link to="/Signin">
     <Button variant="outline-warning">Signin</Button>
   </Link>
   </Col>
 
-  <Col lg={4} md={4} sm={6} xs={6}>
+  <Col lg={4} md={4} sm={4} xs={4}>
   <Link to="/Signup">
     <Button variant="info">Signup</Button>
   </Link>
@@ -187,7 +187,7 @@ const formInstance = (
   </Row><br />
 
   <form>
-  <Row className="justify-content-md-center">
+  <Row className="justify-content-center">
    <Col lg={6} md={6} sm={12} xs={12}>
    <FormGroup>
       <div>Firstname
@@ -228,7 +228,7 @@ const formInstance = (
     </Col>
   </Row>
 
-<Row className="justify-content-md-center">
+<Row className="justify-content-center">
    <Col lg={6} md={6} sm={12} xs={12}>
    <Form.Label>Phone
    {this.state.phone_err ? (
@@ -294,7 +294,7 @@ const formInstance = (
   </Col>
   </Row>
 
-  <Row className="justify-content-md-center">
+  <Row className="justify-content-center">
    <Col lg={6} md={6} sm={12} xs={12}>
    <FormGroup>
       <div>Password
@@ -321,7 +321,7 @@ const formInstance = (
   </Row>
   </form>
 
-  <Row className="justify-content-md-center">
+  <Row className="justify-content-center">
   {this.state.isLoading ? (
               
               <Row>

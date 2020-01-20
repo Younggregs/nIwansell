@@ -157,7 +157,7 @@ emptyResult(){
         <br /><br /><br />
 
    <Row>
-     <Col lg={3} lgOffset={1} md={3} mdOffset={1} smHidden xsHidden>
+     <Col lg={3} md={3} className="d-none d-sm-block d-xs-block">
      <div className="eshop-category-menu">
      <p className="eshop-category-header">Sort eshops by category</p>
      <p>
@@ -178,7 +178,7 @@ emptyResult(){
      </div>
      </Col>
 
-     <Col lg={4} lgOffset={1} md={4} mdOffset={1} sm={12} xs={12}>
+     <Col lg={6} md={6} sm={12} xs={12}>
      {this.state.isLoading ? (
        <div className="isloading">
        <p><b><i>loading...</i></b></p>
