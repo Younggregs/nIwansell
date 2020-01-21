@@ -66,7 +66,7 @@ setMedia(media_name){
       render() {
 
         return (
-           <div className="eshop">
+           <div className="landing-page">
                 {this.state.isLoading ? (
                       <div className="isloading">
                       <p><b><i>loading...</i></b></p>

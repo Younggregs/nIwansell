@@ -70,12 +70,12 @@ export default class EShopAdmin extends React.Component {
 
          return (
            <section className="eshop-admin">
-               <Row>
-                 <Col lg={6} lgOffset={3} md={6} mdOffset={3} sm={12} xs={12}>
+               <Row className="justify-content-center">
+                 <Col lg={6} md={6} sm={12} xs={12}>
                  <div className="profile-description">
 
-                 <Row>
-                 <Col lg={6} lgOffset={3} md={6} mdOffset={3} sm={12} xs={12}>
+                 <Row className="justify-content-center">
+                 <Col lg={6} md={6} sm={12} xs={12}>
                  <p className="profile-name"><i>{this.props.about}</i></p><br />
 
                  <p>
@@ -101,17 +101,17 @@ export default class EShopAdmin extends React.Component {
 
                 <p>
                   <Link to ="/new_eshop_product">
-                   <Button>Add new Product</Button>
+                   <Button variant={"warning"}>Add new Product</Button>
                   </Link>
                 </p>
                 <p>
                   <Link to ={`/soldproduct/${ this.props.eshop_id }`}>
-                   <Button>Sold products</Button>
+                   <Button variant={"warning"}>Sold products</Button>
                   </Link>
                 </p>
                 <p>
                   <Link to ="/manage_eshop">
-                   <Button>Manage e-shop</Button>
+                   <Button variant={"warning"}>Manage e-shop</Button>
                   </Link>
                 </p>
 

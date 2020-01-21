@@ -5,8 +5,8 @@ export default class CatchBoard extends React.Component {
        render() {
          return (
 
-          <Row>
-            <Col lg={6} lgOffset={3} md={6} mdOffset={3} sm={12} xs={12}>
+          <Row className="justify-content-md-center">
+            <Col lg={6} md={6} sm={12} xs={12}>
               <section className="catch-board">
                 <div class="catch-image">
 

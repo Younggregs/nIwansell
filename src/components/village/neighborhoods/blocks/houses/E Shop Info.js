@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
-import { Row, Col,Button } from 'react-bootstrap';
+import { Row, Col,Button}  from 'react-bootstrap';
 
 export default class EShopInfo extends React.Component {
 
@@ -41,7 +41,7 @@ async componentWillMount(){
     const auth = localStorage.getItem('auth_code')
 
     try {
-      const res = await fetch('http://127.0.0.1:8000/api/favorite/2/' + this.props.eshop_id + '/', {
+      const res = await fetch('https://www.iwansell.com/api/favorite/2/' + this.props.eshop_id + '/', {
 
        credentials: 'same-origin',
        mode: 'cors',
@@ -70,8 +70,8 @@ async componentWillMount(){
 
          return (
            <section className="eshop-info">
-               <Row>
-                 <Col lg={6} lgOffset={3} md={6} mdOffset={3} sm={12} xs={12}>
+               <Row className="justify-content-center">
+                 <Col lg={6} md={6} sm={12} xs={12}>
                  <div className="profile-description">
 
 
@@ -94,8 +94,8 @@ async componentWillMount(){
                 <p className="profile-name">Ratings-Reviews
                 <span className="heart-glyphs">
                <Rating
-                emptySymbol="div div-heart-empty"
-                fullSymbol="div div-heart"
+                emptySymbol="divglyphicon-heart-empty"
+                fullSymbol="divglyphicon-heart"
                 {...this.props} initialRating={this.state.value} readonly quiet/>
                </span>
                </p>

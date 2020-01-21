@@ -62,21 +62,23 @@ setMedia(media_name){
          return (
            <section>
 
-              <Col lg={4} lgOffset={2} md={4} mdOffset={2} smHidden xsHidden>
+            <Row className="justify-content-center">
+              <Col lg={6} md={6} sm={12} xs={12}>
                      <EShopName eshop_name = {this.props.eshop_name}/>
-                    </Col>
+                </Col>
 
-           <Form inline>
+            <Col lg={6} md={6} sm={12} xs={12}>
+           <Form>
 
            <FormGroup>
                   <InputGroup>
-                        <InputGroup.Addon>
-                        <Link to={`/eshop/${ this.props.eshop_id } `}>
-                          <div glyph="home"/>
+                        <InputGroup.Text>
+                        <Link to='/'>
+                          Home
                         </Link>
-                        </InputGroup.Addon>
+                        </InputGroup.Text>
 
-                          <FormControl
+                          <Form.Control
                             type="text"
                             name="search_phrase"
                             id="search_phrase"
@@ -84,23 +86,24 @@ setMedia(media_name){
                             placeholder={"Search " + this.props.eshop_name}
                         />
 
-                    <InputGroup.Button>
-                    <Button onClick={this.getSearchPhrase.bind(this)}>search</Button>
-                  </InputGroup.Button>
+                    <InputGroup.Append>
+                      <Button onClick={this.getSearchPhrase.bind(this)}>search</Button>
+                  </InputGroup.Append>
                 </InputGroup>
                 </FormGroup>
            </Form>
+          </Col>
+        </Row>
 
 
-      <Col lg={12} md={12} smHidden xsHidden>
       <Row>
        {this.state.is_search ? (
            <div>
             <br /><br />
             {this.state.search_result.map(item => (
-             <Col lg={3} md={3} smHidden xsHidden>
+             <Col lg={3} md={3} sm={6} xs={6}>
              {this.setMedia(item.product_image)}
-             <img href={"product/" + item.product_id }  alt="product-image" src= { `${this.state.media}` }/>
+             <img href={"product/" + item.product_id }  alt="product-image" src= { `${this.state.media}` } />
              <h3>{item.product_name}</h3>
               <p className="lg-fonts">Starting price : {item.starting_price}</p>
              </Col>
@@ -112,33 +115,6 @@ setMedia(media_name){
             <div></div>
           )}
        </Row>
-      </Col>
-
-      <Col sm={12} xs={12} lgHidden mdHidden>
-
-           <Row>
-       {this.state.is_search ? (
-           <div>
-             <br /><br />
-            {this.state.search_result.map(item => (
-             <Col sm={10} smOffset={1} xs={10} xsOffset={1}>
-             {this.setMedia(item.product_image)}
-             <img href={"product/" + item.product_id } alt="product-image" src= { `${this.state.media}` } />
-             <h3>{item.product_name}</h3>
-              <p className="sm-fonts">Starting price : {item.starting_price}</p>
-
-             </Col>
-
-
-    ))}
-
-           </div>
-          ) : (
-            <div></div>
-          )}
-           </Row>
-
-      </Col>
 
 
            </section>

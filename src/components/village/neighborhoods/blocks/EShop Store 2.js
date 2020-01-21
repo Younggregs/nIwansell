@@ -37,14 +37,17 @@ export default class EShopStore2 extends React.Component {
       <section className="trending">
         <Container>
         <Row>
-         <Col lg={12} md={12} sm={12} xs={12}>
-           <Row>
-           <Heading title={this.props.name} store={true}/>
+
+           <br />
+                <div className="trending-header">
+                  <p className="trending-title">{this.props.name} <i>SHELF</i></p> 
+                </div>
+                <br />
 
 
            {this.state.eshop_store.map(item =>
 
-           <Col lg={3} md={3} smHidden xsHidden>
+           <Col lg={3} md={3} sm={6} xs={6}>
 
           <Link to={`/product/${ item.id } `}>
 
@@ -61,10 +64,7 @@ export default class EShopStore2 extends React.Component {
            </Col>
 
            )}
-           </Row>
 
-
-        </Col>
         </Row>
         </Container>
       </section>
