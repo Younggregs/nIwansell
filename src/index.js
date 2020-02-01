@@ -67,6 +67,7 @@ import ManageListings from './components/village/Manage Listing'
 import Channel from './components/village/Channel'
 import Thread from './components/village/Thread'
 import NewThread from './components/village/New Thread'
+import Metrics from './components/village/Metrics'
 
 
 
@@ -141,6 +142,7 @@ import NewThread from './components/village/New Thread'
                 <Route exact path="/privacy_policy" component={PrivacyPolicy}/>
                 <Route exact path="/disclaimer" component={Disclaimer}/>
                 <Route exact path="/about" component={About}/>
+                <Route exact path="/metrics/:mcode" component={Metrics}/>
                 <Route exact path="/logout" component={Logout}/>
               </div>
             </Router>
