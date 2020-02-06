@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { Form, Row, Col, FormGroup,FormControl,InputGroup, Button } from 'react-bootstrap'
+import { Form, Row, Col, FormGroup, InputGroup, Button } from 'react-bootstrap'
 import EShopName from './EShop Name'
 
 export default class EShopSearch extends React.Component {

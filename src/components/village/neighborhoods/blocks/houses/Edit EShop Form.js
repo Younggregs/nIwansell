@@ -1,6 +1,6 @@
 import React from 'react';
 import { Redirect } from 'react-router-dom'
-import { Button,FormGroup, FormControl, Row,Col,Label} from 'react-bootstrap';
+import { Button,FormGroup, FormControl, Row, Col } from 'react-bootstrap';
 import AppName from './App Name'
 import Spinner from 'react-activity/lib/Spinner';
 import 'react-activity/lib/Spinner/Spinner.css';

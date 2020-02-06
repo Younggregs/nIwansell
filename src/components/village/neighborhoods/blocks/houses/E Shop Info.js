@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
-import { Row, Col,Button}  from 'react-bootstrap';
+import { Row, Col,Button }  from 'react-bootstrap';
 
 export default class EShopInfo extends React.Component {
 

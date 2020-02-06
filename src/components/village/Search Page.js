@@ -64,7 +64,7 @@ export default class Search extends React.Component {
            <section className="landing-page">
             <div className="search-page">
                 <NavigationHeader/>
-                <Post/>
+                <br /><br />
                 <SearchView campus_id={1}/> 
             </div> 
            </section>

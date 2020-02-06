@@ -1,5 +1,5 @@
 import React from 'react'
-import { Col, Row, Form, FormGroup,FormControl,InputGroup, Button } from 'react-bootstrap'
+import { Col, Row, Form, Container, Image, InputGroup, Button } from 'react-bootstrap'
 import Spinner from 'react-activity/lib/Spinner';
 import 'react-activity/lib/Spinner/Spinner.css';
 
@@ -95,7 +95,7 @@ getCategoryId(){
 
 
 setMedia(media_name){
-  this.state.media = 'https://www.iwansell.com/api/media/' + media_name
+  this.state.media = 'https://www.iwansell.com/media/' + media_name
 }
 
 emptyResult(){
@@ -115,37 +115,43 @@ emptyResult(){
        render() {
 
          return (
+           <Container>
            <section className="search-field">
-             <Col lg={12} md={12} smHidden xsHidden>
-           <Form inline>
+    
+        <Col lg={12} md={12} smHidden xsHidden>
 
-           <FormGroup>
-               <FormControl componentClass="select" placeholder="select" id="category_id" name="category_id" onChange={ this.getCategoryId.bind(this) }>
-               <option value="99">All categories</option>
-               {this.state.categorylist.map(item => (
-               <option value={item.id}>{item.name}</option>
-               ))}
-              </FormControl>
+          <Row className="justify-content-md-center">
+            <Col lg={6} md={6} smHidden xsHidden>
 
-              <FormControl
-                  type="text"
-                  id="search_phrase"
-                  name="search_phrase"
-                  placeholder="Search for anything...  try 'flash drive'"
-                  size="50"
-                  onKeyPress={event => {
-                    if (event.key === 'Enter') {
-                      this.searchResult()
-                    }
-                  }}
-              />
+            <InputGroup>
+            <Form.Control
+              size="lg"
+              id="search_phrase"
+              type="text"
+              cols="50"
+              name="search_phrase"
+              aria-describedby="basic-addon1"
+              onKeyPress={event => {
+                if (event.key === 'Enter') {
+                  this.searchResult()
+                }
+              }}
+              inputRef={(ref) => { this.inputSearchPhrase = ref; }}
+              aria-describedby="inputGroupPrepend"
+              required
+            />
+            <InputGroup.Append>
+                <Button variant="warning" onClick={this.getSearchPhrase.bind(this)}>Search</Button>
+            </InputGroup.Append>
+          </InputGroup>
 
-            <Button onClick={this.getSearchPhrase.bind(this)}><div glyph="search"/></Button>
-            </FormGroup>
+            </Col>
+          </Row>
+           <Form>
            </Form>
 
-           <Row className="result-view">
-       {this.state.is_search ? (
+           <section className="result-view">
+          {this.state.is_search ? (
          <div>
            {this.state.isLoading ? (
              <Spinner/>
@@ -159,21 +165,23 @@ emptyResult(){
               <span></span>
             )}
 
-            <div id="main">
+
+            <Row className="justify-content-md-center">
             {this.state.search_result.map(item => (
-             <Col smHidden xsHidden>
-              <div class="box">
-	             <div class="pic">
-             {this.setMedia(item.product_image)}
-             <img href={"product/" + item.product_id }  alt="product-image" src= { `${this.state.media}` } />
-             <h3>{item.product_name}</h3>
-              <p className="price">Starting price : {item.starting_price}</p>
- 
-             </div></div>
+             <Col lg={3} md={3} sm={6} xs={12}>
+              <div className="manage-product">
+              <div className="product-image">
+                <div class="image">
+                  {this.setMedia(item.product_image)}
+                  <Image href={"product/" + item.product_id }  alt="product-image" src= { `${this.state.media}` }/>
+                </div></div>
+                <Button variant='outline-dark'>{item.product_name}</Button><br />
+                <Button variant='dark'>{item.starting_price}</Button>
+             </div>
              </Col>
 
             ))}
-            </div>
+            </Row>
 
            </div>
            )}
@@ -181,80 +189,11 @@ emptyResult(){
           ) : (
             <div></div>
           )}
-            </Row>
+            </section>
 
-           </Col>
-
-
-
-           <Col xs={12} sm={12} lgHidden mdHidden>
-           <Form inline>
-
-      <FormGroup>
-    <InputGroup>
-    <FormControl
-       id="search_phrase_sm"
-       type="text"
-       name="search_phrase_sm"
-       placeholder="Search for anything...  try 'flash drive'"
-       onKeyPress={event => {
-        if (event.key === 'Enter') {
-          this.searchResult()
-        }
-      }}
-       inputRef={(ref) => { this.inputSearchPhrase = ref; }}
-       />
-
-
-      <InputGroup.Button>
-        <Button onClick={this.getSearchPhrase2.bind(this)}><div glyph="search"/></Button>
-      </InputGroup.Button>
-    </InputGroup>
-  </FormGroup>
-
-
-
-           </Form>
-
-        <Row>
-       {this.state.is_search ? (
-          <div>
-            {this.state.isLoading ? (
-               <div>
-               <p><b><i>loading...</i></b></p>
-               <p><Spinner color="#ff0000" size={32}/></p>
-               </div>
-            ) : (
-              <div>
-              <br /><br />
-              {this.emptyResult() ? (
-               <p className="err-msg">No result found for <i>{this.state.search_phrase}</i></p>
-             ) : (
-               <span></span>
-             )}
- 
-              <div id="main">
-             {this.state.search_result.map(item => (
-               <div class="box">
-                <div class="pic">
-              {this.setMedia(item.product_image)}
-              <img href={"product/" + item.product_id } alt="product-image" src= { `${this.state.media}` } />
-              <h3>{item.product_name}</h3>
-               <p className="price">Starting price : {item.starting_price}</p>
-
-              </div></div>
-           ))}
-            </div>
- 
-            </div>
-            )}
-          </div>
-          ) : (
-            <div></div>
-          )}
-           </Row>
            </Col>
            </section>
+           </Container>
          )
        }
   }
