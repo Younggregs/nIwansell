@@ -1,5 +1,7 @@
 import React from 'react'
 import { Container, Row, Col, Table } from 'react-bootstrap';
+import Spinner from 'react-activity/lib/Spinner';
+import 'react-activity/lib/Spinner/Spinner.css';
 
 export default class Menu extends React.Component {
 
@@ -9,6 +11,8 @@ export default class Menu extends React.Component {
       }
 
       async componentDidMount(){
+          this.setState({isLoading: true })
+
           if(this.props.match.params.mcode === 'aeeef93039299249943'){
               this.setState({ show: true })
 
@@ -25,6 +29,8 @@ export default class Menu extends React.Component {
                 console.log(e);
               }
           }
+
+          this.setState({isLoading: false })
 
           
       }
@@ -43,7 +49,16 @@ export default class Menu extends React.Component {
            <div className="profile">
                 <p>Metrics</p>
                 {this.state.show ? (
+                    
                     <Container fluid="true">
+                    {this.state.isLoading ? (
+                            <div className="isloading">
+                                <p><b><i>loading...</i></b></p>
+                                <p><Spinner color="#ff0000" size={32}/></p>
+                            </div>
+                    ) : (
+                    <section>
+                        
                     <Row>
                         <Col lg={6} md={6} sm={12} xs={12}>
                             <div className="a1">
@@ -119,7 +134,12 @@ export default class Menu extends React.Component {
                             </div>
                         </Col>
                     </Row>
+                    </section>
+                )}
+
                 </Container>
+
+                
 
                 ):(
 

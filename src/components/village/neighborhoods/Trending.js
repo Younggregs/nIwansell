@@ -2,12 +2,9 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { Container, Row, Col, Image, Button } from 'react-bootstrap'
 import CategoryProduct from './blocks/Category Product'
-import Heading from './blocks/houses/Heading'
 import ProductImage from './blocks/houses/Product Image'
 import Spinner from 'react-activity/lib/Spinner';
 import 'react-activity/lib/Spinner/Spinner.css';
-import MobileApp from './blocks/houses/Mobile App'
-import Adsense from './blocks/houses/Adsense'
 
 
 export default class Trending extends React.Component {
