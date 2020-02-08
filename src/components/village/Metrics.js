@@ -63,7 +63,7 @@ export default class Menu extends React.Component {
                         <Col lg={6} md={6} sm={12} xs={12}>
                             <div className="a1">
                                 <p>Total Number of Products for Sell</p>
-                                <p className="afigure">1509</p>
+                                <p className="afigure">1511</p>
                             </div>
                         </Col>
                         <Col lg={6} md={6} sm={12} xs={12}>
@@ -93,7 +93,7 @@ export default class Menu extends React.Component {
                         <Col lg={6} md={6} sm={12} xs={12}>
                             <div className="a1">
                                 <p>Total Number of Daily Active Users</p>
-                                <p className="afigure">1000</p>
+                                <p className="afigure">120</p>
                             </div>
                         </Col>
                         <Col lg={6} md={6} sm={12} xs={12}>
@@ -122,8 +122,8 @@ export default class Menu extends React.Component {
                                         {this.state.data.map(item => 
                                         <tr>
                                             <td>{item.campus}</td>
-                                            <td>{item.no_account}</td>
                                             <td>{item.no_product}</td>
+                                            <td>{item.no_account}</td>
                                             <td>{item.no_eshop}</td>
                                         </tr>
                                         )}
