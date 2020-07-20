@@ -3,19 +3,23 @@ import { Link, Redirect } from 'react-router-dom';
 import { Container, Row, Col, Form, Image, FormGroup, Button } from 'react-bootstrap'
 import Spinner from 'react-activity/lib/Spinner';
 import 'react-activity/lib/Spinner/Spinner.css';
-import Navigation from './neighborhoods/Navigation'
-import Sponsored from './neighborhoods/Sponsored'
-import Trending from './neighborhoods/Trending'
-import EShopAds from './neighborhoods/blocks/EShop Ads'
-import CategorySlide from './neighborhoods/Category Slide'
-import Logo from './neighborhoods/blocks/houses/Logo'
-import Footer from './neighborhoods/Footer'
-import GotoTop from './neighborhoods/blocks/houses/Goto Top'
-import Copyright from './neighborhoods/blocks/houses/Copyright'
-import Introduction from './neighborhoods/blocks/houses/Introduction'
 import {setMarket, setCampusId} from './neighborhoods/blocks/houses/auth/Auth'
-import MobileApp from './neighborhoods/blocks/houses/Mobile App'
 
+import loadable from '@loadable/component'
+
+const Sponsored = loadable(() => import('./neighborhoods/Sponsored'))
+const NavigationHeader = loadable(() => import('./neighborhoods/blocks/Navigation Header'))
+const Post = loadable(() => import('./neighborhoods/blocks/houses/Post'))
+const Footer = loadable(() => import('./neighborhoods/Footer.js'))
+const GotoTop = loadable(() => import('./neighborhoods/blocks/houses/Goto Top'))
+const Copyright = loadable(() => import('./neighborhoods/blocks/houses/Copyright'))
+const Trending = loadable(() => import('./neighborhoods/Trending'))
+const EShopAds = loadable(() => import('./neighborhoods/blocks/EShop Ads'))
+const CategorySlide = loadable(() => import('./neighborhoods/Category Slide'))
+const Navigation = loadable(() => import('./neighborhoods/Navigation'))
+const Logo = loadable(() => import('./neighborhoods/blocks/houses/Logo'))
+const MobileApp = loadable(() => import('./neighborhoods/blocks/houses/Mobile App'))
+const Introduction = loadable(() => import('./neighborhoods/blocks/houses/Introduction'))
 
 
 export default class LandingPage extends React.Component {

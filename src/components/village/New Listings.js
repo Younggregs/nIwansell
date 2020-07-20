@@ -1,9 +1,12 @@
 import React from 'react';
 import { Container , Row, Col } from 'react-bootstrap';
-import NewListingForm from './neighborhoods/blocks/houses/New Listing Form';
-import Footer from './neighborhoods/Footer.js';
-import GotoTop from './neighborhoods/blocks/houses/Goto Top.js';
-import Copyright from './neighborhoods/blocks/houses/Copyright.js';
+
+import loadable from '@loadable/component'
+
+const NewListingForm = loadable(() => import('./neighborhoods/blocks/houses/New Listing Form'))
+const Footer = loadable(() => import('./neighborhoods/Footer.js'))
+const GotoTop = loadable(() => import('./neighborhoods/blocks/houses/Goto Top'))
+const Copyright = loadable(() => import('./neighborhoods/blocks/houses/Copyright'))
 
 export default class NewListings extends React.Component {
 

@@ -1,6 +1,9 @@
 import React from 'react'
-import NavigationHeader from './neighborhoods/blocks/Navigation Header'
-import NewEShopForm from './neighborhoods/blocks/houses/New EShop Form'
+
+import loadable from '@loadable/component'
+
+const NavigationHeader = loadable(() => import('./neighborhoods/blocks/Navigation Header'))
+const NewEShopForm = loadable(() => import('./neighborhoods/blocks/houses/New EShop Form'))
 
 export default class NewEShop extends React.Component {
     logged_in = true

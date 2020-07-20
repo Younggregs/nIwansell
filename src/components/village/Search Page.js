@@ -1,7 +1,10 @@
 import React from 'react';
-import Post from './neighborhoods/blocks/houses/Post'
-import NavigationHeader from './neighborhoods/blocks/Navigation Header'
-import SearchView from './neighborhoods/blocks/houses/Search View'
+
+import loadable from '@loadable/component'
+
+const Post = loadable(() => import('./neighborhoods/blocks/houses/Post'))
+const NavigationHeader = loadable(() => import('./neighborhoods/blocks/Navigation Header'))
+const SearchView = loadable(() => import('./neighborhoods/blocks/houses/Search View'))
 
 export default class Search extends React.Component {
 

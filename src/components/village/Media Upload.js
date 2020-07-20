@@ -1,11 +1,12 @@
 import React from 'react';
 import { Link, Redirect } from 'react-router-dom';
 import { Row, Col, Form, Button,FormGroup, FormControl, Label } from 'react-bootstrap';
-import Heading from './neighborhoods/blocks/houses/Heading'
-import AppName from './neighborhoods/blocks/houses/App Name'
-import MyUploader from './neighborhoods/Upload Media'
 
+import loadable from '@loadable/component'
 
+const Heading = loadable(() => import('./neighborhoods/blocks/houses/Heading'))
+const AppName = loadable(() => import('./neighborhoods/blocks/houses/App Name'))
+const MyUploader = loadable(() => import('./neighborhoods/Upload Media'))
 
 
 export default class MediaUpload extends React.Component {

@@ -1,10 +1,13 @@
 import React from 'react';
 import { Container , Row } from 'react-bootstrap';
-import ListingProduct from './neighborhoods/blocks/houses/Listing Product.js';
-import Footer from './neighborhoods/Footer.js';
-import GotoTop from './neighborhoods/blocks/houses/Goto Top.js';
-import Copyright from './neighborhoods/blocks/houses/Copyright.js';
-import NavigationHeader from './neighborhoods/blocks/Navigation Header'
+
+import loadable from '@loadable/component'
+
+const ListingProduct = loadable(() => import('./neighborhoods/blocks/houses/Listing Product.js'))
+const Footer = loadable(() => import('./neighborhoods/Footer.js'))
+const GotoTop = loadable(() => import('./neighborhoods/blocks/houses/Goto Top'))
+const Copyright = loadable(() => import('./neighborhoods/blocks/houses/Copyright'))
+const NavigationHeader = loadable(() => import('./neighborhoods/blocks/Navigation Header'))
 
 
 export default class ProductManager extends React.Component {

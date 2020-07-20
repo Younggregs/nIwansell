@@ -1,11 +1,15 @@
 import React from 'react'
 import {Row, Col } from 'react-bootstrap'
-import Navigation from './neighborhoods/Navigation'
-import CategoryProduct from './neighborhoods/blocks/Category Product'
-import Footer from './neighborhoods/Footer'
-import GotoTop from './neighborhoods/blocks/houses/Goto Top'
-import Copyright from './neighborhoods/blocks/houses/Copyright'
 import {setMarket, setCampusId, setAccountId} from './neighborhoods/blocks/houses/auth/Auth'
+
+import loadable from '@loadable/component'
+
+const Navigation = loadable(() => import('./neighborhoods/Navigation'))
+const CategoryProduct = loadable(() => import('./neighborhoods/blocks/Category Product'))
+const Footer = loadable(() => import('./neighborhoods/Footer'))
+const GotoTop = loadable(() => import('./neighborhoods/blocks/houses/Goto Top'))
+const Copyright = loadable(() => import('./neighborhoods/blocks/houses/Copyright'))
+
 
 export default class ViewMore extends React.Component {
 

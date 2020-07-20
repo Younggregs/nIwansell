@@ -1,6 +1,9 @@
 import React from 'react'
-import LandingPage from './Landing Page'
-import Home from './Home'
+
+import loadable from '@loadable/component'
+
+const LandingPage = loadable(() => import('./Landing Page'))
+const Home = loadable(() => import('./Home'))
 
 
 export default class Welcome extends React.Component {

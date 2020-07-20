@@ -1,9 +1,12 @@
 import React from 'react';
 import { Container , Row, Col } from 'react-bootstrap';
-import NewThreadForm from './neighborhoods/blocks/houses/New Thread Form.js';
-import Footer from './neighborhoods/Footer.js';
-import GotoTop from './neighborhoods/blocks/houses/Goto Top.js';
-import Copyright from './neighborhoods/blocks/houses/Copyright.js';
+
+import loadable from '@loadable/component'
+
+const NewThreadForm = loadable(() => import('./neighborhoods/blocks/houses/New Thread Form.js'))
+const Footer = loadable(() => import('./neighborhoods/Footer.js'))
+const GotoTop = loadable(() => import('./neighborhoods/blocks/houses/Goto Top'))
+const Copyright = loadable(() => import('./neighborhoods/blocks/houses/Copyright'))
 
 export default class NewThread extends React.Component {
 

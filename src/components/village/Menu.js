@@ -1,8 +1,11 @@
 import React from 'react'
-import Navigation from './neighborhoods/Navigation'
-import MenuList from './neighborhoods/blocks/houses/Menu List'
-import Post from './neighborhoods/blocks/houses/Post'
-import NavigationHeader from './neighborhoods/blocks/Navigation Header'
+
+import loadable from '@loadable/component'
+
+const Navigation = loadable(() => import('./neighborhoods/Navigation'))
+const MenuList = loadable(() => import('./neighborhoods/blocks/houses/Menu List'))
+const Post = loadable(() => import('./neighborhoods/blocks/houses/Post'))
+const NavigationHeader = loadable(() => import('./neighborhoods/blocks/Navigation Header'))
 
 
 export default class Menu extends React.Component {

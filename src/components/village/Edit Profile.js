@@ -1,10 +1,13 @@
 import React from 'react';
 import { Container , Row, Col } from 'react-bootstrap';
-import Navigation from './neighborhoods/Navigation.js';
-import EditProfileForm from './neighborhoods/blocks/houses/EditProfile Form.js';
-import Footer from './neighborhoods/Footer.js';
-import GotoTop from './neighborhoods/blocks/houses/Goto Top.js';
-import Copyright from './neighborhoods/blocks/houses/Copyright.js';
+
+import loadable from '@loadable/component'
+
+const Navigation = loadable(() => import('./neighborhoods/Navigation.js'))
+const EditProfileForm = loadable(() => import('./neighborhoods/blocks/houses/EditProfile Form.js'))
+const Footer = loadable(() => import('./neighborhoods/Footer.js'))
+const GotoTop = loadable(() => import('./neighborhoods/blocks/houses/Goto Top'))
+const Copyright = loadable(() => import('./neighborhoods/blocks/houses/Copyright'))
 
 
 export default class EditProfile extends React.Component {

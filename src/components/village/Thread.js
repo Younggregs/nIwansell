@@ -1,21 +1,24 @@
 import React from 'react'
 import { Container, Row, Col, Image, Button } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
-import NavigationHeader from './neighborhoods/blocks/Navigation Header'
-import Post from './neighborhoods/blocks/houses/Post'
-import Footer from './neighborhoods/Footer'
-import GotoTop from './neighborhoods/blocks/houses/Goto Top'
-import Copyright from './neighborhoods/blocks/houses/Copyright'
-import FormatDate from './neighborhoods/blocks/houses/Format Date'
-import Share from './neighborhoods/blocks/houses/Share'
-import Reply from './neighborhoods/blocks/houses/Reply'
-import SendComment from './neighborhoods/blocks/houses/Send Comment'
-import SendReply from './neighborhoods/blocks/houses/Send Reply'
-import FloatingActionButton2 from './neighborhoods/blocks/houses/Floating Action2'
 import Spinner from 'react-activity/lib/Spinner';
 import 'react-activity/lib/Spinner/Spinner.css';
 import ReactPlayer from 'react-player'
 import fileType from './neighborhoods/blocks/houses/FileType'
+
+import loadable from '@loadable/component'
+
+const NavigationHeader = loadable(() => import('./neighborhoods/blocks/Navigation Header'))
+const Post = loadable(() => import('./neighborhoods/blocks/houses/Post'))
+const Footer = loadable(() => import('./neighborhoods/Footer'))
+const GotoTop = loadable(() => import('./neighborhoods/blocks/houses/Goto Top'))
+const Copyright = loadable(() => import('./neighborhoods/blocks/houses/Copyright'))
+const FormatDate = loadable(() => import('./neighborhoods/blocks/houses/Format Date'))
+const Share = loadable(() => import('./neighborhoods/blocks/houses/Share'))
+const Reply = loadable(() => import('./neighborhoods/blocks/houses/Reply'))
+const SendComment = loadable(() => import('./neighborhoods/blocks/houses/Send Comment'))
+const SendReply = loadable(() => import('./neighborhoods/blocks/houses/Send Reply'))
+const FloatingActionButton2  = loadable(() => import('./neighborhoods/blocks/houses/Floating Action2'))
 
 var FontAwesome = require('react-fontawesome')
 

@@ -1,10 +1,13 @@
 import React from 'react'
-import Navigation from './neighborhoods/Navigation'
-import Footer from './neighborhoods/Footer'
-import GotoTop from './neighborhoods/blocks/houses/Goto Top'
-import Copyright from './neighborhoods/blocks/houses/Copyright'
-import CategorySlide from './neighborhoods/Category Slide'
-import SubcategoryMain from './neighborhoods/Subcategory Main'
+
+import loadable from '@loadable/component'
+
+const Navigation = loadable(() => import('./neighborhoods/Navigation'))
+const Footer = loadable(() => import('./neighborhoods/Footer'))
+const GotoTop = loadable(() => import('./neighborhoods/blocks/houses/Goto Top'))
+const Copyright = loadable(() => import('./neighborhoods/blocks/houses/Copyright'))
+const CategorySlide = loadable(() => import('./neighborhoods/Category Slide'))
+const SubcategoryMain = loadable(() => import('./neighborhoods/Subcategory Main'))
 
 export default class SubcategoryView extends React.Component {
 

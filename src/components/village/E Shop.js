@@ -1,11 +1,14 @@
 import React from 'react'
 import Spinner from 'react-activity/lib/Spinner';
 import 'react-activity/lib/Spinner/Spinner.css';
-import EShopNavigation from './neighborhoods/E Shop Navigation'
-import EShopProduct from './neighborhoods/E Shop Product'
-import CatchBoard from './neighborhoods/blocks/houses/Catch Board'
-import EShopAdmin from './neighborhoods/blocks/houses/E Shop Admin'
-import EshopInfo from './neighborhoods/blocks/houses/E Shop Info'
+
+import loadable from '@loadable/component'
+
+const EShopNavigation = loadable(() => import('./neighborhoods/E Shop Navigation'))
+const EShopProduct = loadable(() => import('./neighborhoods/E Shop Product'))
+const CatchBoard = loadable(() => import('./neighborhoods/blocks/houses/Catch Board'))
+const EShopAdmin = loadable(() => import('./neighborhoods/blocks/houses/E Shop Admin'))
+const EshopInfo = loadable(() => import('./neighborhoods/blocks/houses/E Shop Info'))
 
 
 export default class EShop extends React.Component {

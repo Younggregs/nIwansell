@@ -1,16 +1,20 @@
 import React from 'react'
-import { Container, Row, Col } from 'react-bootstrap'
-import Navigation from './neighborhoods/Navigation'
-import Sponsored from './neighborhoods/Sponsored'
-import Trending from './neighborhoods/Trending'
-import Footer from './neighborhoods/Footer'
-import GotoTop from './neighborhoods/blocks/houses/Goto Top'
-import Copyright from './neighborhoods/blocks/houses/Copyright'
-import EShopAds from './neighborhoods/blocks/EShop Ads'
-import CategorySlide from './neighborhoods/Category Slide'
+import { Container, Row, Col } from 'react-bootstrap';
 import {setMarket, setCampusId, setAccountId} from './neighborhoods/blocks/houses/auth/Auth'
-import MobileApp from './neighborhoods/blocks/houses/Mobile App'
-import Adsense from './neighborhoods/blocks/houses/Adsense'
+
+import loadable from '@loadable/component'
+
+const Sponsored = loadable(() => import('./neighborhoods/Sponsored'))
+const Footer = loadable(() => import('./neighborhoods/Footer.js'))
+const GotoTop = loadable(() => import('./neighborhoods/blocks/houses/Goto Top'))
+const Copyright = loadable(() => import('./neighborhoods/blocks/houses/Copyright'))
+const Trending = loadable(() => import('./neighborhoods/Trending'))
+const EShopAds = loadable(() => import('./neighborhoods/blocks/EShop Ads'))
+const Adsense = loadable(() => import('./neighborhoods/blocks/houses/Adsense'))
+const CategorySlide = loadable(() => import('./neighborhoods/Category Slide'))
+const Navigation = loadable(() => import('./neighborhoods/Navigation'))
+const Logo = loadable(() => import('./neighborhoods/blocks/houses/Logo'))
+const MobileApp = loadable(() => import('./neighborhoods/blocks/houses/Mobile App'))
 
 
 export default class Home extends React.Component {

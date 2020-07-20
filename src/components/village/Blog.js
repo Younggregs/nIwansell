@@ -1,14 +1,17 @@
 import React from 'react'
 import {Row,Col} from 'react-bootstrap'
-import NavigationHeader from './neighborhoods/blocks/Navigation Header'
-import Post from './neighborhoods/blocks/houses/Post'
-import BlogCategory from './neighborhoods/blocks/houses/Blog Category'
-import BlogList from './neighborhoods/Blog List'
-import BlogPost from './neighborhoods/blocks/Blog Post'
-import Footer from './neighborhoods/Footer'
-import GotoTop from './neighborhoods/blocks/houses/Goto Top'
-import Copyright from './neighborhoods/blocks/houses/Copyright'
-import RecentStories from './neighborhoods/blocks/Recent Stories'
+
+import loadable from '@loadable/component'
+
+const NavigationHeader = loadable(() => import('./neighborhoods/blocks/Navigation Header'))
+const Footer = loadable(() => import('./neighborhoods/Footer.js'))
+const GotoTop = loadable(() => import('./neighborhoods/blocks/houses/Goto Top'))
+const Copyright = loadable(() => import('./neighborhoods/blocks/houses/Copyright'))
+const Post = loadable(() => import('./neighborhoods/blocks/houses/Post'))
+const BlogCategory = loadable(() => import('./neighborhoods/blocks/houses/Blog Category'))
+const BlogList = loadable(() => import('./neighborhoods/Blog List'))
+const BlogPost = loadable(() => import('./neighborhoods/blocks/Blog Post'))
+const RecentStories = loadable(() => import('./neighborhoods/blocks/Recent Stories'))
 
 export default class Blog extends React.Component {
 

@@ -1,8 +1,11 @@
 import React from 'react'
 import { Container, Row, Col, Media } from 'react-bootstrap'
-import ProductImage from './neighborhoods/blocks/houses/Product Image'
-import Description from './neighborhoods/blocks/houses/Description'
-import BuzzMe from './neighborhoods/blocks/houses/Buzz Me'
+
+import loadable from '@loadable/component'
+
+const ProductImage = loadable(() => import('./neighborhoods/blocks/houses/Product Image'))
+const Description = loadable(() => import('./neighborhoods/blocks/houses/Description'))
+const BuzzMe = loadable(() => import('./neighborhoods/blocks/houses/Buzz Me'))
 
 export default class SoldProduct extends React.Component {
    

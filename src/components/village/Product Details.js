@@ -1,14 +1,18 @@
 import React from 'react'
-import Navigation from './neighborhoods/Navigation'
-import Footer from './neighborhoods/Footer'
-import GotoTop from './neighborhoods/blocks/houses/Goto Top'
-import Copyright from './neighborhoods/blocks/houses/Copyright'
-import ProductDescription from './neighborhoods/Product Description'
-import NavigationHeader from './neighborhoods/blocks/Navigation Header'
-import Post from './neighborhoods/blocks/houses/Post'
-import ProductAccomplice from './neighborhoods/blocks/houses/Product Accomplice'
-import MobileApp from './neighborhoods/blocks/houses/Mobile App'
-import Adsense from './neighborhoods/blocks/houses/Adsense'
+
+import loadable from '@loadable/component'
+
+const ProductList = loadable(() => import('./neighborhoods/blocks/houses/Product List.js'))
+const NavigationHeader = loadable(() => import('./neighborhoods/blocks/Navigation Header'))
+const Post = loadable(() => import('./neighborhoods/blocks/houses/Post'))
+const Footer = loadable(() => import('./neighborhoods/Footer.js'))
+const GotoTop = loadable(() => import('./neighborhoods/blocks/houses/Goto Top'))
+const Copyright = loadable(() => import('./neighborhoods/blocks/houses/Copyright'))
+const ProductAccomplice = loadable(() => import('./neighborhoods/blocks/houses/Product Accomplice'))
+const MobileApp = loadable(() => import('./neighborhoods/blocks/houses/Mobile App'))
+const Adsense = loadable(() => import('./neighborhoods/blocks/houses/Adsense'))
+const Navigation = loadable(() => import('./neighborhoods/Navigation'))
+const ProductDescription = loadable(() => import('./neighborhoods/Product Description'))
 
 
 export default class ProductDetails extends React.Component {

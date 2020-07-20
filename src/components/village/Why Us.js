@@ -1,7 +1,10 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { Col, Row } from 'react-bootstrap'
-import MenuNavigation from './neighborhoods/Menu Navigation'
+
+import loadable from '@loadable/component'
+
+const MenuNavigation = loadable(() => import('./neighborhoods/Menu Navigation'))
 
 export default class WhyUS extends React.Component {
 
