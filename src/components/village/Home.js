@@ -80,10 +80,6 @@ export default class Home extends React.Component {
         console.log(e);
       }
       setMarket(this.state.market)
-     
-
-
-
 
 
   }

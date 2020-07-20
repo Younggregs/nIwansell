@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@loadable/component": "^5.13.1",
     "bootstrap": "^4.4.1",
     "font-awesome": "^4.7.0",
     "html2canvas": "^1.0.0-alpha.12",

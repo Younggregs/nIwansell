@@ -3,75 +3,76 @@ import ReactDOM from 'react-dom'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'font-awesome/css/font-awesome.min.css';
-import Welcome from './components/village/Welcome'
-import LandingPage from './components/village/Landing Page'
-import Signin from './components/village/Sign in'
-import Signup from './components/village/Sign up'
-import ProductDetails from './components/village/Product Details'
-import Profile from './components/village/Profile'
-import ProductValuation from './components/village/Product Valuation'
-import TopSearchedProduct from './components/village/Top Searched Product'
-import TopNotFound from './components/village/Top Not Found'
-import TopSoldProduct from './components/village/Top Sold Product'
-import TopForSell from './components/village/Top For Sell'
-import LeastForSell from './components/village/Least For Sell'
-import LeastSold from './components/village/Least Sold'
-import Menu from './components/village/Menu'
-import FeedBack from './components/village/Feedback'
-import AboutUs from './components/village/About Us'
-import ContactUs from './components/village/Contact Us'
-import WhyUs from './components/village/Why Us'
-import HowTo from './components/village/How To'
-import FAQ from './components/village/FAQ'
-import EShopList from './components/village/EShop List'
-import EditProfile from './components/village/Edit Profile'
-import NewProduct from './components/village/New Product'
-import ProductManager from './components/village/Product Manager'
-import Home from './components/village/Home'
-import EHaggler from './components/village/EHaggler'
-import HaggleMates from './components/village/Haggle Mates'
-import EShop from './components/village/E Shop'
-import ManageEshop from './components/village/Manage Eshop'
-import EditEShop from './components/village/Edit EShop'
-import NewEShop from './components/village/New EShop'
-import NewEShopProduct from './components/village/New EShop Product'
-import SoldProduct from './components/village/Sold Product'
-import EShopRR from './components/village/EShop RR'
-import ClientRR from './components/village/Client RR'
-import FavoriteClient from './components/village/neighborhoods/blocks/houses/Favorite Client'
-import FavoriteEShop from './components/village/neighborhoods/blocks/houses/Favorite EShop'
-import FavoriteProduct from './components/village/neighborhoods/blocks/houses/Favorite Product'
-import ForgotPassword from './components/village/Forgot Password'
-import ResetPassword from './components/village/Reset Password'
-import Blog from './components/village/Blog'
-import BlogCategoryView from './components/village/Blog Category View'
-import CategoryView from './components/village/Category View'
-import SubcategoryView from './components/village/Subcategory View'
-import SellerTransactionWindow from './components/village/Seller Transaction Window'
-import BuyerTransactionWindow from './components/village/Buyer Transaction Window'
-import Sold from './components/village/Sold'
-import Bought from './components/village/Bought'
-import ViewReceipt from './components/village/View Receipt'
-import BankAccount from './components/village/Bank Account'
-import ViewMore from './components/village/View More'
-import MediaUpload from './components/village/Media Upload'
-import SearchPage from './components/village/Search Page'
-import PrivacyPolicy from './components/village/Privacy Policy'
-import Disclaimer from './components/village/Disclaimer'
-import Logout from './components/village/Logout'
-import AuthTest from './components/village/Auth Test'
-import About from './components/village/About'
-import Listings from './components/village/Listings'
-import NewListings from './components/village/New Listings'
-import ManageListings from './components/village/Manage Listing'
-import Channel from './components/village/Channel'
-import Thread from './components/village/Thread'
-import NewThread from './components/village/New Thread'
-import Metrics from './components/village/Metrics'
 
+import loadable from '@loadable/component'
 
+const Welcome = loadable(() => import('./components/village/Welcome'))
+const LandingPage = loadable(() => import('./components/village/Landing Page'))
+const Signin = loadable(() => import('./components/village/Sign in'))
+const Signup = loadable(() => import('./components/village/Sign up'))
+const ProductDetails = loadable(() => import('./components/village/Product Details'))
+const Profile = loadable(() => import('./components/village/Profile'))
+const ProductValuation = loadable(() => import('./components/village/Product Valuation'))
+const TopSearchedProduct = loadable(() => import('./components/village/Top Searched Product'))
+const TopNotFound = loadable(() => import('./components/village/Top Not Found'))
+const TopSoldProduct = loadable(() => import('./components/village/Top Sold Product'))
+const TopForSell = loadable(() => import('./components/village/Top For Sell'))
+const LeastForSell = loadable(() => import('./components/village/Least For Sell'))
+const LeastSold = loadable(() => import('./components/village/Least Sold'))
+const Menu = loadable(() => import('./components/village/Menu'))
+const FeedBack = loadable(() => import('./components/village/Feedback'))
+const AboutUs = loadable(() => import('./components/village/About Us'))
+const ContactUs = loadable(() => import('./components/village/Contact Us'))
+const WhyUs = loadable(() => import('./components/village/Why Us'))
+const HowTo = loadable(() => import('./components/village/How To'))
+const FAQ = loadable(() => import('./components/village/FAQ'))
+const EShopList = loadable(() => import('./components/village/EShop List'))
+const EditProfile = loadable(() => import('./components/village/Edit Profile'))
+const NewProduct = loadable(() => import('./components/village/New Product'))
+const ProductManager = loadable(() => import('./components/village/Product Manager'))
+const Home = loadable(() => import('./components/village/Home'))
+const EHaggler = loadable(() => import('./components/village/EHaggler'))
+const HaggleMates = loadable(() => import('./components/village/Haggle Mates'))
+const EShop = loadable(() => import('./components/village/E Shop'))
+const ManageEshop = loadable(() => import('./components/village/Manage Eshop'))
+const EditEShop = loadable(() => import('./components/village/Edit EShop'))
+const NewEShop = loadable(() => import('./components/village/New EShop'))
+const NewEShopProduct = loadable(() => import('./components/village/New EShop Product'))
+const SoldProduct = loadable(() => import('./components/village/Sold Product'))
+const EShopRR = loadable(() => import('./components/village/EShop RR'))
+const ClientRR = loadable(() => import('./components/village/Client RR'))
+const FavoriteClient = loadable(() => import('./components/village/neighborhoods/blocks/houses/Favorite Client'))
+const FavoriteEShop = loadable(() => import('./components/village/neighborhoods/blocks/houses/Favorite EShop'))
+const FavoriteProduct = loadable(() => import('./components/village/neighborhoods/blocks/houses/Favorite Product'))
+const ForgotPassword = loadable(() => import('./components/village/Forgot Password'))
+const ResetPassword = loadable(() => import('./components/village/Reset Password'))
+const Blog = loadable(() => import('./components/village/Blog'))
+const BlogCategoryView = loadable(() => import('./components/village/Blog Category View'))
+const CategoryView = loadable(() => import('./components/village/Category View'))
+const SubcategoryView = loadable(() => import('./components/village/Subcategory View'))
+const SellerTransactionWindow = loadable(() => import('./components/village/Seller Transaction Window'))
+const BuyerTransactionWindow = loadable(() => import('./components/village/Buyer Transaction Window'))
+const Sold = loadable(() => import('./components/village/Sold'))
+const Bought = loadable(() => import('./components/village/Bought'))
+const ViewReceipt = loadable(() => import('./components/village/View Receipt'))
+const BankAccount = loadable(() => import('./components/village/Bank Account'))
+const ViewMore = loadable(() => import('./components/village/View More'))
+const MediaUpload = loadable(() => import('./components/village/Media Upload'))
+const SearchPage = loadable(() => import('./components/village/Search Page'))
+const PrivacyPolicy = loadable(() => import('./components/village/Privacy Policy'))
+const Disclaimer = loadable(() => import('./components/village/Disclaimer'))
+const Logout = loadable(() => import('./components/village/Logout'))
+const AuthTest = loadable(() => import('./components/village/Auth Test'))
+const About = loadable(() => import('./components/village/About'))
+const Listings = loadable(() => import('./components/village/Listings'))
+const NewListings = loadable(() => import('./components/village/New Listings'))
+const ManageListings = loadable(() => import('./components/village/Manage Listing'))
+const Channel = loadable(() => import('./components/village/Channel'))
+const Thread = loadable(() => import('./components/village/Thread'))
+const NewThread = loadable(() => import('./components/village/New Thread'))
+const Metrics = loadable(() => import('./components/village/Metrics'))
 
-    class App extends React.Component {
+class App extends React.Component {
         render() {
           return (
             <Router>

@@ -113,7 +113,7 @@ export default class TheProduct extends React.Component {
                  <section>
                  <Row className="justify-content-md-center">
                  
-                   <BuzzMe phone = {this.state.productDetail.phone} 
+                   <BuzzMe phone = {'+234' + this.state.productDetail.phone} 
                            account_id = {this.state.productDetail.profile_id}/>&nbsp;
                  </Row>
 

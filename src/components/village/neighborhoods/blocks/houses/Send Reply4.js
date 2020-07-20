@@ -131,7 +131,7 @@ export default class SendReply4 extends React.Component {
        render() {
          return (
            <section>
-               <FontAwesome
+              <FontAwesome
               className="super-crazy-colors"
               name="comments"
               size="2x"
