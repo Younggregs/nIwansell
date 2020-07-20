@@ -1,8 +1,11 @@
 import React from 'react'
 import { Container, Row } from 'react-bootstrap'
-import Heading from './blocks/houses/Heading.js'
-import EShopStore from './EShop Store'
-import Copyright from './blocks/houses/Copyright'
+
+import loadable from '@loadable/component'
+
+const Heading = loadable(() => import('./blocks/houses/Heading.js'))
+const EShopStore = loadable(() => import('./EShop Store'))
+const Copyright = loadable(() => import('./blocks/houses/Copyright'))
 
 export default class EShopProduct extends React.Component {
       title = "Products & services"

@@ -1,8 +1,11 @@
 import React from 'react'
 import { Row, Col } from 'react-bootstrap'
-import SponsoredGallery from './blocks/houses/Sponsored Gallery'
-import CategoryList from './blocks/houses/Category List'
-import SubcategoryIcons from './blocks/houses/Subcategory Icons'
+
+import loadable from '@loadable/component'
+
+const SponsoredGallery = loadable(() => import('./blocks/houses/Sponsored Gallery'))
+const CategoryList = loadable(() => import('./blocks/houses/Category List'))
+const SubcategoryIcons = loadable(() => import('./blocks/houses/Subcategory Icons'))
 
 export default class Sponsored extends React.Component {
 

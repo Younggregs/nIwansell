@@ -2,16 +2,12 @@ import React from 'react'
 
 import loadable from '@loadable/component'
 
-const ProductList = loadable(() => import('./neighborhoods/blocks/houses/Product List.js'))
 const NavigationHeader = loadable(() => import('./neighborhoods/blocks/Navigation Header'))
-const Post = loadable(() => import('./neighborhoods/blocks/houses/Post'))
 const Footer = loadable(() => import('./neighborhoods/Footer.js'))
 const GotoTop = loadable(() => import('./neighborhoods/blocks/houses/Goto Top'))
 const Copyright = loadable(() => import('./neighborhoods/blocks/houses/Copyright'))
 const ProductAccomplice = loadable(() => import('./neighborhoods/blocks/houses/Product Accomplice'))
-const MobileApp = loadable(() => import('./neighborhoods/blocks/houses/Mobile App'))
 const Adsense = loadable(() => import('./neighborhoods/blocks/houses/Adsense'))
-const Navigation = loadable(() => import('./neighborhoods/Navigation'))
 const ProductDescription = loadable(() => import('./neighborhoods/Product Description'))
 
 

@@ -4,7 +4,6 @@ import loadable from '@loadable/component'
 
 const ProfileDetails = loadable(() => import('./neighborhoods/Profile Details.js'))
 const NavigationHeader = loadable(() => import('./neighborhoods/blocks/Navigation Header'))
-const Post = loadable(() => import('./neighborhoods/blocks/houses/Post'))
 const Footer = loadable(() => import('./neighborhoods/Footer.js'))
 const GotoTop = loadable(() => import('./neighborhoods/blocks/houses/Goto Top'))
 const Copyright = loadable(() => import('./neighborhoods/blocks/houses/Copyright'))

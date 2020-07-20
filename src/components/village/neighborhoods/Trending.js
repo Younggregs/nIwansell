@@ -1,10 +1,13 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { Container, Row, Col, Image, Button } from 'react-bootstrap'
-import CategoryProduct from './blocks/Category Product'
-import ProductImage from './blocks/houses/Product Image'
 import Spinner from 'react-activity/lib/Spinner';
 import 'react-activity/lib/Spinner/Spinner.css';
+
+import loadable from '@loadable/component'
+
+const CategoryProduct = loadable(() => import('./blocks/Category Product'))
+const ProductImage = loadable(() => import('./blocks/houses/Product Image'))
 
 
 export default class Trending extends React.Component {

@@ -1,8 +1,11 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { Row, Col, Image, Button, Container, ListGroup } from 'react-bootstrap'
-import BuzzMe from './houses/Buzz Me'
-import MoreMedia from './More Media'
+
+import loadable from '@loadable/component'
+
+const BuzzMe = loadable(() => import('./houses/Buzz Me'))
+const MoreMedia = loadable(() => import('./More Media'))
 
 export default class TheProduct extends React.Component {
 

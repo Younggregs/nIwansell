@@ -2,7 +2,6 @@ import React from 'react';
 
 import loadable from '@loadable/component'
 
-const Post = loadable(() => import('./neighborhoods/blocks/houses/Post'))
 const NavigationHeader = loadable(() => import('./neighborhoods/blocks/Navigation Header'))
 const SearchView = loadable(() => import('./neighborhoods/blocks/houses/Search View'))
 

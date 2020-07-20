@@ -1,8 +1,11 @@
 import React from 'react'
 import { Container, Row, Col } from 'react-bootstrap'
-import EShopNavigation from './E Shop Navigation'
-import RateReviewForm from './blocks/houses/Rate Review Form'
-import RatingsReviews from './blocks/houses/Ratings Reviews'
+
+import loadable from '@loadable/component'
+
+const EShopNavigation = loadable(() => import('./E Shop Navigation'))
+const RateReviewForm = loadable(() => import('./blocks/houses/Rate Review Form'))
+const RatingsReviews = loadable(() => import('./blocks/houses/Ratings Reviews'))
 
 export default class RateReview extends React.Component {
     logged_in = true

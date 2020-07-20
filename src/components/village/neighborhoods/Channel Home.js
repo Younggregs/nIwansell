@@ -1,14 +1,17 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { Grid, Row, Col, Image, Button } from 'react-bootstrap'
-import FormatDate from './blocks/houses/Format Date'
-import Share from './blocks/houses/Share'
-import FloatingActionButton2 from './blocks/houses/Floating Action2'
-import SendComment from './blocks/houses/Send Comment'
 import Spinner from 'react-activity/lib/Spinner';
 import 'react-activity/lib/Spinner/Spinner.css';
 import ReactPlayer from 'react-player'
 import fileType from './blocks/houses/FileType'
+
+import loadable from '@loadable/component'
+
+const FormatDate = loadable(() => import('./blocks/houses/Format Date'))
+const Share = loadable(() => import('./blocks/houses/Share'))
+const FloatingActionButton2 = loadable(() => import('./blocks/houses/Floating Action2'))
+const SendComment = loadable(() => import('./blocks/houses/Send Comment'))
 
 var FontAwesome = require('react-fontawesome')
 

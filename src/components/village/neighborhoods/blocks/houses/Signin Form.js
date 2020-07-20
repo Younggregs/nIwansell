@@ -76,15 +76,6 @@ export default class SigninForm extends React.Component {
 
 render(){
 
-  function FieldGroup({ id, label, help, ...props }) {
-    return (
-      <FormGroup controlId={id}>
-        <div>{label}</div>
-        <FormControl {...props} />
-        {help && <div>{help}</div>}
-      </FormGroup>
-  );
-}
 
 const formInstance = (
   <section className="signin-form">

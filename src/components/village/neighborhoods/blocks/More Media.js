@@ -1,7 +1,10 @@
 import React from 'react'
 import { Col, Button, Row, Container } from 'react-bootstrap'
-import ProductSlideShow from './houses/Product SlideShow'
-import ProductVideoPlayer from './houses/Product Video Player'
+
+import loadable from '@loadable/component'
+
+const ProductSlideShow = loadable(() => import('./houses/Product SlideShow'))
+const ProductVideoPlayer = loadable(() => import('./houses/Product Video Player'))
 
 
 export default class MoreMedia extends React.Component {

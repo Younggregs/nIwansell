@@ -1,7 +1,10 @@
 import React from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
-import ProfileImage from './blocks/houses/Profile Image.js';
-import ProfileDescription from './blocks/houses/Profile Description.js';
+
+import loadable from '@loadable/component'
+
+const ProfileImage = loadable(() => import('./blocks/houses/Profile Image.js'))
+const ProfileDescription = loadable(() => import('./blocks/houses/Profile Description.js'))
 
 export default class ProfileDetails extends React.Component {
 

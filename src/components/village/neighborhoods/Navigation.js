@@ -1,9 +1,11 @@
 import React from 'react'
 import { Row } from 'react-bootstrap'
-import UpperNavigation from './blocks/Upper Navigation'
-import NavigationHeader from './blocks/Navigation Header'
-import SlideImage from './blocks/houses/Slide Image'
-import Post from './blocks/houses/Post'
+
+import loadable from '@loadable/component'
+
+const UpperNavigation = loadable(() => import('./blocks/Upper Navigation'))
+const NavigationHeader = loadable(() => import('./blocks/Navigation Header'))
+const SlideImage = loadable(() => import('./blocks/houses/Slide Image'))
 
 export default class Navigation extends React.Component {
 
