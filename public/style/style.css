@@ -805,7 +805,7 @@ td{
 .sponsored {
   background: #01579b;
   background-image: url('c-d.svg');
-  width: 100%;
+  width: 100vh;
   min-height: 350px;
   text-align: center;
   color: white;

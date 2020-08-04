@@ -1,7 +1,6 @@
 import React from 'react'
 import Slider from 'react-slick'
-import { Row, Col, Image } from 'react-bootstrap'
-import Heading from './Heading.js'
+import { Row, Image } from 'react-bootstrap'
 
 export default class ProductSlideShow extends React.Component {
 

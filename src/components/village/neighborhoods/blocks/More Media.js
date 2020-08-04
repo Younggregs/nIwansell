@@ -1,5 +1,5 @@
 import React from 'react'
-import { Col, Button, Row, Container } from 'react-bootstrap'
+import { Col, Row, Container } from 'react-bootstrap'
 
 import loadable from '@loadable/component'
 
@@ -31,8 +31,7 @@ export default class MoreMedia extends React.Component {
          return (
            <Container fluid="true">
                 <Row className="justify-content-md-center">
-                  <ProductSlideShow product_id = {this.props.product_id}/>
-  
+                    <ProductSlideShow product_id = {this.props.product_id}/>
 
                 {/*
                <Col lg={6} md={6}>

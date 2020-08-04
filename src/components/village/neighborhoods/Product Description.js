@@ -3,7 +3,6 @@ import { Container, Row } from 'react-bootstrap'
 
 import loadable from '@loadable/component'
 
-const MoreMedia = loadable(() => import('./blocks/More Media'))
 const TheProduct = loadable(() => import('./blocks/The Product'))
 
 export default class ProductDescription extends React.Component {
