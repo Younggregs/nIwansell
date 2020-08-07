@@ -75,9 +75,8 @@ export default class TheProduct extends React.Component {
                    <Row>
                      {this.setMedia(this.state.productDetail.product_image)}
                      <img alt="product-image" src= { `${this.state.media}` } />
-                   </Row>
-                   <Row>
-                     <MoreMedia product_id={this.props.product_id}/>
+                      <br /><br />
+                     {/* <MoreMedia product_id={this.props.product_id}/> */}
                    </Row><br /><br />
                  </Col>
 

@@ -38,7 +38,7 @@ export default class ProductSlideShow extends React.Component {
 
 
         return (
-          <section className="sponsored">
+          <section>
               <Row>
                <div className="trending-header">
                  <p className="trending-title-t">More Media</p>

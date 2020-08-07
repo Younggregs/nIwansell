@@ -805,10 +805,17 @@ td{
 .sponsored {
   background: #01579b;
   background-image: url('c-d.svg');
-  width: 100vh;
+  width: 100%;
   min-height: 350px;
   text-align: center;
   color: white;
+}
+
+.more-media-b {
+  background: #01579b;
+  background-image: url('c-d.svg');
+  width: 100%;
+  min-height: 350px;
 }
 
 .iwansell-tv-title{
